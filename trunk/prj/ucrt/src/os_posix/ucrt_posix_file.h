@@ -1,0 +1,34 @@
+/* -------------------------------------------------------------------------
+ *
+ * micro C Runtime, OS indepentend platform
+ * ----------------------------------------
+ *
+ * Copyright (C) 2008 Song-Hwan Kim
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * -------------------------------------------------------------------------
+*/
+
+#ifndef __UCRT_POSIX_FILE_H__
+#define __UCRT_POSIX_FILE_H__
+
+#define RT_DECLARE_POSIX_FILE(rf, file) rt_posix_file_t* rf = (rt_posix_file_t*) file;
+
+typedef struct _rt_posix_file_t{
+	rt_file_t ifile;
+	int type;
+	FILE* fd;
+}rt_posix_file_t;
+
+#endif //__UCRT_POSIX_FILE_H__

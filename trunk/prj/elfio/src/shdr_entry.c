@@ -24,6 +24,7 @@
 #include "elfio/elfio.h"
 #include "elftypes.h"
 #include "shdr_entry.h"
+#include "shdr_symtab_entry.h"
 
 typedef struct _elf_shdr_entry_t{
 	elf_section_t isection;
@@ -31,7 +32,7 @@ typedef struct _elf_shdr_entry_t{
 	rt_file_t* fd;
 	char* name;
 	cbyte* buf;
-	elf_section_t* entry;
+	unsigned int entsize;
 }elf_shdr_entry_t;
 
 void shdr_entry_name_str(rt_file_t* fd, int sh_name){
@@ -127,6 +128,7 @@ void shdr_entry_dump(rt_file_t* fd, elf_section_t* section){
 			int j = 0;
 			int mx = shdr->shdr.sh_size - i;
 			if(mx > SHDR_COLUMN_SIZE) mx = SHDR_COLUMN_SIZE;
+			fd->print(fd, "%08x: ", shdr->shdr.sh_offset + i);
 			for(j = 0 ; j < mx ; j++) {
 				fd->print(fd, "%02x ", shdr->buf[i + j]);
 				if(j == 7)	fd->print(fd, " ");
@@ -144,53 +146,19 @@ void shdr_entry_dump(rt_file_t* fd, elf_section_t* section){
 	}
 }
 
-void shdr_entry_symtab_dump(rt_file_t* fd, elf_section_t* section){
+void shdr_entry_dump_symtab(rt_file_t* fd, elf_section_t* section){
 	elf_shdr_entry_t* shdr = (elf_shdr_entry_t*)section;
-	Elf32_Sym* sym = (Elf32_Sym*)rt_new(shdr->shdr.sh_size);
-	shdr->fd->seek(shdr->fd, shdr->shdr.sh_offset, RT_FILE_SEEK_SET);
-	shdr->fd->read(shdr->fd, sym, shdr->shdr.sh_size);
+	elf_section_t* entry = cnull;
+	int i = 0, num = shdr->shdr.sh_size / shdr->shdr.sh_entsize;
 
-	{
-		char* str = cnull;
-		unsigned int sti = 0;
-		unsigned int i = 0, num = shdr->shdr.sh_size / shdr->shdr.sh_entsize;
-		for(i = 0 ; i < num ; i++){
-			fd->print(fd, "sym[%d].st_name=%d\n", i, sym[i].st_name);
-			fd->print(fd, "sym[%d].st_vale=%d\n", i, sym[i].st_value);
-			fd->print(fd, "sym[%d].st_size=%d\n", i, sym[i].st_size);
-			fd->print(fd, "sym[%d].st_info=0x%x\n", i, sym[i].st_info);
-			sti = sym[i].st_info;
-			sti = ELF32_ST_BIND(sti);
-			fd->print(fd, "sym[%d].st_bind=", i);
-			switch(sti){
-				case STB_LOCAL:		str = "STB_LOCAL";	break;
-				case STB_GLOBAL:	str = "STB_GLOBAL";	break;
-				case STB_WEAK:		str = "STB_WEAK";	break;
-				case STB_LOPROC:	str = "STB_LOPROC";	break;
-				case STB_HIPROC:	str = "STB_HIPROC";	break;
-			}
-			fd->print(fd, "%s\n", str);
-			sti = sym[i].st_info;
-			sti = ELF32_ST_TYPE(sti);
-			fd->print(fd, "sym[%d].st_type=", i);
-			switch(sti){
-				case STT_NOTYPE:	str = "STT_NOTYPE";		break;
-				case STT_OBJECT:	str = "STT_OBJECT";		break;
-				case STT_FUNC:		str = "STT_FUNC";		break;
-				case STT_SECTION:	str = "STT_SECTION";	break;
-				case STT_FILE:		str = "STT_FILE";		break;
-				case STT_LOPROC:	str = "STT_LOPROC";		break;
-				case STT_HIPROC:	str = "STT_HIPROC";		break;
-			}
-			fd->print(fd, "%s\n", str);
-			fd->print(fd, "sym[%d].st_other=0x%x\n", i, sym[i].st_other);
-			fd->print(fd, "sym[%d].st_shndx=%d\n", i, sym[i].st_shndx);
-			fd->print(fd, "\n");
-		}
+	for(i = 0 ; i < num ; i++){
+		entry = section->get_sub(section, i);
+		fd->print(fd, "symtab[%d]\n", i);
+		if(entry) entry->format(fd, entry);
 	}
 }
 
-void shdr_entry_text_dump(rt_file_t* fd, elf_section_t* section){
+void shdr_entry_dump_text(rt_file_t* fd, elf_section_t* section){
 	elf_shdr_entry_t* shdr = (elf_shdr_entry_t*)section;
 	cbyte* data = rt_new(shdr->shdr.sh_size);
 	shdr->fd->seek(shdr->fd, shdr->shdr.sh_offset, RT_FILE_SEEK_SET);
@@ -201,9 +169,9 @@ void shdr_entry_text_dump(rt_file_t* fd, elf_section_t* section){
 	rt_delete(data);
 }
 
-elf_section_t* shdr_entry_sub(elf_section_t* section, const int idx){
+elf_section_t* shdr_entry_sub_symtab(elf_section_t* section, const int idx){
 	elf_shdr_entry_t* shdr = (elf_shdr_entry_t*)section;
-	return cnull;
+	return (idx >= (shdr->shdr.sh_size / shdr->shdr.sh_entsize)) ? cnull : (elf_section_t*)(shdr->buf + idx * shdr->entsize);
 }
 
 cbyte* shdr_entry_data(elf_section_t* section){
@@ -234,19 +202,38 @@ elf_section_t* shdr_entry_new(rt_file_t* fd, int e_shoff, int n_entry, int e_shs
 			switch(shdr_entry[i].shdr.sh_type){
 				case SHT_SYMTAB:
 				case SHT_DYNSYM:
-					shdr_entry[i].isection.dump = shdr_entry_symtab_dump;
+					shdr_entry[i].isection.dump = shdr_entry_dump_symtab;
+					shdr_entry[i].isection.get_sub = shdr_entry_sub_symtab;
+					shdr_entry[i].entsize = shdr_symtab_entry_size();
 					break;
 				default:
 					shdr_entry[i].isection.dump = shdr_entry_dump;
 					break;
 			}
-			shdr_entry[i].isection.get_sub = shdr_entry_sub;
 			shdr_entry[i].isection.data = shdr_entry_data;
 			shdr_entry[i].isection.get_name = shdr_entry_name;
 		}
 		strtab = (char*)shdr_entry[e_shstrndx].isection.data((elf_section_t*)&shdr_entry[e_shstrndx]);
 		for(i = 0 ; i < n_entry ; i++){
 			shdr_entry[i].name = shdr_entry[i].shdr.sh_name + strtab;
+		}
+		for(i = 0 ; i < n_entry ; i++){
+			if(!rt_strcmp(shdr_entry[i].name, ".strtab")){
+				if(!shdr_entry[i].buf) shdr_entry[i].buf = shdr_entry[i].isection.data((elf_section_t*)&shdr_entry[i]);
+				strtab = shdr_entry[i].buf;
+				break;
+			}
+		}
+		for(i = 0 ; i < n_entry ; i++){
+			switch(shdr_entry[i].shdr.sh_type){
+				case SHT_SYMTAB:
+				case SHT_DYNSYM:
+					shdr_entry[i].buf = (cbyte*)shdr_symtab_entry_new(fd, shdr_entry[i].shdr.sh_offset, 
+																	shdr_entry[i].shdr.sh_size, 
+																	shdr_entry[i].shdr.sh_entsize, 
+																	strtab);
+					break;
+			}
 		}
 	}
 	return (elf_section_t*) shdr_entry;

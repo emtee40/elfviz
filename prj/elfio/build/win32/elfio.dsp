@@ -41,7 +41,7 @@ RSC=rc.exe
 # PROP Intermediate_Dir "Release"
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /YX /FD /c
-# ADD CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /YX /FD /c
+# ADD CPP /nologo /W3 /GX /O2 /I "..\..\inc" /I "..\..\..\..\inc" /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /YX /FD /c
 # ADD BASE RSC /l 0x412 /d "NDEBUG"
 # ADD RSC /l 0x412 /d "NDEBUG"
 BSC32=bscmake.exe
@@ -52,7 +52,7 @@ LIB32=link.exe -lib
 # ADD LIB32 /nologo /out:"Release\libelfio.lib"
 # Begin Special Build Tool
 SOURCE="$(InputPath)"
-PostBuild_Cmds=mkdir ..\..\..\..\inc\elfio	copy ..\..\inc\elfio\*.h ..\..\..\..\inc\elfio	copy Debug\libelfio.lib ..\..\..\..\lib
+PostBuild_Cmds=mkdir ..\..\..\..\inc\elfio	copy ..\..\inc\elfio\*.h ..\..\..\..\inc\elfio	copy Release\libelfio.lib ..\..\..\..\lib
 # End Special Build Tool
 
 !ELSEIF  "$(CFG)" == "elfio - Win32 Debug"
@@ -111,6 +111,10 @@ SOURCE=..\..\src\shdr.c
 
 SOURCE=..\..\src\shdr_entry.c
 # End Source File
+# Begin Source File
+
+SOURCE=..\..\src\shdr_symtab_entry.c
+# End Source File
 # End Group
 # Begin Group "Header Files"
 
@@ -134,6 +138,10 @@ SOURCE=..\..\src\shdr.h
 # Begin Source File
 
 SOURCE=..\..\src\shdr_entry.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\src\shdr_symtab_entry.h
 # End Source File
 # End Group
 # End Target

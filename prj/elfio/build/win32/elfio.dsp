@@ -93,27 +93,27 @@ PostBuild_Cmds=mkdir ..\..\..\..\inc\elfio	copy ..\..\inc\elfio\*.h ..\..\..\..\
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 # Begin Source File
 
-SOURCE=..\..\src\elfio.c
+SOURCE=..\..\src\elfio.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=..\..\src\phdr.c
+SOURCE=..\..\src\phdr.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=..\..\src\phdr_entry.c
+SOURCE=..\..\src\phdr_entry.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=..\..\src\shdr.c
+SOURCE=..\..\src\shdr.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=..\..\src\shdr_entry.c
+SOURCE=..\..\src\shdr_entry.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=..\..\src\shdr_symtab_entry.c
+SOURCE=..\..\src\shdr_symtab_entry.cpp
 # End Source File
 # End Group
 # Begin Group "Header Files"

@@ -23,6 +23,10 @@
 #ifndef __UCRT_STD_H__
 #define __UCRT_STD_H__
 
+#ifdef __cplusplus
+extern "C"{
+#endif
+
 #define RT_IS_DIGIT(a)	((((a) >= '0') && ((a) <= '9')) ? ctrue : cfalse)
 #define RT_IS_LOW_ALPHA(a)	((((a) >= 'a') && ((a) <= 'z')) ? ctrue : cfalse)
 #define RT_IS_UP_ALPHA(a)	((((a) >= 'A') && ((a) <= 'Z')) ? ctrue : cfalse)
@@ -50,7 +54,13 @@ RT_API char* rt_strcat(char* s, const char* a);
 RT_API char* rt_strdup(char* s);
 RT_API char * rt_strtok(char *s1, const char *s2, char **lasts);
 RT_API void* rt_memcpy(void* dst, const void* src, const int size);
+RT_API void rt_memset(void* mem, const int i, const int size);
 RT_API int rt_atoi(const char* s);
 RT_API void rt_exit(int err);
+
+#ifdef __cplusplus
+}
+#endif
+
 #endif //__UCRT_STD_H__
 

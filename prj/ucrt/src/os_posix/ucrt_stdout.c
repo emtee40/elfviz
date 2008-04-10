@@ -24,38 +24,36 @@
 
 #include <string.h>
 #include <stdio.h>
+#include "rt_file_interface.h"
 #include "ucrt_posix_file.h"
 
-static int stdo_is_eof(rt_file_t* file){	return cfalse;}
-static char* stdo_get_line(rt_file_t* file, char* buf, int len){	return 0;}
-static int stdo_flush(rt_file_t* file){
+static int stdo_is_eof(_rt_file_t* file){	return cfalse;}
+static char* stdo_get_line(_rt_file_t* file, char* buf, int len){	return 0;}
+static int stdo_flush(_rt_file_t* file){
 	RT_DECLARE_POSIX_FILE(rf, file)
 	return fflush(rf->fd);
 }
 
-static char stdo_get_char(rt_file_t* file){
+static char stdo_get_char(_rt_file_t* file){
 	RT_DECLARE_POSIX_FILE(rf, file)
 	return getc(rf->fd);
 }
 
-static void stdo_unget_char(rt_file_t* file){return;}
-static void stdo_final(rt_file_t* file){	return;}
-static void stdo_print(struct _rt_file_t* file, char* format, ...){
+static void stdo_unget_char(_rt_file_t* file){return;}
+static void stdo_final(_rt_file_t* file){	return;}
+static void stdo_print(_rt_file_t* file, char* format, rt_list list){
 	RT_DECLARE_POSIX_FILE(rf, file)
-	rt_list list;
-	rt_start (list, format);
 	vfprintf(rf->fd, format, list);
-	rt_end(list);
 }
-int stdo_write(struct _rt_file_t* file, void* buf, int size){
+int stdo_write(_rt_file_t* file, void* buf, int size){
 	RT_DECLARE_POSIX_FILE(rf, file)
 	return fwrite(buf, size, 1, rf->fd);
 }
 
-cbool stdo_seek(struct _rt_file_t* file, int offset, int origin){ return cfalse; }
-int stdo_size(struct _rt_file_t* file){ return 0; }
-void* stdo_get_ptr(struct _rt_file_t* file){ return cnull; }
-int stdo_read(struct _rt_file_t* file, void* buf, int size){
+cbool stdo_seek(_rt_file_t* file, int offset, int origin){ return cfalse; }
+int stdo_size(_rt_file_t* file){ return 0; }
+void* stdo_get_ptr(_rt_file_t* file){ return cnull; }
+int stdo_read(_rt_file_t* file, void* buf, int size){
 	RT_DECLARE_POSIX_FILE(rf, file)
 	return fwrite(buf, size, 1, rf->fd);
 }
@@ -66,7 +64,7 @@ static __inline int rt_stdout_init(rt_posix_file_t* file){
 	file->ifile.is_eof = stdo_is_eof;
 	file->ifile.get_line = stdo_get_line;
 	file->ifile.flush = stdo_flush;
-	file->ifile.print = stdo_print;
+	file->ifile.vprint = stdo_print;
 	file->ifile.get_char = stdo_get_char;
 	file->ifile.unget_char = stdo_unget_char;
 	file->ifile.write = stdo_write;
@@ -78,12 +76,12 @@ static __inline int rt_stdout_init(rt_posix_file_t* file){
 	return 0;
 }
 
-rt_file_t* rt_stdout_new(void){
+rt_file_t rt_stdout_new(void){
 	rt_posix_file_t* file = rt_new(sizeof(rt_posix_file_t));
 	if(!file) return cnull;
 	if(rt_stdout_init(file) < 0){
 		rt_delete(file);
 		file = cnull;
 	}
-	return (rt_file_t*)file;
+	return (rt_file_t)file;
 }

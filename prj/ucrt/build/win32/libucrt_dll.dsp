@@ -56,7 +56,7 @@ LINK32=link.exe
 # ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /dll /machine:I386 /out:"Release/libucrt.dll"
 # Begin Special Build Tool
 SOURCE="$(InputPath)"
-PostBuild_Cmds=mkdir    ..\..\..\..\inc\ucrt   	copy    ..\..\inc\*.h    ..\..\..\..\inc\ucrt   	copy    Release\libucrt.lib    ..\..\..\..\lib\   	copy    Release\libucrt.dll    ..\..\..\..\bin\ 
+PostBuild_Cmds=mkdir     ..\..\..\..\inc\ucrt    	copy     ..\..\inc\*.h     ..\..\..\..\inc\ucrt    	copy     Release\libucrt.lib     ..\..\..\..\lib\    	copy     Release\libucrt.dll     ..\..\..\..\bin\ 
 # End Special Build Tool
 
 !ELSEIF  "$(CFG)" == "libucrt_dll - Win32 Debug"
@@ -73,7 +73,7 @@ PostBuild_Cmds=mkdir    ..\..\..\..\inc\ucrt   	copy    ..\..\inc\*.h    ..\..\.
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "LIBUCRT_DLL_EXPORTS" /YX /FD /GZ /c
-# ADD CPP /nologo /MTd /W3 /Gm /GX /ZI /Od /I "." /I "../../inc" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "LIBUCRT_DLL_EXPORTS" /YX /FD /GZ /c
+# ADD CPP /nologo /MTd /W3 /Gm /GX /ZI /Od /I "." /I "../../inc" /I "../../src" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "LIBUCRT_DLL_EXPORTS" /YX /FD /GZ /c
 # ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /win32
 # ADD MTL /nologo /D "_DEBUG" /mktyplib203 /win32
 # ADD BASE RSC /l 0x412 /d "_DEBUG"
@@ -109,6 +109,10 @@ SOURCE=..\..\src\os_posix\ucrt_file.c
 # Begin Source File
 
 SOURCE=..\..\src\os_posix\ucrt_mem_file.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\src\os_posix\ucrt_solid_file.c
 # End Source File
 # Begin Source File
 

@@ -23,6 +23,10 @@
 #ifndef __UCRT_SYM_TREE_H__
 #define __UCRT_SYM_TREE_H__
 
+#ifdef __cplusplus
+extern "C"{
+#endif
+
 #define RT_IMPLEMENT_SYM_TREE(a)	rt_sym_tree_t a
 #define RT_SYM_TREE(a)				((rt_sym_tree_t*)(a))
 #define RT_SYM_TREE_GET_CHILD(a,i)	(RT_SYM_TREE(a)->child[i])
@@ -55,5 +59,9 @@ typedef struct _rt_sym_tree_t{
 }rt_sym_tree_t;
 
 RT_API void rt_sym_tree_traverse(rt_sym_tree_t* tree, void (*pre_proc)(rt_sym_tree_t*, void*, void*), void (*post_proc)(rt_sym_tree_t*, void*, void*), void*, void*);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif //__UCRT_SYM_TREE_H__

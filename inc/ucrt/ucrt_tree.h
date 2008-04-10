@@ -23,6 +23,10 @@
 #ifndef __UCRT_TREE_H__
 #define __UCRT_TREE_H__
 
+#ifdef __cplusplus
+extern "C"{
+#endif
+
 #define RT_IMPLEMENT_TREE(a)	rt_tree_t a
 #define RT_TREE(a)				((rt_tree_t*)(a))
 #define RT_TREE_GET_CHILD(a)	(RT_TREE(a)->child)
@@ -54,5 +58,9 @@ typedef struct _rt_tree_t{
 }rt_tree_t;
 
 RT_API void rt_tree_traverse(rt_tree_t* tree, void (*pre_proc)(rt_tree_t*, void*, void*), void (*post_proc)(rt_tree_t*, void*, void*), void*, void*);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif //__UCRT_TREE_H__

@@ -1,7 +1,7 @@
 /* -------------------------------------------------------------------------
  *
- * micro C Runtime, OS indepentend platform
- * ----------------------------------------
+ * elfviz, tool for visualization of elf file
+ * ------------------------------------------
  *
  * Copyright (C) 2008 Song-Hwan Kim
  * 
@@ -19,16 +19,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * -------------------------------------------------------------------------
 */
+#ifndef __CMD_ACTION_H__
+#define __CMD_ACTION_H__
 
-#ifndef __UCRT_POSIX_FILE_H__
-#define __UCRT_POSIX_FILE_H__
+typedef class _cmdaction{
+	public:
+		virtual void act(int argc, char** argv, rt_file_t rtout, elfio_t** pelfio) = 0;
+}cmdaction;
 
-#define RT_DECLARE_POSIX_FILE(rf, file) rt_posix_file_t* rf = (rt_posix_file_t*) file;
+cmdaction* get_action(char* command);
 
-typedef struct _rt_posix_file_t{
-	_rt_file_t ifile;
-	int type;
-	FILE* fd;
-}rt_posix_file_t;
-
-#endif //__UCRT_POSIX_FILE_H__
+#endif //__CMD_ACTION_H__

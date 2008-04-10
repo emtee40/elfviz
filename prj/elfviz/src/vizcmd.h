@@ -24,13 +24,11 @@
 #define __VIZ_CMD_H__
 
 
-typedef struct _vizcmd_action_t{
-	void (*act)(rt_file_t* rtout, int argc, char** argv);
-}vizcmd_action;
+typedef struct _vizcmd{
+	public:
+		virtual void title(void) = 0;
+		virtual void parse(char* inbuf) = 0;
+}vizcmd;
 
-void show_title(rt_file_t* rtout);
-void vizcmd_init_param(void);
-void vizcmd_add_param(char* param);
-vizcmd_action* vizcmd_get_action(char* command);
-void vizcmd_act(vizcmd_action* action, rt_file_t* rtout);
+vizcmd* get_cmd(rt_file_t rtout);
 #endif //__VIZ_CMD_H__

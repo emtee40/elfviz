@@ -25,32 +25,33 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "rt_file_interface.h"
 #include "ucrt_posix_file.h"
 
-static int stdi_is_eof(rt_file_t* file){	return cfalse;}
-static char* stdi_get_line(rt_file_t* file, char* buf, int len){	return gets(buf);}
-static int stdi_flush(rt_file_t* file){
+static int stdi_is_eof(_rt_file_t* file){	return cfalse;}
+static char* stdi_get_line(_rt_file_t* file, char* buf, int len){	return gets(buf);}
+static int stdi_flush(_rt_file_t* file){
 	RT_DECLARE_POSIX_FILE(rf, file)
 	return fflush(rf->fd);
 }
 
-static char stdi_get_char(rt_file_t* file){
+static char stdi_get_char(_rt_file_t* file){
 	RT_DECLARE_POSIX_FILE(rf, file)
 	return getc(rf->fd);
 }
 
-static void stdi_unget_char(rt_file_t* file){return;}
-static void stdi_final(rt_file_t* file){	return;}
-static void stdi_print(struct _rt_file_t* file, char* format, ...){return;}
-int stdi_write(struct _rt_file_t* file, void* buf, int size){
+static void stdi_unget_char(_rt_file_t* file){return;}
+static void stdi_final(_rt_file_t* file){	return;}
+static void stdi_print(_rt_file_t* file, char* format, rt_list list){return;}
+int stdi_write(_rt_file_t* file, void* buf, int size){
 	RT_DECLARE_POSIX_FILE(rf, file)
 	return fwrite(buf, size, 1, rf->fd);
 }
 
-cbool stdi_seek(struct _rt_file_t* file, int offset, int origin){ return cfalse; }
-int stdi_size(struct _rt_file_t* file){ return 0; }
-void* stdi_get_ptr(struct _rt_file_t* file){ return cnull; }
-int stdi_read(struct _rt_file_t* file, void* buf, int size){
+cbool stdi_seek(_rt_file_t* file, int offset, int origin){ return cfalse; }
+int stdi_size(_rt_file_t* file){ return 0; }
+void* stdi_get_ptr(_rt_file_t* file){ return cnull; }
+int stdi_read(_rt_file_t* file, void* buf, int size){
 	RT_DECLARE_POSIX_FILE(rf, file)
 	return fread(buf, size, 1, rf->fd);
 }
@@ -61,7 +62,7 @@ static __inline int rt_stdin_init(rt_posix_file_t* file){
 	file->ifile.is_eof = stdi_is_eof;
 	file->ifile.get_line = stdi_get_line;
 	file->ifile.flush = stdi_flush;
-	file->ifile.print = stdi_print;
+	file->ifile.vprint = stdi_print;
 	file->ifile.get_char = stdi_get_char;
 	file->ifile.unget_char = stdi_unget_char;
 	file->ifile.write = stdi_write;
@@ -73,12 +74,12 @@ static __inline int rt_stdin_init(rt_posix_file_t* file){
 	return 0;
 }
 
-rt_file_t* rt_stdin_new(void){
+rt_file_t rt_stdin_new(void){
 	rt_posix_file_t* file = rt_new(sizeof(rt_posix_file_t));
 	if(!file) return cnull;
 	if(rt_stdin_init(file) < 0){
 		rt_delete(file);
 		file = cnull;
 	}
-	return (rt_file_t*)file;
+	return (rt_file_t)file;
 }

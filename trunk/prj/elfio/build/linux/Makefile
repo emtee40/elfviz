@@ -1,25 +1,31 @@
 MAKE=make
-CC=gcc
-LD=ld
-CFLAGS=-c -O2 -Wall
+CPP=g++
+AR=ar rcu
+CFLAGS=-c
 USR_CFLAGS=
 RM=rm -f
 INCDIR=../../inc
 SRCDIR=../../src
-INCS=-I ../../../../inc
+TARGET_INCDIR=../../../../inc
+INCS=-I$(SRCDIR) -I$(INCDIR) -I$(TARGET_INCDIR)
 LIBDIR=../../../../lib
-BINDIR=../../../../bin
-RUNTIME=/usr/lib/libucrt.so.1
-objs=tm.o
-OUT=tm
+objs=elfio.o \
+	phdr.o \
+	phdr_entry.o \
+	shdr.o \
+	shdr_entry.o \
+	shdr_symtab_entry.o
+OUT=libelfio.a
 
 tm: $(objs)
-	$(CC) -Wl,-E -o $(OUT) -L$(LIBDIR) $(objs) -l$(RUNTIME)
-	mv $(OUT) $(BINDIR)
+	$(AR) $(OUT) $?
+	cp $(INCDIR)/elfio/*.h ../../../../inc/elfio
+	mv $(OUT) $(LIBDIR)
 debug:
 	$(MAKE) USR_CFLAGS=-g
 clean:
-	$(RM) $(objs) $(BINDIR)/$(OUT)
+	$(RM) $(objs) $(LIBDIR)/$(OUT)
+	$(RM) $(TARGET_INCDIR)
 
-%.o: $(SRCDIR)/%.c
-	$(CC) $(CFLAGS) $(USR_CFLAGS) $(INCS) $< -o $@
+%.o: $(SRCDIR)/%.cpp
+	$(CPP) $(CFLAGS) $(USR_CFLAGS) $(INCS) $< -o $@

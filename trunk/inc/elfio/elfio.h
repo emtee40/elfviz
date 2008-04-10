@@ -23,22 +23,24 @@
 #ifndef __ELF_IO_H__
 #define __ELF_IO_H__
 
-typedef struct _elf_section_t{
-	void (*format)(rt_file_t* rtout, struct _elf_section_t* section);
-	void (*dump)(rt_file_t* rtout, struct _elf_section_t* section);
-	struct _elf_section_t* (*get_sub)(struct _elf_section_t* section, const int idx);
-	struct _elf_section_t* (*find_sub)(struct _elf_section_t* section, const char* stridx);
-	const char* (*get_name)(struct _elf_section_t* section);
-	const cbyte* (*data)(struct _elf_section_t* section);
+typedef class _elf_section_t{
+	public:
+		virtual void format(rt_file_t rtout) = 0;
+		virtual void dump(rt_file_t rtout) = 0;
+		virtual class _elf_section_t* get_sub(const int idx) = 0;
+		virtual class _elf_section_t* find_sub(const char* stridx) = 0;
+		virtual const char* name(void) = 0;
+		virtual const cbyte* data(void) = 0;
 }elf_section_t;
 
-typedef struct _elfio_t{
-	const char* (*file_name)(struct _elfio_t* elfio);
-	void (*format)(rt_file_t* rtout, struct _elfio_t* elfio);
-	elf_section_t* (*get_shdr)(struct _elfio_t* elfio);
-	elf_section_t* (*get_phdr)(struct _elfio_t* elfio);
+typedef class _elfio_t{
+	public:
+		virtual const char* file_name(void) = 0;
+		virtual void format(rt_file_t rtout) = 0;
+		virtual elf_section_t* get_shdr(void) = 0;
+		virtual elf_section_t* get_phdr(void) = 0;
 }elfio_t;
 
 elfio_t* elfio_new(char* file);
-void elfio_delete(elfio_t* elfio);
+
 #endif //__ELF_IO_H__

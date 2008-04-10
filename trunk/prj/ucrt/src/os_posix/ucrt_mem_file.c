@@ -21,6 +21,7 @@
 */
 
 #include "ucrt.h"
+#include "rt_file_interface.h"
 
 #include <string.h>
 #include <stdio.h>
@@ -29,7 +30,7 @@
 #define MF_GROW_RATE	32
 
 typedef struct _rt_mem_file_t{
-	rt_file_t ifile;
+	_rt_file_t ifile;
 	int type;
 	cbyte* buffer;
 	int grow;
@@ -38,11 +39,11 @@ typedef struct _rt_mem_file_t{
 	int mode;
 }rt_mem_file_t;
 
-static int mf_is_eof(rt_file_t* file){
+static int mf_is_eof(_rt_file_t* file){
 	rt_mem_file_t * state = (rt_mem_file_t*) file;
 	return (state->pos == rt_size(state->buffer)) ? ctrue : cfalse;
 }
-static char* mf_get_line(rt_file_t* file, char* buf, int len){
+static char* mf_get_line(_rt_file_t* file, char* buf, int len){
 	char ch = 0;
 	int pos = 0;
 	rt_mem_file_t * state = (rt_mem_file_t*) file;
@@ -55,7 +56,7 @@ static char* mf_get_line(rt_file_t* file, char* buf, int len){
 	return buf;
 }
 
-static int mf_flush(rt_file_t* file){
+static int mf_flush(_rt_file_t* file){
 	int flush_size = 0;
 	rt_mem_file_t * state = (rt_mem_file_t*) file;
 	if(state->file_name && strlen(state->file_name)){
@@ -67,15 +68,15 @@ static int mf_flush(rt_file_t* file){
 	return flush_size;
 }
 
-static char mf_get_char(rt_file_t* file){
+static char mf_get_char(_rt_file_t* file){
 	rt_mem_file_t * state = (rt_mem_file_t*) file;
 	return (state->pos < rt_size(state->buffer)) ? state->buffer[state->pos++] : rt_eof;
 }
-static void mf_unget_char(rt_file_t* file){
+static void mf_unget_char(_rt_file_t* file){
 	rt_mem_file_t * state = (rt_mem_file_t*) file;
 	state->pos--;
 }
-static void mf_final(rt_file_t* file){
+static void mf_final(_rt_file_t* file){
 	rt_mem_file_t * state = (rt_mem_file_t*) file;
 	file->flush(file);
 	rt_delete(state->buffer);
@@ -88,14 +89,10 @@ static cbool mf_resize(rt_mem_file_t* state, int size){
 	return (state->buffer) ? ctrue : cfalse;
 }
 
-static void mf_print(struct _rt_file_t* file, char* format, ...){
+static void mf_print(_rt_file_t* file, char* format, rt_list list){
 	char str[1024];
-	rt_list list;
-
 	memset(str, 0, 1024);
-	rt_start (list, format);
 	vsprintf(str, format, list);
-	rt_end(list);
 	{
 		rt_mem_file_t * state = (rt_mem_file_t*) file;
 		mf_resize(state, rt_strlen(str));
@@ -103,7 +100,7 @@ static void mf_print(struct _rt_file_t* file, char* format, ...){
 		state->pos += strlen(str);
 	}
 }
-int mf_write(struct _rt_file_t* file, void* buf, int size){
+int mf_write(_rt_file_t* file, void* buf, int size){
 	rt_mem_file_t * state = (rt_mem_file_t*) file;
 	if(state->mode == RT_FILE_OPEN_RDONLY) return -1;
 
@@ -112,7 +109,7 @@ int mf_write(struct _rt_file_t* file, void* buf, int size){
 	state->pos += size;
 	return size;
 }
-cbool mf_seek(struct _rt_file_t* file, int offset, int origin){
+cbool mf_seek(_rt_file_t* file, int offset, int origin){
 	rt_mem_file_t * state = (rt_mem_file_t*) file;
 	int end = rt_size(state->buffer);
 	int org = 0;
@@ -125,15 +122,15 @@ cbool mf_seek(struct _rt_file_t* file, int offset, int origin){
 	if(state->buffer) state->pos = org + offset;
 	return (state->buffer) ? ctrue : cfalse;
 }
-int mf_size(struct _rt_file_t* file){
+int mf_size(_rt_file_t* file){
 	rt_mem_file_t * state = (rt_mem_file_t*) file;
 	return rt_size(state->buffer);
 }
-void* mf_get_ptr(struct _rt_file_t* file){
+void* mf_get_ptr(_rt_file_t* file){
 	rt_mem_file_t * state = (rt_mem_file_t*) file;
 	return state->buffer;
 }
-int mf_read(struct _rt_file_t* file, void* buf, int size){
+int mf_read(_rt_file_t* file, void* buf, int size){
 	rt_mem_file_t * state = (rt_mem_file_t*) file;
 	memcpy(buf, state->buffer + state->pos, size);
 	return size;
@@ -169,7 +166,7 @@ static __inline int rt_mem_file_init(rt_mem_file_t* file, char* url, int mode){
 	file->ifile.is_eof = mf_is_eof;
 	file->ifile.get_line = mf_get_line;
 	file->ifile.flush = mf_flush;
-	file->ifile.print = mf_print;
+	file->ifile.vprint = mf_print;
 	file->ifile.get_char = mf_get_char;
 	file->ifile.unget_char = mf_unget_char;
 	file->ifile.write = mf_write;
@@ -181,7 +178,7 @@ static __inline int rt_mem_file_init(rt_mem_file_t* file, char* url, int mode){
 	return 0;
 }
 
-rt_file_t* rt_mem_file_new(char* url, int mode){
+rt_file_t rt_mem_file_new(char* url, int mode){
 	rt_mem_file_t* file = rt_new(sizeof(rt_mem_file_t));
 	if(!file) return cnull;
 	memset(file, 0, sizeof(rt_mem_file_t));
@@ -189,5 +186,5 @@ rt_file_t* rt_mem_file_new(char* url, int mode){
 		rt_delete(file);
 		file = cnull;
 	}
-	return (rt_file_t*)file;
+	return (rt_file_t)file;
 }

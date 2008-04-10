@@ -23,6 +23,10 @@
 #ifndef __UCRT_FILE_H__
 #define __UCRT_FILE_H__
 
+#ifdef __cplusplus
+extern "C"{
+#endif
+
 typedef char *rt_list;
 
 #define rt_intsizeof(n)    ((sizeof(n) + sizeof(int) - 1) & ~(sizeof(int) - 1))
@@ -53,27 +57,29 @@ enum rt_file_seek_mode{
 	RT_FILE_SEEK_END
 };
 
-typedef struct _rt_file_t{
-	int (*is_eof)(struct _rt_file_t* file);
-	char* (*get_line)(struct _rt_file_t* file, char* buf, int size);
-	int (*flush)(struct _rt_file_t* file);
-	void (*print)(struct _rt_file_t* file, char* format, ...);
-	char (*get_char)(struct _rt_file_t* file);
-	void (*unget_char)(struct _rt_file_t* file);
-	int (*write)(struct _rt_file_t* file, void* buf, int size);
-	int (*read)(struct _rt_file_t* file, void* buf, int size);
-	void (*final)(struct _rt_file_t* file);
-	cbool (*seek)(struct _rt_file_t* file, int offset, int origin);
-	int (*size)(struct _rt_file_t* file);
-	void* (*get_ptr)(struct _rt_file_t* file);
-}rt_file_t;
+typedef unsigned int rt_file_t;
 
-RT_API rt_file_t* rt_stdin_new(void);
-RT_API rt_file_t* rt_stdout_new(void);
-RT_API rt_file_t* rt_stderr_new(void);
-RT_API rt_file_t* rt_file_new(char* url, int mode);
-RT_API rt_file_t* rt_mem_file_new(char* url, int mode);
-RT_API void rt_file_delete(rt_file_t* file);
+RT_API rt_file_t rt_stdin_new(void);
+RT_API rt_file_t rt_stdout_new(void);
+RT_API rt_file_t rt_stderr_new(void);
+RT_API rt_file_t rt_file_new(char* url, int mode);
+RT_API rt_file_t rt_mem_file_new(char* url, int mode);
+RT_API void rt_file_delete(rt_file_t file);
 
+RT_API int rt_fis_eof(rt_file_t file);
+RT_API char* rt_fget_line(rt_file_t file, char* buf, int size);
+RT_API int rt_fflush(rt_file_t file);
+RT_API void rt_fprint(rt_file_t file, char* format, ...); 
+RT_API char rt_fget_char(rt_file_t file);
+RT_API void rt_funget_char(rt_file_t file);
+RT_API int rt_fwrite(rt_file_t file, void* buf, int size);
+RT_API int rt_fread(rt_file_t file, void* buf, int size);
+RT_API void rt_ffinal(rt_file_t file);
+RT_API cbool rt_fseek(rt_file_t file, int offset, int origin);
+RT_API int rt_fsize(rt_file_t file);
+RT_API void* rt_fget_ptr(rt_file_t file);
+#ifdef __cplusplus
+}
+#endif
 
 #endif //__UCRT_FILE_H__

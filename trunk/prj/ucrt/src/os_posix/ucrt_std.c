@@ -116,7 +116,9 @@ char* rt_strcat(char* s, const char* a){
 }
 
 char* rt_strdup(char* s){
-	char* ret = rt_new(strlen(s) + 1);
+	char* ret = cnull;
+	if(!s) return cnull;
+	ret = rt_new(strlen(s) + 1);
 	if(ret) strcpy(ret, s);
 	return ret;
 }
@@ -146,3 +148,6 @@ void* rt_memcpy(void* dst, const void* src, const int size){
 	return memcpy(dst, src, size);
 }
 
+void rt_memset(void* mem, const int i, const int size){
+	memset(mem, i, size);
+}

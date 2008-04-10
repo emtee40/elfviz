@@ -21,54 +21,34 @@
 */
 #include "ucrt/ucrt.h"
 #include "vizcmd.h"
+#include "argparse.h"
 
-char* elfviz_scan(char* inbuf, char** endp){
-	static char str[128];
-	char ch;
-	int i = 0;
-	str[0] = 0;
-	if(inbuf) *endp = inbuf;
-
-	
-	for(ch = **endp ; ch ; (*endp)++, ch = **endp){
-		if(ch == '>' || ch == '#' || ch == '@' || ch == ' '){
-			if (str[0]) {
-				return str;
-			} else if(ch != ' '){
-				str[i++] = ch;
-				if(ch == '>') ch = *(++*endp);
-				if(ch == '>') str[i++] = ch;
-				str[i] = 0;
-				(*endp)++;
-				return str;
-			}
-		} else {
-			str[i++] = ch;
-			str[i] = 0;
-		}
+void interactive(vizcmd* cmd, rt_file_t stdin, rt_file_t stdout){
+	char inbuf[128];
+	cmd->title();
+	while(rt_fprint(stdout, "\nelfviz>"), rt_fget_line(stdin, inbuf, 128), rt_strcmp(inbuf, "quit")){
+		cmd->parse(inbuf);
 	}
-	return (str[0]) ? str : cnull;
 }
 
-void elfviz_parse(char* inbuf, rt_file_t* stdout){
-	char* endp = cnull;
-	char* str = elfviz_scan(inbuf, &endp);
-	vizcmd_action* action = vizcmd_get_action(str);
-	vizcmd_init_param();
-	for(str = elfviz_scan(cnull, &endp) ; str ; str = elfviz_scan(cnull, &endp))
-		vizcmd_add_param(str);
-	vizcmd_act(action, stdout);
+void batch(vizcmd* cmd, argparse* arg){
+	char* inbuf = cnull;
+	for(inbuf = arg->first_cmd() ; inbuf ; inbuf = arg->next_cmd()){
+		cmd->parse(inbuf);
+	}
 }
 
 int main(int argc, char* argv[]){
-	char inbuf[128];
-	rt_file_t* stdin = rt_stdin_new();
-	rt_file_t* stdout = rt_stdout_new();
-	show_title(stdout);
-	while(stdout->print(stdout, "\nelfviz>"), stdin->get_line(stdin, inbuf, 128), rt_strcmp(inbuf, "quit")){
-		elfviz_parse(inbuf, stdout);
-	}
+	rt_file_t stdin = rt_stdin_new();
+	rt_file_t stdout = rt_stdout_new();
+	vizcmd* cmd = get_cmd(stdout);
+	
+	argparse* arg = get_argparse(argc, argv);
+	batch(cmd, arg);
+	if (arg->goto_interactive()) interactive(cmd, stdin, stdout);
+
 	rt_file_delete(stdin);
 	rt_file_delete(stdout);
+	delete cmd;
 	return 0;
 }

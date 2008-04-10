@@ -1,7 +1,7 @@
 /* -------------------------------------------------------------------------
  *
- * micro C Runtime, OS indepentend platform
- * ----------------------------------------
+ * elfviz, tool for visualization of elf file
+ * ------------------------------------------
  *
  * Copyright (C) 2008 Song-Hwan Kim
  * 
@@ -19,16 +19,31 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * -------------------------------------------------------------------------
 */
+#include "cmdparam.h"
+#include "ucrt/ucrt.h"
 
-#ifndef __UCRT_POSIX_FILE_H__
-#define __UCRT_POSIX_FILE_H__
+_cmdparam::_cmdparam(){
+	for(int i = 0 ; i < VIZCMD_PARAM_NUM ; i++)	{
+		vizcmd_param[i] = cnull;
+	}
+}
 
-#define RT_DECLARE_POSIX_FILE(rf, file) rt_posix_file_t* rf = (rt_posix_file_t*) file;
+void _cmdparam::add(char* param){
+	for(int i = 0 ; i < VIZCMD_PARAM_NUM ; i++){
+		if(!vizcmd_param[i]) {
+			vizcmd_param[i] = rt_strdup(param);
+			break;
+		}
+	}
+}
 
-typedef struct _rt_posix_file_t{
-	_rt_file_t ifile;
-	int type;
-	FILE* fd;
-}rt_posix_file_t;
+int _cmdparam::count(void){
+	int i = 0, cnt = 0;
+	for(i = 0, cnt = 0 ; i < VIZCMD_PARAM_NUM ; i++)	if(vizcmd_param[i]) cnt++;
+	return cnt;
+}
 
-#endif //__UCRT_POSIX_FILE_H__
+char** _cmdparam::str(void){
+	return vizcmd_param;
+}
+

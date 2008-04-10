@@ -21,133 +21,67 @@
 */
 
 #include "ucrt.h"
+#include "rt_file_interface.h"
 
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include "ucrt_posix_file.h"
-
-
-static int file_is_eof(rt_file_t* file){
-	RT_DECLARE_POSIX_FILE(rf, file)
-	return feof(rf->fd);
+int rt_fis_eof(rt_file_t file){
+	_rt_file_t* fd = (_rt_file_t*)file;
+	return fd->is_eof(fd);
 }
 
-static char* file_get_line(rt_file_t* file, char* buf, int len){
-	RT_DECLARE_POSIX_FILE(rf, file)
-	return fgets(buf, len, rf->fd);
+char* rt_fget_line(rt_file_t file, char* buf, int size){
+	_rt_file_t* fd = (_rt_file_t*)file;
+	return fd->get_line(fd, buf, size);
 }
 
-static int file_flush(rt_file_t* file){
-	RT_DECLARE_POSIX_FILE(rf, file)
-	return fflush(rf->fd);
+int rt_fflush(rt_file_t file){
+	_rt_file_t* fd = (_rt_file_t*)file;
+	return fd->flush(fd);
 }
 
-static char file_get_char(rt_file_t* file){
-	RT_DECLARE_POSIX_FILE(rf, file)
-	return getc(rf->fd);
-}
-
-static void file_unget_char(rt_file_t* file){
-	RT_DECLARE_POSIX_FILE(rf, file)
-	fseek(rf->fd, -1, SEEK_CUR);
-}
-
-static void file_final(rt_file_t* file){
-	RT_DECLARE_POSIX_FILE(rf, file)
-	fclose(rf->fd);
-}
-
-static void file_print(struct _rt_file_t* file, char* format, ...){
-	RT_DECLARE_POSIX_FILE(rf, file)
+void rt_fprint(rt_file_t file, char* format, ...){
+	_rt_file_t* fd = (_rt_file_t*)file;
 	rt_list list;
 	rt_start (list, format);
-	vfprintf(rf->fd, format, list);
+	fd->vprint(fd, format, list);
 	rt_end(list);
 }
-
-int file_write(struct _rt_file_t* file, void* buf, int size){
-	RT_DECLARE_POSIX_FILE(rf, file)
-	return fwrite(buf, size, 1, rf->fd);
-}
-int file_read(struct _rt_file_t* file, void* buf, int size){
-	RT_DECLARE_POSIX_FILE(rf, file)
-	return fread(buf, size, 1, rf->fd);
-}
-cbool file_seek(struct _rt_file_t* file, int offset, int origin){
-	RT_DECLARE_POSIX_FILE(rf, file)
-	int org;
-	switch(origin){
-	case RT_FILE_SEEK_SET:	org = SEEK_SET;	break;
-	case RT_FILE_SEEK_END:	org = SEEK_END;	break;
-	case RT_FILE_SEEK_CUR:	org = SEEK_CUR;	break;
-	}
-	return (!fseek(rf->fd, offset, org)) ? ctrue : cfalse;
+ 
+char rt_fget_char(rt_file_t file){
+	_rt_file_t* fd = (_rt_file_t*)file;
+	return fd->get_char(fd);
 }
 
-int file_size(struct _rt_file_t* file){
-	RT_DECLARE_POSIX_FILE(rf, file)
-	int org = ftell(rf->fd);
-	int size;
-	fseek(rf->fd, 0, SEEK_END);
-	size = ftell(rf->fd);
-	fseek(rf->fd, org, SEEK_SET);
-	return size;
+void rt_funget_char(rt_file_t file){
+	_rt_file_t* fd = (_rt_file_t*)file;
+	fd->unget_char(fd);
 }
 
-void* file_get_ptr(struct _rt_file_t* file){
-	return cnull;
+int rt_fwrite(rt_file_t file, void* buf, int size){
+	_rt_file_t* fd = (_rt_file_t*)file;
+	return fd->write(fd, buf, size);
 }
 
-static __inline int rt_file_init(rt_posix_file_t* file, char* url, int mode){
-	char fmode[8];
-	switch(mode){
-		case RT_FILE_OPEN_RDONLY:
-			strcpy(fmode, "rb");
-			break;
-		case RT_FILE_OPEN_WRTRUNC:
-			strcpy(fmode, "wb");
-			break;
-		case RT_FILE_OPEN_APPEND:
-			strcpy(fmode, "ab");
-			break;
-		default:
-			fmode[0] = 0;
-	}
-	file->type = RT_FILE_TYPE_GENERAL;
-	file->fd = fopen(url, fmode);
-	if(!file->fd)	return -1;
-	file->ifile.is_eof = file_is_eof;
-	file->ifile.get_line = file_get_line;
-	file->ifile.flush = file_flush;
-	file->ifile.print = file_print;
-	file->ifile.get_char = file_get_char;
-	file->ifile.unget_char = file_unget_char;
-	file->ifile.write = file_write;
-	file->ifile.read = file_read;
-	file->ifile.final = file_final;
-	file->ifile.seek = file_seek;
-	file->ifile.size = file_size;
-	file->ifile.get_ptr = file_get_ptr;
-	return 0;
+int rt_fread(rt_file_t file, void* buf, int size){
+	_rt_file_t* fd = (_rt_file_t*)file;
+	return fd->read(fd, buf, size);
 }
 
-rt_file_t* rt_file_new(char* url, int mode){
-	rt_posix_file_t* file = rt_new(sizeof(rt_posix_file_t));
-	if(!file) return cnull;
-	if(!url || !rt_strlen(url)) {
-			rt_delete(file);
-			file = cnull;
-			return (rt_file_t*)file;
-	}
-	if(rt_file_init(file, url, mode) < 0){
-			rt_delete(file);
-			file = cnull;
-	}
-	return (rt_file_t*)file;
+void rt_ffinal(rt_file_t file){
+	_rt_file_t* fd = (_rt_file_t*)file;
+	fd->final(fd);
 }
 
-void rt_file_delete(rt_file_t* file){
-	file->final(file);
-	rt_delete(file);
+cbool rt_fseek(rt_file_t file, int offset, int origin){
+	_rt_file_t* fd = (_rt_file_t*)file;
+	return fd->seek(fd, offset, origin);
+}
+
+int rt_fsize(rt_file_t file){
+	_rt_file_t* fd = (_rt_file_t*)file;
+	return fd->size(fd);
+}
+
+void* rt_fget_ptr(rt_file_t file){
+	_rt_file_t* fd = (_rt_file_t*)file;
+	return fd->get_ptr(fd);
 }

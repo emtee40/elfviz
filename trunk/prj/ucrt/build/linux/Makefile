@@ -6,12 +6,14 @@ LFLAGS=-shared -Wl,-soname,$(SYMBOLIC_TARGET) -o $(TARGET)
 RM=rm -f
 TARGET_INCDIR=../../../../inc/ucrt
 INCDIR=../../inc
+INTERNAL_INCDIR=../../src
 SRCDIR=../../src/os_posix
-INCS=-I$(INCDIR)
+INCS=-I$(INCDIR) -I$(INTERNAL_INCDIR)
 BINDIR=../../../../bin
 USR_LIB=/usr/lib
 objs=ucrt_std.o\
 	ucrt_file.o\
+	ucrt_solid_file.o\
 	ucrt_mem_file.o\
 	ucrt_stdin.o\
 	ucrt_stdout.o\

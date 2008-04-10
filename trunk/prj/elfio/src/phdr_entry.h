@@ -22,7 +22,5 @@
 
 #ifndef __ELF_PHDR_ENTRY_H__
 #define __ELF_PHDR_ENTRY_H__
-elf_section_t* phdr_entry_new(rt_file_t* fd, int e_phoff, int n_entry);
-void phdr_entry_delete(elf_section_t* section);
-int phdr_entry_size(void);
+elf_section_t* phdr_entry_new(rt_file_t fd, int e_phoff);
 #endif //__ELF_PHDR_ENTRY_H__

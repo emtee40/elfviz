@@ -113,6 +113,10 @@ SOURCE=..\..\src\shdr_entry.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=..\..\src\shdr_rel_entry.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=..\..\src\shdr_symtab_entry.cpp
 # End Source File
 # End Group
@@ -138,6 +142,10 @@ SOURCE=..\..\src\shdr.h
 # Begin Source File
 
 SOURCE=..\..\src\shdr_entry.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\src\shdr_rel_entry.h
 # End Source File
 # Begin Source File
 

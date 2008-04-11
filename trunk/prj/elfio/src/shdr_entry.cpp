@@ -25,6 +25,7 @@
 #include "elftypes.h"
 #include "shdr_entry.h"
 #include "shdr_symtab_entry.h"
+#include "shdr_rel_entry.h"
 
 typedef class _elf_shdr_entry_t : public elf_section_t{
 	protected:
@@ -170,12 +171,12 @@ typedef class _elf_shdr_symtab_t : public elf_shdr_entry_t{
 		elf_section_t** entry;
 		int n_entry;
 	public:
-		_elf_shdr_symtab_t(rt_file_t fd, Elf32_Shdr eshdr, cbyte* ebuf, char* ename, char* strtab) : elf_shdr_entry_t(eshdr, ebuf, ename){
-
+		_elf_shdr_symtab_t(rt_file_t fd, Elf32_Shdr eshdr, cbyte* ebuf, char* ename, char* strtab, elf_section_t*(*entry_new)(rt_file_t, unsigned int, char*))
+							: elf_shdr_entry_t(eshdr, ebuf, ename){
 			n_entry = eshdr.sh_size / eshdr.sh_entsize;
 			entry = new elf_section_t* [n_entry];
 			for(int i = 0 ; i < n_entry ; i++){
-				entry[i] = shdr_symtab_entry_new(fd, eshdr.sh_offset + sizeof(Elf32_Sym) * i, strtab);
+				entry[i] = entry_new(fd, eshdr.sh_offset + sizeof(Elf32_Sym) * i, strtab);
 			}
 		}
 
@@ -216,8 +217,12 @@ elf_section_t* shdr_entry_new(rt_file_t fd, int e_shoff, char* shstrtab, char* s
 	switch(shdr.sh_type){
 		case SHT_SYMTAB:
 		case SHT_DYNSYM:
-			section = (!strtab) ? cnull : new elf_shdr_symtab_t(fd, shdr, buf, (!shstrtab) ? cnull : shstrtab + shdr.sh_name, strtab);
+			section = (!strtab) ? cnull : new elf_shdr_symtab_t(fd, shdr, buf, (!shstrtab) ? cnull : shstrtab + shdr.sh_name, strtab, shdr_symtab_entry_new);
 			break;
+		case SHT_REL:
+			section = (!strtab) ? cnull : new elf_shdr_symtab_t(fd, shdr, buf, (!shstrtab) ? cnull : shstrtab + shdr.sh_name, strtab, shdr_rel_entry_new);
+		case SHT_RELA:
+			section = (!strtab) ? cnull : new elf_shdr_symtab_t(fd, shdr, buf, (!shstrtab) ? cnull : shstrtab + shdr.sh_name, strtab, shdr_rela_entry_new);
 		default:
 			section = new elf_shdr_entry_t(shdr, buf, (!shstrtab) ? cnull : shstrtab + shdr.sh_name);
 			break;

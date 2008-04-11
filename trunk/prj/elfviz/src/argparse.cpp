@@ -48,6 +48,9 @@ typedef class _elfargparse : public argparse {
 
 		virtual char* first_cmd(void){
 			iter = 0;
+			char* ret = (rt_strlen(str[iter])) ? str[iter] : cnull;
+			if(ret) iter++;
+			return ret;
 			return str[iter++];
 		}
 

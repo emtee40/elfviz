@@ -291,6 +291,58 @@ typedef struct {
 	Elf32_Half st_shndx;
 } Elf32_Sym;
 
+enum R_TYPE{
+	R_ARM_NONE = 0, ///<Any No relocation.  Encodes dependencies between sections.
+	R_ARM_PC24, ///<ARM B/BL S ? P + A
+	R_ARM_ABS32, ///<32-bit word S + A
+	R_ARM_REL32, ///<32-bit word S ? P + A
+	R_ARM_PC13, ///<ARM LDR r, [pc,・] S ? P + A
+	R_ARM_ABS16, ///<16-bit half-word S + A
+	R_ARM_ABS12, ///<ARM LDR/STR S + A
+	R_ARM_THM_ABS5, ///<Thumb LDR/STR S + A
+	R_ARM_ABS8, ///<8-bit byte S + A
+	R_ARM_SBREL32, ///<32-bit word S ? B + A
+	R_ARM_THM_PC22, ///<Thumb BL pair S ? P+ A
+	R_ARM_THM_PC8, ///<Thumb LDR r, [pc,・] S ? P + A
+	R_ARM_AMP_VCALL9, ///<AMP VCALL Obsolete?SA-1500 only.
+	R_ARM_SWI24, ///<ARM SWI S + A
+	R_ARM_THM_SWI8, ///<Thumb SWI S + A
+	R_ARM_XPC25, ///<ARM BLX S ? P+ A
+	R_ARM_THM_XPC22, ///<Thumb BLX pair S ? P+ A
+	///<17-19 Reserved to ARM LINUX
+	R_ARM_COPY = 20,///<32 bit word Copy symbol at dynamic link time.
+	R_ARM_GLOB_DAT,///< 32 bit word Create GOT entry.
+	R_ARM_JUMP_SLOT,///< 32 bit word Create PLT entry.
+	R_ARM_RELATIVE,///< 32 bit word Adjust by program base.
+	R_ARM_GOTOFF,///< 32 bit word Offset relative to start of GOT.
+	R_ARM_GOTPC,///< 32 bit word Insert address of GOT.
+	R_ARM_GOT32,///< 32 bit word Entry in GOT.
+	R_ARM_PLT32,///< ARM BL Entry in PLT.
+	///<28-31 Reserved to ARM LINUX
+	R_ARM_ALU_PCREL_7_0 = 32, ///<ARM ADD/SUB (S ? P + A) & 0x000000FF
+	R_ARM_ALU_PCREL_15_8,///< ARM ADD/SUB (S ? P + A) & 0x0000FF00
+	R_ARM_ALU_PCREL_23_15,///< ARM ADD/SUB (S ? P + A) & 0x00FF0000
+	R_ARM_LDR_SBREL_11_0,///< ARM LDR/STR (S ? B + A) & 0x00000FFF
+	R_ARM_ALU_SBREL_19_12,///< ARM ADD/SUB (S ? B + A) & 0x000FF000
+	R_ARM_ALU_SBREL_27_20,///< ARM ADD/SUB (S ? B + A) & 0x0FF00000
+	///<38-95 Reserved to ARM
+	///<96-99 Reserved to ARM g++
+	R_ARM_GNU_VTENTRY = 100, ///<32 bit word Record C++ vtable entry.
+	R_ARM_GNU_VTINHERIT,///<32 bit word Record C++ member usage.
+	R_ARM_THM_PC11,///< Thumb B S ? P + A
+	R_ARM_THM_PC9,///< Thumb B<cond> S ? P + A
+	///<104-111 Reserved to ARM g++
+	///<112-127 To be defined To be defined Reserved for private experiments?These values will never clash with relocations defined by ARM, but will always clash with other private experiments.
+	///<128-248 Reserved to ARM
+	R_ARM_RXPC25 = 249, ///<ARM BLX (ツS ? ツP) + A For calls between program segments.
+	R_ARM_RSBREL32,///< Word (ツS ? ツSB) + A For an offset from SB, the static base.
+	R_ARM_THM_RPC22,///< Thumb BL/BLX pair (ツS ? ツP) + A For calls between program segments.
+	R_ARM_RREL32,///< Word (ツS ? ツP) + A For on offset between two segments.
+	R_ARM_RABS32,///< Word ツS + A For the address of a location in the target segment.
+	R_ARM_RPC24,///< ARM B/BL (ツS ? ツP) + A For calls between program segments.
+	R_ARM_RBASE///< None None?Identifies the segment being relocated by the following relocation directives.
+};
+
 #define ELF32_R_SYM(i) ((i)>>8)
 #define ELF32_R_TYPE(i) ((unsigned char)(i))
 #define ELF32_R_INFO(s,t) (((s)<<8)+(unsigned char)(t))

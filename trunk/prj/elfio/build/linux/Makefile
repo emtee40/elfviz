@@ -14,7 +14,8 @@ objs=elfio.o \
 	phdr_entry.o \
 	shdr.o \
 	shdr_entry.o \
-	shdr_symtab_entry.o
+	shdr_symtab_entry.o \
+	shdr_rel_entry.o
 OUT=libelfio.a
 
 tm: $(objs)

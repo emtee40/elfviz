@@ -1,4 +1,7 @@
-#include "ucrt/ucrt.h"
+#include <stdio.h>
+#include <memory.h>
+#include <string.h>
+
 #include "argparse.h"
 
 #define ARG_STR_LEN	32
@@ -7,60 +10,70 @@
 typedef class _elfargparse : public argparse {
 	protected:
 		int iter;
-		cbool goto_imode;
+		bool goto_imode;
 		char str[ARG_STR_LEN][ARG_CMD_LEN];
+
+		void show_help(FILE* rtout){
+			fprintf(rtout, "-f {filename}\topen elf file\n");
+			fprintf(rtout, "-h\t\tthis help screen\n");
+			fprintf(rtout, "-e\t\tshow elf header\n");
+			fprintf(rtout, "-s\t\tshow section headers\n");
+			fprintf(rtout, "-p\t\tshow program headers\n");
+			fprintf(rtout, "-y\t\tshow symbol table\n");
+		}
 	public:
-		_elfargparse(int argc, char* argv[]){
+		_elfargparse(int argc, char* argv[], FILE* rtout){
 			int a = 1;
-			goto_imode = cfalse;
-			rt_memset(str, 0, sizeof(str));
+			goto_imode = false;
+			memset(str, 0, sizeof(str));
 			if(argc < 2){
-				goto_imode = ctrue;
+				goto_imode = true;
 				return;
 			}
 			for(int i = 0 ; i < argc ; i++){
-				if(!rt_strcmp(argv[i], "-f")){
-					rt_strcpy(str[0], "open ");
-					rt_strcat(str[0], argv[++i]);
-				} else if (!rt_strcmp(argv[i], "-e")){
-					rt_strcpy(str[a++], "ehdr");
-				} else if (!rt_strcmp(argv[i], "-p")){
-					rt_strcpy(str[a++], "phdr");
-				} else if (!rt_strcmp(argv[i], "-s")){
-					rt_strcpy(str[a++], "shdr");
-				} else if (!rt_strcmp(argv[i], "-y")){
-					rt_strcpy(str[a++], "shdr@.symtab");
-				} else if (!rt_strcmp(argv[i], "-m")){
+				if(!strcmp(argv[i], "-f")){
+					strcpy(str[0], "open ");
+					strcat(str[0], argv[++i]);
+				} else if (!strcmp(argv[i], "-e")){
+					strcpy(str[a++], "ehdr");
+				} else if (!strcmp(argv[i], "-p")){
+					strcpy(str[a++], "phdr");
+				} else if (!strcmp(argv[i], "-s")){
+					strcpy(str[a++], "shdr");
+				} else if (!strcmp(argv[i], "-y")){
+					strcpy(str[a++], "shdr@.symtab");
+				} else if (!strcmp(argv[i], "-m")){
 					//TODO:load macro and run
-				} else if (!rt_strcmp(argv[i], "-r")){
+				} else if (!strcmp(argv[i], "-r")){
 					//TODO:shows relocation table
-				} else if (!rt_strcmp(argv[i], "-h")){
+				} else if (!strcmp(argv[i], "-h")){
 					//TODO:shows help screen
-				} else if (!rt_strcmp(argv[i], "-i")){
-					goto_imode = ctrue;
+					show_help(rtout);
+					goto_imode = false;
+					memset(str, 0, sizeof(str));
+					return;
+				} else if (!strcmp(argv[i], "-i")){
+					goto_imode = true;
 				}
 			}
 		}
 
-		virtual cbool goto_interactive(void){
+		virtual bool goto_interactive(void){
 			return goto_imode;
 		}
 
 		virtual char* first_cmd(void){
 			iter = 0;
-			char* ret = (rt_strlen(str[iter])) ? str[iter] : cnull;
-			if(ret) iter++;
-			return ret;
-			return str[iter++];
+			return next_cmd();
 		}
 
 		virtual char* next_cmd(void){
-			char* ret = (rt_strlen(str[iter])) ? str[iter] : cnull;
+			char* ret = (strlen(str[iter])) ? str[iter] : 0;
 			if(ret) iter++;
 			return ret;
 		}
 }elfargparse;
 
-argparse* get_argparse(int argc, char* argv[]){
-	return (argparse*) new elfargparse(argc, argv);
+argparse* get_argparse(int argc, char* argv[], FILE* rtout){
+	return (argparse*) new elfargparse(argc, argv, rtout);
 }

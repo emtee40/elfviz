@@ -6,33 +6,38 @@
 --------------------Configuration: elfio - Win32 Debug--------------------
 </h3>
 <h3>Command Lines</h3>
-Creating temporary file "C:\DOCUME~1\BABYNE~1\LOCALS~1\Temp\RSP47A.tmp" with contents
+Creating temporary file "D:\DOCUME~1\newton\LOCALS~1\Temp\RSPCA2.tmp" with contents
 [
 /nologo /MLd /W3 /Gm /GX /ZI /Od /I "..\..\inc" /I "..\..\..\..\inc" /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /Fp"Debug/elfio.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
-"C:\VS\App\elfviz\trunk\prj\elfio\src\elfio.c"
-"C:\VS\App\elfviz\trunk\prj\elfio\src\phdr.c"
-"C:\VS\App\elfviz\trunk\prj\elfio\src\phdr_entry.c"
-"C:\VS\App\elfviz\trunk\prj\elfio\src\shdr.c"
-"C:\VS\App\elfviz\trunk\prj\elfio\src\shdr_entry.c"
+"C:\VS\App\sourceforge\elfviz\devel\1_1\prj\elfio\src\elfio.cpp"
+"C:\VS\App\sourceforge\elfviz\devel\1_1\prj\elfio\src\phdr.cpp"
+"C:\VS\App\sourceforge\elfviz\devel\1_1\prj\elfio\src\phdr_entry.cpp"
+"C:\VS\App\sourceforge\elfviz\devel\1_1\prj\elfio\src\shdr.cpp"
+"C:\VS\App\sourceforge\elfviz\devel\1_1\prj\elfio\src\shdr_entry.cpp"
+"C:\VS\App\sourceforge\elfviz\devel\1_1\prj\elfio\src\shdr_rel_entry.cpp"
+"C:\VS\App\sourceforge\elfviz\devel\1_1\prj\elfio\src\shdr_symtab_entry.cpp"
 ]
-Creating command line "cl.exe @C:\DOCUME~1\BABYNE~1\LOCALS~1\Temp\RSP47A.tmp" 
-Creating command line "link.exe -lib /nologo /out:"Debug\libelfio-dbg.lib"  .\Debug\elfio.obj .\Debug\phdr.obj .\Debug\phdr_entry.obj .\Debug\shdr.obj .\Debug\shdr_entry.obj "
+Creating command line "cl.exe @D:\DOCUME~1\newton\LOCALS~1\Temp\RSPCA2.tmp" 
+Creating command line "link.exe -lib /nologo /out:"Debug\libelfio-dbg.lib"  .\Debug\elfio.obj .\Debug\phdr.obj .\Debug\phdr_entry.obj .\Debug\shdr.obj .\Debug\shdr_entry.obj .\Debug\shdr_rel_entry.obj .\Debug\shdr_symtab_entry.obj "
 <h3>Output Window</h3>
 Compiling...
-elfio.c
-phdr.c
-phdr_entry.c
-shdr.c
-shdr_entry.c
+elfio.cpp
+phdr.cpp
+phdr_entry.cpp
+shdr.cpp
+shdr_entry.cpp
+c:\vs\app\sourceforge\elfviz\devel\1_1\prj\elfio\src\shdr_entry.cpp(202) : warning C4018: '>=' : signed/unsigned mismatch
+shdr_rel_entry.cpp
+shdr_symtab_entry.cpp
 Creating library...
-Creating temporary file "C:\DOCUME~1\BABYNE~1\LOCALS~1\Temp\RSP47B.bat" with contents
+Creating temporary file "D:\DOCUME~1\newton\LOCALS~1\Temp\RSPCA3.bat" with contents
 [
 @echo off
 mkdir ..\..\..\..\inc\elfio
 copy ..\..\inc\elfio\*.h ..\..\..\..\inc\elfio
 copy Debug\libelfio-dbg.lib ..\..\..\..\lib
 ]
-Creating command line "C:\DOCUME~1\BABYNE~1\LOCALS~1\Temp\RSP47B.bat"
+Creating command line "D:\DOCUME~1\newton\LOCALS~1\Temp\RSPCA3.bat"
 
 하위 디렉터리 또는 파일 ..\..\..\..\inc\elfio이(가) 이미 있습니다.
 ..\..\inc\elfio\elfio.h
@@ -42,7 +47,7 @@ Creating command line "C:\DOCUME~1\BABYNE~1\LOCALS~1\Temp\RSP47B.bat"
 
 
 <h3>Results</h3>
-libelfio-dbg.lib - 0 error(s), 0 warning(s)
+libelfio-dbg.lib - 0 error(s), 1 warning(s)
 </pre>
 </body>
 </html>

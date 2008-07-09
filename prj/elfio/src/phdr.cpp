@@ -20,7 +20,8 @@
  * -------------------------------------------------------------------------
 */
 
-#include "ucrt/ucrt.h"
+#include <stdio.h>
+
 #include "elfio/elfio.h"
 #include "elftypes.h"
 #include "phdr.h"
@@ -33,7 +34,7 @@ typedef class _elf_phdr_t : public elf_section_t{
 		int n_entry;
 
 	public:
-		_elf_phdr_t(int phnum, rt_file_t fd, int phoff){
+		_elf_phdr_t(int phnum, FILE* fd, int phoff){
 			entry = new elf_section_t* [phnum];
 			n_entry = phnum;
 			for(int i = 0 ; i < n_entry ; i++){
@@ -47,29 +48,29 @@ typedef class _elf_phdr_t : public elf_section_t{
 				delete entry;
 			}
 		}
-		virtual void format(rt_file_t fd){
-			rt_fprint(fd, "no header\n");
+		virtual void format(FILE* fd){
+			fprintf(fd, "no header\n");
 		}
 
-		virtual void dump(rt_file_t fd){
+		virtual void dump(FILE* fd){
 			for(int i = 0 ; i < n_entry ; i++)	entry[i]->format(fd);
 		}
 
 		virtual elf_section_t* get_sub(const int idx){
-			return (idx >= n_entry) ? cnull : entry[idx];
+			return (idx >= n_entry) ? 0 : entry[idx];
 		}
 		virtual elf_section_t* find_sub(const char* stdidx){
-			return cnull;
+			return 0;
 		}
-		virtual const cbyte* data(void){
-			return cnull;
+		virtual const unsigned char* data(void){
+			return 0;
 		}
 
 		virtual const char* name(void){
-			return cnull;
+			return 0;
 		}
 }elf_phdr_t;
 
-elf_section_t* phdr_new(Elf32_Ehdr ehdr, rt_file_t fd){
+elf_section_t* phdr_new(Elf32_Ehdr ehdr, FILE* fd){
 	return (elf_section_t*)new elf_phdr_t(ehdr.e_phnum, fd, ehdr.e_phoff);
 }

@@ -3,10 +3,10 @@
 
 typedef class _argparse{
 	public:
-		virtual cbool goto_interactive(void) = cnull;
-		virtual char* first_cmd(void) = cnull;
-		virtual char* next_cmd(void) = cnull;
+		virtual bool goto_interactive(void) = 0;
+		virtual char* first_cmd(void) = 0;
+		virtual char* next_cmd(void) = 0;
 }argparse;
 
-argparse* get_argparse(int argc, char* argv[]);
+argparse* get_argparse(int argc, char* argv[], FILE* rtout);
 #endif //__ARG_PARSE_H__

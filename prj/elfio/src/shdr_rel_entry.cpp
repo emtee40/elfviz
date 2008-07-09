@@ -19,8 +19,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * -------------------------------------------------------------------------
 */
+#include <stdio.h>
+#include <memory.h>
 
-#include "ucrt/ucrt.h"
 #include "elfio/elfio.h"
 #include "elftypes.h"
 #include "shdr_rel_entry.h"
@@ -29,18 +30,18 @@ typedef struct _elf_shdr_rel_entry_t : public elf_section_t{
 	protected:
 		Elf32_Rel reltab;
 
-		void format_offset(rt_file_t fd, int offset){
-			rt_fprint(fd, "r_offset=%d\n", offset);
+		void format_offset(FILE* fd, int offset){
+			fprintf(fd, "r_offset=%d\n", offset);
 		}
-		void format_info(rt_file_t fd, int info){
+		void format_info(FILE* fd, int info){
 			unsigned int ri = 0, ris = 0, rit = 0, rii = 0;
-			char* str = cnull;
+			char* str = 0;
 			ri = info;
 			ris = ELF32_R_SYM(ri);
 			rit = ELF32_R_TYPE(ri);
 			rii = ELF32_R_INFO(ris, rit);
-			rt_fprint(fd, "R_SYM=%d\n", ris);
-			rt_fprint(fd, "R_TYPE=", rit);
+			fprintf(fd, "R_SYM=%d\n", ris);
+			fprintf(fd, "R_TYPE=", rit);
 			switch(ris){
 				case R_ARM_NONE:		str = "R_ARM_NONE";		break;
 				case R_ARM_PC24:		str = "R_ARM_PC24";		break;
@@ -85,71 +86,71 @@ typedef struct _elf_shdr_rel_entry_t : public elf_section_t{
 				case R_ARM_RPC24:		str = "R_ARM_RPC24";		break;
 				case R_ARM_RBASE:		str = "R_ARM_RBASE";		break;
 			}
-			rt_fprint(fd, "%s\n", str);
-			rt_fprint(fd, "R_INFO=%d\n", rii);
-			rt_fprint(fd, "\n");
+			fprintf(fd, "%s\n", str);
+			fprintf(fd, "R_INFO=%d\n", rii);
+			fprintf(fd, "\n");
 		}
 	public:
 		_elf_shdr_rel_entry_t(){}
 
 		_elf_shdr_rel_entry_t(Elf32_Rel ereltab){
-			rt_memcpy(&reltab, &ereltab, sizeof(Elf32_Rel));
+			memcpy(&reltab, &ereltab, sizeof(Elf32_Rel));
 		}
 
-		virtual void format(rt_file_t fd){
+		virtual void format(FILE* fd){
 			format_offset(fd, reltab.r_offset);
 			format_info(fd, reltab.r_info);
 		}
 
-		virtual void dump(rt_file_t fd){
-			rt_fprint(fd, "no data\n");
+		virtual void dump(FILE* fd){
+			fprintf(fd, "no data\n");
 		}
 
 		virtual elf_section_t* get_sub(const int idx){
-			return cnull;
+			return 0;
 		}
 
 		virtual elf_section_t* find_sub(const char* stridx){
-			return cnull;
+			return 0;
 		}
 
-		virtual const cbyte* data(void){
-			return cnull;
+		virtual const unsigned char* data(void){
+			return 0;
 		}
 
 		virtual const char* name(void){
-			return cnull;
+			return 0;
 		}
 }elf_shdr_rel_entry_t;
 
 typedef struct _elf_shdr_rela_entry_t : public elf_shdr_rel_entry_t{
 	protected:
 		Elf32_Rela relatab;
-		void format_addend(rt_file_t fd, int addend){
-			rt_fprint(fd, "r_addend=%d\n", addend);
+		void format_addend(FILE* fd, int addend){
+			fprintf(fd, "r_addend=%d\n", addend);
 		}
 	public:
 		_elf_shdr_rela_entry_t(Elf32_Rela erelatab){
-			rt_memcpy(&relatab, &erelatab, sizeof(Elf32_Rela));
+			memcpy(&relatab, &erelatab, sizeof(Elf32_Rela));
 		}
 
-		virtual void format(rt_file_t fd){
+		virtual void format(FILE* fd){
 			format_offset(fd, relatab.r_offset);
 			format_info(fd, relatab.r_info);
 			format_addend(fd, relatab.r_addend);
 		}
 }elf_shdr_rela_entry_t;
 
-elf_section_t* shdr_rel_entry_new(rt_file_t fd, unsigned int sh_offset, char* strtab){
+elf_section_t* shdr_rel_entry_new(FILE* fd, unsigned int sh_offset, char* strtab){
 	Elf32_Rel reltab;
-	rt_fseek(fd, sh_offset, RT_FILE_SEEK_SET);
-	rt_fread(fd, &reltab, sizeof(Elf32_Rel));
+	fseek(fd, sh_offset, SEEK_SET);
+	fread(&reltab, sizeof(Elf32_Rel), 1, fd);
 	return (elf_section_t*) new elf_shdr_rel_entry_t(reltab);
 }
 
-elf_section_t* shdr_rela_entry_new(rt_file_t fd, unsigned int sh_offset, char* strtab){
+elf_section_t* shdr_rela_entry_new(FILE* fd, unsigned int sh_offset, char* strtab){
 	Elf32_Rela relatab;
-	rt_fseek(fd, sh_offset, RT_FILE_SEEK_SET);
-	rt_fread(fd, &relatab, sizeof(Elf32_Rela));
+	fseek(fd, sh_offset, SEEK_SET);
+	fread(&relatab, sizeof(Elf32_Rela), 1, fd);
 	return (elf_section_t*) new elf_shdr_rela_entry_t(relatab);
 }

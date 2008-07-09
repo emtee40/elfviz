@@ -19,36 +19,44 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * -------------------------------------------------------------------------
 */
-#include "ucrt/ucrt.h"
+#include <stdio.h>
+#include <string.h>
+
 #include "vizcmd.h"
 #include "argparse.h"
 
-void interactive(vizcmd* cmd, rt_file_t stdin, rt_file_t stdout){
+void title(FILE* rtout){
+	fprintf(rtout, "elfviz v1.0 Copyright (C) 2008  Song-Hwan Kim\n");
+	fprintf(rtout, "This program comes with ABSOLUTELY NO WARRANTY; ");
+//	rtout->print("for details type `show w'.\n");
+//	rtout->print(rtout, "This is free software, and you are welcome to redistribute it\n");
+//	rtout->print(rtout, "under certain conditions; type `show c' for details.\n");
+	fprintf(rtout, "\n");
+}
+
+
+void interactive(vizcmd* cmd, FILE* rtin, FILE* rtout){
 	char inbuf[128];
-	cmd->title();
-	while(rt_fprint(stdout, "\nelfviz>"), rt_fget_line(stdin, inbuf, 128), rt_strcmp(inbuf, "quit")){
+	while(fprintf(rtout, "\nelfviz>"), memset(inbuf, 0, 128), gets(inbuf), strcmp(inbuf, "quit")){
 		cmd->parse(inbuf);
 	}
 }
 
 void batch(vizcmd* cmd, argparse* arg){
-	char* inbuf = cnull;
+	char* inbuf = 0;
 	for(inbuf = arg->first_cmd() ; inbuf ; inbuf = arg->next_cmd()){
 		cmd->parse(inbuf);
 	}
 }
 
 int main(int argc, char* argv[]){
-	rt_file_t stdin = rt_stdin_new();
-	rt_file_t stdout = rt_stdout_new();
 	vizcmd* cmd = get_cmd(stdout);
 	
-	argparse* arg = get_argparse(argc, argv);
+	title(stdout);
+	argparse* arg = get_argparse(argc, argv, stdout);
 	batch(cmd, arg);
 	if (arg->goto_interactive()) interactive(cmd, stdin, stdout);
 
-	rt_file_delete(stdin);
-	rt_file_delete(stdout);
 	delete cmd;
 	return 0;
 }

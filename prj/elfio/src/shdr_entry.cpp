@@ -19,8 +19,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * -------------------------------------------------------------------------
 */
+#include <stdio.h>
+#include <memory.h>
+#include <string.h>
 
-#include "ucrt/ucrt.h"
 #include "elfio/elfio.h"
 #include "elftypes.h"
 #include "shdr_entry.h"
@@ -30,16 +32,16 @@
 typedef class _elf_shdr_entry_t : public elf_section_t{
 	protected:
 		Elf32_Shdr shdr;
-		cbyte* buf;
+		unsigned char* buf;
 		char* se_name;
 
-		void name_str(rt_file_t fd, int sh_name){
-			rt_fprint(fd, "sh_name=%d\n", sh_name);
+		void name_str(FILE* fd, int sh_name){
+			fprintf(fd, "sh_name=%d\n", sh_name);
 		}
 
-		void type_str(rt_file_t fd, int sh_type){
+		void type_str(FILE* fd, int sh_type){
 			char* str = "unknown";
-			rt_fprint(fd, "sh_type=");
+			fprintf(fd, "sh_type=");
 			switch(sh_type){
 			case SHT_NULL:		str = "SHT_NULL";		break;
 			case SHT_PROGBITS:	str = "SHT_PROGBITS";	break;
@@ -58,61 +60,61 @@ typedef class _elf_shdr_entry_t : public elf_section_t{
 			case SHT_LOUSER:	str = "SHT_LOUSER";		break;
 			case SHT_HIUSER:	str = "SHT_HIUSER";		break;
 			}
-			rt_fprint(fd, "%s\n", str);
+			fprintf(fd, "%s\n", str);
 		}
 
-		void offset_str(rt_file_t fd, int sh_offset){
-			rt_fprint(fd, "sh_offset=0x%x\n", sh_offset);
+		void offset_str(FILE* fd, int sh_offset){
+			fprintf(fd, "sh_offset=0x%x\n", sh_offset);
 		}
 
-		void addr_str(rt_file_t fd, int sh_addr){
-			rt_fprint(fd, "sh_addr=0x%x\n", sh_addr);
+		void addr_str(FILE* fd, int sh_addr){
+			fprintf(fd, "sh_addr=0x%x\n", sh_addr);
 		}
 
-		void size_str(rt_file_t fd, int sh_size){
-			rt_fprint(fd, "sh_size=%d\n", sh_size);
+		void size_str(FILE* fd, int sh_size){
+			fprintf(fd, "sh_size=%d\n", sh_size);
 		}
 
-		void entsize_str(rt_file_t fd, int sh_entsize){
-			rt_fprint(fd, "sh_entsize=%d\n", sh_entsize);
+		void entsize_str(FILE* fd, int sh_entsize){
+			fprintf(fd, "sh_entsize=%d\n", sh_entsize);
 		}
 
-		void link_str(rt_file_t fd, int sh_link){
-			rt_fprint(fd, "sh_link=%d\n", sh_link);
+		void link_str(FILE* fd, int sh_link){
+			fprintf(fd, "sh_link=%d\n", sh_link);
 		}
 
-		void info_str(rt_file_t fd, int sh_info){
-			rt_fprint(fd, "sh_info=0x%x\n", sh_info);
+		void info_str(FILE* fd, int sh_info){
+			fprintf(fd, "sh_info=0x%x\n", sh_info);
 		}
 
-		void flags_str(rt_file_t fd, int sh_flags){
-			rt_fprint(fd, "sh_flags=");
-			if(sh_flags & SHF_WRITE)		rt_fprint(fd, "SHF_WRITE | ");
-			if(sh_flags & SHF_ALLOC)		rt_fprint(fd, "SHF_ALLOC | ");
-			if(sh_flags & SHF_EXECINSTR)	rt_fprint(fd, "SHF_EXEINSTR | ");
-			if(sh_flags & SHF_MASKPROC)		rt_fprint(fd, "SHF_MASKPROC");
-			rt_fprint(fd, "\n");
+		void flags_str(FILE* fd, int sh_flags){
+			fprintf(fd, "sh_flags=");
+			if(sh_flags & SHF_WRITE)		fprintf(fd, "SHF_WRITE | ");
+			if(sh_flags & SHF_ALLOC)		fprintf(fd, "SHF_ALLOC | ");
+			if(sh_flags & SHF_EXECINSTR)	fprintf(fd, "SHF_EXEINSTR | ");
+			if(sh_flags & SHF_MASKPROC)		fprintf(fd, "SHF_MASKPROC");
+			fprintf(fd, "\n");
 		}
 
-		void align_str(rt_file_t fd, int sh_addralign){
-			rt_fprint(fd, "sh_addralign=%d\n", sh_addralign);
+		void align_str(FILE* fd, int sh_addralign){
+			fprintf(fd, "sh_addralign=%d\n", sh_addralign);
 		}
 
 	public:
 		_elf_shdr_entry_t(){}
-		_elf_shdr_entry_t(Elf32_Shdr eshdr, cbyte* ebuf, char* ename){
-			rt_memcpy(&shdr, &eshdr, sizeof(Elf32_Shdr));
+		_elf_shdr_entry_t(Elf32_Shdr eshdr, unsigned char* ebuf, char* ename){
+			memcpy(&shdr, &eshdr, sizeof(Elf32_Shdr));
 			buf = ebuf;
-			se_name = rt_strdup(ename);
+			se_name = strdup(ename);
 		}
 
 		~_elf_shdr_entry_t(){
-			rt_delete(buf);
-			rt_delete(se_name);
+			delete buf;
+			delete se_name;
 		}
 
-		virtual void format(rt_file_t fd){
-			if(se_name) rt_fprint(fd, "sh_name_str=%s\n", se_name);
+		virtual void format(FILE* fd){
+			if(se_name) fprintf(fd, "sh_name_str=%s\n", se_name);
 			name_str(fd, shdr.sh_name);
 			type_str(fd, shdr.sh_type);
 			flags_str(fd, shdr.sh_flags);
@@ -123,41 +125,41 @@ typedef class _elf_shdr_entry_t : public elf_section_t{
 			info_str(fd, shdr.sh_info);
 			align_str(fd, shdr.sh_addralign);
 			entsize_str(fd, shdr.sh_entsize);
-			rt_fprint(fd, "\n");
+			fprintf(fd, "\n");
 		}
 
 		#define SHDR_COLUMN_SIZE 16
-		virtual void dump(rt_file_t fd){
+		virtual void dump(FILE* fd){
 			for(unsigned int i = 0 ; i < shdr.sh_size ; i += SHDR_COLUMN_SIZE){
 				int j = 0;
 				int mx = shdr.sh_size - i;
 				if(mx > SHDR_COLUMN_SIZE) mx = SHDR_COLUMN_SIZE;
-				rt_fprint(fd, "%08x: ", shdr.sh_offset + i);
+				fprintf(fd, "%08x: ", shdr.sh_offset + i);
 				for(j = 0 ; j < mx ; j++) {
-					rt_fprint(fd, "%02x ", buf[i + j]);
-					if(j == 7)	rt_fprint(fd, " ");
+					fprintf(fd, "%02x ", buf[i + j]);
+					if(j == 7)	fprintf(fd, " ");
 				}
 				if(mx < SHDR_COLUMN_SIZE) {
 					for(j = 0 ; j < SHDR_COLUMN_SIZE - mx ; j++){
-						rt_fprint(fd, "   ");
+						fprintf(fd, "   ");
 					}
-					if(mx < 7) rt_fprint(fd, " ");
+					if(mx < 7) fprintf(fd, " ");
 				}
-				rt_fprint(fd, "  ");
-				for(j = 0 ; j < mx ; j++) rt_fprint(fd, "%c", buf[i + j]);
-				rt_fprint(fd, "\n");
+				fprintf(fd, "  ");
+				for(j = 0 ; j < mx ; j++) fprintf(fd, "%c", buf[i + j]);
+				fprintf(fd, "\n");
 			}
 		}
 
 		virtual elf_section_t* get_sub(const int idx){
-			return cnull;
+			return 0;
 		}
 
 		virtual elf_section_t* find_sub(const char* stridx){
-			return cnull;
+			return 0;
 		}
 
-		virtual const cbyte* data(void){
+		virtual const unsigned char* data(void){
 			return buf;
 		}
 
@@ -171,7 +173,7 @@ typedef class _elf_shdr_symtab_t : public elf_shdr_entry_t{
 		elf_section_t** entry;
 		int n_entry;
 	public:
-		_elf_shdr_symtab_t(rt_file_t fd, Elf32_Shdr eshdr, cbyte* ebuf, char* ename, char* strtab, elf_section_t*(*entry_new)(rt_file_t, unsigned int, char*))
+		_elf_shdr_symtab_t(FILE* fd, Elf32_Shdr eshdr, unsigned char* ebuf, char* ename, char* strtab, elf_section_t*(*entry_new)(FILE*, unsigned int, char*))
 							: elf_shdr_entry_t(eshdr, ebuf, ename){
 			n_entry = eshdr.sh_size / eshdr.sh_entsize;
 			entry = new elf_section_t* [n_entry];
@@ -187,44 +189,44 @@ typedef class _elf_shdr_symtab_t : public elf_shdr_entry_t{
 			}
 		}
 
-		virtual void dump(rt_file_t fd){
+		virtual void dump(FILE* fd){
 			int i = 0, num = shdr.sh_size / shdr.sh_entsize;
 
 			for(i = 0 ; i < num ; i++){
-				rt_fprint(fd, "symtab[%d]\n", i);
+				fprintf(fd, "symtab[%d]\n", i);
 				entry[i]->format(fd);
 			}
 		}
 
 		virtual elf_section_t* get_sub(const int idx){
-			return (idx >= (shdr.sh_size / shdr.sh_entsize)) ? cnull : entry[idx];
+			return (idx >= (shdr.sh_size / shdr.sh_entsize)) ? 0 : entry[idx];
 		}
 
 }elf_shdr_symtab_t;
 
-elf_section_t* shdr_entry_new(rt_file_t fd, int e_shoff, char* shstrtab, char* strtab){
+elf_section_t* shdr_entry_new(FILE* fd, int e_shoff, char* shstrtab, char* strtab){
 	Elf32_Shdr shdr;
-	cbyte* buf = cnull;
-	elf_section_t* section = cnull;
+	unsigned char* buf = 0;
+	elf_section_t* section = 0;
 
-	rt_fseek(fd, e_shoff, RT_FILE_SEEK_SET);
-	rt_fread(fd, &shdr, sizeof(Elf32_Shdr));
+	fseek(fd, e_shoff, SEEK_SET);
+	fread(&shdr, sizeof(Elf32_Shdr), 1, fd);
 
-	rt_fseek(fd, shdr.sh_offset, RT_FILE_SEEK_SET);
-	buf = (cbyte*)rt_new(shdr.sh_size);
-	rt_fread(fd, buf, shdr.sh_size);
+	fseek(fd, shdr.sh_offset, SEEK_SET);
+	buf = (unsigned char*)new unsigned char[shdr.sh_size];
+	fread(buf, shdr.sh_size, 1, fd);
 
 	switch(shdr.sh_type){
 		case SHT_SYMTAB:
 		case SHT_DYNSYM:
-			section = (!strtab) ? cnull : new elf_shdr_symtab_t(fd, shdr, buf, (!shstrtab) ? cnull : shstrtab + shdr.sh_name, strtab, shdr_symtab_entry_new);
+			section = (!strtab) ? 0 : new elf_shdr_symtab_t(fd, shdr, buf, (!shstrtab) ? 0 : shstrtab + shdr.sh_name, strtab, shdr_symtab_entry_new);
 			break;
 		case SHT_REL:
-			section = (!strtab) ? cnull : new elf_shdr_symtab_t(fd, shdr, buf, (!shstrtab) ? cnull : shstrtab + shdr.sh_name, strtab, shdr_rel_entry_new);
+			section = (!strtab) ? 0 : new elf_shdr_symtab_t(fd, shdr, buf, (!shstrtab) ? 0 : shstrtab + shdr.sh_name, strtab, shdr_rel_entry_new);
 		case SHT_RELA:
-			section = (!strtab) ? cnull : new elf_shdr_symtab_t(fd, shdr, buf, (!shstrtab) ? cnull : shstrtab + shdr.sh_name, strtab, shdr_rela_entry_new);
+			section = (!strtab) ? 0 : new elf_shdr_symtab_t(fd, shdr, buf, (!shstrtab) ? 0 : shstrtab + shdr.sh_name, strtab, shdr_rela_entry_new);
 		default:
-			section = new elf_shdr_entry_t(shdr, buf, (!shstrtab) ? cnull : shstrtab + shdr.sh_name);
+			section = new elf_shdr_entry_t(shdr, buf, (!shstrtab) ? 0 : shstrtab + shdr.sh_name);
 			break;
 	}
 	return section;

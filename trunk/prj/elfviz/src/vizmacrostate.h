@@ -1,7 +1,7 @@
 /* -------------------------------------------------------------------------
  *
- * micro C Runtime, OS indepentend platform
- * ----------------------------------------
+ * elfviz, tool for visualization of elf file
+ * ------------------------------------------
  *
  * Copyright (C) 2008 Song-Hwan Kim
  * 
@@ -20,23 +20,14 @@
  * -------------------------------------------------------------------------
 */
 
-#include "ucrt.h"
-
-/* Procedure traverse is a generic recursive 
- * syntax tree traversal routine:
- * it applies preProc in preorder and postProc 
- * in postorder to tree pointed to by t
- */
-void rt_tree_traverse( rt_tree_t * t, void (* pre_proc) (rt_tree_t *, void*, void*), void (* post_proc) (rt_tree_t *, void*, void*),void* p, void* q) {
-	if (t != cnull) {
-		pre_proc(t, p, q);
-		{
-			rt_tree_t* target = t->child;
-			rt_tree_traverse(target,pre_proc,post_proc, p, q);
-		}
-		post_proc(t, p, q);
-		rt_tree_traverse(t->sibling,pre_proc,post_proc, p, q);
-	}
-}
+#ifndef __VIZ_MACRO_STATE_H__
+#define __VIZ_MACRO_STATE_H__
 
 
+typedef class _macro_state{
+	public:
+		virtual void run(char* inbuf, vizcmd* cmdparse, class _macro_state** next_state) = 0;
+}macro_state;
+
+macro_state* get_idle_macro
+#endif //__VIZ_MACRO_STATE_H__

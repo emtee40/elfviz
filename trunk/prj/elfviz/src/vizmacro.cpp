@@ -1,7 +1,7 @@
 /* -------------------------------------------------------------------------
  *
- * micro C Runtime, OS indepentend platform
- * ----------------------------------------
+ * elfviz, tool for visualization of elf file
+ * ------------------------------------------
  *
  * Copyright (C) 2008 Song-Hwan Kim
  * 
@@ -19,16 +19,24 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * -------------------------------------------------------------------------
 */
+#include "ucrt/ucrt.h"
+#include "elfio/elfio.h"
+#include "vizcmd.h"
 
-#ifndef __UCRT_POSIX_FILE_H__
-#define __UCRT_POSIX_FILE_H__
+typedef class _elfvizcmacro:public vizcmd{
+	protected:
+		vizcmd* cmdparse;
+		macro_state* state;
+	public:
+		_elfvizmacro(rt_file_t stdout){
+			cmdparse = get_cmd(stdout);
+			state = get_idle_macro();
+		}
+		virtual void parse(char* inbuf){
+			state->run(inbuf, cmdparse, &state);
+		}
+}elfvizmacro;
 
-#define RT_DECLARE_POSIX_FILE(rf, file) rt_posix_file_t* rf = (rt_posix_file_t*) file;
-
-typedef struct _rt_posix_file_t{
-	_rt_file_t ifile;
-	int type;
-	FILE* fd;
-}rt_posix_file_t;
-
-#endif //__UCRT_POSIX_FILE_H__
+vizcmd* get_macro(rt_file_t stdout){
+	return (vizcmd*) new elfvizmacro(stdout);
+}

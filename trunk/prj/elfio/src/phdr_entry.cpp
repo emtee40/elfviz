@@ -19,8 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * -------------------------------------------------------------------------
 */
+#include <stdio.h>
 
-#include "ucrt/ucrt.h"
 #include "elfio/elfio.h"
 #include "elftypes.h"
 #include "phdr_entry.h"
@@ -29,9 +29,9 @@ typedef class _elf_phdr_entry_t : public elf_section_t{
 	protected:
 		Elf32_Phdr phdr;
 
-		void type_str(rt_file_t fd, int p_type){
+		void type_str(FILE* fd, int p_type){
 			char* str = "unknown";
-			rt_fprint(fd, "p_type=");
+			fprintf(fd, "p_type=");
 			switch(p_type){
 			case PT_NULL:		str = "PT_NULL";	break;
 			case PT_LOAD:		str = "PT_LOAD";	break;
@@ -43,56 +43,56 @@ typedef class _elf_phdr_entry_t : public elf_section_t{
 			case PT_LOPROC:		str = "PT_LOPROC";	break;
 			case PT_HIPROC:		str = "PT_HIPROC";	break;
 			}
-			rt_fprint(fd, "%s\n", str);
+			fprintf(fd, "%s\n", str);
 		}
 
-		void offset_str(rt_file_t fd, int p_offset){
-			rt_fprint(fd, "p_offset=0x%x\n", p_offset);
+		void offset_str(FILE* fd, int p_offset){
+			fprintf(fd, "p_offset=0x%x\n", p_offset);
 		}
 
-		void phdr_entry_vaddr_str(rt_file_t fd, int p_vaddr){
-			rt_fprint(fd, "p_vaddr=0x%x\n", p_vaddr);
+		void phdr_entry_vaddr_str(FILE* fd, int p_vaddr){
+			fprintf(fd, "p_vaddr=0x%x\n", p_vaddr);
 		}
 
-		void vaddr_str(rt_file_t fd, int p_vaddr){
-			rt_fprint(fd, "p_vaddr=0x%x\n", p_vaddr);
+		void vaddr_str(FILE* fd, int p_vaddr){
+			fprintf(fd, "p_vaddr=0x%x\n", p_vaddr);
 		}
 
-		void paddr_str(rt_file_t fd, int p_paddr){
-			rt_fprint(fd, "p_paddr=0x%x\n", p_paddr);
+		void paddr_str(FILE* fd, int p_paddr){
+			fprintf(fd, "p_paddr=0x%x\n", p_paddr);
 		}
 
-		void filesz_str(rt_file_t fd, int p_filesz){
-			rt_fprint(fd, "p_filesz=%d\n", p_filesz);
+		void filesz_str(FILE* fd, int p_filesz){
+			fprintf(fd, "p_filesz=%d\n", p_filesz);
 		}
 
-		void memsz_str(rt_file_t fd, int p_memsz){
-			rt_fprint(fd, "p_memsz=0x%x\n", p_memsz);
+		void memsz_str(FILE* fd, int p_memsz){
+			fprintf(fd, "p_memsz=0x%x\n", p_memsz);
 		}
 
-		void flags_str(rt_file_t fd, int p_flags){
-			rt_fprint(fd, "p_flags=");
-			if(p_flags & PF_X)	rt_fprint(fd, "PF_X | ");
-			if(p_flags & PF_W)	rt_fprint(fd, "PF_W | ");
-			if(p_flags & PF_R)	rt_fprint(fd, "PF_R");
-			rt_fprint(fd, "\n");
+		void flags_str(FILE* fd, int p_flags){
+			fprintf(fd, "p_flags=");
+			if(p_flags & PF_X)	fprintf(fd, "PF_X | ");
+			if(p_flags & PF_W)	fprintf(fd, "PF_W | ");
+			if(p_flags & PF_R)	fprintf(fd, "PF_R");
+			fprintf(fd, "\n");
 		}
 
-		void align_str(rt_file_t fd, int p_align){
-			rt_fprint(fd, "p_align=%d\n", p_align);
+		void align_str(FILE* fd, int p_align){
+			fprintf(fd, "p_align=%d\n", p_align);
 		}
 
 	public:
-		_elf_phdr_entry_t(rt_file_t fd, int phoff){
-			rt_fseek(fd, phoff, RT_FILE_SEEK_SET);
-			rt_fread(fd, &(phdr), sizeof(Elf32_Phdr));
+		_elf_phdr_entry_t(FILE* fd, int phoff){
+			fseek(fd, phoff, SEEK_SET);
+			fread(&(phdr), sizeof(Elf32_Phdr), 1, fd);
 		}
 
-		virtual void dump(rt_file_t fd){
-			rt_fprint(fd, "no date\n");
+		virtual void dump(FILE* fd){
+			fprintf(fd, "no date\n");
 		}
 
-		virtual void format(rt_file_t fd){
+		virtual void format(FILE* fd){
 			type_str(fd, phdr.p_type);
 			offset_str(fd, phdr.p_offset);
 			vaddr_str(fd, phdr.p_vaddr);
@@ -101,28 +101,28 @@ typedef class _elf_phdr_entry_t : public elf_section_t{
 			memsz_str(fd, phdr.p_memsz);
 			flags_str(fd, phdr.p_flags);
 			align_str(fd, phdr.p_align);
-			rt_fprint(fd, "\n");
+			fprintf(fd, "\n");
 		}
 
 		virtual elf_section_t* get_sub(const int idx){
-			return cnull;
+			return 0;
 		}
 
 		virtual elf_section_t* find_sub(const char* stridx){
-			return cnull;
+			return 0;
 		}
 
-		virtual const cbyte* data(void){
-			return cnull;
+		virtual const unsigned char* data(void){
+			return 0;
 		}
 
 		virtual const char* name(void){
-			return cnull;
+			return 0;
 		}
 
 }elf_phdr_entry_t;
 
-elf_section_t* phdr_entry_new(rt_file_t fd, int phoff){
+elf_section_t* phdr_entry_new(FILE* fd, int phoff){
 	return (elf_section_t*) new elf_phdr_entry_t(fd, phoff);
 
 }

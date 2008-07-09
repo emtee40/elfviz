@@ -23,5 +23,5 @@
 #ifndef __ELFIO_SHDR_H__
 #define __ELFIO_SHDR_H__
 
-elf_section_t* shdr_new(Elf32_Ehdr ehdr, rt_file_t fd);
+elf_section_t* shdr_new(Elf32_Ehdr ehdr, FILE* fd);
 #endif //__ELFIO_PHDR_H__

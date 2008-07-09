@@ -24,7 +24,7 @@
 
 typedef class _cmdaction{
 	public:
-		virtual void act(int argc, char** argv, rt_file_t rtout, elfio_t** pelfio) = 0;
+		virtual void act(int argc, char** argv, FILE* rtout, elfio_t** pelfio) = 0;
 }cmdaction;
 
 cmdaction* get_action(char* command);

@@ -22,5 +22,5 @@
 
 #ifndef __ELF_SHDR_ENTRY_H__
 #define __ELF_SHDR_ENTRY_H__
-elf_section_t* shdr_entry_new(rt_file_t fd, int e_shoff, char* shstrtab, char* strtab);
+elf_section_t* shdr_entry_new(FILE* fd, int e_shoff, char* shstrtab, char* strtab);
 #endif //__ELF_SHDR_ENTRY_H__

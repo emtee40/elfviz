@@ -19,8 +19,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * -------------------------------------------------------------------------
 */
+#include <stdio.h>
+#include <memory.h>
+#include <string.h>
 
-#include "ucrt/ucrt.h"
 #include "elfio/elfio.h"
 #include "elftypes.h"
 #include "shdr_symtab_entry.h"
@@ -32,25 +34,25 @@ typedef struct _elf_shdr_symtab_entry_t : public elf_section_t{
 
 	public:
 		_elf_shdr_symtab_entry_t(Elf32_Sym esymtab, char* ename){
-			rt_memcpy(&symtab, &esymtab, sizeof(Elf32_Sym));
-			ss_name = rt_strdup(ename);
+			memcpy(&symtab, &esymtab, sizeof(Elf32_Sym));
+			ss_name = strdup(ename);
 		}
 
 		~_elf_shdr_symtab_entry_t(){
-			rt_delete(ss_name);
+			delete ss_name;
 		}
 
-		virtual void format(rt_file_t fd){
+		virtual void format(FILE* fd){
 			unsigned int sti = 0;
-			char* str = cnull;
-			if(ss_name) rt_fprint(fd, "st_name_str=%s\n", ss_name);
-			rt_fprint(fd, "st_name=%d\n", symtab.st_name);
-			rt_fprint(fd, "st_vale=%d\n", symtab.st_value);
-			rt_fprint(fd, "st_size=%d\n", symtab.st_size);
-			rt_fprint(fd, "st_info=0x%x\n", symtab.st_info);
+			char* str = 0;
+			if(ss_name) fprintf(fd, "st_name_str=%s\n", ss_name);
+			fprintf(fd, "st_name=%d\n", symtab.st_name);
+			fprintf(fd, "st_vale=%d\n", symtab.st_value);
+			fprintf(fd, "st_size=%d\n", symtab.st_size);
+			fprintf(fd, "st_info=0x%x\n", symtab.st_info);
 			sti = symtab.st_info;
 			sti = ELF32_ST_BIND(sti);
-			rt_fprint(fd, "st_bind=");
+			fprintf(fd, "st_bind=");
 			switch(sti){
 				case STB_LOCAL:		str = "STB_LOCAL";	break;
 				case STB_GLOBAL:	str = "STB_GLOBAL";	break;
@@ -58,10 +60,10 @@ typedef struct _elf_shdr_symtab_entry_t : public elf_section_t{
 				case STB_LOPROC:	str = "STB_LOPROC";	break;
 				case STB_HIPROC:	str = "STB_HIPROC";	break;
 			}
-			rt_fprint(fd, "%s\n", str);
+			fprintf(fd, "%s\n", str);
 			sti = symtab.st_info;
 			sti = ELF32_ST_TYPE(sti);
-			rt_fprint(fd, "st_type=");
+			fprintf(fd, "st_type=");
 			switch(sti){
 				case STT_NOTYPE:	str = "STT_NOTYPE";		break;
 				case STT_OBJECT:	str = "STT_OBJECT";		break;
@@ -71,26 +73,26 @@ typedef struct _elf_shdr_symtab_entry_t : public elf_section_t{
 				case STT_LOPROC:	str = "STT_LOPROC";		break;
 				case STT_HIPROC:	str = "STT_HIPROC";		break;
 			}
-			rt_fprint(fd, "%s\n", str);
-			rt_fprint(fd, "st_other=0x%x\n", symtab.st_other);
-			rt_fprint(fd, "st_shndx=%d\n", symtab.st_shndx);
-			rt_fprint(fd, "\n");
+			fprintf(fd, "%s\n", str);
+			fprintf(fd, "st_other=0x%x\n", symtab.st_other);
+			fprintf(fd, "st_shndx=%d\n", symtab.st_shndx);
+			fprintf(fd, "\n");
 		}
 
-		virtual void dump(rt_file_t fd){
-			rt_fprint(fd, "no data\n");
+		virtual void dump(FILE* fd){
+			fprintf(fd, "no data\n");
 		}
 
 		virtual elf_section_t* get_sub(const int idx){
-			return cnull;
+			return 0;
 		}
 
 		virtual elf_section_t* find_sub(const char* stridx){
-			return cnull;
+			return 0;
 		}
 
-		virtual const cbyte* data(void){
-			return cnull;
+		virtual const unsigned char* data(void){
+			return 0;
 		}
 
 		virtual const char* name(void){
@@ -98,9 +100,9 @@ typedef struct _elf_shdr_symtab_entry_t : public elf_section_t{
 		}
 }elf_shdr_symtab_entry_t;
 
-elf_section_t* shdr_symtab_entry_new(rt_file_t fd, unsigned int sh_offset, char* strtab){
+elf_section_t* shdr_symtab_entry_new(FILE* fd, unsigned int sh_offset, char* strtab){
 	Elf32_Sym symtab;
-	rt_fseek(fd, sh_offset, RT_FILE_SEEK_SET);
-	rt_fread(fd, &symtab, sizeof(Elf32_Sym));
+	fseek(fd, sh_offset, SEEK_SET);
+	fread(&symtab, sizeof(Elf32_Sym), 1, fd);
 	return (elf_section_t*) new elf_shdr_symtab_entry_t(symtab, symtab.st_name + strtab);
 }

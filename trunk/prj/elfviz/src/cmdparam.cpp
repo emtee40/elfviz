@@ -19,19 +19,20 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * -------------------------------------------------------------------------
 */
+#include <string.h>
+
 #include "cmdparam.h"
-#include "ucrt/ucrt.h"
 
 _cmdparam::_cmdparam(){
 	for(int i = 0 ; i < VIZCMD_PARAM_NUM ; i++)	{
-		vizcmd_param[i] = cnull;
+		vizcmd_param[i] = 0;
 	}
 }
 
 void _cmdparam::add(char* param){
 	for(int i = 0 ; i < VIZCMD_PARAM_NUM ; i++){
 		if(!vizcmd_param[i]) {
-			vizcmd_param[i] = rt_strdup(param);
+			vizcmd_param[i] = strdup(param);
 			break;
 		}
 	}

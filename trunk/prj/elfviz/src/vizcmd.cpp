@@ -19,7 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * -------------------------------------------------------------------------
 */
-#include "ucrt/ucrt.h"
+#include <stdio.h>
+
 #include "elfio/elfio.h"
 #include "vizcmd.h"
 #include "cmdparam.h"
@@ -28,7 +29,7 @@
 typedef class _elfvizcmd:public vizcmd{
 	protected:
 		char str[128];
-		rt_file_t stdout;
+		FILE* ertout;
 		elfio_t* elfio;
 
 		char* scan(char* inbuf, char** endp){
@@ -55,32 +56,21 @@ typedef class _elfvizcmd:public vizcmd{
 					str[i] = 0;
 				}
 			}
-			return (str[0]) ? str : cnull;
+			return (str[0]) ? str : 0;
 		}
 
 	public:
-		_elfvizcmd(rt_file_t rtout){stdout = rtout; elfio = cnull;}
-		virtual void title(void){
-			rt_fprint(stdout, "elfviz v1.0 Copyright (C) 2008  Song-Hwan Kim\n");
-			rt_fprint(stdout, "This program comes with ABSOLUTELY NO WARRANTY; ");
-		//	rtout->print("for details type `show w'.\n");
-		//	rtout->print(rtout, "This is free software, and you are welcome to redistribute it\n");
-		//	rtout->print(rtout, "under certain conditions; type `show c' for details.\n");
-			rt_fprint(stdout, "\n");
-		}
-
+		_elfvizcmd(FILE* rtout){ertout = rtout; elfio = 0;}
 		virtual void parse(char* inbuf){
-			char* endp = cnull;
+			char* endp = 0;
 			char* str = scan(inbuf, &endp);
 			cmdaction* action = get_action(str);
 			cmdparam param;
-			for(str = scan(cnull, &endp) ; str ; str = scan(cnull, &endp))	param.add(str);
+			for(str = scan(0, &endp) ; str ; str = scan(0, &endp))	param.add(str);
 			action->act(param.count(), (char**)param.str(), stdout, &elfio);
 		}
 }elfvizcmd;
 
-vizcmd* get_cmd(rt_file_t stdout){
-	return (vizcmd*) new elfvizcmd(stdout);
-
+vizcmd* get_cmd(FILE* rtout){
+	return (vizcmd*) new elfvizcmd(rtout);
 }
-

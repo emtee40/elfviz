@@ -19,58 +19,62 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * -------------------------------------------------------------------------
 */
-#include "ucrt/ucrt.h"
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
 #include "elfio/elfio.h"
 #include "cmdaction.h"
 
-#define CMD_PRINT_ERROR(rtout, str)	rt_fprint(rtout, "*ERROR:%s\n", str)
+#define CMD_PRINT_ERROR(rtout, str)	fprintf(rtout, "*ERROR:%s\n", str)
 
 typedef class _cmdaction_dummy : public cmdaction{
 	public:
-		virtual void act(int argc, char** argv, rt_file_t rtout, elfio_t** pelfio){
+		virtual void act(int argc, char** argv, FILE* rtout, elfio_t** pelfio){
 			CMD_PRINT_ERROR(rtout, "unknown command");
 		}
 }cmdaction_dummy;
 
 typedef class _cmdaction_help : public cmdaction{
 	public:
-		virtual void act(int argc, char** argv, rt_file_t rtout, elfio_t** pelfio){
-			rt_fprint(rtout, "open {file_name}\n\topen elf file\n");
-			rt_fprint(rtout, "close\tclose elf file\n");
-			rt_fprint(rtout, "file\treturns file name of opened elf file\n");
-			rt_fprint(rtout, "help\tthis help screen\n");
-			rt_fprint(rtout, "ehdr [[>|>>] {file_name}]\tshow elf header\n");
-			rt_fprint(rtout, "\tif > or >> defined, result is saved to file also\n");
-			rt_fprint(rtout, "{shdr|phdr}[{@|#}{number}] [[>|>>] {file_name}]\n");
-			rt_fprint(rtout, "\tshow header or dump section data\n");
-			rt_fprint(rtout, "\tshdr means section header and phdr means program header\n");
-			rt_fprint(rtout, "\t@ means dumping data and # means show header\n");
-			rt_fprint(rtout, "\tnumber must be lower than total number of sections\n");
-			rt_fprint(rtout, "\t\tsee ehdr\n");
-			rt_fprint(rtout, "\tif > or >> defined, result is saved to file also\n");
+		virtual void act(int argc, char** argv, FILE* rtout, elfio_t** pelfio){
+			fprintf(rtout, "open {file_name}\n\topen elf file\n");
+			fprintf(rtout, "close\tclose elf file\n");
+			fprintf(rtout, "file\treturns file name of opened elf file\n");
+			fprintf(rtout, "help\tthis help screen\n");
+			fprintf(rtout, "ehdr [[>|>>] {file_name}]\tshow elf header\n");
+			fprintf(rtout, "\tif > or >> defined, result is saved to file also\n");
+			fprintf(rtout, "{shdr|phdr}[{@|#}{number}] [[>|>>] {file_name}]\n");
+			fprintf(rtout, "\tshow header or dump section data\n");
+			fprintf(rtout, "\tshdr means section header and phdr means program header\n");
+			fprintf(rtout, "\t@ means dumping data and # means show header\n");
+			fprintf(rtout, "\tnumber must be lower than total number of sections\n");
+			fprintf(rtout, "\t\tsee ehdr\n");
+			fprintf(rtout, "\tif > or >> defined, result is saved to file also\n");
 		}
 }cmdaction_help;
 
 typedef class _cmdaction_open : public cmdaction{
 	public:
-		virtual void act(int argc, char** argv, rt_file_t rtout, elfio_t** pelfio){
+		virtual void act(int argc, char** argv, FILE* rtout, elfio_t** pelfio){
 			*pelfio = elfio_new(argv[0]);
-			if(*pelfio) rt_fprint(rtout, "%s is opened\n", argv[0]);
-			else rt_fprint(rtout, " %s is not opened\n", argv[0]);
+			if(*pelfio) fprintf(rtout, "%s is opened\n", argv[0]);
+			else fprintf(rtout, " %s is not opened\n", argv[0]);
 		}
 }cmdaction_open;
 
 typedef class _cmdaction_close : public cmdaction{
 	public:
-		virtual void act(int argc, char** argv, rt_file_t rtout, elfio_t** pelfio){
+		virtual void act(int argc, char** argv, FILE* rtout, elfio_t** pelfio){
 			elfio_t* elfio = *pelfio;
 			if(elfio) {
-				char* elf_fn = rt_strdup((char*)elfio->file_name());
+				char* elf_fn = strdup((char*)elfio->file_name());
 				delete elfio;
-				rt_fprint(rtout, "%s is closed\n", elf_fn);
-				*pelfio = cnull;
-				rt_delete(elf_fn);
-				elf_fn = cnull;
+				fprintf(rtout, "%s is closed\n", elf_fn);
+				*pelfio = 0;
+				delete elf_fn;
+				elf_fn = 0;
 			} else {
 				CMD_PRINT_ERROR(rtout, "no file is opened\n");
 			}
@@ -79,24 +83,24 @@ typedef class _cmdaction_close : public cmdaction{
 
 typedef class _cmdaction_file : public cmdaction{
 	public:
-		virtual void act(int argc, char** argv, rt_file_t rtout, elfio_t** pelfio){
-			rt_fprint(rtout, "%s\n", (*pelfio) ? (*pelfio)->file_name() : "(null)");
+		virtual void act(int argc, char** argv, FILE* rtout, elfio_t** pelfio){
+			fprintf(rtout, "%s\n", (*pelfio) ? (*pelfio)->file_name() : "(null)");
 		}
 }cmdaction_file;
 
 typedef class _cmdaction_list : public cmdaction{
 	public:
-		virtual void act(int argc, char** argv, rt_file_t rtout, elfio_t** pelfio){
-			const char* msg = cnull;
-			elf_section_t* section = cnull;
+		virtual void act(int argc, char** argv, FILE* rtout, elfio_t** pelfio){
+			const char* msg = 0;
+			elf_section_t* section = 0;
 			elfio_t* elfio = *pelfio;
 
 			if(!elfio) {
 				CMD_PRINT_ERROR(rtout, "no elf is opened.");
 			}
-			if(!rt_strcmp(argv[0], "shdr")){
+			if(!strcmp(argv[0], "shdr")){
 				section = elfio->get_shdr();
-			} else if(!rt_strcmp(argv[0], "phdr")){
+			} else if(!strcmp(argv[0], "phdr")){
 				section = elfio->get_phdr();
 			} else {
 				CMD_PRINT_ERROR(rtout, "unknown parameter");
@@ -107,21 +111,21 @@ typedef class _cmdaction_list : public cmdaction{
 				return;
 			}
 			section->format(rtout);
-			rt_fprint(rtout, "%s", msg);
+			fprintf(rtout, "%s", msg);
 			if(argc >= 3){
-				int mode = 0;
-				if(!rt_strcmp(argv[1], ">")){
-					mode = RT_FILE_OPEN_WRTRUNC;
-				} else if(!rt_strcmp(argv[1], ">>")){
-					mode = RT_FILE_OPEN_APPEND;
+				char* mode;
+				if(!strcmp(argv[1], ">")){
+					mode = "wb";
+				} else if(!strcmp(argv[1], ">>")){
+					mode = "rb+";
 				} else {
 					CMD_PRINT_ERROR(rtout, "unknown parameter");
 					return;
 				}
 				{
-					rt_file_t fd = rt_file_new(argv[2], mode);
-					rt_fprint(fd, "%s", msg);
-					rt_file_delete(fd);
+					FILE* fd = fopen(argv[2], mode);
+					fprintf(fd, "%s", msg);
+					fclose(fd);
 				}
 			}
 		}
@@ -129,37 +133,37 @@ typedef class _cmdaction_list : public cmdaction{
 
 typedef class _cmdaction_ehdr : public cmdaction{
 	public:
-		virtual void act(int argc, char** argv, rt_file_t rtout, elfio_t** pelfio){
-			rt_file_t fd = cnull;
+		virtual void act(int argc, char** argv, FILE* rtout, elfio_t** pelfio){
+			FILE* fd = 0;
 			elfio_t* elfio = *pelfio;
 			if(!elfio) {
 				CMD_PRINT_ERROR(rtout, "no elf is opened.");
 				return;
 			}
 			if(argc >= 2){
-				int mode = 0;
-				if(!rt_strcmp(argv[1], ">")){
-					mode = RT_FILE_OPEN_WRTRUNC;
-				} else if(!rt_strcmp(argv[1], ">>")){
-					mode = RT_FILE_OPEN_APPEND;
+				char* mode = 0;
+				if(!strcmp(argv[1], ">")){
+					mode = "wb";
+				} else if(!strcmp(argv[1], ">>")){
+					mode = "rb+";
 				} else {
 					CMD_PRINT_ERROR(rtout, "unknown parameter");
 					return;
 				}
-				fd = rt_file_new(argv[2], mode);
+				fd = fopen(argv[2], mode);
 			}
 
 			elfio->format(rtout);
 			if(fd) elfio->format(fd);
-			if(fd) rt_file_delete(fd);
+			if(fd) fclose(fd);
 		}
 }cmdaction_ehdr;
 
 typedef class _cmdaction_phdr : public cmdaction{
 	public:
-		virtual void act(int argc, char** argv, rt_file_t rtout, elfio_t** pelfio){
-			elf_section_t* section = cnull;
-			rt_file_t fd = cnull;
+		virtual void act(int argc, char** argv, FILE* rtout, elfio_t** pelfio){
+			elf_section_t* section = 0;
+			FILE* fd = 0;
 			elfio_t* elfio = *pelfio;
 			int i = 0;
 			if(!elfio) {
@@ -171,23 +175,23 @@ typedef class _cmdaction_phdr : public cmdaction{
 				CMD_PRINT_ERROR(rtout, "invalid elf");
 				return;
 			}
-			if(i < argc && !rt_strcmp(argv[i++], "#")) {
-				int idx = rt_atoi(argv[i++]);
+			if(i < argc && !strcmp(argv[i++], "#")) {
+				int idx = atoi(argv[i++]);
 				section = section->get_sub(idx);
 			}
-			if(i < argc && (!rt_strcmp(argv[i], ">") || !rt_strcmp(argv[i], ">>"))){
-				int mode = 0;
-				if(!rt_strcmp(argv[i], ">")){
-					mode = RT_FILE_OPEN_WRTRUNC;
-				} else if(!rt_strcmp(argv[i], ">>")){
-					mode = RT_FILE_OPEN_APPEND;
+			if(i < argc && (!strcmp(argv[i], ">") || !strcmp(argv[i], ">>"))){
+				char* mode = 0;
+				if(!strcmp(argv[i], ">")){
+					mode = "wb";
+				} else if(!strcmp(argv[i], ">>")){
+					mode = "rb+";
 				}
-				fd = rt_file_new(argv[++i], mode);
+				fd = fopen(argv[++i], mode);
 			}
 			section->format(rtout);
 			if(fd) {
 				section->format(fd);
-				rt_file_delete(fd);
+				fclose(fd);
 			}
 		}
 }cmdaction_phdr;
@@ -197,10 +201,10 @@ typedef class _cmdaction_phdr : public cmdaction{
 
 typedef class _cmdaction_shdr : public cmdaction{
 	public:
-		virtual void act(int argc, char** argv, rt_file_t rtout, elfio_t** pelfio){
+		virtual void act(int argc, char** argv, FILE* rtout, elfio_t** pelfio){
 			int cmd = VIZ_CMD_DUMP;
-			elf_section_t* section = cnull;
-			rt_file_t fd = cnull;
+			elf_section_t* section = 0;
+			FILE* fd = 0;
 			int i = 0;
 			elfio_t* elfio = *pelfio;
 			if(!elfio) {
@@ -212,38 +216,38 @@ typedef class _cmdaction_shdr : public cmdaction{
 				CMD_PRINT_ERROR(rtout, "invalid elf");
 				return;
 			}
-			if(i < argc && !rt_strcmp(argv[i], "#")) {
-				elf_section_t* temp = cnull;
+			if(i < argc && !strcmp(argv[i], "#")) {
+				elf_section_t* temp = 0;
 				i++;
 				temp = section->find_sub(argv[i]);
 				if(!temp){
-					int idx = rt_atoi(argv[i]);
+					int idx = atoi(argv[i]);
 					section = section->get_sub(idx);
 				} else {
 					section = temp;
 				}
 				i++;
 				cmd = VIZ_CMD_FORMAT;
-			} else if(i < argc && !rt_strcmp(argv[i], "@")) {
-				elf_section_t* temp = cnull;
+			} else if(i < argc && !strcmp(argv[i], "@")) {
+				elf_section_t* temp = 0;
 				i++;
 				temp = section->find_sub(argv[i]);
 				if(!temp){
-					int idx = rt_atoi(argv[i]);
+					int idx = atoi(argv[i]);
 					section = section->get_sub(idx);
 				} else {
 					section = temp;
 				}
 				i++;
 			}
-			if(i < argc && (!rt_strcmp(argv[i], ">") || !rt_strcmp(argv[i], ">>"))){
-				int mode = 0;
-				if(!rt_strcmp(argv[i], ">")){
-					mode = RT_FILE_OPEN_WRTRUNC;
-				} else if(!rt_strcmp(argv[i], ">>")){
-					mode = RT_FILE_OPEN_APPEND;
+			if(i < argc && (!strcmp(argv[i], ">") || !strcmp(argv[i], ">>"))){
+				char* mode = 0;
+				if(!strcmp(argv[i], ">")){
+					mode = "wb";
+				} else if(!strcmp(argv[i], ">>")){
+					mode = "rb+";
 				}
-				fd = rt_file_new(argv[++i], mode);
+				fd = fopen(argv[++i], mode);
 			}
 
 			if(cmd == VIZ_CMD_FORMAT) {
@@ -253,7 +257,7 @@ typedef class _cmdaction_shdr : public cmdaction{
 				section->dump(rtout);
 				if(fd) section->dump(fd);
 			}
-			if(fd) rt_file_delete(fd);
+			if(fd) fclose(fd);
 
 		}
 }cmdaction_shdr;
@@ -271,14 +275,14 @@ static cmdaction_shdr shdr_act;
 cmdaction* get_action(char* command){
 	cmdaction* action_act = &dummy_act;
 	if(command){
-		if(!rt_strcmp(command, "help")) action_act = (cmdaction*)&help_act;
-		else if(!rt_strcmp(command, "open")) action_act = (cmdaction*)&open_act;
-		else if(!rt_strcmp(command, "close")) action_act = (cmdaction*)&close_act;
-		else if(!rt_strcmp(command, "file")) action_act = (cmdaction*)&file_act;
-		else if(!rt_strcmp(command, "list")) action_act = (cmdaction*)&list_act;
-		else if(!rt_strcmp(command, "ehdr")) action_act = (cmdaction*)&ehdr_act;
-		else if(!rt_strcmp(command, "phdr")) action_act = (cmdaction*)&phdr_act;
-		else if(!rt_strcmp(command, "shdr")) action_act = (cmdaction*)&shdr_act;
+		if(!strcmp(command, "help")) action_act = (cmdaction*)&help_act;
+		else if(!strcmp(command, "open")) action_act = (cmdaction*)&open_act;
+		else if(!strcmp(command, "close")) action_act = (cmdaction*)&close_act;
+		else if(!strcmp(command, "file")) action_act = (cmdaction*)&file_act;
+		else if(!strcmp(command, "list")) action_act = (cmdaction*)&list_act;
+		else if(!strcmp(command, "ehdr")) action_act = (cmdaction*)&ehdr_act;
+		else if(!strcmp(command, "phdr")) action_act = (cmdaction*)&phdr_act;
+		else if(!strcmp(command, "shdr")) action_act = (cmdaction*)&shdr_act;
 	}
 	return action_act;
 }

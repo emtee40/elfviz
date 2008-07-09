@@ -24,11 +24,11 @@
 #define __VIZ_CMD_H__
 
 
-typedef struct _vizcmd{
+typedef class _vizcmd{
 	public:
-		virtual void title(void) = 0;
 		virtual void parse(char* inbuf) = 0;
 }vizcmd;
 
-vizcmd* get_cmd(rt_file_t rtout);
+vizcmd* get_macro(FILE* rtout);
+vizcmd* get_cmd(FILE* rtout);
 #endif //__VIZ_CMD_H__

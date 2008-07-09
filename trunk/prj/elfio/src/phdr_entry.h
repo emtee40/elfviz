@@ -22,5 +22,5 @@
 
 #ifndef __ELF_PHDR_ENTRY_H__
 #define __ELF_PHDR_ENTRY_H__
-elf_section_t* phdr_entry_new(rt_file_t fd, int e_phoff);
+elf_section_t* phdr_entry_new(FILE* fd, int e_phoff);
 #endif //__ELF_PHDR_ENTRY_H__

@@ -31,7 +31,7 @@
 typedef class _elf_shdr_t : public elf_section_t{
 	protected:
 		elf_section_t** entry;
-		int n_entry;
+		unsigned int n_entry;
 		char* shstr;
 
 	public:
@@ -41,8 +41,7 @@ typedef class _elf_shdr_t : public elf_section_t{
 			elf_section_t* shdr_shstr = shdr_entry_new(fd, shoff + sizeof(Elf32_Shdr) * shstrndx, 0, 0);
 			char* shstr = (char*)shdr_shstr->data();
 			char* strtab = 0;
-			int strtab_idx = 0;
-			int i = 0;
+			unsigned int i = 0;
 			//todo : order of names in shstrtab is not coinsident with that of sections
 
 			entry = new elf_section_t* [n_entry];
@@ -61,7 +60,7 @@ typedef class _elf_shdr_t : public elf_section_t{
 
 		~_elf_shdr_t(){
 			if(n_entry){
-				for(int i = 0 ; i < n_entry ; i++) delete entry[i];
+				for(unsigned int i = 0 ; i < n_entry ; i++) delete entry[i];
 				delete entry;
 				delete shstr;
 			}
@@ -72,16 +71,15 @@ typedef class _elf_shdr_t : public elf_section_t{
 		}
 
 		virtual void dump(FILE* fd){
-			for(int i = 0 ; i < n_entry ; i++)	entry[i]->format(fd);
+			for(unsigned int i = 0 ; i < n_entry ; i++)	entry[i]->format(fd);
 		}
 
-		virtual elf_section_t* get_sub(const int idx){
+		virtual elf_section_t* get_sub(const unsigned int idx){
 			return (idx >= n_entry) ? 0 : entry[idx];
 		}
 
 		virtual elf_section_t* find_sub(const char* stridx){
-			int i = 0;
-			for(i = 0 ; i < n_entry ; i++){
+			for(unsigned int i = 0 ; i < n_entry ; i++){
 				if(!strcmp(entry[i]->name(), stridx)) return entry[i];
 			}
 			return 0;

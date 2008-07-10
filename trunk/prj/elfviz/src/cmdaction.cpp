@@ -115,9 +115,9 @@ typedef class _cmdaction_list : public cmdaction{
 			if(argc >= 3){
 				char* mode;
 				if(!strcmp(argv[1], ">")){
-					mode = "wb";
+					mode = (char*)"wb";
 				} else if(!strcmp(argv[1], ">>")){
-					mode = "rb+";
+					mode = (char*)"rb+";
 				} else {
 					CMD_PRINT_ERROR(rtout, "unknown parameter");
 					return;
@@ -143,9 +143,9 @@ typedef class _cmdaction_ehdr : public cmdaction{
 			if(argc >= 2){
 				char* mode = 0;
 				if(!strcmp(argv[1], ">")){
-					mode = "wb";
+					mode = (char*)"wb";
 				} else if(!strcmp(argv[1], ">>")){
-					mode = "rb+";
+					mode = (char*)"rb+";
 				} else {
 					CMD_PRINT_ERROR(rtout, "unknown parameter");
 					return;
@@ -182,9 +182,9 @@ typedef class _cmdaction_phdr : public cmdaction{
 			if(i < argc && (!strcmp(argv[i], ">") || !strcmp(argv[i], ">>"))){
 				char* mode = 0;
 				if(!strcmp(argv[i], ">")){
-					mode = "wb";
+					mode = (char*)"wb";
 				} else if(!strcmp(argv[i], ">>")){
-					mode = "rb+";
+					mode = (char*)"rb+";
 				}
 				fd = fopen(argv[++i], mode);
 			}
@@ -243,9 +243,9 @@ typedef class _cmdaction_shdr : public cmdaction{
 			if(i < argc && (!strcmp(argv[i], ">") || !strcmp(argv[i], ">>"))){
 				char* mode = 0;
 				if(!strcmp(argv[i], ">")){
-					mode = "wb";
+					mode = (char*)"wb";
 				} else if(!strcmp(argv[i], ">>")){
-					mode = "rb+";
+					mode = (char*)"rb+";
 				}
 				fd = fopen(argv[++i], mode);
 			}

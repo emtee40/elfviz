@@ -13,16 +13,16 @@ typedef class _elfargparse : public argparse {
 		bool goto_imode;
 		char str[ARG_STR_LEN][ARG_CMD_LEN];
 
-		void show_help(FILE* rtout){
-			fprintf(rtout, "-f {filename}\topen elf file\n");
-			fprintf(rtout, "-h\t\tthis help screen\n");
-			fprintf(rtout, "-e\t\tshow elf header\n");
-			fprintf(rtout, "-s\t\tshow section headers\n");
-			fprintf(rtout, "-p\t\tshow program headers\n");
-			fprintf(rtout, "-y\t\tshow symbol table\n");
+		void show_help(void){
+			fprintf(stdout, "-f {filename}\topen elf file\n");
+			fprintf(stdout, "-h\t\tthis help screen\n");
+			fprintf(stdout, "-e\t\tshow elf header\n");
+			fprintf(stdout, "-s\t\tshow section headers\n");
+			fprintf(stdout, "-p\t\tshow program headers\n");
+			fprintf(stdout, "-y\t\tshow symbol table\n");
 		}
 	public:
-		_elfargparse(int argc, char* argv[], FILE* rtout){
+		_elfargparse(int argc, char* argv[]){
 			int a = 1;
 			goto_imode = false;
 			memset(str, 0, sizeof(str));
@@ -48,7 +48,7 @@ typedef class _elfargparse : public argparse {
 					//TODO:shows relocation table
 				} else if (!strcmp(argv[i], "-h")){
 					//TODO:shows help screen
-					show_help(rtout);
+					show_help();
 					goto_imode = false;
 					memset(str, 0, sizeof(str));
 					return;
@@ -74,6 +74,6 @@ typedef class _elfargparse : public argparse {
 		}
 }elfargparse;
 
-argparse* get_argparse(int argc, char* argv[], FILE* rtout){
-	return (argparse*) new elfargparse(argc, argv, rtout);
+argparse* get_argparse(int argc, char* argv[]){
+	return (argparse*) new elfargparse(argc, argv);
 }

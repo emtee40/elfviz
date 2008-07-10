@@ -40,25 +40,25 @@ typedef class _elf_shdr_entry_t : public elf_section_t{
 		}
 
 		void type_str(FILE* fd, int sh_type){
-			char* str = "unknown";
+			char* str = (char*)"unknown";
 			fprintf(fd, "sh_type=");
 			switch(sh_type){
-			case SHT_NULL:		str = "SHT_NULL";		break;
-			case SHT_PROGBITS:	str = "SHT_PROGBITS";	break;
-			case SHT_SYMTAB:	str = "SHT_SYMTAB";		break;
-			case SHT_STRTAB:	str = "SHT_STRTAB";		break;
-			case SHT_RELA:		str = "SHT_RELA";		break;
-			case SHT_HASH:		str = "SHT_HASH";		break;
-			case SHT_DYNAMIC:	str = "SHT_DYNAMIC";	break;
-			case SHT_NOTE:		str = "SHT_NOTE";		break;
-			case SHT_NOBITS:	str = "SHT_NOBITS";		break;
-			case SHT_REL:		str = "SHT_REL";		break;
-			case SHT_SHLIB:		str = "SHT_SHLIB";		break;
-			case SHT_DYNSYM:	str = "SHT_DYNSYM";		break;
-			case SHT_LOPROC:	str = "SHT_LOPROC";		break;
-			case SHT_HIPROC:	str = "SHT_HIPROC";		break;
-			case SHT_LOUSER:	str = "SHT_LOUSER";		break;
-			case SHT_HIUSER:	str = "SHT_HIUSER";		break;
+			case SHT_NULL:		str = (char*)"SHT_NULL";		break;
+			case SHT_PROGBITS:	str = (char*)"SHT_PROGBITS";	break;
+			case SHT_SYMTAB:	str = (char*)"SHT_SYMTAB";		break;
+			case SHT_STRTAB:	str = (char*)"SHT_STRTAB";		break;
+			case SHT_RELA:		str = (char*)"SHT_RELA";		break;
+			case SHT_HASH:		str = (char*)"SHT_HASH";		break;
+			case SHT_DYNAMIC:	str = (char*)"SHT_DYNAMIC";	break;
+			case SHT_NOTE:		str = (char*)"SHT_NOTE";		break;
+			case SHT_NOBITS:	str = (char*)"SHT_NOBITS";		break;
+			case SHT_REL:		str = (char*)"SHT_REL";		break;
+			case SHT_SHLIB:		str = (char*)"SHT_SHLIB";		break;
+			case SHT_DYNSYM:	str = (char*)"SHT_DYNSYM";		break;
+			case SHT_LOPROC:	str = (char*)"SHT_LOPROC";		break;
+			case SHT_HIPROC:	str = (char*)"SHT_HIPROC";		break;
+			case SHT_LOUSER:	str = (char*)"SHT_LOUSER";		break;
+			case SHT_HIUSER:	str = (char*)"SHT_HIUSER";		break;
 			}
 			fprintf(fd, "%s\n", str);
 		}
@@ -134,7 +134,7 @@ typedef class _elf_shdr_entry_t : public elf_section_t{
 				int j = 0;
 				int mx = shdr.sh_size - i;
 				if(mx > SHDR_COLUMN_SIZE) mx = SHDR_COLUMN_SIZE;
-				fprintf(fd, "%08x: ", shdr.sh_offset + i);
+				fprintf(fd, "%08x: ", (unsigned int)(shdr.sh_offset + i));
 				for(j = 0 ; j < mx ; j++) {
 					fprintf(fd, "%02x ", buf[i + j]);
 					if(j == 7)	fprintf(fd, " ");
@@ -151,7 +151,7 @@ typedef class _elf_shdr_entry_t : public elf_section_t{
 			}
 		}
 
-		virtual elf_section_t* get_sub(const int idx){
+		virtual elf_section_t* get_sub(const unsigned int idx){
 			return 0;
 		}
 
@@ -198,7 +198,7 @@ typedef class _elf_shdr_symtab_t : public elf_shdr_entry_t{
 			}
 		}
 
-		virtual elf_section_t* get_sub(const int idx){
+		virtual elf_section_t* get_sub(const unsigned int idx){
 			return (idx >= (shdr.sh_size / shdr.sh_entsize)) ? 0 : entry[idx];
 		}
 

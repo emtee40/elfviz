@@ -8,5 +8,5 @@ typedef class _argparse{
 		virtual char* next_cmd(void) = 0;
 }argparse;
 
-argparse* get_argparse(int argc, char* argv[], FILE* rtout);
+argparse* get_argparse(int argc, char* argv[]);
 #endif //__ARG_PARSE_H__

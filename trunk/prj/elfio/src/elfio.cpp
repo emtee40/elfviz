@@ -37,63 +37,63 @@ typedef class _elfio_ctrl_t : public elfio_t{
 		elf_section_t* mshdr;
 
 		void type_str(FILE* fd, int e_type){
-			char* str = "unknown";
+			char* str = (char*)"unknown";
 			fprintf(fd, "type=");
 			switch(e_type){
-			case ET_NONE:	str =  "ET_NONE";	break;
-			case ET_REL:	str =  "ET_REL";	break;
-			case ET_EXEC:	str =  "ET_EXEC";	break;
-			case ET_DYN:	str =  "ET_DYN";	break;
-			case ET_CORE:	str =  "ET_CORE";	break;
-			case ET_LOPROC:	str =  "ET_LOPROC";	break;
-			case ET_HIPROC:	str =  "ET_HIPROC";	break;
+			case ET_NONE:	str = (char*)"ET_NONE";	break;
+			case ET_REL:	str = (char*)"ET_REL";	break;
+			case ET_EXEC:	str = (char*)"ET_EXEC";	break;
+			case ET_DYN:	str = (char*)"ET_DYN";	break;
+			case ET_CORE:	str = (char*)"ET_CORE";	break;
+			case ET_LOPROC:	str = (char*)"ET_LOPROC";	break;
+			case ET_HIPROC:	str = (char*)"ET_HIPROC";	break;
 			}
 			fprintf(fd, "%s\n", str);
 		}
 
 		void machine_str(FILE* fd, int e_machine){
-			char* str = "unknown";
+			char* str = (char*)"unknown";
 			fprintf(fd, "machine=");
 			switch(e_machine){
-			case EM_NONE:			str =  "EM_NONE";			break;
-			case EM_M32:			str =  "EM_M32";			break;
-			case EM_SPARC:			str =  "EM_SPARC";			break;
-			case EM_386:			str =  "EM_386";			break;
-			case EM_68K:			str =  "EM_68K";			break;
-			case EM_88K:			str =  "EM_88K";			break;
-			case EM_860:			str =  "EM_860";			break;
-			case EM_MIPS:			str =  "EM_MIPS";			break;
-			case EM_MIPS_RS4_BE:	str =  "EM_MIPS_RS4_BE";	break;
-			case EM_ARM:			str =  "EM_ARM";			break;
+			case EM_NONE:			str = (char*)"EM_NONE";			break;
+			case EM_M32:			str = (char*)"EM_M32";			break;
+			case EM_SPARC:			str = (char*)"EM_SPARC";			break;
+			case EM_386:			str = (char*)"EM_386";			break;
+			case EM_68K:			str = (char*)"EM_68K";			break;
+			case EM_88K:			str = (char*)"EM_88K";			break;
+			case EM_860:			str = (char*)"EM_860";			break;
+			case EM_MIPS:			str = (char*)"EM_MIPS";			break;
+			case EM_MIPS_RS4_BE:		str = (char*)"EM_MIPS_RS4_BE";	break;
+			case EM_ARM:			str = (char*)"EM_ARM";			break;
 			}
 			fprintf(fd, "%s\n", str);
 		}
 
 		void version_str(FILE* fd, int e_version){
-			char* str = "unknown";
+			char* str = (char*)"unknown";
 			fprintf(fd, "version=");
 			switch(e_version){
-			case EV_NONE:		str =  "EV_NONE";		break;
-			case EV_CURRENT:	str =  "EV_CURRENT";	break;
+			case EV_NONE:		str = (char*)"EV_NONE";		break;
+			case EV_CURRENT:	str = (char*)"EV_CURRENT";	break;
 			}
 			fprintf(fd, "%s\n", str);
 		}
 
 		void ident_str(FILE* fd, char* e_ident){
-			char* str = "unknown";
+			char* str = (char*)"unknown";
 			fprintf(fd, "class=");
 			switch(e_ident[EI_CLASS]){
-			case ELFCLASSNONE:	str = "ELFCLASSNONE";	break;
-			case ELFCLASS32:	str = "ELFCLASS32";		break;
-			case ELFCLASS64:	str = "ELFCLASS64";		break;
+			case ELFCLASSNONE:	str = (char*)"ELFCLASSNONE";	break;
+			case ELFCLASS32:	str = (char*)"ELFCLASS32";		break;
+			case ELFCLASS64:	str = (char*)"ELFCLASS64";		break;
 			}
 			fprintf(fd, "%s\n", str);
-			str = "unknown";
+			str = (char*)"unknown";
 			fprintf(fd, "data=");
 			switch(e_ident[EI_DATA]){
-			case ELFDATANONE:	str = "ELFDATANONE";	break;
-			case ELFDATA2LSB:	str = "ELFDATA2LSB";	break;
-			case ELFDATA2MSB:	str = "ELFDATA2MSB";	break;
+			case ELFDATANONE:	str = (char*)"ELFDATANONE";	break;
+			case ELFDATA2LSB:	str = (char*)"ELFDATA2LSB";	break;
+			case ELFDATA2MSB:	str = (char*)"ELFDATA2MSB";	break;
 			}
 			fprintf(fd, "%s\n", str);
 		}
@@ -214,6 +214,7 @@ elfio_t* elfio_new(char* file){
 	return (elfio_t*)elfio;
 }
 
+/*
 static unsigned long elf_hash(const unsigned char *name) {
 	unsigned long h, g;
 	for (h = 0; *name != 0; ++name)	{
@@ -224,3 +225,4 @@ static unsigned long elf_hash(const unsigned char *name) {
 	}
 	return h;
 }
+*/

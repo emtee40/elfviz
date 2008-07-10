@@ -29,7 +29,6 @@
 typedef class _elfvizcmd:public vizcmd{
 	protected:
 		char str[128];
-		FILE* ertout;
 		elfio_t* elfio;
 
 		char* scan(char* inbuf, char** endp){
@@ -60,7 +59,7 @@ typedef class _elfvizcmd:public vizcmd{
 		}
 
 	public:
-		_elfvizcmd(FILE* rtout){ertout = rtout; elfio = 0;}
+		_elfvizcmd(){elfio = 0;}
 		virtual void parse(char* inbuf){
 			char* endp = 0;
 			char* str = scan(inbuf, &endp);
@@ -71,6 +70,6 @@ typedef class _elfvizcmd:public vizcmd{
 		}
 }elfvizcmd;
 
-vizcmd* get_cmd(FILE* rtout){
-	return (vizcmd*) new elfvizcmd(rtout);
+vizcmd* get_cmd(void){
+	return (vizcmd*) new elfvizcmd;
 }

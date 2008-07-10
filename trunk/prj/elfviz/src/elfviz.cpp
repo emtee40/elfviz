@@ -25,19 +25,19 @@
 #include "vizcmd.h"
 #include "argparse.h"
 
-void title(FILE* rtout){
-	fprintf(rtout, "elfviz v1.0 Copyright (C) 2008  Song-Hwan Kim\n");
-	fprintf(rtout, "This program comes with ABSOLUTELY NO WARRANTY; ");
+void title(void){
+	fprintf(stdout, "elfviz v1.0 Copyright (C) 2008  Song-Hwan Kim\n");
+	fprintf(stdout, "This program comes with ABSOLUTELY NO WARRANTY; ");
 //	rtout->print("for details type `show w'.\n");
 //	rtout->print(rtout, "This is free software, and you are welcome to redistribute it\n");
 //	rtout->print(rtout, "under certain conditions; type `show c' for details.\n");
-	fprintf(rtout, "\n");
+	fprintf(stdout, "\n");
 }
 
 
-void interactive(vizcmd* cmd, FILE* rtin, FILE* rtout){
+void interactive(vizcmd* cmd){
 	char inbuf[128];
-	while(fprintf(rtout, "\nelfviz>"), memset(inbuf, 0, 128), gets(inbuf), strcmp(inbuf, "quit")){
+	while(fprintf(stdout, "\nelfviz>"), memset(inbuf, 0, 128), gets(inbuf), strcmp(inbuf, "quit")){
 		cmd->parse(inbuf);
 	}
 }
@@ -50,12 +50,12 @@ void batch(vizcmd* cmd, argparse* arg){
 }
 
 int main(int argc, char* argv[]){
-	vizcmd* cmd = get_cmd(stdout);
+	vizcmd* cmd = get_cmd();
 	
-	title(stdout);
-	argparse* arg = get_argparse(argc, argv, stdout);
+	title();
+	argparse* arg = get_argparse(argc, argv);
 	batch(cmd, arg);
-	if (arg->goto_interactive()) interactive(cmd, stdin, stdout);
+	if (arg->goto_interactive()) interactive(cmd);
 
 	delete cmd;
 	return 0;

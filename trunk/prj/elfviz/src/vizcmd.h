@@ -30,5 +30,5 @@ typedef class _vizcmd{
 }vizcmd;
 
 vizcmd* get_macro(FILE* rtout);
-vizcmd* get_cmd(FILE* rtout);
+vizcmd* get_cmd(void);
 #endif //__VIZ_CMD_H__

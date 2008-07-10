@@ -36,7 +36,7 @@ typedef class _elf_section_t{
 	public:
 		virtual void format(FILE* rtout) = 0;
 		virtual void dump(FILE* rtout) = 0;
-		virtual class _elf_section_t* get_sub(const int idx) = 0;
+		virtual class _elf_section_t* get_sub(const unsigned int idx) = 0;
 		virtual class _elf_section_t* find_sub(const char* stridx) = 0;
 		virtual const char* name(void) = 0;
 		virtual const unsigned char* data(void) = 0;

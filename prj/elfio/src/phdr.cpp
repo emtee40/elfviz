@@ -31,20 +31,20 @@ typedef class _elf_phdr_t : public elf_section_t{
 	protected:
 		//todo:phdr_entry를 section container로 정의하여 iterator를 달아 순회하도록 할것
 		elf_section_t** entry;
-		int n_entry;
+		unsigned int n_entry;
 
 	public:
 		_elf_phdr_t(int phnum, FILE* fd, int phoff){
 			entry = new elf_section_t* [phnum];
 			n_entry = phnum;
-			for(int i = 0 ; i < n_entry ; i++){
+			for(unsigned int i = 0 ; i < n_entry ; i++){
 				entry[i] = phdr_entry_new(fd, phoff + sizeof(Elf32_Phdr) * i);
 			}
 		}
 
 		~_elf_phdr_t(){
 			if(n_entry){
-				for(int i = 0 ; i < n_entry ; i++) delete entry[i];
+				for(unsigned int i = 0 ; i < n_entry ; i++) delete entry[i];
 				delete entry;
 			}
 		}
@@ -53,10 +53,10 @@ typedef class _elf_phdr_t : public elf_section_t{
 		}
 
 		virtual void dump(FILE* fd){
-			for(int i = 0 ; i < n_entry ; i++)	entry[i]->format(fd);
+			for(unsigned int i = 0 ; i < n_entry ; i++)	entry[i]->format(fd);
 		}
 
-		virtual elf_section_t* get_sub(const int idx){
+		virtual elf_section_t* get_sub(const unsigned int idx){
 			return (idx >= n_entry) ? 0 : entry[idx];
 		}
 		virtual elf_section_t* find_sub(const char* stdidx){

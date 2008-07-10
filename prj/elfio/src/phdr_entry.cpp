@@ -30,18 +30,18 @@ typedef class _elf_phdr_entry_t : public elf_section_t{
 		Elf32_Phdr phdr;
 
 		void type_str(FILE* fd, int p_type){
-			char* str = "unknown";
+			char* str = (char*)"unknown";
 			fprintf(fd, "p_type=");
 			switch(p_type){
-			case PT_NULL:		str = "PT_NULL";	break;
-			case PT_LOAD:		str = "PT_LOAD";	break;
-			case PT_DYNAMIC:	str = "PT_DYNAMIC";	break;
-			case PT_INTERP:		str = "PT_INTERP";	break;
-			case PT_NOTE:		str = "PT_NOTE";	break;
-			case PT_SHLIB:		str = "PT_SHLIB";	break;
-			case PT_PHDR:		str = "PT_PHDR";	break;
-			case PT_LOPROC:		str = "PT_LOPROC";	break;
-			case PT_HIPROC:		str = "PT_HIPROC";	break;
+			case PT_NULL:		str = (char*)"PT_NULL";	break;
+			case PT_LOAD:		str = (char*)"PT_LOAD";	break;
+			case PT_DYNAMIC:	str = (char*)"PT_DYNAMIC";	break;
+			case PT_INTERP:		str = (char*)"PT_INTERP";	break;
+			case PT_NOTE:		str = (char*)"PT_NOTE";	break;
+			case PT_SHLIB:		str = (char*)"PT_SHLIB";	break;
+			case PT_PHDR:		str = (char*)"PT_PHDR";	break;
+			case PT_LOPROC:		str = (char*)"PT_LOPROC";	break;
+			case PT_HIPROC:		str = (char*)"PT_HIPROC";	break;
 			}
 			fprintf(fd, "%s\n", str);
 		}
@@ -104,7 +104,7 @@ typedef class _elf_phdr_entry_t : public elf_section_t{
 			fprintf(fd, "\n");
 		}
 
-		virtual elf_section_t* get_sub(const int idx){
+		virtual elf_section_t* get_sub(const unsigned int idx){
 			return 0;
 		}
 

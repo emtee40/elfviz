@@ -46,32 +46,32 @@ typedef struct _elf_shdr_symtab_entry_t : public elf_section_t{
 			unsigned int sti = 0;
 			char* str = 0;
 			if(ss_name) fprintf(fd, "st_name_str=%s\n", ss_name);
-			fprintf(fd, "st_name=%d\n", symtab.st_name);
-			fprintf(fd, "st_vale=%d\n", symtab.st_value);
-			fprintf(fd, "st_size=%d\n", symtab.st_size);
+			fprintf(fd, "st_name=%d\n", (int)symtab.st_name);
+			fprintf(fd, "st_vale=%d\n", (int)symtab.st_value);
+			fprintf(fd, "st_size=%d\n", (int)symtab.st_size);
 			fprintf(fd, "st_info=0x%x\n", symtab.st_info);
 			sti = symtab.st_info;
 			sti = ELF32_ST_BIND(sti);
 			fprintf(fd, "st_bind=");
 			switch(sti){
-				case STB_LOCAL:		str = "STB_LOCAL";	break;
-				case STB_GLOBAL:	str = "STB_GLOBAL";	break;
-				case STB_WEAK:		str = "STB_WEAK";	break;
-				case STB_LOPROC:	str = "STB_LOPROC";	break;
-				case STB_HIPROC:	str = "STB_HIPROC";	break;
+				case STB_LOCAL:		str = (char*)"STB_LOCAL";	break;
+				case STB_GLOBAL:	str = (char*)"STB_GLOBAL";	break;
+				case STB_WEAK:		str = (char*)"STB_WEAK";	break;
+				case STB_LOPROC:	str = (char*)"STB_LOPROC";	break;
+				case STB_HIPROC:	str = (char*)"STB_HIPROC";	break;
 			}
 			fprintf(fd, "%s\n", str);
 			sti = symtab.st_info;
 			sti = ELF32_ST_TYPE(sti);
 			fprintf(fd, "st_type=");
 			switch(sti){
-				case STT_NOTYPE:	str = "STT_NOTYPE";		break;
-				case STT_OBJECT:	str = "STT_OBJECT";		break;
-				case STT_FUNC:		str = "STT_FUNC";		break;
-				case STT_SECTION:	str = "STT_SECTION";	break;
-				case STT_FILE:		str = "STT_FILE";		break;
-				case STT_LOPROC:	str = "STT_LOPROC";		break;
-				case STT_HIPROC:	str = "STT_HIPROC";		break;
+				case STT_NOTYPE:	str = (char*)"STT_NOTYPE";	break;
+				case STT_OBJECT:	str = (char*)"STT_OBJECT";	break;
+				case STT_FUNC:		str = (char*)"STT_FUNC";	break;
+				case STT_SECTION:	str = (char*)"STT_SECTION";	break;
+				case STT_FILE:		str = (char*)"STT_FILE";	break;
+				case STT_LOPROC:	str = (char*)"STT_LOPROC";	break;
+				case STT_HIPROC:	str = (char*)"STT_HIPROC";	break;
 			}
 			fprintf(fd, "%s\n", str);
 			fprintf(fd, "st_other=0x%x\n", symtab.st_other);
@@ -83,7 +83,7 @@ typedef struct _elf_shdr_symtab_entry_t : public elf_section_t{
 			fprintf(fd, "no data\n");
 		}
 
-		virtual elf_section_t* get_sub(const int idx){
+		virtual elf_section_t* get_sub(const unsigned int idx){
 			return 0;
 		}
 

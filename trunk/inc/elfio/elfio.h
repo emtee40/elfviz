@@ -41,6 +41,7 @@ class elf_section_t{
 		virtual elf_section_t* get_child(const char* stridx) = 0;
 		virtual const char* name(void) = 0;
 		virtual const unsigned char* get_body(void) = 0;
+		virtual ~elf_section_t(){};
 };
 
 ELFIO_API elf_section_t* elfio_new(char* file);

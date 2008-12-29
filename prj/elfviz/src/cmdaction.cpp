@@ -73,8 +73,8 @@ class cmdaction_close : public cmdaction{
 		virtual void act(cmdparam& param, elf_stack& elfstack){
 			elf_section_t* elfio = elfstack.root();
 			if(elfio) {
-				delete elfio;
 				printf("%s is closed\n", elfio->name());
+				delete elfio;
 				elfstack.empty();
 			} else {
 				printf("no file is opened\n");

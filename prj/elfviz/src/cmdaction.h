@@ -25,6 +25,7 @@
 class cmdaction{
 	public:
 		virtual void act(cmdparam& param, elf_stack& elfstack) = 0;
+		virtual ~cmdaction(){};
 };
 
 cmdaction* get_action(char* command);

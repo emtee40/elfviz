@@ -13,6 +13,7 @@ class arg_parse {
 		void show_help(void);
 	public:
 		arg_parse(int argc, char* argv[]);
+		virtual ~arg_parse();
 		virtual bool goto_interactive(void);
 		char* first_cmd(void);
 		char* next_cmd(void);

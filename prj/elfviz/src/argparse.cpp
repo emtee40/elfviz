@@ -49,6 +49,9 @@ arg_parse::arg_parse(int argc, char* argv[]){
 	}
 }
 
+arg_parse::~arg_parse(){
+}
+
 bool arg_parse::goto_interactive(void){
 	return goto_imode;
 }

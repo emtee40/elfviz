@@ -5,11 +5,12 @@ RM=rm -f
 SRCDIR=../../src
 INCS=-I . -I ../../../../inc
 BINDIR=../../../../bin
-ELFIO=/usr/lib/libelfio.so.1
+ELFIO=/usr/lib/libelfio.so.2.0
 objs=elfviz.o \
 	cmdaction.o \
 	cmdparam.o \
 	vizcmd.o \
+	elfstack.o \
 	argparse.o
 
 OUT=elfviz
@@ -18,7 +19,7 @@ elfviz: $(objs)
 	$(CPP) -o $@ $(objs) $(ELFIO)
 	mv $@ $(BINDIR)
 
-install: elfviz
+install: 
 	cp $(BINDIR)/$(OUT) /usr/bin
 
 debug:
@@ -26,7 +27,7 @@ debug:
 
 clean:
 	$(RM) $(objs) $(BINDIR)/$(OUT)
-	$(RM) /usr/bin/$(OUT)make
+	$(RM) /usr/bin/$(OUT)
 
 %.o: $(SRCDIR)/%.cpp
 	$(CPP) $(CFLAGS) $(USR_CFLAGS) $(INCS) $< -o $@

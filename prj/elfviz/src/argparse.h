@@ -1,12 +1,21 @@
 #ifndef __ARG_PARSE_H__
 #define __ARG_PARSE_H__
 
-typedef class _argparse{
-	public:
-		virtual bool goto_interactive(void) = 0;
-		virtual char* first_cmd(void) = 0;
-		virtual char* next_cmd(void) = 0;
-}argparse;
+#define ARG_STR_LEN	32
+#define ARG_CMD_LEN 128
 
-argparse* get_argparse(int argc, char* argv[]);
+class arg_parse {
+	protected:
+		int iter;
+		bool goto_imode;
+		char str[ARG_STR_LEN][ARG_CMD_LEN];
+
+		void show_help(void);
+	public:
+		arg_parse(int argc, char* argv[]);
+		virtual bool goto_interactive(void);
+		char* first_cmd(void);
+		char* next_cmd(void);
+};
+
 #endif //__ARG_PARSE_H__

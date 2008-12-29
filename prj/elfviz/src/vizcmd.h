@@ -23,12 +23,14 @@
 #ifndef __VIZ_CMD_H__
 #define __VIZ_CMD_H__
 
-
-typedef class _vizcmd{
+class vizcmd{
+	protected:
+		elf_stack elfstack;
+		char* scan(char* inbuf, char** endp);
 	public:
-		virtual void parse(char* inbuf) = 0;
-}vizcmd;
+		vizcmd();
+		void parse(char* inbuf);
+		const char* path(void);
+};
 
-vizcmd* get_macro(FILE* rtout);
-vizcmd* get_cmd(void);
 #endif //__VIZ_CMD_H__

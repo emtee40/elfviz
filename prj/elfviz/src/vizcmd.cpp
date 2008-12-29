@@ -20,56 +20,50 @@
  * -------------------------------------------------------------------------
 */
 #include <stdio.h>
+#include <string.h>
 
 #include "elfio/elfio.h"
+#include "elfstack.h"
 #include "vizcmd.h"
 #include "cmdparam.h"
 #include "cmdaction.h"
 
-typedef class _elfvizcmd:public vizcmd{
-	protected:
-		char str[128];
-		elfio_t* elfio;
-
-		char* scan(char* inbuf, char** endp){
-			char ch;
-			int i = 0;
-			str[0] = 0;
-			if(inbuf) *endp = inbuf;
-
-			
-			for(ch = **endp ; ch ; (*endp)++, ch = **endp){
-				if(ch == '>' || ch == '#' || ch == '@' || ch == ' '){
-					if (str[0]) {
-						return str;
-					} else if(ch != ' '){
-						str[i++] = ch;
-						if(ch == '>') ch = *(++*endp);
-						if(ch == '>') str[i++] = ch;
-						str[i] = 0;
-						(*endp)++;
-						return str;
-					}
-				} else {
-					str[i++] = ch;
-					str[i] = 0;
-				}
-			}
-			return (str[0]) ? str : 0;
+char* vizcmd::scan(char* inbuf, char** endp){
+	char ch;
+	int i = 0;
+	static char str[128];
+	str[0] = 0;
+	if(inbuf) *endp = inbuf;
+	
+	for(ch = **endp ; ch ; (*endp)++, ch = **endp){
+		if(ch == ' '){
+			(*endp)++;
+			break;
+		} else {
+			str[i++] = ch;
+			str[i] = 0;
 		}
+	}
+	return (str[0]) ? str : 0;
+}
 
-	public:
-		_elfvizcmd(){elfio = 0;}
-		virtual void parse(char* inbuf){
-			char* endp = 0;
-			char* str = scan(inbuf, &endp);
-			cmdaction* action = get_action(str);
-			cmdparam param;
-			for(str = scan(0, &endp) ; str ; str = scan(0, &endp))	param.add(str);
-			action->act(param.count(), (char**)param.str(), stdout, &elfio);
-		}
-}elfvizcmd;
+vizcmd::vizcmd(){ }
 
-vizcmd* get_cmd(void){
-	return (vizcmd*) new elfvizcmd;
+void vizcmd::parse(char* inbuf){
+	char* endp = 0;
+	char* tok = scan(inbuf, &endp);
+	cmdaction* action = get_action(tok);
+	cmdparam param;
+	for(tok = scan(0, &endp) ; tok ; tok = scan(0, &endp)) param.add(tok);
+	action->act(param, elfstack);
+}
+
+const char* vizcmd::path(void){
+	static char path[128];
+	strcpy(path, "/");
+	for(elf_section_t* elf = elfstack.first() ; elf ; elf = elfstack.next()){
+		strcat(path, elf->name());
+		strcat(path, "/");
+	}
+	return path;
 }

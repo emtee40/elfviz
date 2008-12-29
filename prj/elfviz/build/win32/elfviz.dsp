@@ -113,6 +113,10 @@ SOURCE=..\..\src\elfviz.cpp
 
 SOURCE=..\..\src\vizcmd.cpp
 # End Source File
+# Begin Source File
+
+SOURCE=..\..\src\elfstack.cpp
+# End Source File
 # End Group
 # Begin Group "Header Files"
 
@@ -132,6 +136,10 @@ SOURCE=..\..\src\cmdparam.h
 # Begin Source File
 
 SOURCE=..\..\src\vizcmd.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\src\elfstack.h
 # End Source File
 # End Group
 # Begin Group "Resource Files"

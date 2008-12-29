@@ -22,10 +22,10 @@
 #ifndef __CMD_ACTION_H__
 #define __CMD_ACTION_H__
 
-typedef class _cmdaction{
+class cmdaction{
 	public:
-		virtual void act(int argc, char** argv, FILE* rtout, elfio_t** pelfio) = 0;
-}cmdaction;
+		virtual void act(cmdparam& param, elf_stack& elfstack) = 0;
+};
 
 cmdaction* get_action(char* command);
 

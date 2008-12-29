@@ -21,256 +21,143 @@
 */
 
 #include <stdio.h>
+//#include <stdlib.h>	//FIXME:it makes error. i don't know why
 #include <string.h>
-#include <stdlib.h>
 
 #include "elfio/elfio.h"
+#include "cmdparam.h"
+#include "elfstack.h"
 #include "cmdaction.h"
 
-#define CMD_PRINT_ERROR(rtout, str)	fprintf(rtout, "*ERROR:%s\n", str)
-
-typedef class _cmdaction_dummy : public cmdaction{
+class cmdaction_dummy : public cmdaction{
 	public:
-		virtual void act(int argc, char** argv, FILE* rtout, elfio_t** pelfio){
-			CMD_PRINT_ERROR(rtout, "unknown command");
+		virtual void act(cmdparam& param, elf_stack& elfstack){
+			printf("unknown command");
 		}
-}cmdaction_dummy;
+};
 
-typedef class _cmdaction_help : public cmdaction{
+class cmdaction_help : public cmdaction{
 	public:
-		virtual void act(int argc, char** argv, FILE* rtout, elfio_t** pelfio){
-			fprintf(rtout, "open {file_name}\n\topen elf file\n");
-			fprintf(rtout, "close\tclose elf file\n");
-			fprintf(rtout, "file\treturns file name of opened elf file\n");
-			fprintf(rtout, "help\tthis help screen\n");
-			fprintf(rtout, "ehdr [[>|>>] {file_name}]\tshow elf header\n");
-			fprintf(rtout, "\tif > or >> defined, result is saved to file also\n");
-			fprintf(rtout, "{shdr|phdr}[{@|#}{number}] [[>|>>] {file_name}]\n");
-			fprintf(rtout, "\tshow header or dump section data\n");
-			fprintf(rtout, "\tshdr means section header and phdr means program header\n");
-			fprintf(rtout, "\t@ means dumping data and # means show header\n");
-			fprintf(rtout, "\tnumber must be lower than total number of sections\n");
-			fprintf(rtout, "\t\tsee ehdr\n");
-			fprintf(rtout, "\tif > or >> defined, result is saved to file also\n");
+		virtual void act(cmdparam& param, elf_stack& elfstack){
+			printf("open {file_name}\n\topen elf file\n");
+			printf("file\treturns file name of opened elf file\n");
+			printf("close\tclose elf file\n");
+			printf("ls [node_name] [-a]\n\tlists sub nodes by name\n");
+			printf("\tif node_name presents, lists node_name only\n");
+			printf("\t\t(wildcard is not allowed yet)\n");
+			printf("\tif -a option presents, shows headers also\n");
+			printf("inf node_name\tshow header\n");
+			printf("cat node_name\tshow body\n");
+			printf("cd node_name\tchange current node to sub node\n");
+			printf("\tif sub node doesn't have child nodes, cd fails\n");
+			printf("help\tthis help screen\n");
 		}
-}cmdaction_help;
+};
 
-typedef class _cmdaction_open : public cmdaction{
+class cmdaction_open : public cmdaction{
 	public:
-		virtual void act(int argc, char** argv, FILE* rtout, elfio_t** pelfio){
-			*pelfio = elfio_new(argv[0]);
-			if(*pelfio) fprintf(rtout, "%s is opened\n", argv[0]);
-			else fprintf(rtout, " %s is not opened\n", argv[0]);
-		}
-}cmdaction_open;
-
-typedef class _cmdaction_close : public cmdaction{
-	public:
-		virtual void act(int argc, char** argv, FILE* rtout, elfio_t** pelfio){
-			elfio_t* elfio = *pelfio;
+		virtual void act(cmdparam& param, elf_stack& elfstack){
+			char* argv = param.argv(0);
+			elf_section_t* elfio = elfio_new(argv);
 			if(elfio) {
-				char* elf_fn = strdup((char*)elfio->file_name());
+				printf("%s is opened\n", argv);
+				elfstack.push(elfio);
+			} else {
+				printf(" %s is not opened\n", argv);
+			}
+		}
+};
+
+class cmdaction_close : public cmdaction{
+	public:
+		virtual void act(cmdparam& param, elf_stack& elfstack){
+			elf_section_t* elfio = elfstack.root();
+			if(elfio) {
 				delete elfio;
-				fprintf(rtout, "%s is closed\n", elf_fn);
-				*pelfio = 0;
-				delete elf_fn;
-				elf_fn = 0;
+				printf("%s is closed\n", elfio->name());
+				elfstack.empty();
 			} else {
-				CMD_PRINT_ERROR(rtout, "no file is opened\n");
+				printf("no file is opened\n");
 			}
 		}
-}cmdaction_close;
+};
 
-typedef class _cmdaction_file : public cmdaction{
+class cmdaction_file : public cmdaction{
 	public:
-		virtual void act(int argc, char** argv, FILE* rtout, elfio_t** pelfio){
-			fprintf(rtout, "%s\n", (*pelfio) ? (*pelfio)->file_name() : "(null)");
+		virtual void act(cmdparam& param, elf_stack& elfstack){
+			elf_section_t* elfio = elfstack.root();
+			printf("%s\n", (elfio) ? elfio->name() : "(null)");
 		}
-}cmdaction_file;
+};
 
-typedef class _cmdaction_list : public cmdaction{
+class cmdaction_ls : public cmdaction{
 	public:
-		virtual void act(int argc, char** argv, FILE* rtout, elfio_t** pelfio){
-			const char* msg = 0;
-			elf_section_t* section = 0;
-			elfio_t* elfio = *pelfio;
-
-			if(!elfio) {
-				CMD_PRINT_ERROR(rtout, "no elf is opened.");
-			}
-			if(!strcmp(argv[0], "shdr")){
-				section = elfio->get_shdr();
-			} else if(!strcmp(argv[0], "phdr")){
-				section = elfio->get_phdr();
+		virtual void act(cmdparam& param, elf_stack& elfstack){
+			elf_section_t* elfio = elfstack;
+			if(param == 0) {
+				elfio->format_child();
 			} else {
-				CMD_PRINT_ERROR(rtout, "unknown parameter");
-				return;
-			}
-			if(!section) {
-				CMD_PRINT_ERROR(rtout, "invalid elf");
-				return;
-			}
-			section->format(rtout);
-			fprintf(rtout, "%s", msg);
-			if(argc >= 3){
-				char* mode;
-				if(!strcmp(argv[1], ">")){
-					mode = (char*)"wb";
-				} else if(!strcmp(argv[1], ">>")){
-					mode = (char*)"rb+";
+				char* argv = param.argv(0);
+				if(!strcmp(argv, ".")){
+					elfio->format_child();
 				} else {
-					CMD_PRINT_ERROR(rtout, "unknown parameter");
-					return;
-				}
-				{
-					FILE* fd = fopen(argv[2], mode);
-					fprintf(fd, "%s", msg);
-					fclose(fd);
+					elfio = elfio->get_child(argv);
+					elfio->format_child();
 				}
 			}
 		}
-}cmdaction_list;
+};
 
-typedef class _cmdaction_ehdr : public cmdaction{
+class cmdaction_inf : public cmdaction{
 	public:
-		virtual void act(int argc, char** argv, FILE* rtout, elfio_t** pelfio){
-			FILE* fd = 0;
-			elfio_t* elfio = *pelfio;
-			if(!elfio) {
-				CMD_PRINT_ERROR(rtout, "no elf is opened.");
-				return;
-			}
-			if(argc >= 2){
-				char* mode = 0;
-				if(!strcmp(argv[1], ">")){
-					mode = (char*)"wb";
-				} else if(!strcmp(argv[1], ">>")){
-					mode = (char*)"rb+";
-				} else {
-					CMD_PRINT_ERROR(rtout, "unknown parameter");
-					return;
-				}
-				fd = fopen(argv[2], mode);
-			}
-
-			elfio->format(rtout);
-			if(fd) elfio->format(fd);
-			if(fd) fclose(fd);
+		virtual void act(cmdparam& param, elf_stack& elfstack){
+			elf_section_t* elfio = elfstack;
+			elf_section_t* current = 0;
+			char* argv = param.argv(0);
+			if(!strcmp(argv, ".")) current = elfio;
+			else current = elfio->get_child(argv);
+			if(current) current->format_header();
 		}
-}cmdaction_ehdr;
+};
 
-typedef class _cmdaction_phdr : public cmdaction{
+class cmdaction_cat : public cmdaction{
 	public:
-		virtual void act(int argc, char** argv, FILE* rtout, elfio_t** pelfio){
-			elf_section_t* section = 0;
-			FILE* fd = 0;
-			elfio_t* elfio = *pelfio;
-			int i = 0;
-			if(!elfio) {
-				CMD_PRINT_ERROR(rtout, "no elf is opened.");
-				return;
-			}
-			section = elfio->get_phdr();
-			if(!section) {
-				CMD_PRINT_ERROR(rtout, "invalid elf");
-				return;
-			}
-			if(i < argc && !strcmp(argv[i++], "#")) {
-				int idx = atoi(argv[i++]);
-				section = section->get_sub(idx);
-			}
-			if(i < argc && (!strcmp(argv[i], ">") || !strcmp(argv[i], ">>"))){
-				char* mode = 0;
-				if(!strcmp(argv[i], ">")){
-					mode = (char*)"wb";
-				} else if(!strcmp(argv[i], ">>")){
-					mode = (char*)"rb+";
-				}
-				fd = fopen(argv[++i], mode);
-			}
-			section->format(rtout);
-			if(fd) {
-				section->format(fd);
-				fclose(fd);
-			}
+		virtual void act(cmdparam& param, elf_stack& elfstack){
+			elf_section_t* elfio = elfstack;
+			elf_section_t* current = 0;
+			char* argv = param.argv(0);
+			if(!strcmp(argv, ".")) current = elfio;
+			else current = elfio->get_child(argv);
+			if(current) current->format_body();
 		}
-}cmdaction_phdr;
+};
 
-#define VIZ_CMD_FORMAT	0
-#define VIZ_CMD_DUMP	1
-
-typedef class _cmdaction_shdr : public cmdaction{
+class cmdaction_cd : public cmdaction{
 	public:
-		virtual void act(int argc, char** argv, FILE* rtout, elfio_t** pelfio){
-			int cmd = VIZ_CMD_DUMP;
-			elf_section_t* section = 0;
-			FILE* fd = 0;
-			int i = 0;
-			elfio_t* elfio = *pelfio;
-			if(!elfio) {
-				CMD_PRINT_ERROR(rtout, "no elf is opened.");
+		virtual void act(cmdparam& param, elf_stack& elfstack){
+			elf_section_t* elfio = elfstack;
+			elf_section_t* current = 0;
+			char* argv = param.argv(0);
+			if(!strcmp(argv, ".")) {
 				return;
-			}
-			section = elfio->get_shdr();
-			if(!section) {
-				CMD_PRINT_ERROR(rtout, "invalid elf");
-				return;
-			}
-			if(i < argc && !strcmp(argv[i], "#")) {
-				elf_section_t* temp = 0;
-				i++;
-				temp = section->find_sub(argv[i]);
-				if(!temp){
-					int idx = atoi(argv[i]);
-					section = section->get_sub(idx);
-				} else {
-					section = temp;
-				}
-				i++;
-				cmd = VIZ_CMD_FORMAT;
-			} else if(i < argc && !strcmp(argv[i], "@")) {
-				elf_section_t* temp = 0;
-				i++;
-				temp = section->find_sub(argv[i]);
-				if(!temp){
-					int idx = atoi(argv[i]);
-					section = section->get_sub(idx);
-				} else {
-					section = temp;
-				}
-				i++;
-			}
-			if(i < argc && (!strcmp(argv[i], ">") || !strcmp(argv[i], ">>"))){
-				char* mode = 0;
-				if(!strcmp(argv[i], ">")){
-					mode = (char*)"wb";
-				} else if(!strcmp(argv[i], ">>")){
-					mode = (char*)"rb+";
-				}
-				fd = fopen(argv[++i], mode);
-			}
-
-			if(cmd == VIZ_CMD_FORMAT) {
-				section->format(rtout);
-				if(fd) section->format(fd);
+			} else if(!strcmp(argv, "..")) {
+				elfstack.pop();
 			} else {
-				section->dump(rtout);
-				if(fd) section->dump(fd);
+				current = elfio->get_child(argv);
 			}
-			if(fd) fclose(fd);
-
+			if(current) elfstack.push(current);
 		}
-}cmdaction_shdr;
+};
 
 static cmdaction_dummy dummy_act;
 static cmdaction_help help_act;
 static cmdaction_open open_act;
 static cmdaction_close close_act;
 static cmdaction_file file_act;
-static cmdaction_list list_act;
-static cmdaction_ehdr ehdr_act;
-static cmdaction_phdr phdr_act;
-static cmdaction_shdr shdr_act;
+static cmdaction_ls ls_act;
+static cmdaction_inf inf_act;
+static cmdaction_cat cat_act;
+static cmdaction_cd cd_act;
 
 cmdaction* get_action(char* command){
 	cmdaction* action_act = &dummy_act;
@@ -279,10 +166,10 @@ cmdaction* get_action(char* command){
 		else if(!strcmp(command, "open")) action_act = (cmdaction*)&open_act;
 		else if(!strcmp(command, "close")) action_act = (cmdaction*)&close_act;
 		else if(!strcmp(command, "file")) action_act = (cmdaction*)&file_act;
-		else if(!strcmp(command, "list")) action_act = (cmdaction*)&list_act;
-		else if(!strcmp(command, "ehdr")) action_act = (cmdaction*)&ehdr_act;
-		else if(!strcmp(command, "phdr")) action_act = (cmdaction*)&phdr_act;
-		else if(!strcmp(command, "shdr")) action_act = (cmdaction*)&shdr_act;
+		else if(!strcmp(command, "ls")) action_act = (cmdaction*)&ls_act;
+		else if(!strcmp(command, "inf")) action_act = (cmdaction*)&inf_act;
+		else if(!strcmp(command, "cat")) action_act = (cmdaction*)&cat_act;
+		else if(!strcmp(command, "cd")) action_act = (cmdaction*)&cd_act;
 	}
 	return action_act;
 }

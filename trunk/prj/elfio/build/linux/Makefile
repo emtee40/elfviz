@@ -1,14 +1,12 @@
 CPP=g++
-TARGET=libelfio.so.1.0.0
-SYMBOLIC_TARGET=libelfio.so.1
+TARGET=libelfio.so.2.0.0
+SYMBOLIC_TARGET=libelfio.so.2.0
 CFLAGS=-fPIC -c -Wall
 USR_CFLAGS=
 LFLAGS=-shared -Wl,-soname,$(SYMBOLIC_TARGET) -o $(TARGET)
 RM=rm -f
-TARGET_INCDIR=../../../../inc/elfio
-INCDIR=../../inc
 SRCDIR=../../src
-INCS=-I$(INCDIR) -I../../../../inc
+INCS=-I../../../../inc
 BINDIR=../../../../bin
 USR_LIB=/usr/lib
 objs=elfio.o \
@@ -21,10 +19,9 @@ objs=elfio.o \
 
 elfio: $(objs)
 	$(CPP) $(LFLAGS) $?
-	cp $(INCDIR)/elfio/*.h $(TARGET_INCDIR)
 	mv $(TARGET) $(BINDIR)
 
-install: elfio
+install:
 	cp $(BINDIR)/$(TARGET) $(USR_LIB)
 	cd $(USR_LIB); ln -s $(TARGET) $(SYMBOLIC_TARGET)
 
@@ -33,7 +30,6 @@ debug:
 
 clean:
 	$(RM) $(objs) $(BINDIR)/$(TARGET)
-	$(RM) $(TARGET_INCDIR)/*
 	unlink $(USR_LIB)/$(SYMBOLIC_TARGET)
 	$(RM) $(USR_LIB)/$(TARGET)
 

@@ -27,32 +27,32 @@
 #include "elftypes.h"
 #include "shdr_symtab_entry.h"
 
-typedef struct _elf_shdr_symtab_entry_t : public elf_section_t{
+class elf_shdr_symtab_entry_t : public elf_section_t{
 	protected:
 		Elf32_Sym symtab;
 		char* ss_name;
 
 	public:
-		_elf_shdr_symtab_entry_t(Elf32_Sym esymtab, char* ename){
+		elf_shdr_symtab_entry_t(Elf32_Sym esymtab, char* ename){
 			memcpy(&symtab, &esymtab, sizeof(Elf32_Sym));
 			ss_name = strdup(ename);
 		}
 
-		~_elf_shdr_symtab_entry_t(){
+		~elf_shdr_symtab_entry_t(){
 			delete ss_name;
 		}
 
-		virtual void format(FILE* fd){
+		virtual void format_header(void){
 			unsigned int sti = 0;
 			char* str = 0;
-			if(ss_name) fprintf(fd, "st_name_str=%s\n", ss_name);
-			fprintf(fd, "st_name=%d\n", (int)symtab.st_name);
-			fprintf(fd, "st_vale=%d\n", (int)symtab.st_value);
-			fprintf(fd, "st_size=%d\n", (int)symtab.st_size);
-			fprintf(fd, "st_info=0x%x\n", symtab.st_info);
+			if(ss_name) printf("st_name_str=%s\n", ss_name);
+			printf("st_name=%d\n", (int)symtab.st_name);
+			printf("st_vale=%d\n", (int)symtab.st_value);
+			printf("st_size=%d\n", (int)symtab.st_size);
+			printf("st_info=0x%x\n", symtab.st_info);
 			sti = symtab.st_info;
 			sti = ELF32_ST_BIND(sti);
-			fprintf(fd, "st_bind=");
+			printf("st_bind=");
 			switch(sti){
 				case STB_LOCAL:		str = (char*)"STB_LOCAL";	break;
 				case STB_GLOBAL:	str = (char*)"STB_GLOBAL";	break;
@@ -60,10 +60,10 @@ typedef struct _elf_shdr_symtab_entry_t : public elf_section_t{
 				case STB_LOPROC:	str = (char*)"STB_LOPROC";	break;
 				case STB_HIPROC:	str = (char*)"STB_HIPROC";	break;
 			}
-			fprintf(fd, "%s\n", str);
+			printf("%s\n", str);
 			sti = symtab.st_info;
 			sti = ELF32_ST_TYPE(sti);
-			fprintf(fd, "st_type=");
+			printf("st_type=");
 			switch(sti){
 				case STT_NOTYPE:	str = (char*)"STT_NOTYPE";	break;
 				case STT_OBJECT:	str = (char*)"STT_OBJECT";	break;
@@ -73,32 +73,36 @@ typedef struct _elf_shdr_symtab_entry_t : public elf_section_t{
 				case STT_LOPROC:	str = (char*)"STT_LOPROC";	break;
 				case STT_HIPROC:	str = (char*)"STT_HIPROC";	break;
 			}
-			fprintf(fd, "%s\n", str);
-			fprintf(fd, "st_other=0x%x\n", symtab.st_other);
-			fprintf(fd, "st_shndx=%d\n", symtab.st_shndx);
-			fprintf(fd, "\n");
+			printf("%s\n", str);
+			printf("st_other=0x%x\n", symtab.st_other);
+			printf("st_shndx=%d\n", symtab.st_shndx);
+			printf("\n");
 		}
 
-		virtual void dump(FILE* fd){
-			fprintf(fd, "no data\n");
+		virtual void format_body(void){
+			printf("no data\n");
 		}
 
-		virtual elf_section_t* get_sub(const unsigned int idx){
+		virtual void format_child(void){
+			printf("no children\n");
+		}
+
+		virtual elf_section_t* get_child(const unsigned int idx){
 			return 0;
 		}
 
-		virtual elf_section_t* find_sub(const char* stridx){
+		virtual elf_section_t* get_child(const char* stridx){
 			return 0;
 		}
 
-		virtual const unsigned char* data(void){
+		virtual const unsigned char* get_body(void){
 			return 0;
 		}
 
 		virtual const char* name(void){
 			return ss_name;
 		}
-}elf_shdr_symtab_entry_t;
+};
 
 elf_section_t* shdr_symtab_entry_new(FILE* fd, unsigned int sh_offset, char* strtab){
 	Elf32_Sym symtab;

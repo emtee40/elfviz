@@ -28,18 +28,18 @@
 #include "shdr.h"
 #include "shdr_entry.h"
 
-typedef class _elf_shdr_t : public elf_section_t{
+class elf_shdr_t : public elf_section_t{
 	protected:
 		elf_section_t** entry;
 		unsigned int n_entry;
 		char* shstr;
 
 	public:
-		_elf_shdr_t(int shnum, FILE* fd, int shoff, int shstrndx){
+		elf_shdr_t(int shnum, FILE* fd, int shoff, int shstrndx){
 			entry = new elf_section_t* [shnum];
 			n_entry = shnum;
 			elf_section_t* shdr_shstr = shdr_entry_new(fd, shoff + sizeof(Elf32_Shdr) * shstrndx, 0, 0);
-			char* shstr = (char*)shdr_shstr->data();
+			char* shstr = (char*)shdr_shstr->get_body();
 			char* strtab = 0;
 			unsigned int i = 0;
 			//todo : order of names in shstrtab is not coinsident with that of sections
@@ -49,7 +49,7 @@ typedef class _elf_shdr_t : public elf_section_t{
 			for(i = 0 ; i < n_entry ; i++){
 				if(!entry[i]) entry[i] = shdr_entry_new(fd, shoff + sizeof(Elf32_Shdr) * i, shstr, strtab);
 				if(!strtab && entry[i] && !strcmp(entry[i]->name(), ".strtab")) {
-					strtab = (char*)entry[i]->data();
+					strtab = (char*)entry[i]->get_body();
 					i = -1;
 					continue;
 				}
@@ -58,7 +58,7 @@ typedef class _elf_shdr_t : public elf_section_t{
 			delete shdr_shstr;
 		}
 
-		~_elf_shdr_t(){
+		~elf_shdr_t(){
 			if(n_entry){
 				for(unsigned int i = 0 ; i < n_entry ; i++) delete entry[i];
 				delete entry;
@@ -66,33 +66,39 @@ typedef class _elf_shdr_t : public elf_section_t{
 			}
 		}
 
-		virtual void format(FILE* fd){
-			fprintf(fd, "no header\n");
+		virtual void format_header(void){
+			printf("no header\n");
 		}
 
-		virtual void dump(FILE* fd){
-			for(unsigned int i = 0 ; i < n_entry ; i++)	entry[i]->format(fd);
+		virtual void format_body(void){
+			printf("no body\n");
 		}
 
-		virtual elf_section_t* get_sub(const unsigned int idx){
+		virtual void format_child(void){
+			printf(".\t..\t");
+			for(unsigned int i = 0 ; i < n_entry ; i++) printf("%s\t", entry[i]->name());
+			printf("\n");
+		}
+
+		virtual elf_section_t* get_child(const unsigned int idx){
 			return (idx >= n_entry) ? 0 : entry[idx];
 		}
 
-		virtual elf_section_t* find_sub(const char* stridx){
+		virtual elf_section_t* get_child(const char* stridx){
 			for(unsigned int i = 0 ; i < n_entry ; i++){
 				if(!strcmp(entry[i]->name(), stridx)) return entry[i];
 			}
 			return 0;
 		}
 
-		virtual const unsigned char* data(void){
+		virtual const unsigned char* get_body(void){
 			return 0;
 		}
 
 		virtual const char* name(void){
-			return 0;
+			return "shdr";
 		}
-}elf_shdr_t;
+};
 
 elf_section_t* shdr_new(Elf32_Ehdr ehdr, FILE* fd){
 	return (elf_section_t*) new elf_shdr_t(ehdr.e_shnum, fd, ehdr.e_shoff, ehdr.e_shstrndx);

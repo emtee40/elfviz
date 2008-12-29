@@ -28,17 +28,17 @@
 #include "phdr.h"
 #include "shdr.h"
 
-typedef class _elfio_ctrl_t : public elfio_t{
+class elfio_ctrl_t : public elf_section_t{
 	protected:
-		char* file;
+		char file[512];
 		FILE* fd;
 		Elf32_Ehdr ehdr;
 		elf_section_t* mphdr;
 		elf_section_t* mshdr;
 
-		void type_str(FILE* fd, int e_type){
+		void type_str(int e_type){
 			char* str = (char*)"unknown";
-			fprintf(fd, "type=");
+			printf("type=");
 			switch(e_type){
 			case ET_NONE:	str = (char*)"ET_NONE";	break;
 			case ET_REL:	str = (char*)"ET_REL";	break;
@@ -48,12 +48,12 @@ typedef class _elfio_ctrl_t : public elfio_t{
 			case ET_LOPROC:	str = (char*)"ET_LOPROC";	break;
 			case ET_HIPROC:	str = (char*)"ET_HIPROC";	break;
 			}
-			fprintf(fd, "%s\n", str);
+			printf("%s\n", str);
 		}
 
-		void machine_str(FILE* fd, int e_machine){
+		void machine_str(int e_machine){
 			char* str = (char*)"unknown";
-			fprintf(fd, "machine=");
+			printf("machine=");
 			switch(e_machine){
 			case EM_NONE:			str = (char*)"EM_NONE";			break;
 			case EM_M32:			str = (char*)"EM_M32";			break;
@@ -66,82 +66,82 @@ typedef class _elfio_ctrl_t : public elfio_t{
 			case EM_MIPS_RS4_BE:		str = (char*)"EM_MIPS_RS4_BE";	break;
 			case EM_ARM:			str = (char*)"EM_ARM";			break;
 			}
-			fprintf(fd, "%s\n", str);
+			printf("%s\n", str);
 		}
 
-		void version_str(FILE* fd, int e_version){
+		void version_str(int e_version){
 			char* str = (char*)"unknown";
-			fprintf(fd, "version=");
+			printf("version=");
 			switch(e_version){
 			case EV_NONE:		str = (char*)"EV_NONE";		break;
 			case EV_CURRENT:	str = (char*)"EV_CURRENT";	break;
 			}
-			fprintf(fd, "%s\n", str);
+			printf("%s\n", str);
 		}
 
-		void ident_str(FILE* fd, char* e_ident){
+		void ident_str(char* e_ident){
 			char* str = (char*)"unknown";
-			fprintf(fd, "class=");
+			printf("class=");
 			switch(e_ident[EI_CLASS]){
 			case ELFCLASSNONE:	str = (char*)"ELFCLASSNONE";	break;
 			case ELFCLASS32:	str = (char*)"ELFCLASS32";		break;
 			case ELFCLASS64:	str = (char*)"ELFCLASS64";		break;
 			}
-			fprintf(fd, "%s\n", str);
+			printf("%s\n", str);
 			str = (char*)"unknown";
-			fprintf(fd, "data=");
+			printf("data=");
 			switch(e_ident[EI_DATA]){
 			case ELFDATANONE:	str = (char*)"ELFDATANONE";	break;
 			case ELFDATA2LSB:	str = (char*)"ELFDATA2LSB";	break;
 			case ELFDATA2MSB:	str = (char*)"ELFDATA2MSB";	break;
 			}
-			fprintf(fd, "%s\n", str);
+			printf("%s\n", str);
 		}
 
-		void entry_str(FILE* fd, int e_entry){
-			fprintf(fd, "entry=0x%x\n", e_entry);
+		void entry_str(int e_entry){
+			printf("entry=0x%x\n", e_entry);
 		}
 
-		void phoff_str(FILE* fd, int e_phoff){
-			fprintf(fd, "phoff=0x%x\n", e_phoff);
+		void phoff_str(int e_phoff){
+			printf("phoff=0x%x\n", e_phoff);
 		}
 
-		void shoff_str(FILE* fd, int e_shoff){
-			fprintf(fd, "shoff=0x%x\n", e_shoff);
+		void shoff_str(int e_shoff){
+			printf("shoff=0x%x\n", e_shoff);
 		}
 
-		void flags_str(FILE* fd, int e_flags){
-			fprintf(fd, "flags=");
-			if(e_flags & EF_ARM_HASENTRY)			fprintf(fd, "EF_ARM_HASENTRY | ");
-			if(e_flags & EF_ARM_SYMSARESORTED)		fprintf(fd, "EF_ARM_SYMSARESORTED | ");
-			if(e_flags & EF_ARM_DYNSYMSUSESEGIDX)	fprintf(fd, "EF_ARM_DYNSYMSUSESEGIDX | ");
-			if(e_flags & EF_ARM_MAPSYMSFIRST)		fprintf(fd, "EF_ARM_MAPSYMSFIRST | ");
-			if(e_flags & EF_ARM_EABIMASK)			fprintf(fd, "EF_ARM_EABIMASK");
-			fprintf(fd, "\n");
+		void flags_str(int e_flags){
+			printf("flags=");
+			if(e_flags & EF_ARM_HASENTRY)			printf("EF_ARM_HASENTRY | ");
+			if(e_flags & EF_ARM_SYMSARESORTED)		printf("EF_ARM_SYMSARESORTED | ");
+			if(e_flags & EF_ARM_DYNSYMSUSESEGIDX)	printf("EF_ARM_DYNSYMSUSESEGIDX | ");
+			if(e_flags & EF_ARM_MAPSYMSFIRST)		printf("EF_ARM_MAPSYMSFIRST | ");
+			if(e_flags & EF_ARM_EABIMASK)			printf("EF_ARM_EABIMASK");
+			printf("\n");
 		}
 
-		void ehsize_str(FILE* fd, int e_ehsize){
-			fprintf(fd, "ehsize=%d\n", e_ehsize);
+		void ehsize_str(int e_ehsize){
+			printf("ehsize=%d\n", e_ehsize);
 		}
 
-		void phentsize_str(FILE* fd, int e_phentsize){
-			fprintf(fd, "phentsize=%d\n", e_phentsize);
+		void phentsize_str(int e_phentsize){
+			printf("phentsize=%d\n", e_phentsize);
 		}
 
-		void phnum_str(FILE* fd, int e_phnum){
-			fprintf(fd, "phnum=%d\n", e_phnum);
+		void phnum_str(int e_phnum){
+			printf("phnum=%d\n", e_phnum);
 		}
 
-		void shentsize_str(FILE* fd, int e_shentsize){
-			fprintf(fd, "shentsize=%d\n", e_shentsize);
+		void shentsize_str(int e_shentsize){
+			printf("shentsize=%d\n", e_shentsize);
 		}
 
-		void shnum_str(FILE* fd, int e_shnum){
-			fprintf(fd, "shnum=%d\n", e_shnum);
+		void shnum_str(int e_shnum){
+			printf("shnum=%d\n", e_shnum);
 		}
 
-		void shstridx_str(FILE* fd, int e_shstridx){
-			fprintf(fd, "shstridx=%d\n", e_shstridx);
+		void shstridx_str(int e_shstridx){
+			printf("shstridx=%d\n", e_shstridx);
 		}
 
 		bool is_valid_elf(Elf32_Ehdr ehdr){
@@ -150,68 +150,93 @@ typedef class _elfio_ctrl_t : public elfio_t{
 		}
 
 	public:
-		_elfio_ctrl_t(char* efile){
+		elfio_ctrl_t(char* efile){
 			mphdr = mshdr = 0;
-			file = 0;
+			file[0] = 0;
 			fd = fopen(efile, "rb");
 			if(!fd) return;
 			fread(&ehdr, sizeof(ehdr), 1, fd);
-			file = strdup(efile);
+			strcpy(file, efile);
 		}
 
-		~_elfio_ctrl_t(){
+		~elfio_ctrl_t(){
 			if(fd) fclose(fd);
-			if(file) delete file;
 			if(mphdr) delete mphdr;
 			if(mshdr) delete mshdr;
 		}
 
-		virtual void format(FILE* rtout){
+		virtual void format_header(void){
 			if(!is_valid_elf(ehdr)) {
-				fprintf(rtout, "not valid elf");
+				printf("not valid elf");
 				return;
 			}
-			fprintf(rtout, "ELF header\n");
-			ident_str(rtout, (char*)ehdr.e_ident);
-			type_str(rtout, ehdr.e_type);
-			machine_str(rtout, ehdr.e_machine);
-			version_str(rtout, ehdr.e_version);
-			entry_str(rtout, ehdr.e_entry);
-			phoff_str(rtout, ehdr.e_phoff);
-			shoff_str(rtout, ehdr.e_shoff);
-			flags_str(rtout, ehdr.e_flags);
-			ehsize_str(rtout, ehdr.e_ehsize);
-			phentsize_str(rtout, ehdr.e_phentsize);
-			phnum_str(rtout, ehdr.e_phnum);
-			shentsize_str(rtout, ehdr.e_shentsize);
-			shnum_str(rtout, ehdr.e_shnum);
-			shstridx_str(rtout, ehdr.e_shstrndx);
+			printf("ELF header\n");
+			ident_str((char*)ehdr.e_ident);
+			type_str(ehdr.e_type);
+			machine_str(ehdr.e_machine);
+			version_str(ehdr.e_version);
+			entry_str(ehdr.e_entry);
+			phoff_str(ehdr.e_phoff);
+			shoff_str(ehdr.e_shoff);
+			flags_str(ehdr.e_flags);
+			ehsize_str(ehdr.e_ehsize);
+			phentsize_str(ehdr.e_phentsize);
+			phnum_str(ehdr.e_phnum);
+			shentsize_str(ehdr.e_shentsize);
+			shnum_str(ehdr.e_shnum);
+			shstridx_str(ehdr.e_shstrndx);
 		}
 
-		virtual const char* file_name(void){
+		virtual void format_body(void){
+			printf("no body\n");
+		}
+
+		virtual void format_child(void){
+			if(!mphdr) mphdr = phdr_new(ehdr, fd);
+			if(!mshdr) mshdr = shdr_new(ehdr, fd);
+			printf(".\t");
+			if(mphdr) printf("%s\t", mphdr->name());
+			if(mshdr) printf("%s\n", mshdr->name());
+		}
+
+		virtual const unsigned char* get_body(void){
+			return 0;
+		}
+
+		virtual const char* name(void){
 			return file;
 		}
 
-		virtual elf_section_t* get_phdr(void){
+		virtual elf_section_t* get_child(const unsigned int idx){
 			if(!is_valid_elf(ehdr)) return 0;
-			if(!mphdr) mphdr = phdr_new(ehdr, fd);
-			return mphdr;
+			switch(idx){
+				case 0:
+					if(!mphdr) mphdr = phdr_new(ehdr, fd);
+					return mphdr;
+					break;
+				case 1:
+					if(!mshdr) mshdr = shdr_new(ehdr, fd);
+					return mshdr;
+					break;
+			}
+			return 0;
 		}
 
-		virtual elf_section_t* get_shdr(void){
-			if(!is_valid_elf(ehdr)) return 0;
-			if(!mshdr) mshdr = shdr_new(ehdr, fd);
-			return mshdr;
+		virtual elf_section_t* get_child(const char* stridx){
+			unsigned int idx = -1;
+			if(!strcmp(stridx, "phdr")) idx = 0;
+			if(!strcmp(stridx, "shdr")) idx = 1;
+			return get_child(idx);
 		}
-} elfio_ctrl_t;
+};
 
-elfio_t* elfio_new(char* file){
+elf_section_t* elfio_new(char* file){
 	elfio_ctrl_t* elfio = new elfio_ctrl_t(file);
-	if(!elfio->file_name()) {
+	if(!elfio->name()) {
 		delete elfio;
 		elfio = 0;
 	}
-	return (elfio_t*)elfio;
+	return elfio;
 }
 
 /*

@@ -27,14 +27,14 @@
 #include "phdr.h"
 #include "phdr_entry.h"
 
-typedef class _elf_phdr_t : public elf_section_t{
+class elf_phdr_t : public elf_section_t{
 	protected:
 		//todo:phdr_entry를 section container로 정의하여 iterator를 달아 순회하도록 할것
 		elf_section_t** entry;
 		unsigned int n_entry;
 
 	public:
-		_elf_phdr_t(int phnum, FILE* fd, int phoff){
+		elf_phdr_t(int phnum, FILE* fd, int phoff){
 			entry = new elf_section_t* [phnum];
 			n_entry = phnum;
 			for(unsigned int i = 0 ; i < n_entry ; i++){
@@ -42,34 +42,41 @@ typedef class _elf_phdr_t : public elf_section_t{
 			}
 		}
 
-		~_elf_phdr_t(){
+		~elf_phdr_t(){
 			if(n_entry){
 				for(unsigned int i = 0 ; i < n_entry ; i++) delete entry[i];
 				delete entry;
 			}
 		}
-		virtual void format(FILE* fd){
-			fprintf(fd, "no header\n");
+		virtual void format_header(void){
+			printf("no header\n");
 		}
 
-		virtual void dump(FILE* fd){
-			for(unsigned int i = 0 ; i < n_entry ; i++)	entry[i]->format(fd);
+		virtual void format_body(void){
+			printf("no body\n");
 		}
 
-		virtual elf_section_t* get_sub(const unsigned int idx){
+		virtual void format_child(void){
+			printf(".\t..\t");
+			for(unsigned int i = 0 ; i < n_entry ; i++)	printf("%s\t", entry[i]->name());
+			printf("\n");
+		}
+
+		virtual elf_section_t* get_child(const unsigned int idx){
 			return (idx >= n_entry) ? 0 : entry[idx];
 		}
-		virtual elf_section_t* find_sub(const char* stdidx){
+
+		virtual elf_section_t* get_child(const char* stdidx){
 			return 0;
 		}
-		virtual const unsigned char* data(void){
+		virtual const unsigned char* get_body(void){
 			return 0;
 		}
 
 		virtual const char* name(void){
-			return 0;
+			return "phdr";
 		}
-}elf_phdr_t;
+};
 
 elf_section_t* phdr_new(Elf32_Ehdr ehdr, FILE* fd){
 	return (elf_section_t*)new elf_phdr_t(ehdr.e_phnum, fd, ehdr.e_phoff);

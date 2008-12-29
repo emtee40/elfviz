@@ -23,28 +23,26 @@
 
 #include "cmdparam.h"
 
-_cmdparam::_cmdparam(){
-	for(int i = 0 ; i < VIZCMD_PARAM_NUM ; i++)	{
-		vizcmd_param[i] = 0;
-	}
+cmdparam::cmdparam(){
+	memset(vizcmd_param, 0, sizeof(vizcmd_param));
 }
 
-void _cmdparam::add(char* param){
+void cmdparam::add(char* param){
 	for(int i = 0 ; i < VIZCMD_PARAM_NUM ; i++){
-		if(!vizcmd_param[i]) {
-			vizcmd_param[i] = strdup(param);
+		if(!strlen(vizcmd_param[i])) {
+			strcpy(vizcmd_param[i], param);
 			break;
 		}
 	}
 }
 
-int _cmdparam::count(void){
+cmdparam::operator int(void){
 	int i = 0, cnt = 0;
-	for(i = 0, cnt = 0 ; i < VIZCMD_PARAM_NUM ; i++)	if(vizcmd_param[i]) cnt++;
+	for(i = 0, cnt = 0 ; i < VIZCMD_PARAM_NUM ; i++)	if(strlen(vizcmd_param[i])) cnt++;
 	return cnt;
 }
 
-char** _cmdparam::str(void){
-	return vizcmd_param;
+char* cmdparam::argv(int idx){
+	return vizcmd_param[idx];
 }
 

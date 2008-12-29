@@ -32,24 +32,17 @@
 #else //WIN32
 #define ELFIO_API
 #endif //WIN32
-typedef class _elf_section_t{
+class elf_section_t{
 	public:
-		virtual void format(FILE* rtout) = 0;
-		virtual void dump(FILE* rtout) = 0;
-		virtual class _elf_section_t* get_sub(const unsigned int idx) = 0;
-		virtual class _elf_section_t* find_sub(const char* stridx) = 0;
+		virtual void format_header(void) = 0;
+		virtual void format_body(void) = 0;
+		virtual void format_child(void) = 0;
+		virtual elf_section_t* get_child(const unsigned int idx) = 0;
+		virtual elf_section_t* get_child(const char* stridx) = 0;
 		virtual const char* name(void) = 0;
-		virtual const unsigned char* data(void) = 0;
-}elf_section_t;
+		virtual const unsigned char* get_body(void) = 0;
+};
 
-typedef class _elfio_t{
-	public:
-		virtual const char* file_name(void) = 0;
-		virtual void format(FILE* rtout) = 0;
-		virtual elf_section_t* get_shdr(void) = 0;
-		virtual elf_section_t* get_phdr(void) = 0;
-}elfio_t;
-
-ELFIO_API elfio_t* elfio_new(char* file);
+ELFIO_API elf_section_t* elfio_new(char* file);
 
 #endif //__ELF_IO_H__

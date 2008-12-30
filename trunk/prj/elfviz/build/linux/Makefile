@@ -1,11 +1,10 @@
-CPP=g++
+CXX=g++
 CFLAGS=-c -O2 -Wall
-USR_CFLAGS=
 RM=rm -f
 SRCDIR=../../src
 INCS=-I . -I ../../../../inc
 BINDIR=../../../../bin
-ELFIO=/usr/lib/libelfio.so.2.0
+ELFIO=$(BINDIR)/libelfio.so.2.0
 objs=elfviz.o \
 	cmdaction.o \
 	cmdparam.o \
@@ -15,19 +14,12 @@ objs=elfviz.o \
 
 OUT=elfviz
 
-elfviz: $(objs)
-	$(CPP) -o $@ $(objs) $(ELFIO)
-	mv $@ $(BINDIR)
-
-install: 
-	cp $(BINDIR)/$(OUT) /usr/bin
-
-debug:
-	$(MAKE) USR_CFLAGS=-g
+all: $(objs)
+	$(CXX) -o $(OUT) $(objs) $(ELFIO)
+	mv $(OUT) $(BINDIR)
 
 clean:
 	$(RM) $(objs) $(BINDIR)/$(OUT)
-	$(RM) /usr/bin/$(OUT)
 
 %.o: $(SRCDIR)/%.cpp
-	$(CPP) $(CFLAGS) $(USR_CFLAGS) $(INCS) $< -o $@
+	$(CXX) $(CFLAGS) $(USR_CFLAGS) $(INCS) $< -o $@

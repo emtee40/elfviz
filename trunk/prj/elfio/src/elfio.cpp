@@ -27,6 +27,150 @@
 #include "elftypes.h"
 #include "phdr.h"
 #include "shdr.h"
+#include "elf_defs.h"
+
+static const section_attr_t elf_attr[] = {
+	{"class",	ELF_TYPE_INT | ELF_TYPE_STR	},
+	{"data",	ELF_TYPE_INT | ELF_TYPE_STR	},
+	{"machine",	ELF_TYPE_INT | ELF_TYPE_STR	},
+	{"version",	ELF_TYPE_INT | ELF_TYPE_STR	},
+	{"type",	ELF_TYPE_INT | ELF_TYPE_STR	},
+	{"phoff",	ELF_TYPE_INT | ELF_TYPE_HEX	},
+	{"shoff",	ELF_TYPE_INT | ELF_TYPE_HEX	},
+	{"flags",	ELF_TYPE_INT | ELF_TYPE_STR	},
+	{"ehsize",	ELF_TYPE_INT			},
+	{"phentsize",	ELF_TYPE_INT			},
+	{"phnum",	ELF_TYPE_INT			},
+	{"shentsize",	ELF_TYPE_INT			},
+	{"shnum",	ELF_TYPE_INT			},
+	{"shstrndx",	ELF_TYPE_INT			}
+};
+
+class elfio_attr_t : public elf_attr_t{
+	public:
+		elfio_attr_t(Elf32_Ehdr& ehdr):hdr(ehdr), num(sizeof(elf_attr)/sizeof(section_attr_t)){}
+		virtual const char* get_str(int idx){
+			char* ret = 0;
+			switch(idx){
+				case 0:	ret = ident_class_str();	break;
+				case 1:	ret = ident_data_str();		break;
+				case 2:	ret = machine_str();		break;
+				case 3:	ret = version_str();		break;
+				case 4:	ret = type_str();		break;
+				case 7:	ret = flags_str();		break;
+				default:	throw "invalid argument";	break;
+			}
+			return ret;
+		}
+
+		virtual const int get_int(int idx){
+			int ret = 0;
+			switch(idx){
+				case 0:		ret = hdr.e_ident[EI_CLASS];	break;
+				case 1:		ret = hdr.e_ident[EI_DATA];	break;
+				case 2:		ret = hdr.e_machine;		break;
+				case 3:		ret = hdr.e_version;		break;
+				case 4:		ret = hdr.e_entry;		break;
+				case 5:		ret = hdr.e_phoff;		break;
+				case 6:		ret = hdr.e_shoff;		break;
+				case 7:		ret = hdr.e_flags;		break;
+				case 8:		ret = hdr.e_ehsize;		break;
+				case 9:		ret = hdr.e_phentsize;		break;
+				case 10:	ret = hdr.e_phnum;		break;
+				case 11:	ret = hdr.e_shentsize;		break;
+				case 12:	ret = hdr.e_shnum;		break;
+				case 13:	ret = hdr.e_shstrndx;		break;
+				default:	throw "invalid argument";	break;
+			}
+			return ret;
+		}
+		virtual const unsigned int get_type(int idx){
+			return elf_attr[idx].type;
+		}
+
+		virtual const char* get_name(int idx){
+			return elf_attr[idx].name;
+		}
+
+		virtual const unsigned int get_num(void){
+			return num;
+		}
+
+	private:
+		Elf32_Ehdr& hdr;
+		const unsigned int num;
+
+		char* ident_class_str(void){
+			char* str = (char*)"unknown";
+			switch(hdr.e_ident[EI_CLASS]){
+				case ELFCLASSNONE:	str = (char*)"ELFCLASSNONE";	break;
+				case ELFCLASS32:	str = (char*)"ELFCLASS32";	break;
+				case ELFCLASS64:	str = (char*)"ELFCLASS64";	break;
+			}
+			return str;
+		}
+
+		char* ident_data_str(void){
+			char* str = (char*)"unknown";
+			switch(hdr.e_ident[EI_DATA]){
+				case ELFDATANONE:	str = (char*)"ELFDATANONE";	break;
+				case ELFDATA2LSB:	str = (char*)"ELFDATA2LSB";	break;
+				case ELFDATA2MSB:	str = (char*)"ELFDATA2MSB";	break;
+			}
+			return str;
+		}
+
+		char* type_str(void){
+			char* str = (char*)"unknown";
+			switch(hdr.e_type){
+				case ET_NONE:	str = (char*)"ET_NONE";		break;
+				case ET_REL:	str = (char*)"ET_REL";		break;
+				case ET_EXEC:	str = (char*)"ET_EXEC";		break;
+				case ET_DYN:	str = (char*)"ET_DYN";		break;
+				case ET_CORE:	str = (char*)"ET_CORE";		break;
+				case ET_LOPROC:	str = (char*)"ET_LOPROC";	break;
+				case ET_HIPROC:	str = (char*)"ET_HIPROC";	break;
+			}
+			return str;
+		}
+
+		char* machine_str(void){
+			char* str = (char*)"unknown";
+			switch(hdr.e_machine){
+				case EM_NONE:			str = (char*)"EM_NONE";			break;
+				case EM_M32:			str = (char*)"EM_M32";			break;
+				case EM_SPARC:			str = (char*)"EM_SPARC";		break;
+				case EM_386:			str = (char*)"EM_386";			break;
+				case EM_68K:			str = (char*)"EM_68K";			break;
+				case EM_88K:			str = (char*)"EM_88K";			break;
+				case EM_860:			str = (char*)"EM_860";			break;
+				case EM_MIPS:			str = (char*)"EM_MIPS";			break;
+				case EM_MIPS_RS4_BE:		str = (char*)"EM_MIPS_RS4_BE";		break;
+				case EM_ARM:			str = (char*)"EM_ARM";			break;
+			}
+			return str;
+		}
+
+		char* version_str(void){
+			char* str = (char*)"unknown";
+			switch(hdr.e_version){
+				case EV_NONE:		str = (char*)"EV_NONE";		break;
+				case EV_CURRENT:	str = (char*)"EV_CURRENT";	break;
+			}
+			return str;
+		}
+
+		char* flags_str(void){
+			static char str[512] = "\0";
+			str[0] = 0;
+			if(hdr.e_flags & EF_ARM_HASENTRY){		if(str[0]) strcat(str, " | EF_ARM_HASENTRY");		else strcpy(str, "EF_ARM_HASENTRY"); }
+			if(hdr.e_flags & EF_ARM_SYMSARESORTED){		if(str[0]) strcat(str, " | EF_ARM_SYMSARESORTED");	else strcpy(str, "EF_ARM_SYMSARESORTED"); }
+			if(hdr.e_flags & EF_ARM_DYNSYMSUSESEGIDX){	if(str[0]) strcat(str, " | EF_ARM_DYNSYMSUSESEGIDX");	else strcpy(str, "EF_ARM_DYNSYMSUSESEGIDX"); }
+			if(hdr.e_flags & EF_ARM_MAPSYMSFIRST){		if(str[0]) strcat(str, " | EF_ARM_MAPSYMSFIRST");	else strcpy(str, "EF_ARM_MAPSYMSFIRST"); }
+			if(hdr.e_flags & EF_ARM_EABIMASK){		if(str[0]) strcat(str, " | EF_ARM_EABIMASK");		else strcpy(str, "EF_ARM_EABIMASK"); }
+			return str;
+		}
+};
 
 class elfio_ctrl_t : public elf_section_t{
 	protected:
@@ -35,114 +179,7 @@ class elfio_ctrl_t : public elf_section_t{
 		Elf32_Ehdr ehdr;
 		elf_section_t* mphdr;
 		elf_section_t* mshdr;
-
-		void type_str(int e_type){
-			char* str = (char*)"unknown";
-			printf("type=");
-			switch(e_type){
-			case ET_NONE:	str = (char*)"ET_NONE";	break;
-			case ET_REL:	str = (char*)"ET_REL";	break;
-			case ET_EXEC:	str = (char*)"ET_EXEC";	break;
-			case ET_DYN:	str = (char*)"ET_DYN";	break;
-			case ET_CORE:	str = (char*)"ET_CORE";	break;
-			case ET_LOPROC:	str = (char*)"ET_LOPROC";	break;
-			case ET_HIPROC:	str = (char*)"ET_HIPROC";	break;
-			}
-			printf("%s\n", str);
-		}
-
-		void machine_str(int e_machine){
-			char* str = (char*)"unknown";
-			printf("machine=");
-			switch(e_machine){
-			case EM_NONE:			str = (char*)"EM_NONE";			break;
-			case EM_M32:			str = (char*)"EM_M32";			break;
-			case EM_SPARC:			str = (char*)"EM_SPARC";			break;
-			case EM_386:			str = (char*)"EM_386";			break;
-			case EM_68K:			str = (char*)"EM_68K";			break;
-			case EM_88K:			str = (char*)"EM_88K";			break;
-			case EM_860:			str = (char*)"EM_860";			break;
-			case EM_MIPS:			str = (char*)"EM_MIPS";			break;
-			case EM_MIPS_RS4_BE:		str = (char*)"EM_MIPS_RS4_BE";	break;
-			case EM_ARM:			str = (char*)"EM_ARM";			break;
-			}
-			printf("%s\n", str);
-		}
-
-		void version_str(int e_version){
-			char* str = (char*)"unknown";
-			printf("version=");
-			switch(e_version){
-			case EV_NONE:		str = (char*)"EV_NONE";		break;
-			case EV_CURRENT:	str = (char*)"EV_CURRENT";	break;
-			}
-			printf("%s\n", str);
-		}
-
-		void ident_str(char* e_ident){
-			char* str = (char*)"unknown";
-			printf("class=");
-			switch(e_ident[EI_CLASS]){
-			case ELFCLASSNONE:	str = (char*)"ELFCLASSNONE";	break;
-			case ELFCLASS32:	str = (char*)"ELFCLASS32";		break;
-			case ELFCLASS64:	str = (char*)"ELFCLASS64";		break;
-			}
-			printf("%s\n", str);
-			str = (char*)"unknown";
-			printf("data=");
-			switch(e_ident[EI_DATA]){
-			case ELFDATANONE:	str = (char*)"ELFDATANONE";	break;
-			case ELFDATA2LSB:	str = (char*)"ELFDATA2LSB";	break;
-			case ELFDATA2MSB:	str = (char*)"ELFDATA2MSB";	break;
-			}
-			printf("%s\n", str);
-		}
-
-		void entry_str(int e_entry){
-			printf("entry=0x%x\n", e_entry);
-		}
-
-		void phoff_str(int e_phoff){
-			printf("phoff=0x%x\n", e_phoff);
-		}
-
-		void shoff_str(int e_shoff){
-			printf("shoff=0x%x\n", e_shoff);
-		}
-
-		void flags_str(int e_flags){
-			printf("flags=");
-			if(e_flags & EF_ARM_HASENTRY)			printf("EF_ARM_HASENTRY | ");
-			if(e_flags & EF_ARM_SYMSARESORTED)		printf("EF_ARM_SYMSARESORTED | ");
-			if(e_flags & EF_ARM_DYNSYMSUSESEGIDX)	printf("EF_ARM_DYNSYMSUSESEGIDX | ");
-			if(e_flags & EF_ARM_MAPSYMSFIRST)		printf("EF_ARM_MAPSYMSFIRST | ");
-			if(e_flags & EF_ARM_EABIMASK)			printf("EF_ARM_EABIMASK");
-			printf("\n");
-		}
-
-		void ehsize_str(int e_ehsize){
-			printf("ehsize=%d\n", e_ehsize);
-		}
-
-		void phentsize_str(int e_phentsize){
-			printf("phentsize=%d\n", e_phentsize);
-		}
-
-		void phnum_str(int e_phnum){
-			printf("phnum=%d\n", e_phnum);
-		}
-
-		void shentsize_str(int e_shentsize){
-			printf("shentsize=%d\n", e_shentsize);
-		}
-
-		void shnum_str(int e_shnum){
-			printf("shnum=%d\n", e_shnum);
-		}
-
-		void shstridx_str(int e_shstridx){
-			printf("shstridx=%d\n", e_shstridx);
-		}
+		elfio_attr_t elfio_attr;
 
 		bool is_valid_elf(Elf32_Ehdr ehdr){
 			char elf_mag[4] = {0x7f, 'E', 'L', 'F'};
@@ -150,7 +187,7 @@ class elfio_ctrl_t : public elf_section_t{
 		}
 
 	public:
-		elfio_ctrl_t(char* efile){
+		elfio_ctrl_t(char* efile) : elfio_attr(ehdr){
 			mphdr = mshdr = 0;
 			file[0] = 0;
 			fd = fopen(efile, "rb");
@@ -165,50 +202,27 @@ class elfio_ctrl_t : public elf_section_t{
 			if(mshdr) delete mshdr;
 		}
 
-		virtual void format_header(void){
-			if(!is_valid_elf(ehdr)) {
-				printf("not valid elf");
-				return;
-			}
-			printf("ELF header\n");
-			ident_str((char*)ehdr.e_ident);
-			type_str(ehdr.e_type);
-			machine_str(ehdr.e_machine);
-			version_str(ehdr.e_version);
-			entry_str(ehdr.e_entry);
-			phoff_str(ehdr.e_phoff);
-			shoff_str(ehdr.e_shoff);
-			flags_str(ehdr.e_flags);
-			ehsize_str(ehdr.e_ehsize);
-			phentsize_str(ehdr.e_phentsize);
-			phnum_str(ehdr.e_phnum);
-			shentsize_str(ehdr.e_shentsize);
-			shnum_str(ehdr.e_shnum);
-			shstridx_str(ehdr.e_shstrndx);
+		virtual elf_attr_t* get_attr(void){
+			return &elfio_attr;
 		}
 
-		virtual void format_body(void){
-			printf("no body\n");
-		}
-
-		virtual void format_child(void){
-			if(!mphdr) mphdr = phdr_new(ehdr, fd);
-			if(!mshdr) mshdr = shdr_new(ehdr, fd);
-			printf(".\t");
-			if(mphdr) printf("%s\t", mphdr->name());
-			if(mshdr) printf("%s\n", mshdr->name());
-		}
-
-		virtual const unsigned char* get_body(void){
+		virtual elf_buffer_t* get_body(void){
 			return 0;
+		}
+
+		virtual const char* category(void){
+			return "elfml";
 		}
 
 		virtual const char* name(void){
 			return file;
 		}
 
-		virtual elf_section_t* get_child(const unsigned int idx){
-			if(!is_valid_elf(ehdr)) return 0;
+		virtual const unsigned int get_child_num(void){
+			return 2;
+		}
+
+		virtual elf_section_t* get_child(const int idx){
 			switch(idx){
 				case 0:
 					if(!mphdr) mphdr = phdr_new(ehdr, fd);
@@ -223,9 +237,9 @@ class elfio_ctrl_t : public elf_section_t{
 		}
 
 		virtual elf_section_t* get_child(const char* stridx){
-			unsigned int idx = -1;
-			if(!strcmp(stridx, "phdr")) idx = 0;
-			if(!strcmp(stridx, "shdr")) idx = 1;
+			int idx = -1;
+			if(!strcmp(stridx, "phdr"))	idx = 0;
+			else if(!strcmp(stridx, "shdr")) idx = 1;
 			return get_child(idx);
 		}
 };

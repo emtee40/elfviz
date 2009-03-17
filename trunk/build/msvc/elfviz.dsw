@@ -3,7 +3,7 @@ Microsoft Developer Studio Workspace File, Format Version 6.00
 
 ###############################################################################
 
-Project: "elfviz"="..\..\prj\elfviz\build\msvc\elfviz.dsp" - Package Owner=<4>
+Project: "elf2txt"="..\..\prj\elf2txt\build\msvc\elf2txt.dsp" - Package Owner=<4>
 
 Package=<5>
 {{{
@@ -18,6 +18,24 @@ Package=<4>
 
 ###############################################################################
 
+Project: "elfviz"="..\..\prj\elfviz\build\msvc\elfviz.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name libelfio
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name elf2txt
+    End Project Dependency
+}}}
+
+###############################################################################
+
 Project: "libelfio"="..\..\prj\elfio\build\msvc\libelfio.dsp" - Package Owner=<4>
 
 Package=<5>
@@ -26,6 +44,27 @@ Package=<5>
 
 Package=<4>
 {{{
+}}}
+
+###############################################################################
+
+Project: "melfviz"="..\..\prj\melfviz\melfviz.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name elf2txt
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name elfviz
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libelfio
+    End Project Dependency
 }}}
 
 ###############################################################################

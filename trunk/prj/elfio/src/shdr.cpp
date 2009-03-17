@@ -32,24 +32,28 @@ class elf_shdr_t : public elf_section_t{
 	protected:
 		elf_section_t** entry;
 		unsigned int n_entry;
-		char* shstr;
+		elf_buffer_t* shstr;
 
 	public:
-		elf_shdr_t(int shnum, FILE* fd, int shoff, int shstrndx){
+		elf_shdr_t(int shnum, FILE* fd, int shoff, int shstrndx):shstr(0){
 			entry = new elf_section_t* [shnum];
 			n_entry = shnum;
 			elf_section_t* shdr_shstr = shdr_entry_new(fd, shoff + sizeof(Elf32_Shdr) * shstrndx, 0, 0);
-			char* shstr = (char*)shdr_shstr->get_body();
-			char* strtab = 0;
+			elf_buffer_t* shstr = shdr_shstr->get_body();
+			elf_buffer_t* strtab = 0;
 			unsigned int i = 0;
 			//todo : order of names in shstrtab is not coinsident with that of sections
 
 			entry = new elf_section_t* [n_entry];
 			memset(entry, 0, sizeof(elf_section_t*) * n_entry);
 			for(i = 0 ; i < n_entry ; i++){
-				if(!entry[i]) entry[i] = shdr_entry_new(fd, shoff + sizeof(Elf32_Shdr) * i, shstr, strtab);
+				if(!entry[i]) delete entry[i];
+				entry[i] = shdr_entry_new(fd,
+							shoff + sizeof(Elf32_Shdr) * i,
+							(char*)((shstr) ? shstr->buffer : 0),
+							(char*)((strtab) ? strtab->buffer : 0));
 				if(!strtab && entry[i] && !strcmp(entry[i]->name(), ".strtab")) {
-					strtab = (char*)entry[i]->get_body();
+					strtab = entry[i]->get_body();
 					i = -1;
 					continue;
 				}
@@ -62,27 +66,20 @@ class elf_shdr_t : public elf_section_t{
 			if(n_entry){
 				for(unsigned int i = 0 ; i < n_entry ; i++) delete entry[i];
 				delete entry;
-				delete shstr;
+				if(shstr)delete shstr;
 			}
 		}
 
-		virtual void format_header(void){
-			printf("no header\n");
+		virtual elf_attr_t* get_attr(void){return 0;}
+
+		virtual const unsigned int get_child_num(void){
+			return n_entry;
 		}
 
-		virtual void format_body(void){
-			printf("no body\n");
+		virtual elf_section_t* get_child(const int idx){
+			return entry[idx];
 		}
 
-		virtual void format_child(void){
-			printf(".\t..\t");
-			for(unsigned int i = 0 ; i < n_entry ; i++) printf("%s\t", entry[i]->name());
-			printf("\n");
-		}
-
-		virtual elf_section_t* get_child(const unsigned int idx){
-			return (idx >= n_entry) ? 0 : entry[idx];
-		}
 
 		virtual elf_section_t* get_child(const char* stridx){
 			for(unsigned int i = 0 ; i < n_entry ; i++){
@@ -91,8 +88,12 @@ class elf_shdr_t : public elf_section_t{
 			return 0;
 		}
 
-		virtual const unsigned char* get_body(void){
+		virtual elf_buffer_t* get_body(void){
 			return 0;
+		}
+
+		virtual const char* category(void){
+			return "shdr";
 		}
 
 		virtual const char* name(void){

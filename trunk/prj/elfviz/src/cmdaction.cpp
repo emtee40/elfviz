@@ -21,8 +21,9 @@
 */
 
 #include <stdio.h>
-//#include <stdlib.h>	//FIXME:it makes error. i don't know why
+//#include <stdlib.h>	//FIXME:it makes error. stdlib crashes with g++ when compiled with -O2 option
 #include <string.h>
+#include <ctype.h>
 
 #include "elfio/elfio.h"
 #include "cmdparam.h"
@@ -91,24 +92,43 @@ class cmdaction_file : public cmdaction{
 };
 
 class cmdaction_ls : public cmdaction{
+	private:
+		void format_child(elf_section_t* e){
+			elf_section_t* child = 0;
+			printf(".\t..\t");
+			for(int i = 0 ; i < e->get_child_num() ; i++){
+				 child = e->get_child(i);
+				if(child) printf("%s\t", child->name());
+			}
+		}
+
 	public:
 		virtual void act(cmdparam& param, elf_stack& elfstack){
 			elf_section_t* elfio = elfstack;
 			if(param == 0) {
-				elfio->format_child();
+				format_child(elfio);
 			} else {
 				char* argv = param.argv(0);
 				if(!strcmp(argv, ".")){
-					elfio->format_child();
+					format_child(elfio);
 				} else {
-					elfio = elfio->get_child(argv);
-					elfio->format_child();
+					format_child(elfio->get_child(argv));
 				}
 			}
 		}
 };
 
 class cmdaction_inf : public cmdaction{
+	void format_header(elf_section_t* e){
+		elf_attr_t* attr = e->get_attr();
+		if(!attr) return;
+		for(int i = 0 ; i < attr->get_num() ; i++){
+			int type = attr->get_type(i);
+			if(type & ELF_TYPE_STR)	printf("%s=%s\n", attr->get_name(i), attr->get_str(i));
+			else			printf("%s=%d\n", attr->get_name(i), attr->get_int(i));
+		}
+	}
+
 	public:
 		virtual void act(cmdparam& param, elf_stack& elfstack){
 			elf_section_t* elfio = elfstack;
@@ -116,11 +136,36 @@ class cmdaction_inf : public cmdaction{
 			char* argv = param.argv(0);
 			if(!strcmp(argv, ".")) current = elfio;
 			else current = elfio->get_child(argv);
-			if(current) current->format_header();
+			if(current) format_header(current);
 		}
 };
 
 class cmdaction_cat : public cmdaction{
+	#define SHDR_COLUMN_SIZE 16
+	void format_body(elf_section_t* e){
+		elf_buffer_t* buf = e->get_body();
+		if(!buf) return;
+		for(unsigned int i = 0 ; i < buf->size ; i += SHDR_COLUMN_SIZE){
+			int j = 0;
+			int mx = buf->size - i;
+			if(mx > SHDR_COLUMN_SIZE) mx = SHDR_COLUMN_SIZE;
+			printf("%08x: ", (unsigned int)(buf->offset + i));
+			for(j = 0 ; j < mx ; j++) {
+				printf("%02x ", buf->buffer[i + j]);
+				if(j == 7)	printf(" ");
+			}
+			if(mx < SHDR_COLUMN_SIZE) {
+				for(j = 0 ; j < SHDR_COLUMN_SIZE - mx ; j++){
+					printf("   ");
+				}
+				if(mx < 7) printf(" ");
+			}
+			printf("  ");
+			for(j = 0 ; j < mx ; j++) printf("%c", (isalnum(buf->buffer[i + j])) ? buf->buffer[i + j] : '.');
+			printf("\n");
+		}
+	}
+
 	public:
 		virtual void act(cmdparam& param, elf_stack& elfstack){
 			elf_section_t* elfio = elfstack;
@@ -128,7 +173,7 @@ class cmdaction_cat : public cmdaction{
 			char* argv = param.argv(0);
 			if(!strcmp(argv, ".")) current = elfio;
 			else current = elfio->get_child(argv);
-			if(current) current->format_body();
+			if(current) format_body(current);
 		}
 };
 

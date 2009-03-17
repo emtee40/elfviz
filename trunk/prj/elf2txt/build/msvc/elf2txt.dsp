@@ -1,24 +1,24 @@
-# Microsoft Developer Studio Project File - Name="elfviz" - Package Owner=<4>
+# Microsoft Developer Studio Project File - Name="elf2txt" - Package Owner=<4>
 # Microsoft Developer Studio Generated Build File, Format Version 6.00
 # ** DO NOT EDIT **
 
 # TARGTYPE "Win32 (x86) Console Application" 0x0103
 
-CFG=elfviz - Win32 Debug
+CFG=elf2txt - Win32 Debug
 !MESSAGE This is not a valid makefile. To build this project using NMAKE,
 !MESSAGE use the Export Makefile command and run
 !MESSAGE 
-!MESSAGE NMAKE /f "elfviz.mak".
+!MESSAGE NMAKE /f "elf2txt.mak".
 !MESSAGE 
 !MESSAGE You can specify a configuration when running NMAKE
 !MESSAGE by defining the macro CFG on the command line. For example:
 !MESSAGE 
-!MESSAGE NMAKE /f "elfviz.mak" CFG="elfviz - Win32 Debug"
+!MESSAGE NMAKE /f "elf2txt.mak" CFG="elf2txt - Win32 Debug"
 !MESSAGE 
 !MESSAGE Possible choices for configuration are:
 !MESSAGE 
-!MESSAGE "elfviz - Win32 Release" (based on "Win32 (x86) Console Application")
-!MESSAGE "elfviz - Win32 Debug" (based on "Win32 (x86) Console Application")
+!MESSAGE "elf2txt - Win32 Release" (based on "Win32 (x86) Console Application")
+!MESSAGE "elf2txt - Win32 Debug" (based on "Win32 (x86) Console Application")
 !MESSAGE 
 
 # Begin Project
@@ -28,7 +28,7 @@ CFG=elfviz - Win32 Debug
 CPP=cl.exe
 RSC=rc.exe
 
-!IF  "$(CFG)" == "elfviz - Win32 Release"
+!IF  "$(CFG)" == "elf2txt - Win32 Release"
 
 # PROP BASE Use_MFC 0
 # PROP BASE Use_Debug_Libraries 0
@@ -42,7 +42,7 @@ RSC=rc.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /c
-# ADD CPP /nologo /W3 /GX /O2 /I "..\..\..\..\inc" /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /c
+# ADD CPP /nologo /W3 /GX /O2 /I "..\..\src" /I "..\..\..\..\inc" /I "c:\Program Files\ucrt\inc" /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /c
 # ADD BASE RSC /l 0x412 /d "NDEBUG"
 # ADD RSC /l 0x412 /d "NDEBUG"
 BSC32=bscmake.exe
@@ -50,13 +50,13 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /machine:I386
-# ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib libucrt.lib libelfio.lib /nologo /subsystem:console /machine:I386 /libpath:"../../../../lib"
+# ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /machine:I386 /libpath:"c:\program files\ucrt\lib"
 # Begin Special Build Tool
 SOURCE="$(InputPath)"
-PostBuild_Cmds=copy Release\elfviz.exe ..\..\..\..\bin
+PostBuild_Cmds=copy Release\elf2txt.exe ..\..\..\..\bin
 # End Special Build Tool
 
-!ELSEIF  "$(CFG)" == "elfviz - Win32 Debug"
+!ELSEIF  "$(CFG)" == "elf2txt - Win32 Debug"
 
 # PROP BASE Use_MFC 0
 # PROP BASE Use_Debug_Libraries 1
@@ -70,7 +70,7 @@ PostBuild_Cmds=copy Release\elfviz.exe ..\..\..\..\bin
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
-# ADD CPP /nologo /W3 /Gm /GX /ZI /Od /I "../../../../inc" /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /FR /YX /FD /GZ /c
+# ADD CPP /nologo /W3 /Gm /GX /ZI /Od /I "..\..\src" /I "..\..\..\..\inc" /I "c:\Program Files\ucrt\inc" /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
 # ADD BASE RSC /l 0x412 /d "_DEBUG"
 # ADD RSC /l 0x412 /d "_DEBUG"
 BSC32=bscmake.exe
@@ -78,44 +78,28 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /debug /machine:I386 /pdbtype:sept
-# ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib libelfio.lib /nologo /subsystem:console /debug /machine:I386 /pdbtype:sept /libpath:"../../../../lib"
+# ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib libucrt.lib /nologo /subsystem:console /debug /machine:I386 /pdbtype:sept /libpath:"c:\program files\ucrt\lib"
 # Begin Special Build Tool
 SOURCE="$(InputPath)"
-PostBuild_Cmds=copy Debug\elfviz.exe ..\..\..\..\bin
+PostBuild_Cmds=copy Debug\elf2txt.exe ..\..\..\..\bin
 # End Special Build Tool
 
 !ENDIF 
 
 # Begin Target
 
-# Name "elfviz - Win32 Release"
-# Name "elfviz - Win32 Debug"
+# Name "elf2txt - Win32 Release"
+# Name "elf2txt - Win32 Debug"
 # Begin Group "Source Files"
 
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 # Begin Source File
 
-SOURCE=..\..\src\argparse.cpp
+SOURCE=..\..\src\argument.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=..\..\src\cmdaction.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\..\src\cmdparam.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\..\src\elfstack.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\..\src\elfviz.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=..\..\src\vizcmd.cpp
+SOURCE=..\..\src\elf2txt.cpp
 # End Source File
 # End Group
 # Begin Group "Header Files"
@@ -123,23 +107,7 @@ SOURCE=..\..\src\vizcmd.cpp
 # PROP Default_Filter "h;hpp;hxx;hm;inl"
 # Begin Source File
 
-SOURCE=..\..\src\argparse.h
-# End Source File
-# Begin Source File
-
-SOURCE=..\..\src\cmdaction.h
-# End Source File
-# Begin Source File
-
-SOURCE=..\..\src\cmdparam.h
-# End Source File
-# Begin Source File
-
-SOURCE=..\..\src\elfstack.h
-# End Source File
-# Begin Source File
-
-SOURCE=..\..\src\vizcmd.h
+SOURCE=..\..\src\argument.h
 # End Source File
 # End Group
 # Begin Group "Resource Files"

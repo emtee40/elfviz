@@ -20,19 +20,72 @@
  * -------------------------------------------------------------------------
 */
 #include <stdio.h>
+#include <string.h>
 
 #include "elfio/elfio.h"
 #include "elftypes.h"
 #include "phdr_entry.h"
+#include "elf_defs.h"
 
-class elf_phdr_entry_t : public elf_section_t{
-	protected:
-		Elf32_Phdr phdr;
+static const section_attr_t phdr_entry_attr[] = {
+	{"p_type",	ELF_TYPE_STR | ELF_TYPE_INT	},
+	{"p_offset",	ELF_TYPE_INT | ELF_TYPE_HEX	},
+	{"p_vaddr",	ELF_TYPE_INT | ELF_TYPE_HEX	},
+	{"p_paddr",	ELF_TYPE_INT | ELF_TYPE_HEX	},
+	{"p_filesz",	ELF_TYPE_INT			},
+	{"p_memsz",	ELF_TYPE_INT			},
+	{"p_flags",	ELF_TYPE_STR | ELF_TYPE_INT	},
+	{"p_align",	ELF_TYPE_INT			}
+};
 
-		void type_str(int p_type){
+class phdr_entry_attr_t : public elf_attr_t {
+	public:
+		phdr_entry_attr_t(Elf32_Phdr& phdr):hdr(phdr), num(sizeof(phdr_entry_attr) / sizeof(section_attr_t)){ }
+
+		virtual const unsigned int get_num(void){
+			return num;
+		}
+
+		virtual const unsigned int get_type(int idx){
+			return phdr_entry_attr[idx].type;
+		}
+
+		virtual const char* get_name(int idx){
+			return phdr_entry_attr[idx].name;
+		}
+
+		virtual const char* get_str(int idx){
+			char* ret = 0;
+			switch(idx){
+				case 0:	ret = type_str();	break;
+				case 6:	ret = flags_str();	break;
+				default:	throw "invalid argument";	break;
+			}
+			return ret;
+		}
+
+		virtual const int get_int(int idx){
+			unsigned int ret = 0;
+			switch(idx){
+				case 0:	ret = hdr.p_type;	break;
+				case 1:	ret = hdr.p_offset;	break;
+				case 2:	ret = hdr.p_vaddr;	break;
+				case 3:	ret = hdr.p_paddr;	break;
+				case 4:	ret = hdr.p_filesz;	break;
+				case 5:	ret = hdr.p_memsz;	break;
+				case 6:	ret = hdr.p_flags;	break;
+				case 7:	ret = hdr.p_align;	break;
+				default:	throw "invalid argument";	break;
+			}
+			return ret;
+		}
+
+	private:
+		Elf32_Phdr& hdr;
+		const unsigned int num;
+		char* type_str(void){
 			char* str = (char*)"unknown";
-			printf("p_type=");
-			switch(p_type){
+			switch(hdr.p_type){
 			case PT_NULL:		str = (char*)"PT_NULL";	break;
 			case PT_LOAD:		str = (char*)"PT_LOAD";	break;
 			case PT_DYNAMIC:	str = (char*)"PT_DYNAMIC";	break;
@@ -43,72 +96,42 @@ class elf_phdr_entry_t : public elf_section_t{
 			case PT_LOPROC:		str = (char*)"PT_LOPROC";	break;
 			case PT_HIPROC:		str = (char*)"PT_HIPROC";	break;
 			}
-			printf("%s\n", str);
+			return str;
 		}
 
-		void offset_str(int p_offset){
-			printf("p_offset=0x%x\n", p_offset);
+		char* flags_str(void){
+			static char str[128] = "\0";
+			str[0] = 0;
+			if(hdr.p_flags & PF_X){	if(str[0]) strcat(str, " | PF_X");	else strcpy(str, "PF_X");}
+			if(hdr.p_flags & PF_W){	if(str[0]) strcat(str, " | PF_W");	else strcpy(str, "PF_W");}
+			if(hdr.p_flags & PF_R){	if(str[0]) strcat(str, " | PF_R");	else strcpy(str, "PF_R");}
+			return str;
 		}
 
-		void phdr_entry_vaddr_str(int p_vaddr){
-			printf("p_vaddr=0x%x\n", p_vaddr);
-		}
+};
 
-		void vaddr_str(int p_vaddr){
-			printf("p_vaddr=0x%x\n", p_vaddr);
-		}
-
-		void paddr_str(int p_paddr){
-			printf("p_paddr=0x%x\n", p_paddr);
-		}
-
-		void filesz_str(int p_filesz){
-			printf("p_filesz=%d\n", p_filesz);
-		}
-
-		void memsz_str(int p_memsz){
-			printf("p_memsz=0x%x\n", p_memsz);
-		}
-
-		void flags_str(int p_flags){
-			printf("p_flags=");
-			if(p_flags & PF_X)	printf("PF_X | ");
-			if(p_flags & PF_W)	printf("PF_W | ");
-			if(p_flags & PF_R)	printf("PF_R");
-			printf("\n");
-		}
-
-		void align_str(int p_align){
-			printf("p_align=%d\n", p_align);
-		}
+class elf_phdr_entry_t : public elf_section_t{
+	protected:
+		Elf32_Phdr phdr;
+		char phename[8];
+		phdr_entry_attr_t attr;
 
 	public:
-		elf_phdr_entry_t(FILE* fd, int phoff){
+		elf_phdr_entry_t(FILE* fd, int phoff, char* pname):attr(phdr){
 			fseek(fd, phoff, SEEK_SET);
 			fread(&(phdr), sizeof(Elf32_Phdr), 1, fd);
+			strcpy(phename, pname);
 		}
 
-		virtual void format_body(void){
-			printf("no date\n");
+		virtual elf_attr_t* get_attr(void){
+			return &attr;
 		}
 
-		virtual void format_child(void){
-			printf(".\t..\n");
+		virtual const unsigned int get_child_num(void){
+			return 0;
 		}
 
-		virtual void format_header(void){
-			type_str(phdr.p_type);
-			offset_str(phdr.p_offset);
-			vaddr_str(phdr.p_vaddr);
-			paddr_str(phdr.p_paddr);
-			filesz_str(phdr.p_filesz);
-			memsz_str(phdr.p_memsz);
-			flags_str(phdr.p_flags);
-			align_str(phdr.p_align);
-			printf("\n");
-		}
-
-		virtual elf_section_t* get_child(const unsigned int idx){
+		virtual elf_section_t* get_child(const int idx){
 			return 0;
 		}
 
@@ -116,17 +139,21 @@ class elf_phdr_entry_t : public elf_section_t{
 			return 0;
 		}
 
-		virtual const unsigned char* get_body(void){
+		virtual elf_buffer_t* get_body(void){
 			return 0;
 		}
 
+		virtual const char* category(void){
+			return "entry";
+		}
+
 		virtual const char* name(void){
-			return 0;
+			return phename;
 		}
 
 };
 
-elf_section_t* phdr_entry_new(FILE* fd, int phoff){
-	return (elf_section_t*) new elf_phdr_entry_t(fd, phoff);
+elf_section_t* phdr_entry_new(FILE* fd, int phoff, char* name){
+	return (elf_section_t*) new elf_phdr_entry_t(fd, phoff, name);
 
 }

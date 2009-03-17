@@ -29,134 +29,138 @@
 #include "shdr_entry.h"
 #include "shdr_symtab_entry.h"
 #include "shdr_rel_entry.h"
+#include "elf_defs.h"
+
+static const section_attr_t shdr_entry_attr[] = {
+	{"sh_name",		ELF_TYPE_STR | ELF_TYPE_INT	},
+	{"sh_type",		ELF_TYPE_STR | ELF_TYPE_INT	},
+	{"sh_flags",		ELF_TYPE_STR | ELF_TYPE_INT	},
+	{"sh_addr",		ELF_TYPE_INT | ELF_TYPE_HEX	},
+	{"sh_offset",		ELF_TYPE_INT | ELF_TYPE_HEX	},
+	{"sh_size",		ELF_TYPE_INT			},
+	{"sh_link",		ELF_TYPE_INT			},
+	{"sh_info",		ELF_TYPE_INT			},
+	{"sh_addralign",	ELF_TYPE_INT			},
+	{"sh_entsize",		ELF_TYPE_INT			}
+};
+
+class shdr_entry_attr_t : public elf_attr_t {
+	public:
+		shdr_entry_attr_t(Elf32_Shdr& shdr, const char* ename):name(0), hdr(shdr), num(sizeof(shdr_entry_attr) / sizeof(section_attr_t)){
+			if(ename) name = strdup(ename);
+		}
+
+		virtual const unsigned int get_num(void){
+			return num;
+		}
+
+		virtual const unsigned int get_type(int idx){
+			return shdr_entry_attr[idx].type;
+		}
+
+		virtual const char* get_name(int idx){
+			return shdr_entry_attr[idx].name;
+		}
+
+		virtual const char* get_str(int idx){
+			char* ret = 0;
+			switch(idx){
+				case 0:	ret = name_str();	break;
+				case 1:	ret = type_str();	break;
+				case 2:	ret = flags_str();	break;
+				default:	throw "invalid argument";	break;
+			}
+			return ret;
+		}
+
+		virtual const int get_int(int idx){
+			unsigned int ret = 0;
+			switch(idx){
+				case 0:	ret = hdr.sh_name;	break;
+				case 1:	ret = hdr.sh_type;	break;
+				case 2:	ret = hdr.sh_flags;	break;
+				case 3:	ret = hdr.sh_addr;	break;
+				case 4:	ret = hdr.sh_offset;	break;
+				case 5:	ret = hdr.sh_size;	break;
+				case 6:	ret = hdr.sh_link;	break;
+				case 7:	ret = hdr.sh_info;	break;
+				case 8:	ret = hdr.sh_addralign;	break;
+				case 9:	ret = hdr.sh_entsize;	break;
+				default:	throw "invalid argument";	break;
+			}
+			return ret;
+		}
+
+	private:
+		Elf32_Shdr& hdr;
+		char* name;
+		const unsigned int num;
+
+		char* name_str(void){
+			return (name) ? name : (char*)"null";
+		}
+
+		char* type_str(void){
+			char* str = (char*)"unknown";
+			switch(hdr.sh_type){
+			case SHT_NULL:		str = (char*)"SHT_NULL";	break;
+			case SHT_PROGBITS:	str = (char*)"SHT_PROGBITS";	break;
+			case SHT_SYMTAB:	str = (char*)"SHT_SYMTAB";	break;
+			case SHT_STRTAB:	str = (char*)"SHT_STRTAB";	break;
+			case SHT_RELA:		str = (char*)"SHT_RELA";	break;
+			case SHT_HASH:		str = (char*)"SHT_HASH";	break;
+			case SHT_DYNAMIC:	str = (char*)"SHT_DYNAMIC";	break;
+			case SHT_NOTE:		str = (char*)"SHT_NOTE";	break;
+			case SHT_NOBITS:	str = (char*)"SHT_NOBITS";	break;
+			case SHT_REL:		str = (char*)"SHT_REL";		break;
+			case SHT_SHLIB:		str = (char*)"SHT_SHLIB";	break;
+			case SHT_DYNSYM:	str = (char*)"SHT_DYNSYM";	break;
+			case SHT_LOPROC:	str = (char*)"SHT_LOPROC";	break;
+			case SHT_HIPROC:	str = (char*)"SHT_HIPROC";	break;
+			case SHT_LOUSER:	str = (char*)"SHT_LOUSER";	break;
+			case SHT_HIUSER:	str = (char*)"SHT_HIUSER";	break;
+			}
+			return str;
+		}
+
+		char* flags_str(void){
+			static char str[128];
+			str[0] = 0;
+			if(hdr.sh_flags & SHF_WRITE){		if(str[0]) strcat(str, " | SHF_WRITE");		else strcpy(str, "SHF_WRITE");}
+			if(hdr.sh_flags & SHF_ALLOC){		if(str[0]) strcat(str, " | SHF_ALLOC");		else strcpy(str, "SHF_ALLOC");}
+			if(hdr.sh_flags & SHF_EXECINSTR){	if(str[0]) strcat(str, " | SHF_EXECINSTR");	else strcpy(str, "SHF_EXECINSTR");}
+			if(hdr.sh_flags & SHF_MASKPROC){	if(str[0]) strcat(str, " | SHF_MASKPROC");	else strcpy(str, "SHF_MASKPROC");}
+			return str;
+		}
+};
+
 
 class elf_shdr_entry_t : public elf_section_t{
 	protected:
 		Elf32_Shdr shdr;
-		unsigned char* buf;
 		char* se_name;
-
-		void name_str(int sh_name){
-			printf("sh_name=%d\n", sh_name);
-		}
-
-		void type_str(int sh_type){
-			char* str = (char*)"unknown";
-			printf("sh_type=");
-			switch(sh_type){
-			case SHT_NULL:		str = (char*)"SHT_NULL";		break;
-			case SHT_PROGBITS:	str = (char*)"SHT_PROGBITS";	break;
-			case SHT_SYMTAB:	str = (char*)"SHT_SYMTAB";		break;
-			case SHT_STRTAB:	str = (char*)"SHT_STRTAB";		break;
-			case SHT_RELA:		str = (char*)"SHT_RELA";		break;
-			case SHT_HASH:		str = (char*)"SHT_HASH";		break;
-			case SHT_DYNAMIC:	str = (char*)"SHT_DYNAMIC";	break;
-			case SHT_NOTE:		str = (char*)"SHT_NOTE";		break;
-			case SHT_NOBITS:	str = (char*)"SHT_NOBITS";		break;
-			case SHT_REL:		str = (char*)"SHT_REL";		break;
-			case SHT_SHLIB:		str = (char*)"SHT_SHLIB";		break;
-			case SHT_DYNSYM:	str = (char*)"SHT_DYNSYM";		break;
-			case SHT_LOPROC:	str = (char*)"SHT_LOPROC";		break;
-			case SHT_HIPROC:	str = (char*)"SHT_HIPROC";		break;
-			case SHT_LOUSER:	str = (char*)"SHT_LOUSER";		break;
-			case SHT_HIUSER:	str = (char*)"SHT_HIUSER";		break;
-			}
-			printf("%s\n", str);
-		}
-
-		void offset_str(int sh_offset){
-			printf("sh_offset=0x%x\n", sh_offset);
-		}
-
-		void addr_str(int sh_addr){
-			printf("sh_addr=0x%x\n", sh_addr);
-		}
-
-		void size_str(int sh_size){
-			printf("sh_size=%d\n", sh_size);
-		}
-
-		void entsize_str(int sh_entsize){
-			printf("sh_entsize=%d\n", sh_entsize);
-		}
-
-		void link_str(int sh_link){
-			printf("sh_link=%d\n", sh_link);
-		}
-
-		void info_str(int sh_info){
-			printf("sh_info=0x%x\n", sh_info);
-		}
-
-		void flags_str(int sh_flags){
-			printf("sh_flags=");
-			if(sh_flags & SHF_WRITE)		printf("SHF_WRITE | ");
-			if(sh_flags & SHF_ALLOC)		printf("SHF_ALLOC | ");
-			if(sh_flags & SHF_EXECINSTR)	printf("SHF_EXEINSTR | ");
-			if(sh_flags & SHF_MASKPROC)		printf("SHF_MASKPROC");
-			printf("\n");
-		}
-
-		void align_str(int sh_addralign){
-			printf("sh_addralign=%d\n", sh_addralign);
-		}
+		shdr_entry_attr_t attr;
+		elf_buffer_t body;
 
 	public:
-		elf_shdr_entry_t(){}
-		elf_shdr_entry_t(Elf32_Shdr eshdr, unsigned char* ebuf, char* ename){
+		elf_shdr_entry_t(Elf32_Shdr eshdr, unsigned char* ebuf, char* ename):se_name(0), attr(shdr, ename),body(ebuf, eshdr.sh_size, eshdr.sh_offset){
 			memcpy(&shdr, &eshdr, sizeof(Elf32_Shdr));
-			buf = ebuf;
 			if(ename) se_name = strdup(ename);
 		}
 
 		~elf_shdr_entry_t(){
-			if(buf) delete buf;
 			if(se_name) delete se_name;
 		}
 
-		virtual void format_header(void){
-			if(se_name) printf("sh_name_str=%s\n", se_name);
-			name_str(shdr.sh_name);
-			type_str(shdr.sh_type);
-			flags_str(shdr.sh_flags);
-			addr_str(shdr.sh_addr);
-			offset_str(shdr.sh_offset);
-			size_str(shdr.sh_size);
-			link_str(shdr.sh_link);
-			info_str(shdr.sh_info);
-			align_str(shdr.sh_addralign);
-			entsize_str(shdr.sh_entsize);
-			printf("\n");
+		virtual elf_attr_t* get_attr(void){
+			return &attr;
 		}
 
-		#define SHDR_COLUMN_SIZE 16
-		virtual void format_body(void){
-			for(unsigned int i = 0 ; i < shdr.sh_size ; i += SHDR_COLUMN_SIZE){
-				int j = 0;
-				int mx = shdr.sh_size - i;
-				if(mx > SHDR_COLUMN_SIZE) mx = SHDR_COLUMN_SIZE;
-				printf("%08x: ", (unsigned int)(shdr.sh_offset + i));
-				for(j = 0 ; j < mx ; j++) {
-					printf("%02x ", buf[i + j]);
-					if(j == 7)	printf(" ");
-				}
-				if(mx < SHDR_COLUMN_SIZE) {
-					for(j = 0 ; j < SHDR_COLUMN_SIZE - mx ; j++){
-						printf("   ");
-					}
-					if(mx < 7) printf(" ");
-				}
-				printf("  ");
-				for(j = 0 ; j < mx ; j++) printf("%c", (isalnum(buf[i + j])) ? buf[i + j] : '.');
-				printf("\n");
-			}
+		virtual const unsigned int get_child_num(void){
+			return 0;
 		}
 
-		virtual void format_child(void){
-			printf(".\t..\n");
-		}
-
-		virtual elf_section_t* get_child(const unsigned int idx){
+		virtual elf_section_t* get_child(const int idx){
 			return 0;
 		}
 
@@ -164,8 +168,12 @@ class elf_shdr_entry_t : public elf_section_t{
 			return 0;
 		}
 
-		virtual const unsigned char* get_body(void){
-			return buf;
+		virtual elf_buffer_t* get_body(void){
+			return (body.buffer) ? &body : 0;
+		}
+
+		virtual const char* category(void){
+			return "entry";
 		}
 
 		virtual const char* name(void){
@@ -179,7 +187,7 @@ class elf_shdr_symtab_t : public elf_shdr_entry_t{
 		int n_entry;
 	public:
 		elf_shdr_symtab_t(FILE* fd, Elf32_Shdr eshdr, unsigned char* ebuf, char* ename, char* strtab, elf_section_t*(*entry_new)(FILE*, unsigned int, char*))
-							: elf_shdr_entry_t(eshdr, ebuf, ename){
+							: elf_shdr_entry_t(eshdr, 0, ename){
 			n_entry = eshdr.sh_size / eshdr.sh_entsize;
 			entry = new elf_section_t* [n_entry];
 			for(int i = 0 ; i < n_entry ; i++){
@@ -194,25 +202,14 @@ class elf_shdr_symtab_t : public elf_shdr_entry_t{
 			}
 		}
 
-		virtual void format_header(void){
-			printf("no header\n");
+		virtual const unsigned int get_child_num(void){
+			return n_entry;
 		}
 
-		virtual void format_body(void){
-			printf("no body\n");
+		virtual elf_section_t* get_child(const int idx){
+			return entry[idx];
 		}
 
-		virtual void format_child(void){
-			int i = 0, num = shdr.sh_size / shdr.sh_entsize;
-
-			printf(".\t..\t");
-			for(i = 0 ; i < num ; i++) printf("%s\t", entry[i]->name());
-			printf("\n");
-		}
-
-		virtual elf_section_t* get_child(const unsigned int idx){
-			return (idx >= (shdr.sh_size / shdr.sh_entsize)) ? 0 : entry[idx];
-		}
 
 		virtual elf_section_t* get_child(const char* stridx){
 			int i = 0, num = shdr.sh_size / shdr.sh_entsize;
@@ -240,8 +237,10 @@ elf_section_t* shdr_entry_new(FILE* fd, int e_shoff, char* shstrtab, char* strta
 			break;
 		case SHT_REL:
 			section = (!strtab) ? 0 : new elf_shdr_symtab_t(fd, shdr, buf, (!shstrtab) ? 0 : shstrtab + shdr.sh_name, strtab, shdr_rel_entry_new);
+			break;
 		case SHT_RELA:
 			section = (!strtab) ? 0 : new elf_shdr_symtab_t(fd, shdr, buf, (!shstrtab) ? 0 : shstrtab + shdr.sh_name, strtab, shdr_rela_entry_new);
+			break;
 		default:
 			section = new elf_shdr_entry_t(shdr, buf, (!shstrtab) ? 0 : shstrtab + shdr.sh_name);
 			break;

@@ -22,37 +22,82 @@
 #include <stdio.h>
 #include <memory.h>
 #include <string.h>
+#include <stdlib.h>
 
 #include "elfio/elfio.h"
 #include "elftypes.h"
 #include "shdr_symtab_entry.h"
+#include "elf_defs.h"
 
-class elf_shdr_symtab_entry_t : public elf_section_t{
-	protected:
-		Elf32_Sym symtab;
-		char* ss_name;
+static const section_attr_t shdr_symtab_attr[] = {
+	{"st_name",		ELF_TYPE_STR | ELF_TYPE_INT	},
+	{"st_value",		ELF_TYPE_INT | ELF_TYPE_HEX	},
+	{"st_size",		ELF_TYPE_INT			},
+	{"st_info",		ELF_TYPE_INT			},
+	{"st_other",		ELF_TYPE_INT			},
+	{"st_shndx",		ELF_TYPE_INT			},
+	{"st_bind",		ELF_TYPE_STR			},
+	{"st_type",		ELF_TYPE_STR			}
+};
 
+class shdr_symtab_attr_t : public elf_attr_t {
 	public:
-		elf_shdr_symtab_entry_t(Elf32_Sym esymtab, char* ename){
-			memcpy(&symtab, &esymtab, sizeof(Elf32_Sym));
-			ss_name = strdup(ename);
+		shdr_symtab_attr_t(Elf32_Sym& shdr, char* ename):name(0), hdr(shdr), num(sizeof(shdr_symtab_attr) / sizeof(section_attr_t)){
+			if(ename) name = strdup(ename);
 		}
 
-		~elf_shdr_symtab_entry_t(){
-			delete ss_name;
+		~shdr_symtab_attr_t(){free(name);}
+
+		virtual const unsigned int get_num(void){
+			return num;
 		}
 
-		virtual void format_header(void){
-			unsigned int sti = 0;
+		virtual const unsigned int get_type(int idx){
+			return shdr_symtab_attr[idx].type;
+		}
+
+		virtual const char* get_name(int idx){
+			return shdr_symtab_attr[idx].name;
+		}
+
+		virtual const char* get_str(int idx){
+			char* ret = 0;
+			switch(idx){
+				case 0:	ret = name_str();	break;
+				case 6:	ret = bind_str();	break;
+				case 7:	ret = type_str();	break;
+				default:	throw "invalid argument";	break;
+			}
+			return ret;
+		}
+
+		virtual const int get_int(int idx){
+			unsigned int ret = 0;
+			switch(idx){
+				case 0:	ret = hdr.st_name;	break;
+				case 1:	ret = hdr.st_value;	break;
+				case 2:	ret = hdr.st_size;	break;
+				case 3:	ret = hdr.st_info;	break;
+				case 4:	ret = hdr.st_other;	break;
+				case 5:	ret = hdr.st_shndx;	break;
+				default:	throw "invalid argument";	break;
+			}
+			return ret;
+		}
+
+	private:
+		Elf32_Sym& hdr;
+		char* name;
+		const unsigned int num;
+
+		char* name_str(void){
+			return (name) ? name : (char*)"null";
+		}
+
+		char* bind_str(void){
 			char* str = 0;
-			if(ss_name) printf("st_name_str=%s\n", ss_name);
-			printf("st_name=%d\n", (int)symtab.st_name);
-			printf("st_vale=%d\n", (int)symtab.st_value);
-			printf("st_size=%d\n", (int)symtab.st_size);
-			printf("st_info=0x%x\n", symtab.st_info);
-			sti = symtab.st_info;
+			unsigned int sti = hdr.st_info;
 			sti = ELF32_ST_BIND(sti);
-			printf("st_bind=");
 			switch(sti){
 				case STB_LOCAL:		str = (char*)"STB_LOCAL";	break;
 				case STB_GLOBAL:	str = (char*)"STB_GLOBAL";	break;
@@ -60,10 +105,13 @@ class elf_shdr_symtab_entry_t : public elf_section_t{
 				case STB_LOPROC:	str = (char*)"STB_LOPROC";	break;
 				case STB_HIPROC:	str = (char*)"STB_HIPROC";	break;
 			}
-			printf("%s\n", str);
-			sti = symtab.st_info;
+			return str;
+		}
+
+		char* type_str(void){
+			char* str = 0;
+			unsigned int sti = hdr.st_info;
 			sti = ELF32_ST_TYPE(sti);
-			printf("st_type=");
 			switch(sti){
 				case STT_NOTYPE:	str = (char*)"STT_NOTYPE";	break;
 				case STT_OBJECT:	str = (char*)"STT_OBJECT";	break;
@@ -73,21 +121,36 @@ class elf_shdr_symtab_entry_t : public elf_section_t{
 				case STT_LOPROC:	str = (char*)"STT_LOPROC";	break;
 				case STT_HIPROC:	str = (char*)"STT_HIPROC";	break;
 			}
-			printf("%s\n", str);
-			printf("st_other=0x%x\n", symtab.st_other);
-			printf("st_shndx=%d\n", symtab.st_shndx);
-			printf("\n");
+			return str;
 		}
 
-		virtual void format_body(void){
-			printf("no data\n");
+};
+	
+class elf_shdr_symtab_entry_t : public elf_section_t{
+	protected:
+		Elf32_Sym symtab;
+		char* ss_name;
+		shdr_symtab_attr_t attr;
+
+	public:
+		elf_shdr_symtab_entry_t(Elf32_Sym esymtab, char* ename):attr(symtab, ename){
+			memcpy(&symtab, &esymtab, sizeof(Elf32_Sym));
+			ss_name = strdup(ename);
 		}
 
-		virtual void format_child(void){
-			printf("no children\n");
+		~elf_shdr_symtab_entry_t(){
+			delete ss_name;
 		}
 
-		virtual elf_section_t* get_child(const unsigned int idx){
+		virtual elf_attr_t* get_attr(void){
+			return &attr;
+		}
+
+		virtual const unsigned int get_child_num(void){
+			return 0;
+		}
+
+		virtual elf_section_t* get_child(const int idx){
 			return 0;
 		}
 
@@ -95,8 +158,12 @@ class elf_shdr_symtab_entry_t : public elf_section_t{
 			return 0;
 		}
 
-		virtual const unsigned char* get_body(void){
+		virtual elf_buffer_t* get_body(void){
 			return 0;
+		}
+
+		virtual const char* category(void){
+			return "symbol";
 		}
 
 		virtual const char* name(void){

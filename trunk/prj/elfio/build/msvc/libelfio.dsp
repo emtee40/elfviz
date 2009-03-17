@@ -99,6 +99,10 @@ PostBuild_Cmds=copy Debug\libelfio.lib ..\..\..\..\lib	copy Debug\libelfio.dll .
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 # Begin Source File
 
+SOURCE=..\..\src\elf_buffer.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=..\..\src\elfio.cpp
 # End Source File
 # Begin Source File
@@ -131,7 +135,15 @@ SOURCE=..\..\src\shdr_symtab_entry.cpp
 # PROP Default_Filter "h;hpp;hxx;hm;inl"
 # Begin Source File
 
+SOURCE=..\..\src\elf_defs.h
+# End Source File
+# Begin Source File
+
 SOURCE=..\..\..\..\inc\elfio\elfio.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\src\elftypes.h
 # End Source File
 # Begin Source File
 

@@ -32,15 +32,41 @@
 #else //WIN32
 #define ELFIO_API
 #endif //WIN32
+
+#define ELF_TYPE_INT	0x1
+#define ELF_TYPE_HEX	0x2
+#define ELF_TYPE_STR	0x4
+
+class elf_attr_t{
+	public:
+		virtual const unsigned int get_num(void) = 0;
+		virtual const unsigned int get_type(int idx = -1) = 0;
+		virtual const char* get_name(int idx = -1) = 0;
+		virtual const char* get_str(int idx = -1) = 0;
+		virtual const int get_int(int idx = -1) = 0;
+		virtual ~elf_attr_t(){};
+};
+
+class elf_buffer_t{
+	private:
+	public:
+		const unsigned int size;
+		const unsigned int offset;
+		const unsigned char* buffer;
+
+		elf_buffer_t(const unsigned char* buf, const unsigned sz, const unsigned int off);
+		~elf_buffer_t();
+};
+
 class elf_section_t{
 	public:
-		virtual void format_header(void) = 0;
-		virtual void format_body(void) = 0;
-		virtual void format_child(void) = 0;
-		virtual elf_section_t* get_child(const unsigned int idx) = 0;
+		virtual elf_attr_t* get_attr(void) = 0;
+		virtual const unsigned int get_child_num(void) = 0;
+		virtual elf_section_t* get_child(const int idx) = 0;
 		virtual elf_section_t* get_child(const char* stridx) = 0;
 		virtual const char* name(void) = 0;
-		virtual const unsigned char* get_body(void) = 0;
+		virtual const char* category(void) = 0;
+		virtual elf_buffer_t* get_body(void) = 0;
 		virtual ~elf_section_t(){};
 };
 

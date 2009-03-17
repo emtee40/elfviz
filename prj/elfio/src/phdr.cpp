@@ -21,6 +21,7 @@
 */
 
 #include <stdio.h>
+#include <string.h>
 
 #include "elfio/elfio.h"
 #include "elftypes.h"
@@ -35,10 +36,12 @@ class elf_phdr_t : public elf_section_t{
 
 	public:
 		elf_phdr_t(int phnum, FILE* fd, int phoff){
+			char name[8];
 			entry = new elf_section_t* [phnum];
 			n_entry = phnum;
 			for(unsigned int i = 0 ; i < n_entry ; i++){
-				entry[i] = phdr_entry_new(fd, phoff + sizeof(Elf32_Phdr) * i);
+				sprintf(name, "%d", i);
+				entry[i] = phdr_entry_new(fd, phoff + sizeof(Elf32_Phdr) * i, name);
 			}
 		}
 
@@ -48,29 +51,29 @@ class elf_phdr_t : public elf_section_t{
 				delete entry;
 			}
 		}
-		virtual void format_header(void){
-			printf("no header\n");
+
+		virtual elf_attr_t* get_attr(void) { return 0;}
+
+		virtual const unsigned int get_child_num(void){
+			return n_entry;
 		}
 
-		virtual void format_body(void){
-			printf("no body\n");
+		virtual elf_section_t* get_child(const int idx){
+			return entry[idx];
 		}
 
-		virtual void format_child(void){
-			printf(".\t..\t");
-			for(unsigned int i = 0 ; i < n_entry ; i++)	printf("%s\t", entry[i]->name());
-			printf("\n");
-		}
-
-		virtual elf_section_t* get_child(const unsigned int idx){
-			return (idx >= n_entry) ? 0 : entry[idx];
-		}
-
-		virtual elf_section_t* get_child(const char* stdidx){
+		virtual elf_section_t* get_child(const char* stridx){
+			for(unsigned int i = 0 ; i < n_entry ; i++){
+				if(!strcmp(entry[i]->name(), stridx)) return entry[i];
+			}
 			return 0;
 		}
-		virtual const unsigned char* get_body(void){
+		virtual elf_buffer_t* get_body(void){
 			return 0;
+		}
+
+		virtual const char* category(void){
+			return "phdr";
 		}
 
 		virtual const char* name(void){

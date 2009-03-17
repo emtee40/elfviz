@@ -28,7 +28,7 @@
 #include "argparse.h"
 
 void title(void){
-	printf("elfviz v1.0 Copyright (C) 2008  Song-Hwan Kim\n");
+	printf("elfviz v2.0 Copyright (C) 2008  Song-Hwan Kim\n");
 	printf("This program comes with ABSOLUTELY NO WARRANTY; ");
 //	printf("for details type `show w'.\n");
 //	printf("This is free software, and you are welcome to redistribute it\n");
@@ -39,14 +39,16 @@ void title(void){
 
 void interactive(vizcmd& cmd){
 	char inbuf[128];
+	char* str = 0;
 	while(1){
 		printf("\nelfviz");
 		printf("%s", cmd.path());
 		printf(">");
 		memset(inbuf, 0, 128);
-		gets(inbuf);
-		if(!strcmp(inbuf, "quit")) break;
-		cmd.parse(inbuf);
+		fgets(inbuf, 128, stdin);
+		str = strtok(inbuf, "\r\n");
+		if(!strcmp(str, "quit")) break;
+		cmd.parse(str);
 	};
 }
 

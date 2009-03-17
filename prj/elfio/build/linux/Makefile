@@ -9,6 +9,7 @@ SRCDIR=../../src
 INCS=-I../../../../inc
 BINDIR=../../../../bin
 objs=elfio.o \
+	elf_buffer.o \
 	phdr.o \
 	phdr_entry.o \
 	shdr.o \

@@ -59,7 +59,13 @@ class cmdaction_open : public cmdaction{
 	public:
 		virtual void act(cmdparam& param, elf_stack& elfstack){
 			char* argv = param.argv(0);
-			elf_section_t* elfio = elfio_new(argv);
+			elf_section_t* elfio;
+			try{
+				elfio = elfio_new(argv);
+			} catch (char* e){
+				printf("%s\n", argv);
+				elfio = 0;
+			}
 			if(elfio) {
 				printf("%s is opened\n", argv);
 				elfstack.push(elfio);

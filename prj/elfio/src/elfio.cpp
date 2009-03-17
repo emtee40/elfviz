@@ -191,9 +191,10 @@ class elfio_ctrl_t : public elf_section_t{
 			mphdr = mshdr = 0;
 			file[0] = 0;
 			fd = fopen(efile, "rb");
-			if(!fd) return;
+			if(!fd) throw"invalid file";
 			fread(&ehdr, sizeof(ehdr), 1, fd);
 			strcpy(file, efile);
+			if(!is_valid_elf(ehdr)) throw "this is not ELF";
 		}
 
 		~elfio_ctrl_t(){

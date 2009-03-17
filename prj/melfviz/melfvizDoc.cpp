@@ -88,7 +88,12 @@ BOOL CMelfvizDoc::OnOpenDocument(LPCTSTR lpszPathName)
 		return FALSE;
 	
 	// TODO: Add your specialized creation code here
-	pElf = elfio_new((char*)lpszPathName);
+	try{
+		pElf = elfio_new((char*)lpszPathName);
+	} catch(char* e){
+		MessageBox(NULL, e, "error", MB_OK);
+		return FALSE;
+	}
 	((CLeftView*)m_viewList.GetHead())->Refresh(pElf);
 	return TRUE;
 }

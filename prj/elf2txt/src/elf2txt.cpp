@@ -109,9 +109,10 @@ int main( int argc, char * argv[] ) {
 		parse.parse(argc, argv);
 	}
 
-	elf_section_t* elfio = elfio_new(state.get_elf_file());
-	rtFile file(state.get_txt_file(), "w");
+	elf_section_t* elfio; 
 	try{
+		elfio = elfio_new(state.get_elf_file());
+		rtFile file(state.get_txt_file(), "w");
 		switch(state.get_format()){
 			case ET_OUT_FORMAT_XML:
 				{

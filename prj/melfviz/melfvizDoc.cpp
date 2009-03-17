@@ -96,13 +96,22 @@ BOOL CMelfvizDoc::OnOpenDocument(LPCTSTR lpszPathName)
 
 void CMelfvizDoc::Export(LPCTSTR format, LPCTSTR path)
 {
-	CString str = "elf2txt ";
+	char szPath[MAX_PATH];
+	GetModuleFileName(0, szPath, MAX_PATH);
+	*(strrchr(szPath, '\\') + 1) = 0;
+	CString str = "\"";
+	str += szPath;
+	str += "elf2txt.exe\" \"";
 	str += GetPathName();
-	str += " -o ";
+	str += "\" -o \"";
 	str += path;
-	str += " -f ";
+	str += "\" -f ";
 	str += format;
+	str.Replace("\\", "\\\\");
+
+	TRACE("%s\n", str);
 
 	//TODO:how to execute elf2txt
+	HINSTANCE ret = ShellExecute(NULL, "open", str, NULL, NULL, SW_SHOW);
 	return;
 }

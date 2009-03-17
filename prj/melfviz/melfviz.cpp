@@ -167,6 +167,9 @@ void CMelfvizApp::OnFileExportXml()
 
 BOOL CMelfvizApp::DoExportFilePrompt(LPCTSTR lpszExt, LPCTSTR lpszFilter)
 {
+	MessageBox(NULL, "I'm on debuging,\nUse elf2txt.exe instead, please.", "Sorry", MB_OK);
+	return false;
+
 	POSITION pos = GetFirstDocTemplatePosition();
 	CSingleDocTemplate* pDocTemplate = (CSingleDocTemplate*)GetNextDocTemplate(pos);
 	if(!pDocTemplate) return false;

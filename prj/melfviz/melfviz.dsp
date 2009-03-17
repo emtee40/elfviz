@@ -74,7 +74,8 @@ PostBuild_Cmds=copy Release\melfviz.exe ..\..\bin
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /Yu"stdafx.h" /FD /GZ /c
-# ADD CPP /nologo /MDd /W3 /Gm /GX /ZI /Od /I "../../inc" /I "c:\Program Files\ucrt\inc" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Yu"stdafx.h" /FD /GZ /c
+# ADD CPP /nologo /MDd /W3 /Gm /GX /ZI /Od /I "../../inc" /I "c:\Program Files\ucrt\inc" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FD /GZ /c
+# SUBTRACT CPP /YX /Yc /Yu
 # ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /win32
 # ADD MTL /nologo /D "_DEBUG" /mktyplib203 /win32
 # ADD BASE RSC /l 0x412 /d "_DEBUG" /d "_AFXDLL"

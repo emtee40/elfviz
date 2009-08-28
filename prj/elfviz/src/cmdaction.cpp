@@ -102,7 +102,7 @@ class cmdaction_ls : public cmdaction{
 		void format_child(elf_section_t* e){
 			elf_section_t* child = 0;
 			printf(".\t..\t");
-			for(int i = 0 ; i < e->get_child_num() ; i++){
+			for(unsigned int i = 0 ; i < e->get_child_num() ; i++){
 				 child = e->get_child(i);
 				if(child) printf("%s\t", child->name());
 			}
@@ -128,7 +128,7 @@ class cmdaction_inf : public cmdaction{
 	void format_header(elf_section_t* e){
 		elf_attr_t* attr = e->get_attr();
 		if(!attr) return;
-		for(int i = 0 ; i < attr->get_num() ; i++){
+		for(unsigned int i = 0 ; i < attr->get_num() ; i++){
 			int type = attr->get_type(i);
 			if(type & ELF_TYPE_STR)	printf("%s=%s\n", attr->get_name(i), attr->get_str(i));
 			else			printf("%s=%d\n", attr->get_name(i), attr->get_int(i));

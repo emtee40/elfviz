@@ -1,0 +1,10 @@
+#!/bin/bash
+
+CONTROL=control.tar.gz
+DATA=data.tar.gz
+DEBIAN=debian-binary
+
+rm -f elfviz.deb $CONTROL $DATA
+tar -zcvf $CONTROL control
+tar -zcvf $DATA ./usr
+ar cr elfviz.deb $DEBIAN $CONTROL $DATA

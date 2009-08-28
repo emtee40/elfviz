@@ -30,15 +30,11 @@ typedef enum etTitleType{
 	TITLE_CATEGORY
 }etTitleType;
 
-template <class T> void run(elf_section_t* elfio, T& writer, etState& state, etTitleType title){
-	int i = 0;
+void run_xml(elf_section_t* elfio, rtXmlWriter& writer, etState& state, etTitleType title){
+	unsigned int i = 0;
 	switch(title){
-		case TITLE_CATEGORY:
-			writer.element_open(elfio->category());
-			break;
-		case TITLE_NAME:
-			writer.element_open(elfio->name());
-			break;
+		case TITLE_CATEGORY:	writer.element_open(elfio->category());	break;
+		case TITLE_NAME:	writer.element_open(elfio->name());	break;
 	}
 	if(state.get_flag() & ET_SHOW_ATTR){
 		elf_attr_t* attr = elfio->get_attr();
@@ -66,14 +62,50 @@ template <class T> void run(elf_section_t* elfio, T& writer, etState& state, etT
 			writer.dump(buf->buffer, buf->size, buf->offset);
 		}
 	}
-	int num = elfio->get_child_num();
+	unsigned int num = elfio->get_child_num();
 	if(num){
 		if(!has_body) writer.element_close(true);
-		for(i = 0 ; i < num ; i++) run(elfio->get_child(i), writer, state, title);
+		for(i = 0 ; i < num ; i++) run_xml(elfio->get_child(i), writer, state, title);
 	} else {
 		if(!has_body) writer.element_close(false);
 	}
 	if(num || has_body) writer.wrap_up();
+}
+
+void run_txt(elf_section_t* elfio, rtTxtWriter& writer, etState& state, etTitleType title){
+	unsigned int i = 0;
+	switch(title){
+		case TITLE_CATEGORY:	writer.open(elfio->category());	break;
+		case TITLE_NAME:	writer.open(elfio->name());	break;
+	}
+	if(state.get_flag() & ET_SHOW_ATTR){
+		elf_attr_t* attr = elfio->get_attr();
+		if(attr){
+			for(i = 0 ; i < attr->get_num() ; i++){
+				int type = attr->get_type(i);
+				if(type & ELF_TYPE_STR)	{
+					bool bval = type & ELF_TYPE_INT;
+					int ival = (bval) ? attr->get_int(i) : 0;
+					writer.attr(attr->get_name(i), attr->get_str(i), bval, ival);
+				} else if(type & ELF_TYPE_HEX)	{
+					writer.attr(attr->get_name(i), attr->get_int(i), 16);
+				} else {
+					writer.attr(attr->get_name(i), attr->get_int(i));
+				}
+			}
+		}
+	}
+	bool has_body = false;
+	if(state.get_flag() & ET_SHOW_BODY){
+		elf_buffer_t* buf = elfio->get_body();
+		if(buf){
+			has_body = true;
+			writer.dump(buf->buffer, buf->size, buf->offset);
+		}
+	}
+	unsigned int num = elfio->get_child_num();
+	for(i = 0 ; i < num ; i++) run_txt(elfio->get_child(i), writer, state, title);
+	if(num || has_body) writer.close();
 }
 
 int main( int argc, char * argv[] ) {
@@ -109,7 +141,7 @@ int main( int argc, char * argv[] ) {
 		parse.parse(argc, argv);
 	}
 
-	elf_section_t* elfio; 
+	elf_section_t* elfio = 0; 
 	try{
 		elfio = elfio_new(state.get_elf_file());
 		rtFile file(state.get_txt_file(), "w");
@@ -117,14 +149,16 @@ int main( int argc, char * argv[] ) {
 			case ET_OUT_FORMAT_XML:
 				{
 					rtXmlWriter writer(file);
-					run<rtXmlWriter>(elfio, writer, state, TITLE_CATEGORY);
+					run_xml(elfio, writer, state, TITLE_CATEGORY);
 				}
 				break;
 			case ET_OUT_FORMAT_TXT:
 				{
 					rtTxtWriter writer(file);
-					run<rtTxtWriter>(elfio, writer, state, TITLE_NAME);
+					run_txt(elfio, writer, state, TITLE_NAME);
 				}
+				break;
+			default:
 				break;
 		}
 	} catch (char* e){

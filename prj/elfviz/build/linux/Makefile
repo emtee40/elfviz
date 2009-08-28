@@ -4,7 +4,7 @@ RM=rm -f
 SRCDIR=../../src
 INCS=-I . -I ../../../../inc
 BINDIR=../../../../bin
-ELFIO=$(BINDIR)/libelfio.so.2.0
+ELFIO=$(BINDIR)/$(SYMBOLIC_TARGET)
 objs=elfviz.o \
 	cmdaction.o \
 	cmdparam.o \
@@ -18,7 +18,13 @@ all: $(objs)
 	$(CXX) -o $(OUT) $(objs) $(ELFIO)
 	mv $(OUT) $(BINDIR)
 
+install:
+	mkdir -p $(DIST_PREFIX)/usr
+	mkdir -p $(DIST_PREFIX)/usr/bin
+	cp $(BINDIR)/$(OUT) $(DIST_PREFIX)/usr/bin
+
 clean:
+	$(RM) $(DIST_PREFIX)/usr/bin/$(OUT)
 	$(RM) $(objs) $(BINDIR)/$(OUT)
 
 %.o: $(SRCDIR)/%.cpp

@@ -1,0 +1,10 @@
+Package: elfviz
+Version: 2.2
+Architecture: all
+Maintainer: babynewton <babynewton@pineone.com>
+Installed-Size: 2184
+Depends: libucrt
+Recommends: 
+Section: app
+Priority: optional
+Description: ELF file Visualizer 2.0

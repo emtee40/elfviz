@@ -42,7 +42,7 @@ static const section_attr_t shdr_symtab_attr[] = {
 
 class shdr_symtab_attr_t : public elf_attr_t {
 	public:
-		shdr_symtab_attr_t(Elf32_Sym& shdr, char* ename):name(0), hdr(shdr), num(sizeof(shdr_symtab_attr) / sizeof(section_attr_t)){
+		shdr_symtab_attr_t(Elf32_Sym& shdr, char* ename):hdr(shdr), name(0), num(sizeof(shdr_symtab_attr) / sizeof(section_attr_t)){
 			if(ename) name = strdup(ename);
 		}
 

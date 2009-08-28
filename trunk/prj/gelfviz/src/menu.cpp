@@ -3,10 +3,8 @@
 
 #include "menu.h"
 #include "state.h"
+#include "pane.h"
 
-static gevFormat doc_format = GEV_FORMAT_XML;
-static bool show_attr = true;
-static bool show_data = true;
 
 /* Print a string when a menu item is selected */
 static void menuitem_response( gchar *string ) {
@@ -17,40 +15,22 @@ static void exit_response(gchar* string){
 	gtk_main_quit();
 }
 
-static void format_response(gchar* string){
-	if(!strcmp(string, "XML")) doc_format = GEV_FORMAT_XML;
-	else if(!strcmp(string, "Text")) doc_format = GEV_FORMAT_TXT;
-	open_file(show_attr, show_data, doc_format);
-}
-
-static void attr_response(gchar* string){
-	show_attr = (show_attr) ? false : true;
-	open_file(show_attr, show_data, doc_format);
-}
-
-static void data_response(gchar* string){
-	show_data = (show_data) ? false : true;
-	open_file(show_attr, show_data, doc_format);
-}
-
 static void open_response(gchar* string){
-	open_file(show_attr, show_data, doc_format, true);
+	elf_section_t* pElf = open_file();
+	get_pane(pElf);
 }
 
 static void save_response(gchar* string){
-	save_text("");
+	save_text();
 }
 
 static void about_response(gchar* string){
 	GtkWidget *dialog = gtk_about_dialog_new();
 	gtk_about_dialog_set_name(GTK_ABOUT_DIALOG(dialog), "GTK+ elfviz");
-	gtk_about_dialog_set_version(GTK_ABOUT_DIALOG(dialog), "2.1"); 
-	gtk_about_dialog_set_copyright(GTK_ABOUT_DIALOG(dialog), 
-			"Song-hwan Kim");
-	gtk_about_dialog_set_comments(GTK_ABOUT_DIALOG(dialog), 
-			"gelfviz(GTK+ elfviz) is GTK+ front-end of elfviz");
-	gtk_about_dialog_set_website(GTK_ABOUT_DIALOG(dialog), 
-			"http://elfviz.sourceforge.net");
+	gtk_about_dialog_set_version(GTK_ABOUT_DIALOG(dialog), "2.2"); 
+	gtk_about_dialog_set_copyright(GTK_ABOUT_DIALOG(dialog), "Song-hwan Kim");
+	gtk_about_dialog_set_comments(GTK_ABOUT_DIALOG(dialog), "gelfviz(GTK+ elfviz) is GTK+ front-end of elfviz");
+	gtk_about_dialog_set_website(GTK_ABOUT_DIALOG(dialog), "http://elfviz.sourceforge.net");
 	gtk_dialog_run(GTK_DIALOG (dialog));
 	gtk_widget_destroy(dialog);
 }
@@ -73,22 +53,6 @@ gevMenuItem file_menu[] = {
 };
 
 gevMenu file = {(char*)"File", file_menu};
-
-gevMenuItem format_menu[] = {
-	{(char*)"XML", format_response},
-	{(char*)"Text", format_response},
-	{(char*)"", 0}
-};
-
-gevMenu format = {(char*)"Format", format_menu};
-
-gevMenuItem attr_menu[] = {
-	{(char*)"Attribute", attr_response},
-	{(char*)"Data", data_response},
-	{(char*)"", 0}
-};
-
-gevMenu attr = {(char*)"Attributes", attr_menu};
 
 gevMenuItem help_menu[] = {
 	{(char*)"About", about_response},
@@ -164,8 +128,6 @@ GtkWidget* get_menu(){
 
 	/* And finally we append the menu-item to the menu-bar -- this is the "root" menu-item I have been raving about =) */
 	gtk_menu_shell_append (GTK_MENU_SHELL (menu_bar), get_itemed_menu(&file, GEV_MENU_NORMAL));
-	gtk_menu_shell_append (GTK_MENU_SHELL (menu_bar), get_itemed_menu(&format, GEV_MENU_RADIO));
-	gtk_menu_shell_append (GTK_MENU_SHELL (menu_bar), get_itemed_menu(&attr, GEV_MENU_CHECK));
 	gtk_menu_shell_append (GTK_MENU_SHELL (menu_bar), get_itemed_menu(&help, GEV_MENU_NORMAL));
 
 	return menu_bar;

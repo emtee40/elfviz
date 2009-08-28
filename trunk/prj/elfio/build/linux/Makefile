@@ -1,7 +1,5 @@
 CC=gcc
 CXX=g++
-TARGET=libelfio.so.2.0.0
-SYMBOLIC_TARGET=libelfio.so.2.0
 CFLAGS=-fPIC -c -Wall
 LFLAGS=-shared -Wl,-soname,$(SYMBOLIC_TARGET) -o $(TARGET)
 RM=rm -f
@@ -19,10 +17,21 @@ objs=elfio.o \
 
 all: $(objs)
 	$(CXX) $(LFLAGS) $?
-	ln -s $(TARGET) $(SYMBOLIC_TARGET)
-	mv $(TARGET) $(SYMBOLIC_TARGET) $(BINDIR)
+	mv $(TARGET) $(BINDIR)
+	ln -sf  $(TARGET) $(BINDIR)/$(SYMBOLIC_TARGET)
+
+install:
+	mkdir -p $(DIST_PREFIX)/usr
+	mkdir -p $(DIST_PREFIX)/usr/lib
+	mkdir -p $(DIST_PREFIX)/usr/include
+	cp $(BINDIR)/$(TARGET) $(DIST_PREFIX)/usr/lib
+	mkdir -p $(DIST_PREFIX)/usr/include/
+	cp ../../../../inc/elfio/*.h $(DIST_PREFIX)/usr/include/elfio
+	ln -s  $(TARGET) $(DIST_PREFIX)/usr/lib/$(SYMBOLIC_TARGET)
 
 clean:
+	$(RM) $(DIST_PREFIX)/usr/lib/$(SYMBOLIC_TARGET) $(DIST_PREFIX)/usr/lib/$(TARGET)
+	rm -rf $(DIST_PREFIX)/usr/include/elfio
 	$(RM) $(objs) $(BINDIR)/$(TARGET) $(BINDIR)/$(SYMBOLIC_TARGET)
 
 %.o: $(SRCDIR)/%.c

@@ -72,8 +72,8 @@ void amHelp::doit(void){
 }
 
 amElf::amElf(char* name, etState& argstate):
-	state(argstate), 
-	rtArgMethod(name, 1)
+	rtArgMethod(name, 1),
+	state(argstate)
 	{ }
 
 void amElf::push_parameter(char* arg){
@@ -83,8 +83,8 @@ void amElf::push_parameter(char* arg){
 void amElf::doit(void){ }
 
 amFormat::amFormat(char* name, etState& argstate):
-	state(argstate), 
-	rtArgMethod(name, 1)
+	rtArgMethod(name, 1),
+	state(argstate)
 	{ }
 
 void amFormat::push_parameter(char* arg){
@@ -95,8 +95,9 @@ void amFormat::push_parameter(char* arg){
 void amFormat::doit(void){ }
 
 amTxt::amTxt(char* name, etState& argstate):
-	state(argstate),
-	rtArgMethod(name, 1){ }
+	rtArgMethod(name, 1),
+	state(argstate)
+{ }
 
 void amTxt::push_parameter(char* parameter){
 	strcpy(state.txtfile, parameter);

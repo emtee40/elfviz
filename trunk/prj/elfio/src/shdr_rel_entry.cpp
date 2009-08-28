@@ -104,7 +104,7 @@ class shdr_rel_attr_abstract_t{
 
 class shdr_rel_attr_t:public shdr_rel_attr_abstract_t, public elf_attr_t{
 	public:
-		shdr_rel_attr_t(Elf32_Rel& shdr):hdr(shdr), shdr_rel_attr_abstract_t(sizeof(shdr_rel_attr) / sizeof(section_attr_t)){ }
+		shdr_rel_attr_t(Elf32_Rel& shdr):shdr_rel_attr_abstract_t(sizeof(shdr_rel_attr) / sizeof(section_attr_t)), hdr(shdr){ }
 
 		virtual const unsigned int get_num(void){
 			return num;
@@ -201,7 +201,7 @@ section_attr_t shdr_rela_attr[] = {
 
 class shdr_rela_attr_t:public shdr_rel_attr_abstract_t, public elf_attr_t{
 	public:
-		shdr_rela_attr_t(Elf32_Rela& shdr):hdr(shdr), shdr_rel_attr_abstract_t(sizeof(shdr_rela_attr) / sizeof(section_attr_t)){ }
+		shdr_rela_attr_t(Elf32_Rela& shdr):shdr_rel_attr_abstract_t(sizeof(shdr_rela_attr) / sizeof(section_attr_t)), hdr(shdr){ }
 
 		virtual const unsigned int get_num(void){
 			return num;

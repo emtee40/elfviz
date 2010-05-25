@@ -59,10 +59,10 @@ class cmdaction_open : public cmdaction{
 	public:
 		virtual void act(cmdparam& param, elf_stack& elfstack){
 			char* argv = param.argv(0);
-			elf_section_t* elfio;
+			elfSection* elfio;
 			try{
 				elfio = elfio_new(argv);
-			} catch (char* e){
+			} catch (...){
 				printf("%s\n", argv);
 				elfio = 0;
 			}
@@ -78,7 +78,7 @@ class cmdaction_open : public cmdaction{
 class cmdaction_close : public cmdaction{
 	public:
 		virtual void act(cmdparam& param, elf_stack& elfstack){
-			elf_section_t* elfio = elfstack.root();
+			elfSection* elfio = elfstack.root();
 			if(elfio) {
 				printf("%s is closed\n", elfio->name());
 				delete elfio;
@@ -92,25 +92,25 @@ class cmdaction_close : public cmdaction{
 class cmdaction_file : public cmdaction{
 	public:
 		virtual void act(cmdparam& param, elf_stack& elfstack){
-			elf_section_t* elfio = elfstack.root();
+			elfSection* elfio = elfstack.root();
 			printf("%s\n", (elfio) ? elfio->name() : "(null)");
 		}
 };
 
 class cmdaction_ls : public cmdaction{
 	private:
-		void format_child(elf_section_t* e){
-			elf_section_t* child = 0;
+		void format_child(elfSection* e){
+			elfSection* child = 0;
 			printf(".\t..\t");
-			for(unsigned int i = 0 ; i < e->get_child_num() ; i++){
-				 child = e->get_child(i);
+			for(unsigned int i = 0 ; i < e->childs() ; i++){
+				 child = e->childAt(i);
 				if(child) printf("%s\t", child->name());
 			}
 		}
 
 	public:
 		virtual void act(cmdparam& param, elf_stack& elfstack){
-			elf_section_t* elfio = elfstack;
+			elfSection* elfio = elfstack;
 			if(param == 0) {
 				format_child(elfio);
 			} else {
@@ -118,38 +118,38 @@ class cmdaction_ls : public cmdaction{
 				if(!strcmp(argv, ".")){
 					format_child(elfio);
 				} else {
-					format_child(elfio->get_child(argv));
+					format_child(elfio->childAt(argv));
 				}
 			}
 		}
 };
 
 class cmdaction_inf : public cmdaction{
-	void format_header(elf_section_t* e){
-		elf_attr_t* attr = e->get_attr();
+	void format_header(elfSection* e){
+		elfAttribute* attr = e->attribute();
 		if(!attr) return;
-		for(unsigned int i = 0 ; i < attr->get_num() ; i++){
-			int type = attr->get_type(i);
-			if(type & ELF_TYPE_STR)	printf("%s=%s\n", attr->get_name(i), attr->get_str(i));
-			else			printf("%s=%d\n", attr->get_name(i), attr->get_int(i));
+		for(unsigned int i = 0 ; i < attr->number() ; i++){
+			int type = attr->type(i);
+			if(type & ELF_TYPE_STR)	printf("%s=%s\n", attr->name(i), attr->stringValue(i));
+			else			printf("%s=%d\n", attr->name(i), attr->numericValue(i));
 		}
 	}
 
 	public:
 		virtual void act(cmdparam& param, elf_stack& elfstack){
-			elf_section_t* elfio = elfstack;
-			elf_section_t* current = 0;
+			elfSection* elfio = elfstack;
+			elfSection* current = 0;
 			char* argv = param.argv(0);
 			if(!strcmp(argv, ".")) current = elfio;
-			else current = elfio->get_child(argv);
+			else current = elfio->childAt(argv);
 			if(current) format_header(current);
 		}
 };
 
 class cmdaction_cat : public cmdaction{
 	#define SHDR_COLUMN_SIZE 16
-	void format_body(elf_section_t* e){
-		elf_buffer_t* buf = e->get_body();
+	void format_body(elfSection* e){
+		elfBuffer* buf = e->body();
 		if(!buf) return;
 		for(unsigned int i = 0 ; i < buf->size ; i += SHDR_COLUMN_SIZE){
 			int j = 0;
@@ -174,11 +174,11 @@ class cmdaction_cat : public cmdaction{
 
 	public:
 		virtual void act(cmdparam& param, elf_stack& elfstack){
-			elf_section_t* elfio = elfstack;
-			elf_section_t* current = 0;
+			elfSection* elfio = elfstack;
+			elfSection* current = 0;
 			char* argv = param.argv(0);
 			if(!strcmp(argv, ".")) current = elfio;
-			else current = elfio->get_child(argv);
+			else current = elfio->childAt(argv);
 			if(current) format_body(current);
 		}
 };
@@ -186,15 +186,15 @@ class cmdaction_cat : public cmdaction{
 class cmdaction_cd : public cmdaction{
 	public:
 		virtual void act(cmdparam& param, elf_stack& elfstack){
-			elf_section_t* elfio = elfstack;
-			elf_section_t* current = 0;
+			elfSection* elfio = elfstack;
+			elfSection* current = 0;
 			char* argv = param.argv(0);
 			if(!strcmp(argv, ".")) {
 				return;
 			} else if(!strcmp(argv, "..")) {
 				elfstack.pop();
 			} else {
-				current = elfio->get_child(argv);
+				current = elfio->childAt(argv);
 			}
 			if(current) elfstack.push(current);
 		}

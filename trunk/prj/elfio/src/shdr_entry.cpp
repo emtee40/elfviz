@@ -44,25 +44,25 @@ static const section_attr_t shdr_entry_attr[] = {
 	{"sh_entsize",		ELF_TYPE_INT			}
 };
 
-class shdr_entry_attr_t : public elf_attr_t {
+class shdr_entry_attr_t : public elfAttribute {
 	public:
-		shdr_entry_attr_t(Elf32_Shdr& shdr, const char* ename):hdr(shdr), name(0), num(sizeof(shdr_entry_attr) / sizeof(section_attr_t)){
-			if(ename) name = strdup(ename);
+		shdr_entry_attr_t(Elf32_Shdr& shdr, const char* ename):hdr(shdr), sname(0), num(sizeof(shdr_entry_attr) / sizeof(section_attr_t)){
+			if(ename) sname = strdup(ename);
 		}
 
-		virtual const unsigned int get_num(void){
+		const unsigned int number(void){
 			return num;
 		}
 
-		virtual const unsigned int get_type(int idx){
+		const unsigned int type(int idx){
 			return shdr_entry_attr[idx].type;
 		}
 
-		virtual const char* get_name(int idx){
+		const char* name(int idx){
 			return shdr_entry_attr[idx].name;
 		}
 
-		virtual const char* get_str(int idx){
+		const char* stringValue(int idx){
 			char* ret = 0;
 			switch(idx){
 				case 0:	ret = name_str();	break;
@@ -73,7 +73,7 @@ class shdr_entry_attr_t : public elf_attr_t {
 			return ret;
 		}
 
-		virtual const int get_int(int idx){
+		const int numericValue(int idx){
 			unsigned int ret = 0;
 			switch(idx){
 				case 0:	ret = hdr.sh_name;	break;
@@ -93,11 +93,11 @@ class shdr_entry_attr_t : public elf_attr_t {
 
 	private:
 		Elf32_Shdr& hdr;
-		char* name;
+		char* sname;
 		const unsigned int num;
 
 		char* name_str(void){
-			return (name) ? name : (char*)"null";
+			return (sname) ? sname : (char*)"null";
 		}
 
 		char* type_str(void){
@@ -135,15 +135,15 @@ class shdr_entry_attr_t : public elf_attr_t {
 };
 
 
-class elf_shdr_entry_t : public elf_section_t{
+class elf_shdr_entry_t : public elfSection{
 	protected:
 		Elf32_Shdr shdr;
 		char* se_name;
 		shdr_entry_attr_t attr;
-		elf_buffer_t body;
+		elfBuffer se_body;
 
 	public:
-		elf_shdr_entry_t(Elf32_Shdr eshdr, unsigned char* ebuf, char* ename):se_name(0), attr(shdr, ename),body(ebuf, eshdr.sh_size, eshdr.sh_offset){
+		elf_shdr_entry_t(Elf32_Shdr eshdr, unsigned char* ebuf, char* ename):se_name(0), attr(shdr, ename),se_body(ebuf, eshdr.sh_size, eshdr.sh_offset){
 			memcpy(&shdr, &eshdr, sizeof(Elf32_Shdr));
 			if(ename) se_name = strdup(ename);
 		}
@@ -152,44 +152,44 @@ class elf_shdr_entry_t : public elf_section_t{
 			if(se_name) delete se_name;
 		}
 
-		virtual elf_attr_t* get_attr(void){
+		elfAttribute* attribute(void){
 			return &attr;
 		}
 
-		virtual const unsigned int get_child_num(void){
+		const unsigned int childs(void){
 			return 0;
 		}
 
-		virtual elf_section_t* get_child(const int idx){
+		elfSection* childAt(const int idx){
 			return 0;
 		}
 
-		virtual elf_section_t* get_child(const char* stridx){
+		elfSection* childAt(const char* stridx){
 			return 0;
 		}
 
-		virtual elf_buffer_t* get_body(void){
-			return (body.buffer) ? &body : 0;
+		elfBuffer* body(void){
+			return (se_body.buffer) ? &se_body : 0;
 		}
 
-		virtual const char* category(void){
+		const char* category(void){
 			return "entry";
 		}
 
-		virtual const char* name(void){
+		const char* name(void){
 			return se_name;
 		}
 };
 
 class elf_shdr_symtab_t : public elf_shdr_entry_t{
 	protected:
-		elf_section_t** entry;
+		elfSection** entry;
 		int n_entry;
 	public:
-		elf_shdr_symtab_t(FILE* fd, Elf32_Shdr eshdr, unsigned char* ebuf, char* ename, char* strtab, elf_section_t*(*entry_new)(FILE*, unsigned int, char*))
+		elf_shdr_symtab_t(FILE* fd, Elf32_Shdr eshdr, unsigned char* ebuf, char* ename, char* strtab, elfSection*(*entry_new)(FILE*, unsigned int, char*))
 							: elf_shdr_entry_t(eshdr, 0, ename){
 			n_entry = eshdr.sh_size / eshdr.sh_entsize;
-			entry = new elf_section_t* [n_entry];
+			entry = new elfSection* [n_entry];
 			for(int i = 0 ; i < n_entry ; i++){
 				entry[i] = entry_new(fd, eshdr.sh_offset + sizeof(Elf32_Sym) * i, strtab);
 			}
@@ -202,26 +202,26 @@ class elf_shdr_symtab_t : public elf_shdr_entry_t{
 			}
 		}
 
-		virtual const unsigned int get_child_num(void){
+		const unsigned int childs(void){
 			return n_entry;
 		}
 
-		virtual elf_section_t* get_child(const int idx){
+		elfSection* childAt(const int idx){
 			return entry[idx];
 		}
 
 
-		virtual elf_section_t* get_child(const char* stridx){
+		elfSection* childAt(const char* stridx){
 			int i = 0, num = shdr.sh_size / shdr.sh_entsize;
 			for(i = 0 ; i < num ; i++) if(!strcmp(entry[i]->name(), stridx)) return entry[i];
 			return 0;
 		}
 };
 
-elf_section_t* shdr_entry_new(FILE* fd, int e_shoff, char* shstrtab, char* strtab){
+elfSection* shdr_entry_new(FILE* fd, int e_shoff, char* shstrtab, char* strtab){
 	Elf32_Shdr shdr;
 	unsigned char* buf = 0;
-	elf_section_t* section = 0;
+	elfSection* section = 0;
 
 	fseek(fd, e_shoff, SEEK_SET);
 	fread(&shdr, sizeof(Elf32_Shdr), 1, fd);

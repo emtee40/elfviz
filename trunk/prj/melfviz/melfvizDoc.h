@@ -50,7 +50,7 @@ protected:
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 private:
-	elf_section_t* pElf;
+	elfSection* pElf;
 };
 
 /////////////////////////////////////////////////////////////////////////////

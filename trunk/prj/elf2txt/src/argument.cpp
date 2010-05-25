@@ -31,34 +31,23 @@ etState::etState(){
 	flag = ET_SHOW_ATTR | ET_SHOW_BODY;
 }
 
-char* etState::get_txt_file(void){
+char* etState::txtFile(void){
 	if(!txtfile[0]) strcpy(txtfile, RT_FILE_STD_OUT);
 	return txtfile;
 }
 
-char* etState::get_elf_file(void){ return elffile; }
+char* etState::elfFile(void){ return elffile; }
 
-etOutFormat etState::get_format(void){ return format; }
+etOutFormat etState::getFormat(void){ return format; }
 
-unsigned int etState::get_flag(void){ return flag; }
+unsigned int etState::getFlag(void){ return flag; }
 
-amFlagAttr::amFlagAttr(char* arg_name, etState& argstate):rtArgMethod(arg_name), state(argstate){} 
-
-void amFlagAttr::doit(void){
-	state.flag &= ~ET_SHOW_ATTR;
-}
-
-amFlagBody::amFlagBody(char* arg_name, etState& argstate):rtArgMethod(arg_name), state(argstate){}
-
-void amFlagBody::doit(void){
-	state.flag &= ~ET_SHOW_BODY;
-}
-	
-amHelp::amHelp(char* arg_name):rtArgMethod(arg_name){}
-
-void amHelp::doit(void){
+void etState::showBanner(void){
 	fprintf(stdout, "elf2txt v1.0 Copyright (C) 2008  Song-Hwan Kim\n");
 	fprintf(stdout, "This program comes with ABSOLUTELY NO WARRANTY; \n");
+}
+
+void etState::showHelp(void){
 	fprintf(stdout, "usage:ucbasic source [option]\n");
 	fprintf(stdout, "-h,--help\tThis help screen\n");
 	fprintf(stdout, "-o,--output\tspecifies output file name\n");
@@ -71,37 +60,31 @@ void amHelp::doit(void){
 	fprintf(stdout, "-od,--omit-data\tomit section data\n");
 }
 
-amElf::amElf(char* name, etState& argstate):
-	rtArgMethod(name, 1),
-	state(argstate)
-	{ }
 
-void amElf::push_parameter(char* arg){
-	strcpy(state.elffile, arg);
+void etState::parse(int argc, char* argv[]){
+	for(int i = 0 ; i < argc ; i++){
+		if(!strcmp(argv[i], "-o") || !strcmp(argv[i], "--output")){
+			strcpy(txtfile, argv[++i]);		
+		} else if(!strcmp(argv[i], "-f") || !strcmp(argv[i], "--format")){
+			if(!strcmp(argv[++i], "txt")) {
+				format = ET_OUT_FORMAT_TXT;
+			} else if(!strcmp(argv[i], "xml")) {
+				format = ET_OUT_FORMAT_XML;
+			} else {
+				rtString str;
+				str.format("ERROR:undefined parameter %s. xml or txt is allowed", argv[i]);
+				throw str;
+			}
+		} else if(!strcmp(argv[i], "-oa") || !strcmp(argv[i], "--omit-attributes")){
+			flag &= ~ET_SHOW_ATTR;
+		} else if(!strcmp(argv[i], "-od") || !strcmp(argv[i], "--omit-data")){
+			flag &= ~ET_SHOW_BODY;
+		} else if(argv[i][0] == '-'){
+			rtString str;
+			str.format("ERROR:unknown option %s. try --help", argv[i]);
+			throw str;
+		} else {
+			strcpy(elffile, argv[i]);
+		}
+	}
 }
-
-void amElf::doit(void){ }
-
-amFormat::amFormat(char* name, etState& argstate):
-	rtArgMethod(name, 1),
-	state(argstate)
-	{ }
-
-void amFormat::push_parameter(char* arg){
-	if(!strcmp(arg, "txt")) state.format = ET_OUT_FORMAT_TXT;
-	else if(!strcmp(arg, "xml")) state.format = ET_OUT_FORMAT_XML;
-}
-
-void amFormat::doit(void){ }
-
-amTxt::amTxt(char* name, etState& argstate):
-	rtArgMethod(name, 1),
-	state(argstate)
-{ }
-
-void amTxt::push_parameter(char* parameter){
-	strcpy(state.txtfile, parameter);
-}
-
-void amTxt::doit(void){ }
-

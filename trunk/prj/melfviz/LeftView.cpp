@@ -114,7 +114,7 @@ CMelfvizDoc* CLeftView::GetDocument() // non-debug version is inline
 /////////////////////////////////////////////////////////////////////////////
 // CLeftView message handlers
 
-void CLeftView::ElfSectionToTreeCtrl(CTreeCtrl &tree, HTREEITEM hParent, elf_section_t *elfio)
+void CLeftView::ElfSectionToTreeCtrl(CTreeCtrl &tree, HTREEITEM hParent, elfSection *elfio)
 {
 	char* name = (char*)elfio->name();
 
@@ -128,12 +128,12 @@ void CLeftView::ElfSectionToTreeCtrl(CTreeCtrl &tree, HTREEITEM hParent, elf_sec
 
 	HTREEITEM hNew = tree.InsertItem(&ti);
 	tree.SetItemData(hNew, (DWORD)elfio);
-	int num = elfio->get_child_num();
+	int num = elfio->childs();
 	for(int i = 0 ; i < num ; i++)
-		ElfSectionToTreeCtrl(tree, hNew, elfio->get_child(i));
+		ElfSectionToTreeCtrl(tree, hNew, elfio->childAt(i));
 }
 
-void CLeftView::Refresh(elf_section_t *elfio)
+void CLeftView::Refresh(elfSection *elfio)
 {
 	CTreeCtrl& tree = GetTreeCtrl();
 	tree.DeleteAllItems();
@@ -160,7 +160,7 @@ void CLeftView::OnSelchanged(NMHDR* pNMHDR, LRESULT* pResult)
 	CMelfvizDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
 	CTreeCtrl& tree = GetTreeCtrl();
-	elf_section_t* elf = (elf_section_t*)tree.GetItemData(pNMTreeView->itemNew.hItem);
+	elfSection* elf = (elfSection*)tree.GetItemData(pNMTreeView->itemNew.hItem);
 	if(elf)
 		m_wndEdit->Refresh(elf);
 	*pResult = 0;

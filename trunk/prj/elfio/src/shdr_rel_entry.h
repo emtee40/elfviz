@@ -22,6 +22,6 @@
 
 #ifndef __ELF_SHDR_REL_ENTRY_H__
 #define __ELF_SHDR_REL_ENTRY_H__
-elf_section_t* shdr_rel_entry_new(FILE* fd, unsigned int sh_offset, char* strtab);
-elf_section_t* shdr_rela_entry_new(FILE* fd, unsigned int sh_offset, char* strtab);
+elfSection* shdr_rel_entry_new(FILE* fd, unsigned int sh_offset, char* strtab);
+elfSection* shdr_rela_entry_new(FILE* fd, unsigned int sh_offset, char* strtab);
 #endif //__ELF_SHDR_REL_ENTRY_H__

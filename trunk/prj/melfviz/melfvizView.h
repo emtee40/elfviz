@@ -38,7 +38,7 @@ public:
 
 // Implementation
 public:
-	void Refresh(elf_section_t* elf);
+	void Refresh(elfSection* elf);
 	virtual ~CMelfvizView();
 #ifdef _DEBUG
 	virtual void AssertValid() const;

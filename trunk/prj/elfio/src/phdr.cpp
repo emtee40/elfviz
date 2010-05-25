@@ -28,16 +28,16 @@
 #include "phdr.h"
 #include "phdr_entry.h"
 
-class elf_phdr_t : public elf_section_t{
+class elfPHDR : public elfSection{
 	protected:
 		//todo:phdr_entry를 section container로 정의하여 iterator를 달아 순회하도록 할것
-		elf_section_t** entry;
+		elfSection** entry;
 		unsigned int n_entry;
 
 	public:
-		elf_phdr_t(int phnum, FILE* fd, int phoff){
+		elfPHDR(int phnum, FILE* fd, int phoff){
 			char name[8];
-			entry = new elf_section_t* [phnum];
+			entry = new elfSection* [phnum];
 			n_entry = phnum;
 			for(unsigned int i = 0 ; i < n_entry ; i++){
 				sprintf(name, "%d", i);
@@ -45,42 +45,42 @@ class elf_phdr_t : public elf_section_t{
 			}
 		}
 
-		~elf_phdr_t(){
+		~elfPHDR(){
 			if(n_entry){
 				for(unsigned int i = 0 ; i < n_entry ; i++) delete entry[i];
 				delete entry;
 			}
 		}
 
-		virtual elf_attr_t* get_attr(void) { return 0;}
+		elfAttribute* attribute(void) { return 0;}
 
-		virtual const unsigned int get_child_num(void){
+		const unsigned int childs(void){
 			return n_entry;
 		}
 
-		virtual elf_section_t* get_child(const int idx){
+		elfSection* childAt(const int idx){
 			return entry[idx];
 		}
 
-		virtual elf_section_t* get_child(const char* stridx){
+		elfSection* childAt(const char* stridx){
 			for(unsigned int i = 0 ; i < n_entry ; i++){
 				if(!strcmp(entry[i]->name(), stridx)) return entry[i];
 			}
 			return 0;
 		}
-		virtual elf_buffer_t* get_body(void){
+		elfBuffer* body(void){
 			return 0;
 		}
 
-		virtual const char* category(void){
+		const char* category(void){
 			return "phdr";
 		}
 
-		virtual const char* name(void){
+		const char* name(void){
 			return "phdr";
 		}
 };
 
-elf_section_t* phdr_new(Elf32_Ehdr ehdr, FILE* fd){
-	return (elf_section_t*)new elf_phdr_t(ehdr.e_phnum, fd, ehdr.e_phoff);
+elfSection* phdr_new(Elf32_Ehdr ehdr, FILE* fd){
+	return (elfSection*)new elfPHDR(ehdr.e_phnum, fd, ehdr.e_phoff);
 }

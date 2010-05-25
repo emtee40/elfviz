@@ -37,39 +37,39 @@
 #define ELF_TYPE_HEX	0x2
 #define ELF_TYPE_STR	0x4
 
-class elf_attr_t{
+class elfAttribute{
 	public:
-		virtual const unsigned int get_num(void) = 0;
-		virtual const unsigned int get_type(int idx = -1) = 0;
-		virtual const char* get_name(int idx = -1) = 0;
-		virtual const char* get_str(int idx = -1) = 0;
-		virtual const int get_int(int idx = -1) = 0;
-		virtual ~elf_attr_t(){};
+		virtual const unsigned int number(void) = 0;
+		virtual const unsigned int type(int idx = -1) = 0;
+		virtual const char* name(int idx = -1) = 0;
+		virtual const char* stringValue(int idx = -1) = 0;
+		virtual const int numericValue(int idx = -1) = 0;
+		virtual ~elfAttribute(){};
 };
 
-class elf_buffer_t{
+class elfBuffer{
 	private:
 	public:
 		const unsigned int size;
 		const unsigned int offset;
 		const unsigned char* buffer;
 
-		elf_buffer_t(const unsigned char* buf, const unsigned sz, const unsigned int off);
-		~elf_buffer_t();
+		elfBuffer(const unsigned char* buf, const unsigned sz, const unsigned int off);
+		~elfBuffer();
 };
 
-class elf_section_t{
+class elfSection{
 	public:
-		virtual elf_attr_t* get_attr(void) = 0;
-		virtual const unsigned int get_child_num(void) = 0;
-		virtual elf_section_t* get_child(const int idx) = 0;
-		virtual elf_section_t* get_child(const char* stridx) = 0;
+		virtual elfAttribute* attribute(void) = 0;
+		virtual const unsigned int childs(void) = 0;
+		virtual elfSection* childAt(const int idx) = 0;
+		virtual elfSection* childAt(const char* stridx) = 0;
 		virtual const char* name(void) = 0;
 		virtual const char* category(void) = 0;
-		virtual elf_buffer_t* get_body(void) = 0;
-		virtual ~elf_section_t(){};
+		virtual elfBuffer* body(void) = 0;
+		virtual ~elfSection(){};
 };
 
-ELFIO_API elf_section_t* elfio_new(char* file);
+ELFIO_API elfSection* elfio_new(char* file);
 
 #endif //__ELF_IO_H__

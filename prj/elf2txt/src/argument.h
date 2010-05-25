@@ -26,11 +26,11 @@
 #define ET_SHOW_ATTR	0x01
 #define ET_SHOW_BODY	0x02
 
-enum etOutFormat{
+typedef enum _etOutFormat{
 	ET_OUT_FORMAT_TXT = 0,
 	ET_OUT_FORMAT_XML,
 	ET_OUT_FORMAT_MAX
-};
+}etOutFormat;
 
 #define MAX_ARG_LEN	256
 
@@ -47,62 +47,14 @@ class etState{
 		friend class amFlagBody;
 	public:
 		etState();
-		char* get_elf_file(void);
-		char* get_txt_file(void);
-		etOutFormat get_format(void);
-		unsigned int get_flag(void);
-		
+		char* elfFile(void);
+		char* txtFile(void);
+		etOutFormat getFormat(void);
+		unsigned int getFlag(void);
+		void parse(int argc, char* argv[]);
+		void showBanner(void);
+		void showHelp(void);
 };
-
-class amHelp:public rtArgMethod{
-	public:
-		amHelp(char* arg_name);
-		void doit(void);
-};
-
-class amFlagAttr:public rtArgMethod{
-	private:
-		etState& state;
-	public:
-		amFlagAttr(char* arg_name, etState& argstate);
-		void doit(void);
-};
-
-class amFlagBody:public rtArgMethod{
-	private:
-		etState& state;
-	public:
-		amFlagBody(char* arg_name, etState& argstate);
-		void doit(void);
-};
-
-class amElf:public rtArgMethod{
-	private:
-		etState& state;
-	public:
-		amElf(char* name, etState& argstate);
-		void push_parameter(char* arg);
-		void doit(void);
-};
-
-class amTxt:public rtArgMethod{
-	private:
-		etState& state;
-	public:
-		amTxt(char* name, etState& argstate);
-		void push_parameter(char* arg);
-		void doit(void);
-};
-
-class amFormat:public rtArgMethod{
-	private:
-		etState& state;
-	public:
-		amFormat(char* name, etState& argstate);
-		void push_parameter(char* arg);
-		void doit(void);
-};
-
 
 #endif //__ELF2TXT_ARGUMENT_H__
 

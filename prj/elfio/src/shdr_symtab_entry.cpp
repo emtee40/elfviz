@@ -40,27 +40,27 @@ static const section_attr_t shdr_symtab_attr[] = {
 	{"st_type",		ELF_TYPE_STR			}
 };
 
-class shdr_symtab_attr_t : public elf_attr_t {
+class shdr_symtab_attr_t : public elfAttribute {
 	public:
-		shdr_symtab_attr_t(Elf32_Sym& shdr, char* ename):hdr(shdr), name(0), num(sizeof(shdr_symtab_attr) / sizeof(section_attr_t)){
-			if(ename) name = strdup(ename);
+		shdr_symtab_attr_t(Elf32_Sym& shdr, char* ename):hdr(shdr), st_name(0), num(sizeof(shdr_symtab_attr) / sizeof(section_attr_t)){
+			if(ename) st_name = strdup(ename);
 		}
 
-		~shdr_symtab_attr_t(){free(name);}
+		~shdr_symtab_attr_t(){free(st_name);}
 
-		virtual const unsigned int get_num(void){
+		const unsigned int number(void){
 			return num;
 		}
 
-		virtual const unsigned int get_type(int idx){
+		const unsigned int type(int idx){
 			return shdr_symtab_attr[idx].type;
 		}
 
-		virtual const char* get_name(int idx){
+		const char* name(int idx){
 			return shdr_symtab_attr[idx].name;
 		}
 
-		virtual const char* get_str(int idx){
+		const char* stringValue(int idx){
 			char* ret = 0;
 			switch(idx){
 				case 0:	ret = name_str();	break;
@@ -71,7 +71,7 @@ class shdr_symtab_attr_t : public elf_attr_t {
 			return ret;
 		}
 
-		virtual const int get_int(int idx){
+		const int numericValue(int idx){
 			unsigned int ret = 0;
 			switch(idx){
 				case 0:	ret = hdr.st_name;	break;
@@ -87,11 +87,11 @@ class shdr_symtab_attr_t : public elf_attr_t {
 
 	private:
 		Elf32_Sym& hdr;
-		char* name;
+		char* st_name;
 		const unsigned int num;
 
 		char* name_str(void){
-			return (name) ? name : (char*)"null";
+			return (st_name) ? st_name : (char*)"null";
 		}
 
 		char* bind_str(void){
@@ -126,7 +126,7 @@ class shdr_symtab_attr_t : public elf_attr_t {
 
 };
 	
-class elf_shdr_symtab_entry_t : public elf_section_t{
+class elf_shdr_symtab_entry_t : public elfSection{
 	protected:
 		Elf32_Sym symtab;
 		char* ss_name;
@@ -142,38 +142,38 @@ class elf_shdr_symtab_entry_t : public elf_section_t{
 			delete ss_name;
 		}
 
-		virtual elf_attr_t* get_attr(void){
+		elfAttribute* attribute(void){
 			return &attr;
 		}
 
-		virtual const unsigned int get_child_num(void){
+		const unsigned int childs(void){
 			return 0;
 		}
 
-		virtual elf_section_t* get_child(const int idx){
+		elfSection* childAt(const int idx){
 			return 0;
 		}
 
-		virtual elf_section_t* get_child(const char* stridx){
+		elfSection* childAt(const char* stridx){
 			return 0;
 		}
 
-		virtual elf_buffer_t* get_body(void){
+		elfBuffer* body(void){
 			return 0;
 		}
 
-		virtual const char* category(void){
+		const char* category(void){
 			return "symbol";
 		}
 
-		virtual const char* name(void){
+		const char* name(void){
 			return ss_name;
 		}
 };
 
-elf_section_t* shdr_symtab_entry_new(FILE* fd, unsigned int sh_offset, char* strtab){
+elfSection* shdr_symtab_entry_new(FILE* fd, unsigned int sh_offset, char* strtab){
 	Elf32_Sym symtab;
 	fseek(fd, sh_offset, SEEK_SET);
 	fread(&symtab, sizeof(Elf32_Sym), 1, fd);
-	return (elf_section_t*) new elf_shdr_symtab_entry_t(symtab, symtab.st_name + strtab);
+	return (elfSection*) new elf_shdr_symtab_entry_t(symtab, symtab.st_name + strtab);
 }

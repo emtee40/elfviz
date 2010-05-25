@@ -109,11 +109,11 @@ CMelfvizDoc* CMelfvizView::GetDocument() // non-debug version is inline
 // CMelfvizView message handlers
 
 #define COLUMN_SIZE 16
-void CMelfvizView::Refresh(elf_section_t *elf)
+void CMelfvizView::Refresh(elfSection *elf)
 {
-	elf_attr_t* attr = elf->get_attr();
+	elfAttribute* attr = elf->attribute();
 	if(!attr) return;
-	int num = attr->get_num();
+	int num = attr->number();
 	if(!num) return;
 	CString text;
 	GetWindowText(text);
@@ -121,24 +121,24 @@ void CMelfvizView::Refresh(elf_section_t *elf)
 	CString str;
 	int type = 0;
 	for(int i = 0 ; i < num ; i++){
-		int type = attr->get_type(i);
+		int type = attr->type(i);
 		if(type & ELF_TYPE_STR) {
-			str.Format("%s=%s", attr->get_name(i), attr->get_str(i));
+			str.Format("%s=%s", attr->name(i), attr->stringValue(i));
 			if(type & ELF_TYPE_INT){
 				CString stra;
-				stra.Format(" (0x%x)", attr->get_int(i));
+				stra.Format(" (0x%x)", attr->numericValue(i));
 				str += stra;
 			}
 			str += "\r\n";
 		} else if(type & ELF_TYPE_HEX) {
-			str.Format("%s=0x%x\r\n", attr->get_name(i), attr->get_int(i));
+			str.Format("%s=0x%x\r\n", attr->name(i), attr->numericValue(i));
 		} else {
-			str.Format("%s=%d\r\n", attr->get_name(i), attr->get_int(i));
+			str.Format("%s=%d\r\n", attr->name(i), attr->numericValue(i));
 		}
 		text += str;
 	}
 	text += "\r\n";
-	elf_buffer_t* buf = elf->get_body();
+	elfBuffer* buf = elf->body();
 	if(buf){
 		for(i = 0 ; i < buf->size ; i += COLUMN_SIZE){
 			int j = 0;

@@ -2,7 +2,7 @@
 
 ; HM NIS Edit Wizard helper defines
 !define PRODUCT_NAME "elfviz"
-!define PRODUCT_VERSION "2.1"
+!define PRODUCT_VERSION "2.2.3"
 !define PRODUCT_PUBLISHER "Song-hwan Kim"
 !define PRODUCT_WEB_SITE "http://elfviz.sourceforge.net"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\melfviz.exe"
@@ -44,7 +44,7 @@
 ; MUI end ------
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
-OutFile "elfviz-2.1-win32-Setup.exe"
+OutFile "${PRODUCT_NAME}-${PRODUCT_VERSION}-win32-Setup.exe"
 InstallDir "$PROGRAMFILES\elfviz"
 InstallDirRegKey HKLM "${PRODUCT_DIR_REGKEY}" ""
 ShowInstDetails show
@@ -58,6 +58,7 @@ Section "MainSection" SEC01
   SetOutPath "$INSTDIR"
   SetOverwrite ifnewer
   File "..\..\bin\elfviz.exe"
+  File "..\..\bin\elf2txt.exe"
   File "..\..\bin\melfviz.exe"
   CreateDirectory "$SMPROGRAMS\elfviz"
   CreateShortCut "$SMPROGRAMS\elfviz\elfviz.lnk" "$INSTDIR\elfviz.exe"
@@ -74,6 +75,23 @@ Section "SampleSection" SEC02
   File "..\..\bin\sample\ttycat"
 SectionEnd
 
+Section "Dependents" SEC06
+  SetOutPath "$INSTDIR\depends"
+  File "c:\foss\ucrt\devel\build\msvc\ucrt-2.0.0-win32-Setup.exe"
+  IfFileExists $WINDIR\system32\libucrt-2.0.0.dll endUCRT beginUCRT
+  beginUCRT:
+  ExecWait "$INSTDIR\depends\ucrt-2.0.0-win32-Setup.exe"
+  endUCRT:
+  SetOutPath "$INSTDIR"
+  SetOverwrite ifnewer
+  File "c:\windows\system32\mfc42.dll"
+  File "c:\windows\system32\mfco42.dll"
+  File "c:\windows\system32\msvcrt.dll"
+  File "c:\windows\system32\mfc42d.dll"
+  File "c:\windows\system32\mfco42d.dll"
+  File "c:\windows\system32\msvcrtd.dll"
+SectionEnd
+
 Section -AdditionalIcons
   WriteIniStr "$INSTDIR\${PRODUCT_NAME}.url" "InternetShortcut" "URL" "${PRODUCT_WEB_SITE}"
   CreateShortCut "$SMPROGRAMS\elfviz\Website.lnk" "$INSTDIR\${PRODUCT_NAME}.url"
@@ -82,6 +100,7 @@ SectionEnd
 
 Section -Post
   WriteUninstaller "$INSTDIR\uninst.exe"
+  WriteRegStr HKLM "${PRODUCT_DIR_REGKEY}" "" "$INSTDIR\elf2txt.exe"
   WriteRegStr HKLM "${PRODUCT_DIR_REGKEY}" "" "$INSTDIR\elfviz.exe"
   WriteRegStr HKLM "${PRODUCT_DIR_REGKEY}" "" "$INSTDIR\melfviz.exe"
   WriteRegStr ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}" "DisplayName" "$(^Name)"
@@ -96,12 +115,12 @@ SectionEnd
 
 Function un.onUninstSuccess
   HideWindow
-  MessageBox MB_ICONINFORMATION|MB_OK "$(^Name)는(은) 완전히 제거되었습니다."
+  MessageBox MB_ICONINFORMATION|MB_OK "$(^Name) is uninstalled successfully."
 FunctionEnd
 
 Function un.onInit
 !insertmacro MUI_UNGETLANGUAGE
-  MessageBox MB_ICONQUESTION|MB_YESNO|MB_DEFBUTTON2 "$(^Name)을(를) 제거하시겠습니까?" IDYES +2
+  MessageBox MB_ICONQUESTION|MB_YESNO|MB_DEFBUTTON2 "Uninstall $(^Name)?" IDYES +2
   Abort
 FunctionEnd
 
@@ -109,8 +128,17 @@ Section Uninstall
   Delete "$INSTDIR\${PRODUCT_NAME}.url"
   Delete "$INSTDIR\uninst.exe"
   Delete "$INSTDIR\libelfio.dll"
+  Delete "$INSTDIR\elf2txt.exe"
   Delete "$INSTDIR\elfviz.exe"
   Delete "$INSTDIR\melfviz.exe"
+  Delete "$INSTDIR\mfc42.dll"
+  Delete "$INSTDIR\mfco42.dll"
+  Delete "$INSTDIR\msvcrt.dll"
+  Delete "$INSTDIR\mfc42d.dll"
+  Delete "$INSTDIR\mfco42d.dll"
+  Delete "$INSTDIR\msvcrtd.dll"
+  Delete "$INSTDIR\sample\*"
+  Delete "$INSTDIR\depends\*"
 
   Delete "$SMPROGRAMS\elfviz\Uninstall.lnk"
   Delete "$SMPROGRAMS\elfviz\Website.lnk"
@@ -119,6 +147,7 @@ Section Uninstall
 
   RMDir "$SMPROGRAMS\elfviz"
   RMDir "$INSTDIR\sample"
+  RMDir "$INSTDIR\depends"
   RMDir "$INSTDIR"
 
   DeleteRegKey ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}"

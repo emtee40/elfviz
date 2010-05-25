@@ -25,7 +25,7 @@
 
 elf_stack::elf_stack():index(0){}
 
-void elf_stack::push(elf_section_t* section){
+void elf_stack::push(elfSection* section){
 	if(index == ELF_STACK_DEPTH) throw("stack overflow");
 	stack[index++] = section;
 }
@@ -35,23 +35,23 @@ void elf_stack::pop(void){
 	index--;
 }
 
-elf_section_t* elf_stack::root(void){
+elfSection* elf_stack::root(void){
 	if(index <= 0) throw("stack empty");
 	return stack[0];
 }
 
-elf_section_t* elf_stack::first(void){
+elfSection* elf_stack::first(void){
 	if(index <= 0) return 0;
 	iter = 0;
 	return stack[iter++];
 }
 
-elf_section_t* elf_stack::next(void){
+elfSection* elf_stack::next(void){
 	if (iter >= index) return 0;
 	return stack[iter++];
 }
 
-elf_stack::operator elf_section_t* (void){
+elf_stack::operator elfSection* (void){
 	if(index <= 0) throw("stack empty");
 	return stack[index - 1];
 }

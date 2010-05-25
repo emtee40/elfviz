@@ -23,5 +23,5 @@
 #ifndef __ELFIO_PHDR_H__
 #define __ELFIO_PHDR_H__
 
-elf_section_t* phdr_new(Elf32_Ehdr ehdr, FILE* fd);
+elfSection* phdr_new(Elf32_Ehdr ehdr, FILE* fd);
 #endif //__ELFIO_PHDR_H__

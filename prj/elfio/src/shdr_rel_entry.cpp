@@ -52,7 +52,7 @@ class shdr_rel_attr_abstract_t{
 			rii = ELF32_R_INFO(ris, rit);
 		}
 
-		char* get_type_info(void){
+		char* type_info(void){
 			char* str = 0;
 			switch(rit){
 				case R_ARM_NONE:		str = (char*)"R_ARM_NONE";		break;
@@ -102,32 +102,32 @@ class shdr_rel_attr_abstract_t{
 		}
 };
 
-class shdr_rel_attr_t:public shdr_rel_attr_abstract_t, public elf_attr_t{
+class shdr_rel_attr_t:public shdr_rel_attr_abstract_t, public elfAttribute{
 	public:
 		shdr_rel_attr_t(Elf32_Rel& shdr):shdr_rel_attr_abstract_t(sizeof(shdr_rel_attr) / sizeof(section_attr_t)), hdr(shdr){ }
 
-		virtual const unsigned int get_num(void){
+		const unsigned int number(void){
 			return num;
 		}
 
-		virtual const unsigned int get_type(int idx){
+		const unsigned int type(int idx){
 			return shdr_rel_attr[idx].type;
 		}
 
-		virtual const char* get_name(int idx){
+		const char* name(int idx){
 			return shdr_rel_attr[idx].name;
 		}
 
-		virtual const char* get_str(int idx){
+		const char* stringValue(int idx){
 			char* ret = 0;
 			switch(idx){
-				case 2:	ret = get_type_info();	break;
+				case 2:	ret = type_info();	break;
 				default:	throw "invalid argument";	break;
 			}
 			return ret;
 		}
 
-		virtual const int get_int(int idx){
+		const int numericValue(int idx){
 			unsigned int ret = 0;
 			invalidate(hdr.r_info);
 			switch(idx){
@@ -144,7 +144,7 @@ class shdr_rel_attr_t:public shdr_rel_attr_abstract_t, public elf_attr_t{
 		Elf32_Rel& hdr;
 };
 
-class elf_shdr_rel_entry_t : public elf_section_t{
+class elf_shdr_rel_entry_t : public elfSection{
 	protected:
 		Elf32_Rel reltab;
 		shdr_rel_attr_t attr;
@@ -154,40 +154,40 @@ class elf_shdr_rel_entry_t : public elf_section_t{
 			memcpy(&reltab, &ereltab, sizeof(Elf32_Rel));
 		}
 
-		virtual elf_attr_t* get_attr(void){
+		elfAttribute* attribute(void){
 			return &attr;
 		}
 
-		virtual const unsigned int get_child_num(void){
+		const unsigned int childs(void){
 			return 0;
 		}
 
-		virtual elf_section_t* get_child(const int idx){
+		elfSection* childAt(const int idx){
 			return 0;
 		}
 
-		virtual elf_section_t* get_child(const char* stridx){
+		elfSection* childAt(const char* stridx){
 			return 0;
 		}
 
-		virtual elf_buffer_t* get_body(void){
+		elfBuffer* body(void){
 			return 0;
 		}
 
-		virtual const char* category(void){
+		const char* category(void){
 			return "entry";
 		}
 
-		virtual const char* name(void){
+		const char* name(void){
 			return "null";
 		}
 };
 
-elf_section_t* shdr_rel_entry_new(FILE* fd, unsigned int sh_offset, char* strtab){
+elfSection* shdr_rel_entry_new(FILE* fd, unsigned int sh_offset, char* strtab){
 	Elf32_Rel reltab;
 	fseek(fd, sh_offset, SEEK_SET);
 	fread(&reltab, sizeof(Elf32_Rel), 1, fd);
-	return (elf_section_t*) new elf_shdr_rel_entry_t(reltab);
+	return (elfSection*) new elf_shdr_rel_entry_t(reltab);
 }
 
 /*========================================================================================================*/
@@ -199,32 +199,32 @@ section_attr_t shdr_rela_attr[] = {
 	{"r_addend",	ELF_TYPE_INT			}
 };
 
-class shdr_rela_attr_t:public shdr_rel_attr_abstract_t, public elf_attr_t{
+class shdr_rela_attr_t:public shdr_rel_attr_abstract_t, public elfAttribute{
 	public:
 		shdr_rela_attr_t(Elf32_Rela& shdr):shdr_rel_attr_abstract_t(sizeof(shdr_rela_attr) / sizeof(section_attr_t)), hdr(shdr){ }
 
-		virtual const unsigned int get_num(void){
+		const unsigned int number(void){
 			return num;
 		}
 
-		virtual const unsigned int get_type(int idx){
+		const unsigned int type(int idx){
 			return shdr_rela_attr[idx].type;
 		}
 
-		virtual const char* get_name(int idx){
+		const char* name(int idx){
 			return shdr_rela_attr[idx].name;
 		}
 
-		virtual const char* get_str(int idx){
+		const char* stringValue(int idx){
 			char* ret = 0;
 			switch(idx){
-				case 2:	ret = get_type_info();	break;
+				case 2:	ret = type_info();	break;
 				default:	throw "invalid argument";	break;
 			}
 			return ret;
 		}
 
-		virtual const int get_int(int idx){
+		const int numericValue(int idx){
 			unsigned int ret = 0;
 			invalidate(hdr.r_info);
 			switch(idx){
@@ -242,7 +242,7 @@ class shdr_rela_attr_t:public shdr_rel_attr_abstract_t, public elf_attr_t{
 		Elf32_Rela& hdr;
 };
 
-class elf_shdr_rela_entry_t : public elf_section_t{
+class elf_shdr_rela_entry_t : public elfSection{
 	private:
 		Elf32_Rela relatab;
 		shdr_rela_attr_t attra;
@@ -252,39 +252,39 @@ class elf_shdr_rela_entry_t : public elf_section_t{
 			memcpy(&relatab, &erelatab, sizeof(Elf32_Rela));
 		}
 
-		virtual elf_attr_t* get_attr(void){
+		elfAttribute* attribute(void){
 			return &attra;
 		}
 
-		virtual const unsigned int get_child_num(void){
+		const unsigned int childs(void){
 			return 0;
 		}
 
-		virtual elf_section_t* get_child(const int idx){
+		elfSection* childAt(const int idx){
 			return 0;
 		}
 
 
-		virtual elf_section_t* get_child(const char* stridx){
+		elfSection* childAt(const char* stridx){
 			return 0;
 		}
 
-		virtual elf_buffer_t* get_body(void){
+		elfBuffer* body(void){
 			return 0;
 		}
 
-		virtual const char* category(void){
+		const char* category(void){
 			return "entry";
 		}
 
-		virtual const char* name(void){
+		const char* name(void){
 			return "null";
 		}
 };
 
-elf_section_t* shdr_rela_entry_new(FILE* fd, unsigned int sh_offset, char* strtab){
+elfSection* shdr_rela_entry_new(FILE* fd, unsigned int sh_offset, char* strtab){
 	Elf32_Rela relatab;
 	fseek(fd, sh_offset, SEEK_SET);
 	fread(&relatab, sizeof(Elf32_Rela), 1, fd);
-	return (elf_section_t*) new elf_shdr_rela_entry_t(relatab);
+	return (elfSection*) new elf_shdr_rela_entry_t(relatab);
 }

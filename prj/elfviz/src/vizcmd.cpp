@@ -61,7 +61,7 @@ void vizcmd::parse(char* inbuf){
 const char* vizcmd::path(void){
 	static char path[128];
 	strcpy(path, "/");
-	for(elf_section_t* elf = elfstack.first() ; elf ; elf = elfstack.next()){
+	for(elfSection* elf = elfstack.first() ; elf ; elf = elfstack.next()){
 		strcat(path, elf->name());
 		strcat(path, "/");
 	}

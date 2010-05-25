@@ -22,5 +22,5 @@
 
 #ifndef __ELF_SHDR_SYMTAB_ENTRY_H__
 #define __ELF_SHDR_SYMTAB_ENTRY_H__
-elf_section_t* shdr_symtab_entry_new(FILE* fd, unsigned int sh_offset, char* strtab);
+elfSection* shdr_symtab_entry_new(FILE* fd, unsigned int sh_offset, char* strtab);
 #endif //__ELF_SHDR_SYMTAB_ENTRY_H__

@@ -43,13 +43,14 @@ static const section_attr_t elf_attr[] = {
 	{"phnum",	ELF_TYPE_INT			},
 	{"shentsize",	ELF_TYPE_INT			},
 	{"shnum",	ELF_TYPE_INT			},
-	{"shstrndx",	ELF_TYPE_INT			}
+	{"shstrndx",	ELF_TYPE_INT			},
+	{"entry",	ELF_TYPE_INT | ELF_TYPE_HEX }
 };
 
-class elfio_attr_t : public elf_attr_t{
+class elfIOAttribute : public elfAttribute{
 	public:
-		elfio_attr_t(Elf32_Ehdr& ehdr):hdr(ehdr), num(sizeof(elf_attr)/sizeof(section_attr_t)){}
-		virtual const char* get_str(int idx){
+		elfIOAttribute(Elf32_Ehdr& ehdr):hdr(ehdr), num(sizeof(elf_attr)/sizeof(section_attr_t)){}
+		const char* stringValue(int idx){
 			char* ret = 0;
 			switch(idx){
 				case 0:	ret = ident_class_str();	break;
@@ -63,14 +64,14 @@ class elfio_attr_t : public elf_attr_t{
 			return ret;
 		}
 
-		virtual const int get_int(int idx){
+		const int numericValue(int idx){
 			int ret = 0;
 			switch(idx){
 				case 0:		ret = hdr.e_ident[EI_CLASS];	break;
 				case 1:		ret = hdr.e_ident[EI_DATA];	break;
 				case 2:		ret = hdr.e_machine;		break;
 				case 3:		ret = hdr.e_version;		break;
-				case 4:		ret = hdr.e_entry;		break;
+				case 4:		ret = hdr.e_type;		break;
 				case 5:		ret = hdr.e_phoff;		break;
 				case 6:		ret = hdr.e_shoff;		break;
 				case 7:		ret = hdr.e_flags;		break;
@@ -80,19 +81,20 @@ class elfio_attr_t : public elf_attr_t{
 				case 11:	ret = hdr.e_shentsize;		break;
 				case 12:	ret = hdr.e_shnum;		break;
 				case 13:	ret = hdr.e_shstrndx;		break;
+				case 14:	ret = hdr.e_entry;		break;
 				default:	throw "invalid argument";	break;
 			}
 			return ret;
 		}
-		virtual const unsigned int get_type(int idx){
+		const unsigned int type(int idx){
 			return elf_attr[idx].type;
 		}
 
-		virtual const char* get_name(int idx){
+		const char* name(int idx){
 			return elf_attr[idx].name;
 		}
 
-		virtual const unsigned int get_num(void){
+		const unsigned int number(void){
 			return num;
 		}
 
@@ -172,58 +174,58 @@ class elfio_attr_t : public elf_attr_t{
 		}
 };
 
-class elfio_ctrl_t : public elf_section_t{
+class elfIOControl : public elfSection{
 	protected:
 		char file[512];
 		FILE* fd;
 		Elf32_Ehdr ehdr;
-		elf_section_t* mphdr;
-		elf_section_t* mshdr;
-		elfio_attr_t elfio_attr;
+		elfSection* mphdr;
+		elfSection* mshdr;
+		elfIOAttribute elfio_attr;
 
-		bool is_valid_elf(Elf32_Ehdr ehdr){
+		bool isValid(Elf32_Ehdr ehdr){
 			char elf_mag[4] = {0x7f, 'E', 'L', 'F'};
 			return (!strncmp(elf_mag, (char*)ehdr.e_ident, 4)) ? true : false;
 		}
 
 	public:
-		elfio_ctrl_t(char* efile) : elfio_attr(ehdr){
+		elfIOControl(char* efile) : elfio_attr(ehdr){
 			mphdr = mshdr = 0;
 			file[0] = 0;
 			fd = fopen(efile, "rb");
 			if(!fd) throw"invalid file";
 			fread(&ehdr, sizeof(ehdr), 1, fd);
 			strcpy(file, efile);
-			if(!is_valid_elf(ehdr)) throw "this is not ELF";
+			if(!isValid(ehdr)) throw "this is not ELF";
 		}
 
-		~elfio_ctrl_t(){
+		~elfIOControl(){
 			if(fd) fclose(fd);
 			if(mphdr) delete mphdr;
 			if(mshdr) delete mshdr;
 		}
 
-		virtual elf_attr_t* get_attr(void){
+		elfAttribute* attribute(void){
 			return &elfio_attr;
 		}
 
-		virtual elf_buffer_t* get_body(void){
+		elfBuffer* body(void){
 			return 0;
 		}
 
-		virtual const char* category(void){
+		const char* category(void){
 			return "elfml";
 		}
 
-		virtual const char* name(void){
+		const char* name(void){
 			return file;
 		}
 
-		virtual const unsigned int get_child_num(void){
+		const unsigned int childs(void){
 			return 2;
 		}
 
-		virtual elf_section_t* get_child(const int idx){
+		elfSection* childAt(const int idx){
 			switch(idx){
 				case 0:
 					if(!mphdr) mphdr = phdr_new(ehdr, fd);
@@ -237,16 +239,16 @@ class elfio_ctrl_t : public elf_section_t{
 			return 0;
 		}
 
-		virtual elf_section_t* get_child(const char* stridx){
+		elfSection* childAt(const char* stridx){
 			int idx = -1;
 			if(!strcmp(stridx, "phdr"))	idx = 0;
 			else if(!strcmp(stridx, "shdr")) idx = 1;
-			return get_child(idx);
+			return childAt(idx);
 		}
 };
 
-elf_section_t* elfio_new(char* file){
-	elfio_ctrl_t* elfio = new elfio_ctrl_t(file);
+elfSection* elfio_new(char* file){
+	elfIOControl* elfio = new elfIOControl(file);
 	if(!elfio->name()) {
 		delete elfio;
 		elfio = 0;

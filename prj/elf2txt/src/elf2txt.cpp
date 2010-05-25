@@ -30,122 +30,103 @@ typedef enum etTitleType{
 	TITLE_CATEGORY
 }etTitleType;
 
-void run_xml(elf_section_t* elfio, rtXmlWriter& writer, etState& state, etTitleType title){
+void run_xml(elfSection* elfio, rtXmlWriter& writer, etState& state, etTitleType title){
 	unsigned int i = 0;
 	switch(title){
 		case TITLE_CATEGORY:	writer.element_open(elfio->category());	break;
 		case TITLE_NAME:	writer.element_open(elfio->name());	break;
 	}
-	if(state.get_flag() & ET_SHOW_ATTR){
-		elf_attr_t* attr = elfio->get_attr();
+	if(state.getFlag() & ET_SHOW_ATTR){
+		elfAttribute* attr = elfio->attribute();
 		if(attr){
-			for(i = 0 ; i < attr->get_num() ; i++){
-				int type = attr->get_type(i);
+			for(i = 0 ; i < attr->number() ; i++){
+				int type = attr->type(i);
 				if(type & ELF_TYPE_STR)	{
 					bool bval = type & ELF_TYPE_INT;
-					int ival = (bval) ? attr->get_int(i) : 0;
-					writer.attr(attr->get_name(i), attr->get_str(i), bval, ival);
+					int ival = (bval) ? attr->numericValue(i) : 0;
+					writer.attr(attr->name(i), attr->stringValue(i), bval, ival);
 				} else if(type & ELF_TYPE_HEX)	{
-					writer.attr(attr->get_name(i), attr->get_int(i), 16);
+					writer.attr(attr->name(i), attr->numericValue(i), 16);
 				} else {
-					writer.attr(attr->get_name(i), attr->get_int(i));
+					writer.attr(attr->name(i), attr->numericValue(i));
 				}
 			}
 		}
 	}
 	bool has_body = false;
-	if(state.get_flag() & ET_SHOW_BODY){
-		elf_buffer_t* buf = elfio->get_body();
+	if(state.getFlag() & ET_SHOW_BODY){
+		elfBuffer* buf = elfio->body();
 		if(buf){
 			writer.element_close(true);
 			has_body = true;
 			writer.dump(buf->buffer, buf->size, buf->offset);
 		}
 	}
-	unsigned int num = elfio->get_child_num();
+	unsigned int num = elfio->childs();
 	if(num){
 		if(!has_body) writer.element_close(true);
-		for(i = 0 ; i < num ; i++) run_xml(elfio->get_child(i), writer, state, title);
+		for(i = 0 ; i < num ; i++) run_xml(elfio->childAt(i), writer, state, title);
 	} else {
 		if(!has_body) writer.element_close(false);
 	}
 	if(num || has_body) writer.wrap_up();
 }
 
-void run_txt(elf_section_t* elfio, rtTxtWriter& writer, etState& state, etTitleType title){
+void run_txt(elfSection* elfio, rtTxtWriter& writer, etState& state, etTitleType title){
 	unsigned int i = 0;
 	switch(title){
 		case TITLE_CATEGORY:	writer.open(elfio->category());	break;
 		case TITLE_NAME:	writer.open(elfio->name());	break;
 	}
-	if(state.get_flag() & ET_SHOW_ATTR){
-		elf_attr_t* attr = elfio->get_attr();
+	if(state.getFlag() & ET_SHOW_ATTR){
+		elfAttribute* attr = elfio->attribute();
 		if(attr){
-			for(i = 0 ; i < attr->get_num() ; i++){
-				int type = attr->get_type(i);
+			for(i = 0 ; i < attr->number() ; i++){
+				int type = attr->type(i);
 				if(type & ELF_TYPE_STR)	{
 					bool bval = type & ELF_TYPE_INT;
-					int ival = (bval) ? attr->get_int(i) : 0;
-					writer.attr(attr->get_name(i), attr->get_str(i), bval, ival);
+					int ival = (bval) ? attr->numericValue(i) : 0;
+					writer.attr(attr->name(i), attr->stringValue(i), bval, ival);
 				} else if(type & ELF_TYPE_HEX)	{
-					writer.attr(attr->get_name(i), attr->get_int(i), 16);
+					writer.attr(attr->name(i), attr->numericValue(i), 16);
 				} else {
-					writer.attr(attr->get_name(i), attr->get_int(i));
+					writer.attr(attr->name(i), attr->numericValue(i));
 				}
 			}
 		}
 	}
 	bool has_body = false;
-	if(state.get_flag() & ET_SHOW_BODY){
-		elf_buffer_t* buf = elfio->get_body();
+	if(state.getFlag() & ET_SHOW_BODY){
+		elfBuffer* buf = elfio->body();
 		if(buf){
 			has_body = true;
 			writer.dump(buf->buffer, buf->size, buf->offset);
 		}
 	}
-	unsigned int num = elfio->get_child_num();
-	for(i = 0 ; i < num ; i++) run_txt(elfio->get_child(i), writer, state, title);
+	unsigned int num = elfio->childs();
+	for(i = 0 ; i < num ; i++) run_txt(elfio->childAt(i), writer, state, title);
 	if(num || has_body) writer.close();
 }
 
 int main( int argc, char * argv[] ) {
 	etState state;
-
-	if (argc < 2) {
-		amHelp m((char*)"");
-		m.doit();
-		return 0;
-	} else if(argc == 2 && (!strcmp(argv[1], "--help") || !strcmp(argv[1], "-h"))){
-		amHelp m((char*)"");
-		m.doit();
-		return 0;
-	} else {
-		rtArgument parse;
-
-		amHelp help_short((char*)"-h");		parse.add_method(&help_short);
-		amHelp help_long((char*)"--help");	parse.add_method(&help_long);
-		amElf srcm((char*)"", state);		parse.add_method(&srcm);
-
-		amTxt code_short((char*)"-o", state);		parse.add_method(&code_short);
-		amTxt code_long((char*)"--output", state);	parse.add_method(&code_long);
-
-		amFormat format_short((char*)"-f", state);	parse.add_method(&format_short);
-		amFormat format_long((char*)"--format", state);	parse.add_method(&format_long);
-
-		amFlagAttr flag_attr_short((char*)"-oa", state);		parse.add_method(&flag_attr_short);
-		amFlagAttr flag_attr_long((char*)"--omit-attributes", state);	parse.add_method(&flag_attr_long);
-
-		amFlagBody flag_body_short((char*)"-od", state);	parse.add_method(&flag_body_short);
-		amFlagBody flag_body_long((char*)"--omit-data", state);	parse.add_method(&flag_body_long);
-
-		parse.parse(argc, argv);
-	}
-
-	elf_section_t* elfio = 0; 
+	int ret = 0;
+	elfSection* elfio = 0;
 	try{
-		elfio = elfio_new(state.get_elf_file());
-		rtFile file(state.get_txt_file(), "w");
-		switch(state.get_format()){
+		if (argc < 2) {
+			state.showBanner();
+			return 0;
+		} else if(argc == 2 && (!strcmp(argv[1], "--help") || !strcmp(argv[1], "-h"))){
+			state.showBanner();
+			state.showHelp();
+			return 0;
+		} else {
+			state.parse(argc, argv);
+		}
+
+		elfio = elfio_new(state.elfFile());
+		rtFile file(state.txtFile(), "w");
+		switch(state.getFormat()){
 			case ET_OUT_FORMAT_XML:
 				{
 					rtXmlWriter writer(file);
@@ -162,9 +143,11 @@ int main( int argc, char * argv[] ) {
 				break;
 		}
 	} catch (char* e){
+		state.showBanner();
 		fprintf(stderr, "%s\n", e);
+		ret = 1;
 	}
 	delete elfio;
-	return 0;
+	return ret;
 }
 

@@ -28,15 +28,15 @@ class elf_stack{
 	protected:
 		unsigned int index;
 		unsigned int iter;
-		elf_section_t* stack[ELF_STACK_DEPTH];
+		elfSection* stack[ELF_STACK_DEPTH];
 	public:
 		elf_stack();
-		void push(elf_section_t* section);
+		void push(elfSection* section);
 		void pop(void);
 		void empty(void);
-		elf_section_t* root(void);
-		operator elf_section_t* (void);
-		elf_section_t* first(void);
-		elf_section_t* next(void);
+		elfSection* root(void);
+		operator elfSection* (void);
+		elfSection* first(void);
+		elfSection* next(void);
 };
 #endif //__ELF_STACK_H__

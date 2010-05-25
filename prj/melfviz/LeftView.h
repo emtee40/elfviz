@@ -41,7 +41,7 @@ public:
 // Implementation
 public:
 	void SetEditView(CMelfvizView* view);
-	void Refresh(elf_section_t* elfio);
+	void Refresh(elfSection* elfio);
 	virtual ~CLeftView();
 #ifdef _DEBUG
 	virtual void AssertValid() const;
@@ -59,7 +59,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 private:
 	CMelfvizView* m_wndEdit;
-	void ElfSectionToTreeCtrl(CTreeCtrl& tree, HTREEITEM hParent, elf_section_t* elfio);
+	void ElfSectionToTreeCtrl(CTreeCtrl& tree, HTREEITEM hParent, elfSection* elfio);
 };
 
 #ifndef _DEBUG  // debug version in LeftView.cpp

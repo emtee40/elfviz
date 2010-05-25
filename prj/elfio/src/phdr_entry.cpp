@@ -38,23 +38,23 @@ static const section_attr_t phdr_entry_attr[] = {
 	{"p_align",	ELF_TYPE_INT			}
 };
 
-class phdr_entry_attr_t : public elf_attr_t {
+class elfPhdrEntryAttribute : public elfAttribute {
 	public:
-		phdr_entry_attr_t(Elf32_Phdr& phdr):hdr(phdr), num(sizeof(phdr_entry_attr) / sizeof(section_attr_t)){ }
+		elfPhdrEntryAttribute(Elf32_Phdr& phdr):hdr(phdr), num(sizeof(phdr_entry_attr) / sizeof(section_attr_t)){ }
 
-		virtual const unsigned int get_num(void){
+		const unsigned int number(void){
 			return num;
 		}
 
-		virtual const unsigned int get_type(int idx){
+		const unsigned int type(int idx){
 			return phdr_entry_attr[idx].type;
 		}
 
-		virtual const char* get_name(int idx){
+		const char* name(int idx){
 			return phdr_entry_attr[idx].name;
 		}
 
-		virtual const char* get_str(int idx){
+		const char* stringValue(int idx){
 			char* ret = 0;
 			switch(idx){
 				case 0:	ret = type_str();	break;
@@ -64,7 +64,7 @@ class phdr_entry_attr_t : public elf_attr_t {
 			return ret;
 		}
 
-		virtual const int get_int(int idx){
+		const int numericValue(int idx){
 			unsigned int ret = 0;
 			switch(idx){
 				case 0:	ret = hdr.p_type;	break;
@@ -110,50 +110,50 @@ class phdr_entry_attr_t : public elf_attr_t {
 
 };
 
-class elf_phdr_entry_t : public elf_section_t{
+class elfPhdrEntry : public elfSection{
 	protected:
 		Elf32_Phdr phdr;
 		char phename[8];
-		phdr_entry_attr_t attr;
+		elfPhdrEntryAttribute attr;
 
 	public:
-		elf_phdr_entry_t(FILE* fd, int phoff, char* pname):attr(phdr){
+		elfPhdrEntry(FILE* fd, int phoff, char* pname):attr(phdr){
 			fseek(fd, phoff, SEEK_SET);
 			fread(&(phdr), sizeof(Elf32_Phdr), 1, fd);
 			strcpy(phename, pname);
 		}
 
-		virtual elf_attr_t* get_attr(void){
+		elfAttribute* attribute(void){
 			return &attr;
 		}
 
-		virtual const unsigned int get_child_num(void){
+		const unsigned int childs(void){
 			return 0;
 		}
 
-		virtual elf_section_t* get_child(const int idx){
+		elfSection* childAt(const int idx){
 			return 0;
 		}
 
-		virtual elf_section_t* get_child(const char* stridx){
+		elfSection* childAt(const char* stridx){
 			return 0;
 		}
 
-		virtual elf_buffer_t* get_body(void){
+		elfBuffer* body(void){
 			return 0;
 		}
 
-		virtual const char* category(void){
+		const char* category(void){
 			return "entry";
 		}
 
-		virtual const char* name(void){
+		const char* name(void){
 			return phename;
 		}
 
 };
 
-elf_section_t* phdr_entry_new(FILE* fd, int phoff, char* name){
-	return (elf_section_t*) new elf_phdr_entry_t(fd, phoff, name);
+elfSection* phdr_entry_new(FILE* fd, int phoff, char* name){
+	return (elfSection*) new elfPhdrEntry(fd, phoff, name);
 
 }

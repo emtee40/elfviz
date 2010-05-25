@@ -77,18 +77,21 @@ SectionEnd
 
 Section "Dependents" SEC06
   SetOutPath "$INSTDIR\depends"
-  File "c:\foss\ucrt\devel\build\msvc\ucrt-2.0.0-win32-Setup.exe"
+  File "e:\foss\ucrt\trunk\build\msvc\uC Runtime-2.0.0-Win32-Setup.exe"
   IfFileExists $WINDIR\system32\libucrt-2.0.0.dll endUCRT beginUCRT
   beginUCRT:
-  ExecWait "$INSTDIR\depends\ucrt-2.0.0-win32-Setup.exe"
+  ExecWait "$INSTDIR\depends\uC Runtime-2.0.0-win32-Setup.exe"
   endUCRT:
+  File "e:\foss\uxml\trunk\build\msvc\uC XML-2.0.0-Win32-Setup.exe"
+  IfFileExists $WINDIR\system32\libucxml-2.0.0.dll endUCXML beginUCXML
+  beginUCXML:
+  ExecWait "$INSTDIR\depends\uC XML-2.0.0-win32-Setup.exe"
+  endUCXML:
   SetOutPath "$INSTDIR"
   SetOverwrite ifnewer
   File "c:\windows\system32\mfc42.dll"
-  File "c:\windows\system32\mfco42.dll"
   File "c:\windows\system32\msvcrt.dll"
   File "c:\windows\system32\mfc42d.dll"
-  File "c:\windows\system32\mfco42d.dll"
   File "c:\windows\system32\msvcrtd.dll"
 SectionEnd
 

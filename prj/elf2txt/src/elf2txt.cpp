@@ -23,6 +23,7 @@
 #include <string.h>
 #include "ucrt/ucrt.h"
 #include "elfio/elfio.h"
+#include "ucxml/ucxml.h"
 #include "argument.h"
 
 typedef enum etTitleType{
@@ -30,11 +31,11 @@ typedef enum etTitleType{
 	TITLE_CATEGORY
 }etTitleType;
 
-void run_xml(elfSection* elfio, rtXmlWriter& writer, etState& state, etTitleType title){
+void run_xml(elfSection* elfio, ucXMLWriter& writer, etState& state, etTitleType title){
 	unsigned int i = 0;
 	switch(title){
-		case TITLE_CATEGORY:	writer.element_open(elfio->category());	break;
-		case TITLE_NAME:	writer.element_open(elfio->name());	break;
+		case TITLE_CATEGORY:	writer.openTag(elfio->category());	break;
+		case TITLE_NAME:	writer.openTag(elfio->name());	break;
 	}
 	if(state.getFlag() & ET_SHOW_ATTR){
 		elfAttribute* attr = elfio->attribute();
@@ -44,11 +45,11 @@ void run_xml(elfSection* elfio, rtXmlWriter& writer, etState& state, etTitleType
 				if(type & ELF_TYPE_STR)	{
 					bool bval = type & ELF_TYPE_INT;
 					int ival = (bval) ? attr->numericValue(i) : 0;
-					writer.attr(attr->name(i), attr->stringValue(i), bval, ival);
+					writer.attribute(attr->name(i), attr->stringValue(i), bval, ival);
 				} else if(type & ELF_TYPE_HEX)	{
-					writer.attr(attr->name(i), attr->numericValue(i), 16);
+					writer.attribute(attr->name(i), attr->numericValue(i), 16);
 				} else {
-					writer.attr(attr->name(i), attr->numericValue(i));
+					writer.attribute(attr->name(i), attr->numericValue(i));
 				}
 			}
 		}
@@ -57,22 +58,22 @@ void run_xml(elfSection* elfio, rtXmlWriter& writer, etState& state, etTitleType
 	if(state.getFlag() & ET_SHOW_BODY){
 		elfBuffer* buf = elfio->body();
 		if(buf){
-			writer.element_close(true);
+			writer.closeTag(true);
 			has_body = true;
 			writer.dump(buf->buffer, buf->size, buf->offset);
 		}
 	}
 	unsigned int num = elfio->childs();
 	if(num){
-		if(!has_body) writer.element_close(true);
+		if(!has_body) writer.closeTag(true);
 		for(i = 0 ; i < num ; i++) run_xml(elfio->childAt(i), writer, state, title);
 	} else {
-		if(!has_body) writer.element_close(false);
+		if(!has_body) writer.closeTag(false);
 	}
-	if(num || has_body) writer.wrap_up();
+	if(num || has_body) writer.wrapUpTag();
 }
 
-void run_txt(elfSection* elfio, rtTxtWriter& writer, etState& state, etTitleType title){
+void run_txt(elfSection* elfio, ucTxtWriter& writer, etState& state, etTitleType title){
 	unsigned int i = 0;
 	switch(title){
 		case TITLE_CATEGORY:	writer.open(elfio->category());	break;
@@ -86,11 +87,11 @@ void run_txt(elfSection* elfio, rtTxtWriter& writer, etState& state, etTitleType
 				if(type & ELF_TYPE_STR)	{
 					bool bval = type & ELF_TYPE_INT;
 					int ival = (bval) ? attr->numericValue(i) : 0;
-					writer.attr(attr->name(i), attr->stringValue(i), bval, ival);
+					writer.attribute(attr->name(i), attr->stringValue(i), bval, ival);
 				} else if(type & ELF_TYPE_HEX)	{
-					writer.attr(attr->name(i), attr->numericValue(i), 16);
+					writer.attribute(attr->name(i), attr->numericValue(i), 16);
 				} else {
-					writer.attr(attr->name(i), attr->numericValue(i));
+					writer.attribute(attr->name(i), attr->numericValue(i));
 				}
 			}
 		}
@@ -129,13 +130,13 @@ int main( int argc, char * argv[] ) {
 		switch(state.getFormat()){
 			case ET_OUT_FORMAT_XML:
 				{
-					rtXmlWriter writer(file);
+					ucXMLWriter writer(file);
 					run_xml(elfio, writer, state, TITLE_CATEGORY);
 				}
 				break;
 			case ET_OUT_FORMAT_TXT:
 				{
-					rtTxtWriter writer(file);
+					ucTxtWriter writer(file);
 					run_txt(elfio, writer, state, TITLE_NAME);
 				}
 				break;

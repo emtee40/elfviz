@@ -53,7 +53,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 /nologo /subsystem:windows /machine:I386
-# ADD LINK32 /nologo /subsystem:windows /machine:I386
+# ADD LINK32 /nologo /subsystem:windows /machine:I386 /out:"../../bin/melfviz.exe"
 # Begin Special Build Tool
 SOURCE="$(InputPath)"
 PreLink_Cmds=del Release\melfviz.exe	del ..\..\bin\melfviz.exe
@@ -85,11 +85,10 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept
-# ADD LINK32 libelfio.lib /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept /libpath:"../../lib"
+# ADD LINK32 libelfio.lib /nologo /subsystem:windows /debug /machine:I386 /out:"../../bin/melfviz.exe" /pdbtype:sept /libpath:"../../lib"
 # Begin Special Build Tool
 SOURCE="$(InputPath)"
 PreLink_Cmds=del Debug\melfviz.exe	del ..\..\bin\melfviz.exe
-PostBuild_Cmds=copy Debug\melfviz.exe ..\..\bin
 # End Special Build Tool
 
 !ENDIF 

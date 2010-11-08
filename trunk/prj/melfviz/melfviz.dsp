@@ -74,7 +74,7 @@ PostBuild_Cmds=copy Release\melfviz.exe ..\..\bin
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /Yu"stdafx.h" /FD /GZ /c
-# ADD CPP /nologo /MDd /W3 /Gm /GX /ZI /Od /I "../../inc" /I "c:\Program Files\ucrt\inc" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FD /GZ /c
+# ADD CPP /nologo /MDd /W3 /Gm /GX /ZI /Od /I "../../inc" /I "c:\Program Files\ucrt\inc" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR /FD /GZ /c
 # SUBTRACT CPP /YX /Yc /Yu
 # ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /win32
 # ADD MTL /nologo /D "_DEBUG" /mktyplib203 /win32
@@ -86,10 +86,6 @@ BSC32=bscmake.exe
 LINK32=link.exe
 # ADD BASE LINK32 /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept
 # ADD LINK32 libelfio.lib /nologo /subsystem:windows /debug /machine:I386 /out:"../../bin/melfviz.exe" /pdbtype:sept /libpath:"../../lib"
-# Begin Special Build Tool
-SOURCE="$(InputPath)"
-PreLink_Cmds=del Debug\melfviz.exe	del ..\..\bin\melfviz.exe
-# End Special Build Tool
 
 !ENDIF 
 

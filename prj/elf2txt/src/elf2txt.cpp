@@ -85,9 +85,13 @@ void run_txt(elfSection* elfio, ucTxtWriter& writer, etState& state, etTitleType
 			for(i = 0 ; i < attr->number() ; i++){
 				int type = attr->type(i);
 				if(type & ELF_TYPE_STR)	{
-					bool bval = type & ELF_TYPE_INT;
-					int ival = (bval) ? attr->numericValue(i) : 0;
-					writer.attribute(attr->name(i), attr->stringValue(i), bval, ival);
+					if(state.getFlag() & ET_SHOW_RAW_INDEX){
+						bool bval = type & ELF_TYPE_INT;
+						int ival = (bval) ? attr->numericValue(i) : 0;
+						writer.attribute(attr->name(i), attr->stringValue(i), bval, ival);
+					} else {
+						writer.attribute(attr->name(i), attr->stringValue(i));
+					}
 				} else if(type & ELF_TYPE_HEX)	{
 					writer.attribute(attr->name(i), attr->numericValue(i), 16);
 				} else {
@@ -106,7 +110,7 @@ void run_txt(elfSection* elfio, ucTxtWriter& writer, etState& state, etTitleType
 	}
 	unsigned int num = elfio->childs();
 	for(i = 0 ; i < num ; i++) run_txt(elfio->childAt(i), writer, state, title);
-	if(num || has_body) writer.close();
+	writer.close();
 }
 
 int main( int argc, char * argv[] ) {

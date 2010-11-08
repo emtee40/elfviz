@@ -23,8 +23,9 @@
 #ifndef __ELF2TXT_ARGUMENT_H__
 #define __ELF2TXT_ARGUMENT_H__
 
-#define ET_SHOW_ATTR	0x01
-#define ET_SHOW_BODY	0x02
+#define ET_SHOW_ATTR		0x01
+#define ET_SHOW_BODY		0x02
+#define ET_SHOW_RAW_INDEX	0x04
 
 typedef enum _etOutFormat{
 	ET_OUT_FORMAT_TXT = 0,

@@ -28,7 +28,7 @@ etState::etState(){
 	txtfile[0] = 0;
 	elffile[0] = 0;
 	format = ET_OUT_FORMAT_TXT;
-	flag = ET_SHOW_ATTR | ET_SHOW_BODY;
+	flag = ET_SHOW_ATTR | ET_SHOW_BODY | ET_SHOW_RAW_INDEX;
 }
 
 char* etState::txtFile(void){
@@ -58,6 +58,7 @@ void etState::showHelp(void){
 	fprintf(stdout, "\t\tif not specified, txt is used as default\n");
 	fprintf(stdout, "-oa,--omit-attributes\tomit section attributes\n");
 	fprintf(stdout, "-od,--omit-data\tomit section data\n");
+	fprintf(stdout, "-oi,--omit-raw-index\tomit raw index\n");
 }
 
 
@@ -79,6 +80,8 @@ void etState::parse(int argc, char* argv[]){
 			flag &= ~ET_SHOW_ATTR;
 		} else if(!strcmp(argv[i], "-od") || !strcmp(argv[i], "--omit-data")){
 			flag &= ~ET_SHOW_BODY;
+		} else if(!strcmp(argv[i], "-oi") || !strcmp(argv[i], "--omit-raw-index")){
+			flag &= ~ET_SHOW_RAW_INDEX;
 		} else if(argv[i][0] == '-'){
 			rtString str;
 			str.format("ERROR:unknown option %s. try --help", argv[i]);

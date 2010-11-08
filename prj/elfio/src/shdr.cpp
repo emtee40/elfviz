@@ -46,8 +46,34 @@ class elf_shdr_t : public elfSection{
 
 			entry = new elfSection* [n_entry];
 			memset(entry, 0, sizeof(elfSection*) * n_entry);
+			bool found = false;
 			for(i = 0 ; i < n_entry ; i++){
-				if(!entry[i]) delete entry[i];
+				entry[i] = shdr_entry_new(fd,
+							shoff + sizeof(Elf32_Shdr) * i,
+							(char*)((shstr) ? shstr->buffer : 0),
+							(char*)((strtab) ? strtab->buffer : 0));
+				if(!strtab && entry[i] && !strcmp(entry[i]->name(), ".strtab")) {
+					strtab = entry[i]->body();
+					found = true;
+					break;
+				}
+			}
+			if(!found){
+				for(i = 0 ; i < n_entry ; i++){
+					if(entry[i]) delete entry[i];
+					entry[i] = shdr_entry_new(fd,
+								shoff + sizeof(Elf32_Shdr) * i,
+								(char*)((shstr) ? shstr->buffer : 0),
+								(char*)((strtab) ? strtab->buffer : 0));
+					if(!strtab && entry[i] && !strcmp(entry[i]->name(), ".dynstr")) {
+						strtab = entry[i]->body();
+						found = true;
+						break;
+					}
+				}
+			}
+			for(i = 0 ; i < n_entry ; i++){
+				if(entry[i]) delete entry[i];
 				entry[i] = shdr_entry_new(fd,
 							shoff + sizeof(Elf32_Shdr) * i,
 							(char*)((shstr) ? shstr->buffer : 0),

@@ -24,6 +24,7 @@
 
 #include "elfio/elfio.h"
 #include "elftypes.h"
+#include "armelftypes.h"
 #include "phdr_entry.h"
 #include "elf_defs.h"
 
@@ -93,8 +94,10 @@ class elfPhdrEntryAttribute : public elfAttribute {
 			case PT_NOTE:		str = (char*)"PT_NOTE";	break;
 			case PT_SHLIB:		str = (char*)"PT_SHLIB";	break;
 			case PT_PHDR:		str = (char*)"PT_PHDR";	break;
-			case PT_LOPROC:		str = (char*)"PT_LOPROC";	break;
+//			case PT_LOPROC:		str = (char*)"PT_LOPROC";	break;
 			case PT_HIPROC:		str = (char*)"PT_HIPROC";	break;
+			case PT_ARM_ARCHEXT:	str = (char*)"PT_ARM_ARCHEXT";	break;
+			case PT_ARM_EXIDX:	str = (char*)"PT_ARM_EXIDX";	break;
 			}
 			return str;
 		}

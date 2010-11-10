@@ -26,6 +26,7 @@
 
 #include "elfio/elfio.h"
 #include "elftypes.h"
+#include "armelftypes.h"
 #include "shdr_entry.h"
 #include "shdr_symtab_entry.h"
 #include "shdr_rel_entry.h"
@@ -119,6 +120,11 @@ class shdr_entry_attr_t : public elfAttribute {
 			case SHT_HIPROC:	str = (char*)"SHT_HIPROC";	break;
 			case SHT_LOUSER:	str = (char*)"SHT_LOUSER";	break;
 			case SHT_HIUSER:	str = (char*)"SHT_HIUSER";	break;
+			case SHT_ARM_EXIDX:	str = (char*)"SHT_ARM_EXIDX";	break;
+			case SHT_ARM_PREEMPTMAP:	str = (char*)"SHT_ARM_PREEMPTMAP";	break;
+			case SHT_ARM_ATTRIBUTES:	str = (char*)"SHT_ARM_ATTRIBUTES";	break;
+			case SHT_ARM_DEBUGOVERLAY:	str = (char*)"SHT_ARM_DEBUGOVERLAY";	break;
+			case SHT_ARM_OVERLAYSECTION:	str = (char*)"SHT_ARM_OVERLAYSECTION";	break;
 			}
 			return str;
 		}

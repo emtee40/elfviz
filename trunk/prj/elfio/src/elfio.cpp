@@ -25,6 +25,7 @@
 
 #include "elfio/elfio.h"
 #include "elftypes.h"
+#include "armelftypes.h"
 #include "phdr.h"
 #include "shdr.h"
 #include "elf_defs.h"
@@ -44,7 +45,8 @@ static const section_attr_t elf_attr[] = {
 	{"shentsize",	ELF_TYPE_INT			},
 	{"shnum",	ELF_TYPE_INT			},
 	{"shstrndx",	ELF_TYPE_INT			},
-	{"entry",	ELF_TYPE_INT | ELF_TYPE_HEX }
+	{"entry",	ELF_TYPE_INT | ELF_TYPE_HEX	},
+	{"eabiversion",	ELF_TYPE_INT }
 };
 
 class elfIOAttribute : public elfAttribute{
@@ -67,22 +69,24 @@ class elfIOAttribute : public elfAttribute{
 		const int numericValue(int idx){
 			int ret = 0;
 			switch(idx){
-				case 0:		ret = hdr.e_ident[EI_CLASS];	break;
-				case 1:		ret = hdr.e_ident[EI_DATA];	break;
-				case 2:		ret = hdr.e_machine;		break;
-				case 3:		ret = hdr.e_version;		break;
-				case 4:		ret = hdr.e_type;		break;
-				case 5:		ret = hdr.e_phoff;		break;
-				case 6:		ret = hdr.e_shoff;		break;
-				case 7:		ret = hdr.e_flags;		break;
-				case 8:		ret = hdr.e_ehsize;		break;
-				case 9:		ret = hdr.e_phentsize;		break;
-				case 10:	ret = hdr.e_phnum;		break;
-				case 11:	ret = hdr.e_shentsize;		break;
-				case 12:	ret = hdr.e_shnum;		break;
-				case 13:	ret = hdr.e_shstrndx;		break;
-				case 14:	ret = hdr.e_entry;		break;
-				default:	throw "invalid argument";	break;
+				case 0:		ret = hdr.e_ident[EI_CLASS];		break;
+				case 1:		ret = hdr.e_ident[EI_DATA];		break;
+				case 2:		ret = hdr.e_machine;			break;
+				case 3:		ret = hdr.e_version;			break;
+				case 4:		ret = hdr.e_type;			break;
+				case 5:		ret = hdr.e_phoff;			break;
+				case 6:		ret = hdr.e_shoff;			break;
+				case 7:		ret = hdr.e_flags;			break;
+				case 8:		ret = hdr.e_ehsize;			break;
+				case 9:		ret = hdr.e_phentsize;			break;
+				case 10:	ret = hdr.e_phnum;			break;
+				case 11:	ret = hdr.e_shentsize;			break;
+				case 12:	ret = hdr.e_shnum;			break;
+				case 13:	ret = hdr.e_shstrndx;			break;
+				case 14:	ret = hdr.e_entry;			break;
+				case 15:	ret = (hdr.e_flags & EF_ARM_EABIMASK);
+						ret >>= 24;				break;
+				default:	throw "invalid argument";		break;
 			}
 			return ret;
 		}
@@ -169,7 +173,7 @@ class elfIOAttribute : public elfAttribute{
 			if(hdr.e_flags & EF_ARM_SYMSARESORTED){		if(str[0]) strcat(str, " | EF_ARM_SYMSARESORTED");	else strcpy(str, "EF_ARM_SYMSARESORTED"); }
 			if(hdr.e_flags & EF_ARM_DYNSYMSUSESEGIDX){	if(str[0]) strcat(str, " | EF_ARM_DYNSYMSUSESEGIDX");	else strcpy(str, "EF_ARM_DYNSYMSUSESEGIDX"); }
 			if(hdr.e_flags & EF_ARM_MAPSYMSFIRST){		if(str[0]) strcat(str, " | EF_ARM_MAPSYMSFIRST");	else strcpy(str, "EF_ARM_MAPSYMSFIRST"); }
-			if(hdr.e_flags & EF_ARM_EABIMASK){		if(str[0]) strcat(str, " | EF_ARM_EABIMASK");		else strcpy(str, "EF_ARM_EABIMASK"); }
+			if(hdr.e_flags & EF_ARM_BE8){			if(str[0]) strcat(str, " | EF_ARM_BE8");		else strcpy(str, "EF_ARM_BE8"); }
 			return str;
 		}
 };

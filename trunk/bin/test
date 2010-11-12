@@ -1,0 +1,12 @@
+#!/bin/bash
+
+rm -f sample/*.txt
+FILES=`ls sample`
+
+echo $FILES
+for FILE in $FILES
+do
+	DST=sample/$FILE.txt
+	echo "sample/$FILE -> $DST"
+	elf2txt sample/$FILE -o $DST
+done

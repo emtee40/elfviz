@@ -192,12 +192,21 @@ class elf_shdr_symtab_t : public elf_shdr_entry_t{
 		elfSection** entry;
 		int n_entry;
 	public:
-		elf_shdr_symtab_t(FILE* fd, Elf32_Shdr eshdr, unsigned char* ebuf, char* ename, char* strtab, elfSection*(*entry_new)(FILE*, unsigned int, char*))
+		elf_shdr_symtab_t(FILE* fd, Elf32_Shdr eshdr, unsigned char* ebuf, char* ename, char* strtab, elfSection*(*entry_new)(FILE*, unsigned int, const char*))
 							: elf_shdr_entry_t(eshdr, 0, ename){
 			n_entry = eshdr.sh_size / eshdr.sh_entsize;
 			entry = new elfSection* [n_entry];
 			for(int i = 0 ; i < n_entry ; i++){
-				entry[i] = entry_new(fd, eshdr.sh_offset + sizeof(Elf32_Sym) * i, strtab);
+				entry[i] = entry_new(fd, eshdr.sh_offset + eshdr.sh_entsize * i, strtab);
+			}
+		}
+
+		elf_shdr_symtab_t(FILE* fd, Elf32_Shdr eshdr, unsigned char* ebuf, char* ename, elfSection* symtab, elfSection*(*entry_new)(FILE*, unsigned int, elfSection* symtab))
+							: elf_shdr_entry_t(eshdr, 0, ename){
+			n_entry = eshdr.sh_size / eshdr.sh_entsize;
+			entry = new elfSection* [n_entry];
+			for(int i = 0 ; i < n_entry ; i++){
+				entry[i] = entry_new(fd, eshdr.sh_offset + eshdr.sh_entsize * i, symtab);
 			}
 		}
 
@@ -224,7 +233,10 @@ class elf_shdr_symtab_t : public elf_shdr_entry_t{
 		}
 };
 
-elfSection* shdr_entry_new(FILE* fd, int e_shoff, char* shstrtab, char* strtab){
+shdr_entry_factory::shdr_entry_factory():m_symtab(0){
+};
+
+elfSection* shdr_entry_factory::entry_new(FILE* fd, int e_shoff, char* shstrtab, char* strtab){
 	Elf32_Shdr shdr;
 	unsigned char* buf = 0;
 	elfSection* section = 0;
@@ -240,12 +252,13 @@ elfSection* shdr_entry_new(FILE* fd, int e_shoff, char* shstrtab, char* strtab){
 		case SHT_SYMTAB:
 		case SHT_DYNSYM:
 			section = (!strtab) ? 0 : new elf_shdr_symtab_t(fd, shdr, buf, (!shstrtab) ? 0 : shstrtab + shdr.sh_name, strtab, shdr_symtab_entry_new);
+			if(section) m_symtab = section;
 			break;
 		case SHT_REL:
-			section = (!strtab) ? 0 : new elf_shdr_symtab_t(fd, shdr, buf, (!shstrtab) ? 0 : shstrtab + shdr.sh_name, strtab, shdr_rel_entry_new);
+			section = (!strtab) ? 0 : new elf_shdr_symtab_t(fd, shdr, buf, (!shstrtab) ? 0 : shstrtab + shdr.sh_name, m_symtab, shdr_rel_entry_new);
 			break;
 		case SHT_RELA:
-			section = (!strtab) ? 0 : new elf_shdr_symtab_t(fd, shdr, buf, (!shstrtab) ? 0 : shstrtab + shdr.sh_name, strtab, shdr_rela_entry_new);
+			section = (!strtab) ? 0 : new elf_shdr_symtab_t(fd, shdr, buf, (!shstrtab) ? 0 : shstrtab + shdr.sh_name, m_symtab, shdr_rela_entry_new);
 			break;
 		default:
 			section = new elf_shdr_entry_t(shdr, buf, (!shstrtab) ? 0 : shstrtab + shdr.sh_name);

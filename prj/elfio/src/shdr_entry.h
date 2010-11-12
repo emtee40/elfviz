@@ -22,5 +22,11 @@
 
 #ifndef __ELF_SHDR_ENTRY_H__
 #define __ELF_SHDR_ENTRY_H__
-elfSection* shdr_entry_new(FILE* fd, int e_shoff, char* shstrtab, char* strtab);
+class shdr_entry_factory {
+	private:
+		elfSection* m_symtab;
+	public:
+		shdr_entry_factory();
+		elfSection* entry_new(FILE* fd, int e_shoff, char* shstrtab, char* strtab);
+};
 #endif //__ELF_SHDR_ENTRY_H__

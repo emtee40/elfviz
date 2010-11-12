@@ -21,6 +21,8 @@
 */
 #include <stdio.h>
 #include <memory.h>
+#include <string.h>
+#include <stdlib.h>
 
 #include "elfio/elfio.h"
 #include "elftypes.h"
@@ -28,10 +30,10 @@
 #include "elf_defs.h"
 
 section_attr_t shdr_rel_attr[] = {
-	{"r_offset",	ELF_TYPE_INT | ELF_TYPE_HEX	},
-	{"r_symbol",	ELF_TYPE_INT | ELF_TYPE_HEX	},
+	{"r_offset",	ELF_TYPE_HEX			},
+	{"r_symbol",	ELF_TYPE_INT			},
 	{"r_type",	ELF_TYPE_INT | ELF_TYPE_STR	},
-	{"r_info",	ELF_TYPE_INT			}
+	{"r_info",	ELF_TYPE_HEX			}
 };
 
 class shdr_rel_attr_abstract_t{
@@ -148,10 +150,16 @@ class elf_shdr_rel_entry_t : public elfSection{
 	protected:
 		Elf32_Rel reltab;
 		shdr_rel_attr_t attr;
+		char* rname;
 
 	public:
-		elf_shdr_rel_entry_t(Elf32_Rel ereltab):attr(reltab){
+		elf_shdr_rel_entry_t(Elf32_Rel ereltab, const char* ename):attr(reltab){
+			rname = (ename && strlen(ename)) ? strdup(ename) : 0;
 			memcpy(&reltab, &ereltab, sizeof(Elf32_Rel));
+		}
+
+		~elf_shdr_rel_entry_t(){
+			if(rname) free(rname);
 		}
 
 		elfAttribute* attribute(void){
@@ -179,24 +187,27 @@ class elf_shdr_rel_entry_t : public elfSection{
 		}
 
 		const char* name(void){
-			return "null";
+			return (rname) ? rname : "null";
 		}
 };
 
-elfSection* shdr_rel_entry_new(FILE* fd, unsigned int sh_offset, char* strtab){
+elfSection* shdr_rel_entry_new(FILE* fd, unsigned int sh_offset, elfSection* symtab){
 	Elf32_Rel reltab;
 	fseek(fd, sh_offset, SEEK_SET);
 	fread(&reltab, sizeof(Elf32_Rel), 1, fd);
-	return (elfSection*) new elf_shdr_rel_entry_t(reltab);
+	int index = ELF32_R_SYM(reltab.r_info);
+	elfSection* entry = symtab->childAt(index);
+	const char* name = (entry) ? entry->name() : 0;
+	return (elfSection*) new elf_shdr_rel_entry_t(reltab, name);
 }
 
 /*========================================================================================================*/
 section_attr_t shdr_rela_attr[] = {
-	{"r_offset",	ELF_TYPE_INT			},
+	{"r_offset",	ELF_TYPE_HEX			},
 	{"r_symbol",	ELF_TYPE_INT			},
 	{"r_type",	ELF_TYPE_INT | ELF_TYPE_STR	},
 	{"r_info",	ELF_TYPE_INT			},
-	{"r_addend",	ELF_TYPE_INT			}
+	{"r_addend",	ELF_TYPE_HEX			}
 };
 
 class shdr_rela_attr_t:public shdr_rel_attr_abstract_t, public elfAttribute{
@@ -246,10 +257,16 @@ class elf_shdr_rela_entry_t : public elfSection{
 	private:
 		Elf32_Rela relatab;
 		shdr_rela_attr_t attra;
+		char* rname;
 
 	public:
-		elf_shdr_rela_entry_t(Elf32_Rela erelatab):attra(relatab){
+		elf_shdr_rela_entry_t(Elf32_Rela erelatab, const char* ename):attra(relatab){
+			rname = (ename && strlen(ename)) ? strdup(ename) : 0;
 			memcpy(&relatab, &erelatab, sizeof(Elf32_Rela));
+		}
+
+		~elf_shdr_rela_entry_t(){
+			if(rname) free(rname);
 		}
 
 		elfAttribute* attribute(void){
@@ -278,13 +295,16 @@ class elf_shdr_rela_entry_t : public elfSection{
 		}
 
 		const char* name(void){
-			return "null";
+			return (rname) ? rname : "null";
 		}
 };
 
-elfSection* shdr_rela_entry_new(FILE* fd, unsigned int sh_offset, char* strtab){
+elfSection* shdr_rela_entry_new(FILE* fd, unsigned int sh_offset, elfSection* symtab){
 	Elf32_Rela relatab;
 	fseek(fd, sh_offset, SEEK_SET);
 	fread(&relatab, sizeof(Elf32_Rela), 1, fd);
-	return (elfSection*) new elf_shdr_rela_entry_t(relatab);
+	int index = ELF32_R_SYM(relatab.r_info);
+	elfSection* entry = symtab->childAt(index);
+	const char* name = (entry) ? entry->name() : 0;
+	return (elfSection*) new elf_shdr_rela_entry_t(relatab, name);
 }

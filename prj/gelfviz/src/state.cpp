@@ -14,7 +14,7 @@ void set_buffer(GtkTextBuffer* text){
 }
 
 static char* filename = 0;
-elf_section_t* open_file(void){
+elfSection* open_file(void){
 	if(filename) {
 		g_free(filename);
 		filename = 0;
@@ -105,10 +105,10 @@ void save_text(void){
 }
 
 #define COLUMN_SIZE 16
-void refresh(elf_section_t* elf){
-	elf_attr_t* attr = elf->get_attr();
+void refresh(elfSection* elf){
+	elfAttribute* attr = elf->attribute();
 	if(!attr) return;
-	int num = attr->get_num();
+	int num = attr->number();
 	if(!num) return;
 	char buf[128];
 	GtkTextIter iter;
@@ -120,31 +120,31 @@ void refresh(elf_section_t* elf){
 		gtk_text_buffer_delete(buffer, &start, & end);
 	}
 	for(int i = 0 ; i < num ; i++){
-		int type = attr->get_type(i);
+		int type = attr->type(i);
 		if(type & ELF_TYPE_STR) {
-			sprintf(buf, "%s=%s", attr->get_name(i), attr->get_str(i));
+			sprintf(buf, "%s=%s", attr->name(i), attr->stringValue(i));
 			gtk_text_buffer_get_end_iter(buffer, &iter);
 			gtk_text_buffer_insert(buffer, &iter, buf, -1);
 			if(type & ELF_TYPE_INT){
-				sprintf(buf, " (0x%x)", attr->get_int(i));
+				sprintf(buf, " (0x%x)", attr->numericValue(i));
 				gtk_text_buffer_get_end_iter(buffer, &iter);
 				gtk_text_buffer_insert(buffer, &iter, buf, -1);
 			}
 			gtk_text_buffer_get_end_iter(buffer, &iter);
 			gtk_text_buffer_insert(buffer, &iter, "\r\n", -1);
 		} else if(type & ELF_TYPE_HEX) {
-			sprintf(buf, "%s=0x%x\r\n", attr->get_name(i), attr->get_int(i));
+			sprintf(buf, "%s=0x%x\r\n", attr->name(i), attr->numericValue(i));
 			gtk_text_buffer_get_end_iter(buffer, &iter);
 			gtk_text_buffer_insert(buffer, &iter, buf, -1);
 		} else {
-			sprintf(buf, "%s=%d\r\n", attr->get_name(i), attr->get_int(i));
+			sprintf(buf, "%s=%d\r\n", attr->name(i), attr->numericValue(i));
 			gtk_text_buffer_get_end_iter(buffer, &iter);
 			gtk_text_buffer_insert(buffer, &iter, buf, -1);
 		}
 	}
 	gtk_text_buffer_get_end_iter(buffer, &iter);
 	gtk_text_buffer_insert(buffer, &iter, "\r\n", -1);
-	elf_buffer_t* buff = elf->get_body();
+	elfBuffer* buff = elf->body();
 	if(buff){
 		for(unsigned int i = 0 ; i < buff->size ; i += COLUMN_SIZE){
 			int j = 0;

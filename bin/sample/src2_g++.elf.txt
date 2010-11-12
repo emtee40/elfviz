@@ -1,0 +1,1573 @@
+[sample/src2_g++.elf]
+    class=ELFCLASS32 (0x1)
+    data=ELFDATA2LSB (0x1)
+    machine=EM_386 (0x3)
+    version=EV_CURRENT (0x1)
+    type=ET_EXEC (0x2)
+    phoff=0x34
+    shoff=0xe44
+    flags= (0x0)
+    ehsize=52
+    phentsize=32
+    phnum=7
+    shentsize=40
+    shnum=36
+    shstrndx=33
+    entry=0x80483b0
+    eabiversion=0
+  [phdr]
+    [0]
+        p_type=PT_PHDR (0x6)
+        p_offset=0x34
+        p_vaddr=0x8048034
+        p_paddr=0x8048034
+        p_filesz=224
+        p_memsz=224
+        p_flags=PF_X | PF_R (0x5)
+        p_align=4
+    [1]
+        p_type=PT_INTERP (0x3)
+        p_offset=0x114
+        p_vaddr=0x8048114
+        p_paddr=0x8048114
+        p_filesz=19
+        p_memsz=19
+        p_flags=PF_R (0x4)
+        p_align=1
+    [2]
+        p_type=PT_LOAD (0x1)
+        p_offset=0x0
+        p_vaddr=0x8048000
+        p_paddr=0x8048000
+        p_filesz=1540
+        p_memsz=1540
+        p_flags=PF_X | PF_R (0x5)
+        p_align=4096
+    [3]
+        p_type=PT_LOAD (0x1)
+        p_offset=0x604
+        p_vaddr=0x8049604
+        p_paddr=0x8049604
+        p_filesz=296
+        p_memsz=308
+        p_flags=PF_W | PF_R (0x6)
+        p_align=4096
+    [4]
+        p_type=PT_DYNAMIC (0x2)
+        p_offset=0x61c
+        p_vaddr=0x804961c
+        p_paddr=0x804961c
+        p_filesz=232
+        p_memsz=232
+        p_flags=PF_W | PF_R (0x6)
+        p_align=4
+    [5]
+        p_type=PT_NOTE (0x4)
+        p_offset=0x128
+        p_vaddr=0x8048128
+        p_paddr=0x8048128
+        p_filesz=32
+        p_memsz=32
+        p_flags=PF_R (0x4)
+        p_align=4
+    [6]
+        p_type=unknown (0x6474e551)
+        p_offset=0x0
+        p_vaddr=0x0
+        p_paddr=0x0
+        p_filesz=0
+        p_memsz=0
+        p_flags=PF_W | PF_R (0x6)
+        p_align=4
+  [shdr]
+    []
+        sh_name= (0x0)
+        sh_type=SHT_NULL (0x0)
+        sh_flags= (0x0)
+        sh_addr=0x0
+        sh_offset=0x0
+        sh_size=0
+        sh_link=0
+        sh_info=0
+        sh_addralign=0
+        sh_entsize=0
+
+    [.interp]
+        sh_name=.interp (0x1b)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags=SHF_ALLOC (0x2)
+        sh_addr=0x8048114
+        sh_offset=0x114
+        sh_size=19
+        sh_link=0
+        sh_info=0
+        sh_addralign=1
+        sh_entsize=0
+      0x00000114: 2f6c 6962 2f6c 642d 6c69 6e75 782e 736f /lib/ld-linux.so
+      0x00000124: 2e32 00
+    [.note.ABI-tag]
+        sh_name=.note.ABI-tag (0x23)
+        sh_type=SHT_NOTE (0x7)
+        sh_flags=SHF_ALLOC (0x2)
+        sh_addr=0x8048128
+        sh_offset=0x128
+        sh_size=32
+        sh_link=0
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=0
+      0x00000128: 0400 0000 1000 0000 0100 0000 474e 5500 ............GNU.
+      0x00000138: 0000 0000 0200 0000 0600 0000 0800 0000 ................
+
+    [.hash]
+        sh_name=.hash (0x35)
+        sh_type=SHT_HASH (0x5)
+        sh_flags=SHF_ALLOC (0x2)
+        sh_addr=0x8048148
+        sh_offset=0x148
+        sh_size=48
+        sh_link=5
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=4
+      0x00000148: 0300 0000 0700 0000 0500 0000 0400 0000 ................
+      0x00000158: 0600 0000 0000 0000 0000 0000 0000 0000 ................
+      0x00000168: 0200 0000 0100 0000 0300 0000 0000 0000 ................
+
+    [.gnu.hash]
+        sh_name=.gnu.hash (0x31)
+        sh_type=unknown (0x6ffffff6)
+        sh_flags=SHF_ALLOC (0x2)
+        sh_addr=0x8048178
+        sh_offset=0x178
+        sh_size=32
+        sh_link=5
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=4
+      0x00000178: 0200 0000 0600 0000 0100 0000 0500 0000 ................
+      0x00000188: 0020 0020 0000 0000 0600 0000 ad4b e3c0 . . .........K..
+
+    [.dynsym]
+        sh_name=.dynsym (0x3b)
+        sh_type=SHT_DYNSYM (0xb)
+        sh_flags=SHF_ALLOC (0x2)
+        sh_addr=0x8048198
+        sh_offset=0x198
+        sh_size=112
+        sh_link=6
+        sh_info=1
+        sh_addralign=4
+        sh_entsize=16
+      []
+          st_name= (0x0)
+          st_value=0x0
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=0
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [dummy]
+          st_name=dummy (0x79)
+          st_value=0x0
+          st_size=87
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [.c]
+          st_name=.c (0x10)
+          st_value=0x0
+          st_size=0
+          st_info=32
+          st_other=0
+          st_shndx=0
+          st_bind=STB_WEAK
+          st_type=STT_NOTYPE
+      [_CTOR_LIST__]
+          st_name=_CTOR_LIST__ (0x1f)
+          st_value=0x0
+          st_size=0
+          st_info=32
+          st_other=0
+          st_shndx=0
+          st_bind=STB_WEAK
+          st_type=STT_NOTYPE
+      [END__]
+          st_name=END__ (0x86)
+          st_value=0x0
+          st_size=434
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [LIST__]
+          st_name=LIST__ (0x33)
+          st_value=0x0
+          st_size=1048
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [3]
+          st_name=3 (0x6a)
+          st_value=0x80485fc
+          st_size=4
+          st_info=17
+          st_other=0
+          st_shndx=15
+          st_bind=STB_GLOBAL
+          st_type=STT_OBJECT
+    [.dynstr]
+        sh_name=.dynstr (0x43)
+        sh_type=SHT_STRTAB (0x3)
+        sh_flags=SHF_ALLOC (0x2)
+        sh_addr=0x8048208
+        sh_offset=0x208
+        sh_size=185
+        sh_link=0
+        sh_info=0
+        sh_addralign=1
+        sh_entsize=0
+      0x00000208: 006c 6962 7374 6463 2b2b 2e73 6f2e 3600 .libstdc++.so.6.
+      0x00000218: 5f5f 676d 6f6e 5f73 7461 7274 5f5f 005f __gmon_start__._
+      0x00000228: 4a76 5f52 6567 6973 7465 7243 6c61 7373 Jv_RegisterClass
+      0x00000238: 6573 005f 5f67 7878 5f70 6572 736f 6e61 es.__gxx_persona
+      0x00000248: 6c69 7479 5f76 3000 6c69 626d 2e73 6f2e lity_v0.libm.so.
+      0x00000258: 3600 6c69 6267 6363 5f73 2e73 6f2e 3100 6.libgcc_s.so.1.
+      0x00000268: 6c69 6263 2e73 6f2e 3600 5f49 4f5f 7374 libc.so.6._IO_st
+      0x00000278: 6469 6e5f 7573 6564 005f 5f63 7861 5f61 din_used.__cxa_a
+      0x00000288: 7465 7869 7400 5f5f 6c69 6263 5f73 7461 texit.__libc_sta
+      0x00000298: 7274 5f6d 6169 6e00 4358 5841 4249 5f31 rt_main.CXXABI_1
+      0x000002a8: 2e33 0047 4c49 4243 5f32 2e30 0047 4c49 .3.GLIBC_2.0.GLI
+      0x000002b8: 4243 5f32 2e31 2e33 00
+    [.gnu.version]
+        sh_name=.gnu.version (0x4b)
+        sh_type=unknown (0x6fffffff)
+        sh_flags=SHF_ALLOC (0x2)
+        sh_addr=0x80482c2
+        sh_offset=0x2c2
+        sh_size=14
+        sh_link=5
+        sh_info=0
+        sh_addralign=2
+        sh_entsize=2
+      0x000002c2: 0000 0200 0000 0000 0300 0400 0100 
+    [.gnu.version_r]
+        sh_name=.gnu.version_r (0x58)
+        sh_type=unknown (0x6ffffffe)
+        sh_flags=SHF_ALLOC (0x2)
+        sh_addr=0x80482d0
+        sh_offset=0x2d0
+        sh_size=80
+        sh_link=6
+        sh_info=2
+        sh_addralign=4
+        sh_entsize=0
+      0x000002d0: 0100 0100 0100 0000 1000 0000 2000 0000 ............ ...
+      0x000002e0: d3af 6b05 0000 0400 9800 0000 0000 0000 ..k.............
+      0x000002f0: 0100 0200 6000 0000 1000 0000 0000 0000 ....`...........
+      0x00000300: 1069 690d 0000 0300 a300 0000 1000 0000 .ii.............
+      0x00000310: 731f 6909 0000 0200 ad00 0000 0000 0000 s.i.............
+
+    [.rel.dyn]
+        sh_name=.rel.dyn (0x67)
+        sh_type=SHT_REL (0x9)
+        sh_flags=SHF_ALLOC (0x2)
+        sh_addr=0x8048320
+        sh_offset=0x320
+        sh_size=8
+        sh_link=5
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=8
+      [.c]
+          r_offset=0x8049704
+          r_symbol=2
+          r_type=R_ARM_ABS12 (0x6)
+          r_info=0x206
+    [.rel.plt]
+        sh_name=.rel.plt (0x70)
+        sh_type=SHT_REL (0x9)
+        sh_flags=SHF_ALLOC (0x2)
+        sh_addr=0x8048328
+        sh_offset=0x328
+        sh_size=24
+        sh_link=5
+        sh_info=12
+        sh_addralign=4
+        sh_entsize=8
+      [dummy]
+          r_offset=0x8049714
+          r_symbol=1
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x107
+      [.c]
+          r_offset=0x8049718
+          r_symbol=2
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x207
+      [END__]
+          r_offset=0x804971c
+          r_symbol=4
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x407
+    [.init]
+        sh_name=.init (0x79)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags=SHF_ALLOC | SHF_EXECINSTR (0x6)
+        sh_addr=0x8048340
+        sh_offset=0x340
+        sh_size=48
+        sh_link=0
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=0
+      0x00000340: 5589 e553 83ec 04e8 0000 0000 5b81 c3bc U..S........[...
+      0x00000350: 1300 008b 93fc ffff ff85 d274 05e8 2e00 ...........t....
+      0x00000360: 0000 e8a9 0000 00e8 4402 0000 585b c9c3 ........D...X[..
+
+    [.plt]
+        sh_name=.plt (0x74)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags=SHF_ALLOC | SHF_EXECINSTR (0x6)
+        sh_addr=0x8048370
+        sh_offset=0x370
+        sh_size=64
+        sh_link=0
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=4
+      0x00000370: ff35 0c97 0408 ff25 1097 0408 0000 0000 .5.....%........
+      0x00000380: ff25 1497 0408 6800 0000 00e9 e0ff ffff .%....h.........
+      0x00000390: ff25 1897 0408 6808 0000 00e9 d0ff ffff .%....h.........
+      0x000003a0: ff25 1c97 0408 6810 0000 00e9 c0ff ffff .%....h.........
+
+    [.text]
+        sh_name=.text (0x7f)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags=SHF_ALLOC | SHF_EXECINSTR (0x6)
+        sh_addr=0x80483b0
+        sh_offset=0x3b0
+        sh_size=556
+        sh_link=0
+        sh_info=0
+        sh_addralign=16
+        sh_entsize=0
+      0x000003b0: 31ed 5e89 e183 e4f0 5054 5268 4085 0408 1.^.....PTRh@...
+      0x000003c0: 6850 8504 0851 5668 3484 0408 e8cf ffff hP...QVh4.......
+      0x000003d0: fff4 9090 9090 9090 9090 9090 9090 9090 ................
+      0x000003e0: 5589 e583 ec08 803d 2c97 0408 0074 0ceb U......=,....t..
+      0x000003f0: 1c83 c004 a328 9704 08ff d2a1 2897 0408 .....(......(...
+      0x00000400: 8b10 85d2 75eb c605 2c97 0408 01c9 c390 ....u...,.......
+      0x00000410: 5589 e583 ec08 a118 9604 0885 c074 12b8 U............t..
+      0x00000420: 0000 0000 85c0 7409 c704 2418 9604 08ff ......t...$.....
+      0x00000430: d0c9 c390 8d4c 2404 83e4 f0ff 71fc 5589 .....L$.....q.U.
+      0x00000440: e553 5183 ec20 8d45 f089 0424 e8a9 0000 .SQ.. .E...$....
+      0x00000450: 00bb 0000 0000 8d45 f089 0424 e8b7 0000 .......E...$....
+      0x00000460: 0089 d883 c420 595b 5d8d 61fc c390 5589 ..... Y[].a...U.
+      0x00000470: e583 ec08 c704 2430 9704 08e8 9800 0000 ......$0........
+      0x00000480: c9c3 5589 e583 ec18 837d 0801 7531 817d ..U......}..u1.}
+      0x00000490: 0cff ff00 0075 28c7 0424 3097 0408 e857 .....u(..$0....W
+      0x000004a0: 0000 00c7 4424 0824 9704 08c7 4424 0400 ....D$.$....D$..
+      0x000004b0: 0000 00c7 0424 6e84 0408 e8c1 feff ffc9 .....$n.........
+      0x000004c0: c390 5589 e583 ec08 c744 2404 ffff 0000 ..U......D$.....
+      0x000004d0: c704 2401 0000 00e8 a6ff ffff c9c3 5589 ..$...........U.
+      0x000004e0: e58b 4508 c700 0100 0000 5dc3 5589 e58b ..E.......].U...
+      0x000004f0: 4508 c700 0000 0000 5dc3 5589 e583 ec08 E.......].U.....
+      0x00000500: 8b45 0889 0424 e8d3 ffff ff8b 4508 c740 .E...$......E..@
+      0x00000510: 0401 0000 00c9 c390 5589 e583 ec08 8b45 ........U......E
+      0x00000520: 08c7 4004 0000 0000 8b45 0889 0424 e8b9 ..@......E...$..
+      0x00000530: ffff ffc9 c390 9090 9090 9090 9090 9090 ................
+      0x00000540: 5589 e55d c38d 7426 008d bc27 0000 0000 U..]..t&...'....
+      0x00000550: 5589 e557 5653 e84f 0000 0081 c3ad 1100 U..WVS.O........
+      0x00000560: 0083 ec0c e8d7 fdff ff8d bbfc feff ff8d ................
+      0x00000570: 83fc feff ff29 c7c1 ff02 85ff 7424 31f6 .....)......t$1.
+      0x00000580: 8b45 1089 4424 088b 450c 8944 2404 8b45 .E..D$..E..D$..E
+      0x00000590: 0889 0424 ff94 b3fc feff ff83 c601 39f7 ...$..........9.
+      0x000005a0: 75de 83c4 0c5b 5e5f 5dc3 8b1c 24c3 9090 u....[^_]...$...
+      0x000005b0: 5589 e553 83ec 04a1 0896 0408 83f8 ff74 U..S...........t
+      0x000005c0: 1231 dbff d08b 8304 9604 0883 eb04 83f8 .1..............
+      0x000005d0: ff75 f083 c404 5b5d c390 9090 
+    [.fini]
+        sh_name=.fini (0x85)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags=SHF_ALLOC | SHF_EXECINSTR (0x6)
+        sh_addr=0x80485dc
+        sh_offset=0x5dc
+        sh_size=28
+        sh_link=0
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=0
+      0x000005dc: 5589 e553 83ec 04e8 0000 0000 5b81 c320 U..S........[.. 
+      0x000005ec: 1100 00e8 ecfd ffff 595b c9c3 
+    [.rodata]
+        sh_name=.rodata (0x8b)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags=SHF_ALLOC (0x2)
+        sh_addr=0x80485f8
+        sh_offset=0x5f8
+        sh_size=8
+        sh_link=0
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=0
+      0x000005f8: 0300 0000 0100 0200 
+    [.eh_frame]
+        sh_name=.eh_frame (0x93)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags=SHF_ALLOC (0x2)
+        sh_addr=0x8048600
+        sh_offset=0x600
+        sh_size=4
+        sh_link=0
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=0
+      0x00000600: 0000 0000 
+    [.ctors]
+        sh_name=.ctors (0x9d)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags=SHF_WRITE | SHF_ALLOC (0x3)
+        sh_addr=0x8049604
+        sh_offset=0x604
+        sh_size=12
+        sh_link=0
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=0
+      0x00000604: ffff ffff c284 0408 0000 0000 
+    [.dtors]
+        sh_name=.dtors (0xa4)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags=SHF_WRITE | SHF_ALLOC (0x3)
+        sh_addr=0x8049610
+        sh_offset=0x610
+        sh_size=8
+        sh_link=0
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=0
+      0x00000610: ffff ffff 0000 0000 
+    [.jcr]
+        sh_name=.jcr (0xab)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags=SHF_WRITE | SHF_ALLOC (0x3)
+        sh_addr=0x8049618
+        sh_offset=0x618
+        sh_size=4
+        sh_link=0
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=0
+      0x00000618: 0000 0000 
+    [.dynamic]
+        sh_name=.dynamic (0xb0)
+        sh_type=SHT_DYNAMIC (0x6)
+        sh_flags=SHF_WRITE | SHF_ALLOC (0x3)
+        sh_addr=0x804961c
+        sh_offset=0x61c
+        sh_size=232
+        sh_link=6
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=8
+      0x0000061c: 0100 0000 0100 0000 0100 0000 4800 0000 ............H...
+      0x0000062c: 0100 0000 5200 0000 0100 0000 6000 0000 ....R.......`...
+      0x0000063c: 0c00 0000 4083 0408 0d00 0000 dc85 0408 ....@...........
+      0x0000064c: 0400 0000 4881 0408 f5fe ff6f 7881 0408 ....H......ox...
+      0x0000065c: 0500 0000 0882 0408 0600 0000 9881 0408 ................
+      0x0000066c: 0a00 0000 b900 0000 0b00 0000 1000 0000 ................
+      0x0000067c: 1500 0000 0000 0000 0300 0000 0897 0408 ................
+      0x0000068c: 0200 0000 1800 0000 1400 0000 1100 0000 ................
+      0x0000069c: 1700 0000 2883 0408 1100 0000 2083 0408 ....(....... ...
+      0x000006ac: 1200 0000 0800 0000 1300 0000 0800 0000 ................
+      0x000006bc: feff ff6f d082 0408 ffff ff6f 0200 0000 ...o.......o....
+      0x000006cc: f0ff ff6f c282 0408 0000 0000 0000 0000 ...o............
+      0x000006dc: 0000 0000 0000 0000 0000 0000 0000 0000 ................
+      0x000006ec: 0000 0000 0000 0000 0000 0000 0000 0000 ................
+      0x000006fc: 0000 0000 0000 0000 
+    [.got]
+        sh_name=.got (0xb9)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags=SHF_WRITE | SHF_ALLOC (0x3)
+        sh_addr=0x8049704
+        sh_offset=0x704
+        sh_size=4
+        sh_link=0
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=4
+      0x00000704: 0000 0000 
+    [.got.plt]
+        sh_name=.got.plt (0xbe)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags=SHF_WRITE | SHF_ALLOC (0x3)
+        sh_addr=0x8049708
+        sh_offset=0x708
+        sh_size=24
+        sh_link=0
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=4
+      0x00000708: 1c96 0408 0000 0000 0000 0000 8683 0408 ................
+      0x00000718: 9683 0408 a683 0408 
+    [.data]
+        sh_name=.data (0xc7)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags=SHF_WRITE | SHF_ALLOC (0x3)
+        sh_addr=0x8049720
+        sh_offset=0x720
+        sh_size=12
+        sh_link=0
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=0
+      0x00000720: 0000 0000 0000 0000 1496 0408 
+    [.bss]
+        sh_name=.bss (0xcd)
+        sh_type=SHT_NOBITS (0x8)
+        sh_flags=SHF_WRITE | SHF_ALLOC (0x3)
+        sh_addr=0x804972c
+        sh_offset=0x72c
+        sh_size=12
+        sh_link=0
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=0
+      0x0000072c: 0047 4343 3a20 2847 4e55 2920 
+    [.comment]
+        sh_name=.comment (0xd2)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags= (0x0)
+        sh_addr=0x0
+        sh_offset=0x72c
+        sh_size=294
+        sh_link=0
+        sh_info=0
+        sh_addralign=1
+        sh_entsize=0
+      0x0000072c: 0047 4343 3a20 2847 4e55 2920 342e 322e .GCC: (GNU) 4.2.
+      0x0000073c: 3420 2855 6275 6e74 7520 342e 322e 342d 4 (Ubuntu 4.2.4-
+      0x0000074c: 3175 6275 6e74 7531 2900 0047 4343 3a20 1ubuntu1)..GCC: 
+      0x0000075c: 2847 4e55 2920 342e 322e 3420 2855 6275 (GNU) 4.2.4 (Ubu
+      0x0000076c: 6e74 7520 342e 322e 342d 3175 6275 6e74 ntu 4.2.4-1ubunt
+      0x0000077c: 7531 2900 0047 4343 3a20 2847 4e55 2920 u1)..GCC: (GNU) 
+      0x0000078c: 342e 322e 3420 2855 6275 6e74 7520 342e 4.2.4 (Ubuntu 4.
+      0x0000079c: 322e 342d 3175 6275 6e74 7533 2900 0047 2.4-1ubuntu3)..G
+      0x000007ac: 4343 3a20 2847 4e55 2920 342e 322e 3420 CC: (GNU) 4.2.4 
+      0x000007bc: 2855 6275 6e74 7520 342e 322e 342d 3175 (Ubuntu 4.2.4-1u
+      0x000007cc: 6275 6e74 7533 2900 0047 4343 3a20 2847 buntu3)..GCC: (G
+      0x000007dc: 4e55 2920 342e 322e 3420 2855 6275 6e74 NU) 4.2.4 (Ubunt
+      0x000007ec: 7520 342e 322e 342d 3175 6275 6e74 7531 u 4.2.4-1ubuntu1
+      0x000007fc: 2900 0047 4343 3a20 2847 4e55 2920 342e )..GCC: (GNU) 4.
+      0x0000080c: 322e 3420 2855 6275 6e74 7520 342e 322e 2.4 (Ubuntu 4.2.
+      0x0000081c: 342d 3175 6275 6e74 7533 2900 0047 4343 4-1ubuntu3)..GCC
+      0x0000082c: 3a20 2847 4e55 2920 342e 322e 3420 2855 : (GNU) 4.2.4 (U
+      0x0000083c: 6275 6e74 7520 342e 322e 342d 3175 6275 buntu 4.2.4-1ubu
+      0x0000084c: 6e74 7531 2900 
+    [.debug_aranges]
+        sh_name=.debug_aranges (0xdb)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags= (0x0)
+        sh_addr=0x0
+        sh_offset=0x858
+        sh_size=80
+        sh_link=0
+        sh_info=0
+        sh_addralign=8
+        sh_entsize=0
+      0x00000858: 2400 0000 0200 8d00 0000 0400 0000 0000 $...............
+      0x00000868: 4083 0408 2200 0000 dc85 0408 1300 0000 @..."...........
+      0x00000878: 0000 0000 0000 0000 2400 0000 0200 1a01 ........$.......
+      0x00000888: 0000 0400 0000 0000 6c83 0408 0400 0000 ........l.......
+      0x00000898: f485 0408 0400 0000 0000 0000 0000 0000 ................
+
+    [.debug_pubnames]
+        sh_name=.debug_pubnames (0xea)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags= (0x0)
+        sh_addr=0x0
+        sh_offset=0x8a8
+        sh_size=37
+        sh_link=0
+        sh_info=0
+        sh_addralign=1
+        sh_entsize=0
+      0x000008a8: 2100 0000 0200 0000 0000 8d00 0000 7500 !.............u.
+      0x000008b8: 0000 5f49 4f5f 7374 6469 6e5f 7573 6564 .._IO_stdin_used
+      0x000008c8: 0000 0000 00
+    [.debug_info]
+        sh_name=.debug_info (0xfa)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags= (0x0)
+        sh_addr=0x0
+        sh_offset=0x8cd
+        sh_size=423
+        sh_link=0
+        sh_info=0
+        sh_addralign=1
+        sh_entsize=0
+      0x000008cd: 8900 0000 0200 0000 0000 0401 5100 0000 ............Q...
+      0x000008dd: 01a6 0000 0075 0000 00d4 8304 08d4 8304 .....u..........
+      0x000008ed: 0800 0000 0002 0108 4300 0000 0202 0700 ........C.......
+      0x000008fd: 0000 0002 0407 3600 0000 0204 0731 0000 ......6......1..
+      0x0000090d: 0002 0106 4500 0000 0202 0513 0000 0003 ....E...........
+      0x0000091d: 0405 696e 7400 0208 05ad 0000 0002 0807 ..int...........
+      0x0000092d: 2c00 0000 0204 05b2 0000 0004 0407 0201 ,...............
+      0x0000093d: 064c 0000 0005 1d00 0000 0119 8700 0000 .L..............
+      0x0000094d: 0105 03fc 8504 0806 4f00 0000 0089 0000 ........O.......
+      0x0000095d: 0002 004b 0000 0004 0127 0000 0000 0000 ...K.....'......
+      0x0000096d: 002f 6275 696c 642f 6275 696c 6464 2f67 ./build/buildd/g
+      0x0000097d: 6c69 6263 2d32 2e37 2f62 7569 6c64 2d74 libc-2.7/build-t
+      0x0000098d: 7265 652f 6933 3836 2d6c 6962 632f 6373 ree/i386-libc/cs
+      0x0000099d: 752f 6372 7469 2e53 002f 6275 696c 642f u/crti.S./build/
+      0x000009ad: 6275 696c 6464 2f67 6c69 6263 2d32 2e37 buildd/glibc-2.7
+      0x000009bd: 2f62 7569 6c64 2d74 7265 652f 676c 6962 /build-tree/glib
+      0x000009cd: 632d 322e 372f 6373 7500 474e 5520 4153 c-2.7/csu.GNU AS
+      0x000009dd: 2032 2e31 382e 3000 0180 8900 0000 0200  2.18.0.........
+      0x000009ed: 5d00 0000 0401 ad00 0000 2000 0000 2f62 ]......... .../b
+      0x000009fd: 7569 6c64 2f62 7569 6c64 642f 676c 6962 uild/buildd/glib
+      0x00000a0d: 632d 322e 372f 6275 696c 642d 7472 6565 c-2.7/build-tree
+      0x00000a1d: 2f69 3338 362d 6c69 6263 2f63 7375 2f63 /i386-libc/csu/c
+      0x00000a2d: 7274 6e2e 5300 2f62 7569 6c64 2f62 7569 rtn.S./build/bui
+      0x00000a3d: 6c64 642f 676c 6962 632d 322e 372f 6275 ldd/glibc-2.7/bu
+      0x00000a4d: 696c 642d 7472 6565 2f67 6c69 6263 2d32 ild-tree/glibc-2
+      0x00000a5d: 2e37 2f63 7375 0047 4e55 2041 5320 322e .7/csu.GNU AS 2.
+      0x00000a6d: 3138 2e30 0001 80
+    [.debug_abbrev]
+        sh_name=.debug_abbrev (0x106)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags= (0x0)
+        sh_addr=0x0
+        sh_offset=0xa74
+        sh_size=111
+        sh_link=0
+        sh_info=0
+        sh_addralign=1
+        sh_entsize=0
+      0x00000a74: 0111 0125 0e13 0b03 0e1b 0e11 0112 0110 ...%............
+      0x00000a84: 0600 0002 2400 0b0b 3e0b 030e 0000 0324 ....$...>......$
+      0x00000a94: 000b 0b3e 0b03 0800 0004 2400 0b0b 3e0b ...>......$...>.
+      0x00000aa4: 0000 0534 0003 0e3a 0b3b 0b49 133f 0c02 ...4...:.;.I.?..
+      0x00000ab4: 0a00 0006 2600 4913 0000 0001 1100 1006 ....&.I.........
+      0x00000ac4: 5506 0308 1b08 2508 1305 0000 0001 1100 U.....%.........
+      0x00000ad4: 1006 5506 0308 1b08 2508 1305 0000 00
+    [.debug_line]
+        sh_name=.debug_line (0x114)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags= (0x0)
+        sh_addr=0x0
+        sh_offset=0xae3
+        sh_size=297
+        sh_link=0
+        sh_info=0
+        sh_addralign=1
+        sh_entsize=0
+      0x00000ae3: 2300 0000 0200 1d00 0000 0101 fb0e 0d00 #...............
+      0x00000af3: 0101 0101 0000 0001 0000 0100 696e 6974 ............init
+      0x00000b03: 2e63 0000 0000 0082 0000 0002 004e 0000 .c...........N..
+      0x00000b13: 0001 01fb 0e0d 0001 0101 0100 0000 0100 ................
+      0x00000b23: 0001 2f62 7569 6c64 2f62 7569 6c64 642f ../build/buildd/
+      0x00000b33: 676c 6962 632d 322e 372f 6275 696c 642d glibc-2.7/build-
+      0x00000b43: 7472 6565 2f69 3338 362d 6c69 6263 2f63 tree/i386-libc/c
+      0x00000b53: 7375 0000 6372 7469 2e53 0001 0000 0000 su..crti.S......
+      0x00000b63: 0502 4083 0408 030e 0121 2f21 3d5a 2167 ..@......!/!=Z!g
+      0x00000b73: 672f 2f02 0500 0101 0005 02dc 8504 0803 g//.............
+      0x00000b83: 2801 212f 213d 5a21 0206 0001 0178 0000 (.!/!=Z!.....x..
+      0x00000b93: 0002 004e 0000 0001 01fb 0e0d 0001 0101 ...N............
+      0x00000ba3: 0100 0000 0100 0001 2f62 7569 6c64 2f62 ......../build/b
+      0x00000bb3: 7569 6c64 642f 676c 6962 632d 322e 372f uildd/glibc-2.7/
+      0x00000bc3: 6275 696c 642d 7472 6565 2f69 3338 362d build-tree/i386-
+      0x00000bd3: 6c69 6263 2f63 7375 0000 6372 746e 2e53 libc/csu..crtn.S
+      0x00000be3: 0001 0000 0000 0502 6c83 0408 0309 0121 ........l......!
+      0x00000bf3: 2121 0201 0001 0100 0502 f485 0408 0314 !!..............
+      0x00000c03: 0121 2121 0201 0001 01
+    [.debug_str]
+        sh_name=.debug_str (0x120)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags= (0x30)
+        sh_addr=0x0
+        sh_offset=0xc0c
+        sh_size=187
+        sh_link=0
+        sh_info=0
+        sh_addralign=1
+        sh_entsize=1
+      0x00000c0c: 7368 6f72 7420 756e 7369 676e 6564 2069 short unsigned i
+      0x00000c1c: 6e74 0073 686f 7274 2069 6e74 005f 494f nt.short int._IO
+      0x00000c2c: 5f73 7464 696e 5f75 7365 6400 6c6f 6e67 _stdin_used.long
+      0x00000c3c: 206c 6f6e 6720 756e 7369 676e 6564 2069  long unsigned i
+      0x00000c4c: 6e74 0075 6e73 6967 6e65 6420 6368 6172 nt.unsigned char
+      0x00000c5c: 0047 4e55 2043 2034 2e32 2e34 2028 5562 .GNU C 4.2.4 (Ub
+      0x00000c6c: 756e 7475 2034 2e32 2e34 2d31 7562 756e untu 4.2.4-1ubun
+      0x00000c7c: 7475 3129 002f 6275 696c 642f 6275 696c tu1)./build/buil
+      0x00000c8c: 6464 2f67 6c69 6263 2d32 2e37 2f62 7569 dd/glibc-2.7/bui
+      0x00000c9c: 6c64 2d74 7265 652f 676c 6962 632d 322e ld-tree/glibc-2.
+      0x00000cac: 372f 6373 7500 696e 6974 2e63 006c 6f6e 7/csu.init.c.lon
+      0x00000cbc: 6720 6c6f 6e67 2069 6e74 00
+    [.debug_ranges]
+        sh_name=.debug_ranges (0x12b)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags= (0x0)
+        sh_addr=0x0
+        sh_offset=0xcc8
+        sh_size=64
+        sh_link=0
+        sh_info=0
+        sh_addralign=8
+        sh_entsize=0
+      0x00000cc8: ffff ffff 0000 0000 4083 0408 6283 0408 ........@...b...
+      0x00000cd8: dc85 0408 ef85 0408 0000 0000 0000 0000 ................
+      0x00000ce8: ffff ffff 0000 0000 6c83 0408 7083 0408 ........l...p...
+      0x00000cf8: f485 0408 f885 0408 0000 0000 0000 0000 ................
+
+    [.shstrtab]
+        sh_name=.shstrtab (0x11)
+        sh_type=SHT_STRTAB (0x3)
+        sh_flags= (0x0)
+        sh_addr=0x0
+        sh_offset=0xd08
+        sh_size=313
+        sh_link=0
+        sh_info=0
+        sh_addralign=1
+        sh_entsize=0
+      0x00000d08: 002e 7379 6d74 6162 002e 7374 7274 6162 ..symtab..strtab
+      0x00000d18: 002e 7368 7374 7274 6162 002e 696e 7465 ..shstrtab..inte
+      0x00000d28: 7270 002e 6e6f 7465 2e41 4249 2d74 6167 rp..note.ABI-tag
+      0x00000d38: 002e 676e 752e 6861 7368 002e 6479 6e73 ..gnu.hash..dyns
+      0x00000d48: 796d 002e 6479 6e73 7472 002e 676e 752e ym..dynstr..gnu.
+      0x00000d58: 7665 7273 696f 6e00 2e67 6e75 2e76 6572 version..gnu.ver
+      0x00000d68: 7369 6f6e 5f72 002e 7265 6c2e 6479 6e00 sion_r..rel.dyn.
+      0x00000d78: 2e72 656c 2e70 6c74 002e 696e 6974 002e .rel.plt..init..
+      0x00000d88: 7465 7874 002e 6669 6e69 002e 726f 6461 text..fini..roda
+      0x00000d98: 7461 002e 6568 5f66 7261 6d65 002e 6374 ta..eh_frame..ct
+      0x00000da8: 6f72 7300 2e64 746f 7273 002e 6a63 7200 ors..dtors..jcr.
+      0x00000db8: 2e64 796e 616d 6963 002e 676f 7400 2e67 .dynamic..got..g
+      0x00000dc8: 6f74 2e70 6c74 002e 6461 7461 002e 6273 ot.plt..data..bs
+      0x00000dd8: 7300 2e63 6f6d 6d65 6e74 002e 6465 6275 s..comment..debu
+      0x00000de8: 675f 6172 616e 6765 7300 2e64 6562 7567 g_aranges..debug
+      0x00000df8: 5f70 7562 6e61 6d65 7300 2e64 6562 7567 _pubnames..debug
+      0x00000e08: 5f69 6e66 6f00 2e64 6562 7567 5f61 6262 _info..debug_abb
+      0x00000e18: 7265 7600 2e64 6562 7567 5f6c 696e 6500 rev..debug_line.
+      0x00000e28: 2e64 6562 7567 5f73 7472 002e 6465 6275 .debug_str..debu
+      0x00000e38: 675f 7261 6e67 6573 00
+    [.symtab]
+        sh_name=.symtab (0x1)
+        sh_type=SHT_SYMTAB (0x2)
+        sh_flags= (0x0)
+        sh_addr=0x0
+        sh_offset=0x13e4
+        sh_size=1328
+        sh_link=35
+        sh_info=59
+        sh_addralign=4
+        sh_entsize=16
+      []
+          st_name= (0x0)
+          st_value=0x0
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=0
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      []
+          st_name= (0x0)
+          st_value=0x8048114
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x8048128
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=2
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x8048148
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=3
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x8048178
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=4
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x8048198
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=5
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x8048208
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=6
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x80482c2
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=7
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x80482d0
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=8
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x8048320
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=9
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x8048328
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=10
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x8048340
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=11
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x8048370
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=12
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x80483b0
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=13
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x80485dc
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=14
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x80485f8
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=15
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x8048600
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=16
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x8049604
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=17
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x8049610
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=18
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x8049618
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=19
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x804961c
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=20
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x8049704
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=21
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x8049708
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=22
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x8049720
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=23
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x804972c
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=24
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x0
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=25
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x0
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=26
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x0
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=27
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x0
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=28
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x0
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=29
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x0
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=30
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x0
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=31
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x0
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=32
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [init.c]
+          st_name=init.c (0x1)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [initfini.c]
+          st_name=initfini.c (0x8)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [crtstuff.c]
+          st_name=crtstuff.c (0x13)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [__CTOR_LIST__]
+          st_name=__CTOR_LIST__ (0x1e)
+          st_value=0x8049604
+          st_size=0
+          st_info=1
+          st_other=0
+          st_shndx=17
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [__DTOR_LIST__]
+          st_name=__DTOR_LIST__ (0x2c)
+          st_value=0x8049610
+          st_size=0
+          st_info=1
+          st_other=0
+          st_shndx=18
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [__JCR_LIST__]
+          st_name=__JCR_LIST__ (0x3a)
+          st_value=0x8049618
+          st_size=0
+          st_info=1
+          st_other=0
+          st_shndx=19
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [__do_global_dtors_aux]
+          st_name=__do_global_dtors_aux (0x47)
+          st_value=0x80483e0
+          st_size=0
+          st_info=2
+          st_other=0
+          st_shndx=13
+          st_bind=STB_LOCAL
+          st_type=STT_FUNC
+      [completed.5843]
+          st_name=completed.5843 (0x5d)
+          st_value=0x804972c
+          st_size=1
+          st_info=1
+          st_other=0
+          st_shndx=24
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [p.5841]
+          st_name=p.5841 (0x6c)
+          st_value=0x8049728
+          st_size=0
+          st_info=1
+          st_other=0
+          st_shndx=23
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [frame_dummy]
+          st_name=frame_dummy (0x73)
+          st_value=0x8048410
+          st_size=0
+          st_info=2
+          st_other=0
+          st_shndx=13
+          st_bind=STB_LOCAL
+          st_type=STT_FUNC
+      [crtstuff.c]
+          st_name=crtstuff.c (0x13)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [__CTOR_END__]
+          st_name=__CTOR_END__ (0x7f)
+          st_value=0x804960c
+          st_size=0
+          st_info=1
+          st_other=0
+          st_shndx=17
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [__DTOR_END__]
+          st_name=__DTOR_END__ (0x8c)
+          st_value=0x8049614
+          st_size=0
+          st_info=1
+          st_other=0
+          st_shndx=18
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [__FRAME_END__]
+          st_name=__FRAME_END__ (0x99)
+          st_value=0x8048600
+          st_size=0
+          st_info=1
+          st_other=0
+          st_shndx=16
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [__JCR_END__]
+          st_name=__JCR_END__ (0xa7)
+          st_value=0x8049618
+          st_size=0
+          st_info=1
+          st_other=0
+          st_shndx=19
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [__do_global_ctors_aux]
+          st_name=__do_global_ctors_aux (0xb3)
+          st_value=0x80485b0
+          st_size=0
+          st_info=2
+          st_other=0
+          st_shndx=13
+          st_bind=STB_LOCAL
+          st_type=STT_FUNC
+      [initfini.c]
+          st_name=initfini.c (0x8)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [staticcpp2.cpp]
+          st_name=staticcpp2.cpp (0xc9)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [_GLOBAL__I_main]
+          st_name=_GLOBAL__I_main (0xd8)
+          st_value=0x80484c2
+          st_size=28
+          st_info=2
+          st_other=0
+          st_shndx=13
+          st_bind=STB_LOCAL
+          st_type=STT_FUNC
+      [__tcf_0]
+          st_name=__tcf_0 (0xe8)
+          st_value=0x804846e
+          st_size=20
+          st_info=2
+          st_other=0
+          st_shndx=13
+          st_bind=STB_LOCAL
+          st_type=STT_FUNC
+      [cla]
+          st_name=cla (0xf0)
+          st_value=0x8049730
+          st_size=8
+          st_info=1
+          st_other=0
+          st_shndx=24
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [_Z41__static_initialization_and_destruction_0ii]
+          st_name=_Z41__static_initialization_and_destruction_0ii (0xf4)
+          st_value=0x8048482
+          st_size=63
+          st_info=2
+          st_other=0
+          st_shndx=13
+          st_bind=STB_LOCAL
+          st_type=STT_FUNC
+      [_GLOBAL_OFFSET_TABLE_]
+          st_name=_GLOBAL_OFFSET_TABLE_ (0x124)
+          st_value=0x8049708
+          st_size=0
+          st_info=1
+          st_other=2
+          st_shndx=22
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [__init_array_end]
+          st_name=__init_array_end (0x13a)
+          st_value=0x8049604
+          st_size=0
+          st_info=0
+          st_other=2
+          st_shndx=17
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [__init_array_start]
+          st_name=__init_array_start (0x14b)
+          st_value=0x8049604
+          st_size=0
+          st_info=0
+          st_other=2
+          st_shndx=17
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [_DYNAMIC]
+          st_name=_DYNAMIC (0x15e)
+          st_value=0x804961c
+          st_size=0
+          st_info=1
+          st_other=2
+          st_shndx=20
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [data_start]
+          st_name=data_start (0x167)
+          st_value=0x8049720
+          st_size=0
+          st_info=32
+          st_other=0
+          st_shndx=23
+          st_bind=STB_WEAK
+          st_type=STT_NOTYPE
+      [__cxa_atexit@@GLIBC_2.1.3]
+          st_name=__cxa_atexit@@GLIBC_2.1.3 (0x172)
+          st_value=0x0
+          st_size=87
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__libc_csu_fini]
+          st_name=__libc_csu_fini (0x18c)
+          st_value=0x8048540
+          st_size=5
+          st_info=18
+          st_other=0
+          st_shndx=13
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_start]
+          st_name=_start (0x19c)
+          st_value=0x80483b0
+          st_size=0
+          st_info=18
+          st_other=0
+          st_shndx=13
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__gmon_start__]
+          st_name=__gmon_start__ (0x1a3)
+          st_value=0x0
+          st_size=0
+          st_info=32
+          st_other=0
+          st_shndx=0
+          st_bind=STB_WEAK
+          st_type=STT_NOTYPE
+      [_Jv_RegisterClasses]
+          st_name=_Jv_RegisterClasses (0x1b2)
+          st_value=0x0
+          st_size=0
+          st_info=32
+          st_other=0
+          st_shndx=0
+          st_bind=STB_WEAK
+          st_type=STT_NOTYPE
+      [_fp_hw]
+          st_name=_fp_hw (0x1c6)
+          st_value=0x80485f8
+          st_size=4
+          st_info=17
+          st_other=0
+          st_shndx=15
+          st_bind=STB_GLOBAL
+          st_type=STT_OBJECT
+      [_fini]
+          st_name=_fini (0x1cd)
+          st_value=0x80485dc
+          st_size=0
+          st_info=18
+          st_other=0
+          st_shndx=14
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_ZN3clAD1Ev]
+          st_name=_ZN3clAD1Ev (0x1d3)
+          st_value=0x8048518
+          st_size=29
+          st_info=34
+          st_other=0
+          st_shndx=13
+          st_bind=STB_WEAK
+          st_type=STT_FUNC
+      [__libc_start_main@@GLIBC_2.0]
+          st_name=__libc_start_main@@GLIBC_2.0 (0x1df)
+          st_value=0x0
+          st_size=434
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_ZN3clSC2Ev]
+          st_name=_ZN3clSC2Ev (0x1fc)
+          st_value=0x80484de
+          st_size=14
+          st_info=34
+          st_other=0
+          st_shndx=13
+          st_bind=STB_WEAK
+          st_type=STT_FUNC
+      [_IO_stdin_used]
+          st_name=_IO_stdin_used (0x208)
+          st_value=0x80485fc
+          st_size=4
+          st_info=17
+          st_other=0
+          st_shndx=15
+          st_bind=STB_GLOBAL
+          st_type=STT_OBJECT
+      [__data_start]
+          st_name=__data_start (0x217)
+          st_value=0x8049720
+          st_size=0
+          st_info=16
+          st_other=0
+          st_shndx=23
+          st_bind=STB_GLOBAL
+          st_type=STT_NOTYPE
+      [_ZN3clAC1Ev]
+          st_name=_ZN3clAC1Ev (0x224)
+          st_value=0x80484fa
+          st_size=29
+          st_info=34
+          st_other=0
+          st_shndx=13
+          st_bind=STB_WEAK
+          st_type=STT_FUNC
+      [_ZN3clSD2Ev]
+          st_name=_ZN3clSD2Ev (0x230)
+          st_value=0x80484ec
+          st_size=14
+          st_info=34
+          st_other=0
+          st_shndx=13
+          st_bind=STB_WEAK
+          st_type=STT_FUNC
+      [__dso_handle]
+          st_name=__dso_handle (0x23c)
+          st_value=0x8049724
+          st_size=0
+          st_info=17
+          st_other=2
+          st_shndx=23
+          st_bind=STB_GLOBAL
+          st_type=STT_OBJECT
+      [__libc_csu_init]
+          st_name=__libc_csu_init (0x249)
+          st_value=0x8048550
+          st_size=90
+          st_info=18
+          st_other=0
+          st_shndx=13
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__bss_start]
+          st_name=__bss_start (0x259)
+          st_value=0x804972c
+          st_size=0
+          st_info=16
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_GLOBAL
+          st_type=STT_NOTYPE
+      [_end]
+          st_name=_end (0x265)
+          st_value=0x8049738
+          st_size=0
+          st_info=16
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_GLOBAL
+          st_type=STT_NOTYPE
+      [_edata]
+          st_name=_edata (0x26a)
+          st_value=0x804972c
+          st_size=0
+          st_info=16
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_GLOBAL
+          st_type=STT_NOTYPE
+      [__gxx_personality_v0@@CXXABI_1.3]
+          st_name=__gxx_personality_v0@@CXXABI_1.3 (0x271)
+          st_value=0x0
+          st_size=1048
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__i686.get_pc_thunk.bx]
+          st_name=__i686.get_pc_thunk.bx (0x292)
+          st_value=0x80485aa
+          st_size=0
+          st_info=18
+          st_other=2
+          st_shndx=13
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [main]
+          st_name=main (0x2a9)
+          st_value=0x8048434
+          st_size=57
+          st_info=18
+          st_other=0
+          st_shndx=13
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_init]
+          st_name=_init (0x2ae)
+          st_value=0x8048340
+          st_size=0
+          st_info=18
+          st_other=0
+          st_shndx=11
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+    [.strtab]
+        sh_name=.strtab (0x9)
+        sh_type=SHT_STRTAB (0x3)
+        sh_flags= (0x0)
+        sh_addr=0x0
+        sh_offset=0x1914
+        sh_size=692
+        sh_link=0
+        sh_info=0
+        sh_addralign=1
+        sh_entsize=0
+      0x00001914: 0069 6e69 742e 6300 696e 6974 6669 6e69 .init.c.initfini
+      0x00001924: 2e63 0063 7274 7374 7566 662e 6300 5f5f .c.crtstuff.c.__
+      0x00001934: 4354 4f52 5f4c 4953 545f 5f00 5f5f 4454 CTOR_LIST__.__DT
+      0x00001944: 4f52 5f4c 4953 545f 5f00 5f5f 4a43 525f OR_LIST__.__JCR_
+      0x00001954: 4c49 5354 5f5f 005f 5f64 6f5f 676c 6f62 LIST__.__do_glob
+      0x00001964: 616c 5f64 746f 7273 5f61 7578 0063 6f6d al_dtors_aux.com
+      0x00001974: 706c 6574 6564 2e35 3834 3300 702e 3538 pleted.5843.p.58
+      0x00001984: 3431 0066 7261 6d65 5f64 756d 6d79 005f 41.frame_dummy._
+      0x00001994: 5f43 544f 525f 454e 445f 5f00 5f5f 4454 _CTOR_END__.__DT
+      0x000019a4: 4f52 5f45 4e44 5f5f 005f 5f46 5241 4d45 OR_END__.__FRAME
+      0x000019b4: 5f45 4e44 5f5f 005f 5f4a 4352 5f45 4e44 _END__.__JCR_END
+      0x000019c4: 5f5f 005f 5f64 6f5f 676c 6f62 616c 5f63 __.__do_global_c
+      0x000019d4: 746f 7273 5f61 7578 0073 7461 7469 6363 tors_aux.staticc
+      0x000019e4: 7070 322e 6370 7000 5f47 4c4f 4241 4c5f pp2.cpp._GLOBAL_
+      0x000019f4: 5f49 5f6d 6169 6e00 5f5f 7463 665f 3000 _I_main.__tcf_0.
+      0x00001a04: 636c 6100 5f5a 3431 5f5f 7374 6174 6963 cla._Z41__static
+      0x00001a14: 5f69 6e69 7469 616c 697a 6174 696f 6e5f _initialization_
+      0x00001a24: 616e 645f 6465 7374 7275 6374 696f 6e5f and_destruction_
+      0x00001a34: 3069 6900 5f47 4c4f 4241 4c5f 4f46 4653 0ii._GLOBAL_OFFS
+      0x00001a44: 4554 5f54 4142 4c45 5f00 5f5f 696e 6974 ET_TABLE_.__init
+      0x00001a54: 5f61 7272 6179 5f65 6e64 005f 5f69 6e69 _array_end.__ini
+      0x00001a64: 745f 6172 7261 795f 7374 6172 7400 5f44 t_array_start._D
+      0x00001a74: 594e 414d 4943 0064 6174 615f 7374 6172 YNAMIC.data_star
+      0x00001a84: 7400 5f5f 6378 615f 6174 6578 6974 4040 t.__cxa_atexit@@
+      0x00001a94: 474c 4942 435f 322e 312e 3300 5f5f 6c69 GLIBC_2.1.3.__li
+      0x00001aa4: 6263 5f63 7375 5f66 696e 6900 5f73 7461 bc_csu_fini._sta
+      0x00001ab4: 7274 005f 5f67 6d6f 6e5f 7374 6172 745f rt.__gmon_start_
+      0x00001ac4: 5f00 5f4a 765f 5265 6769 7374 6572 436c _._Jv_RegisterCl
+      0x00001ad4: 6173 7365 7300 5f66 705f 6877 005f 6669 asses._fp_hw._fi
+      0x00001ae4: 6e69 005f 5a4e 3363 6c41 4431 4576 005f ni._ZN3clAD1Ev._
+      0x00001af4: 5f6c 6962 635f 7374 6172 745f 6d61 696e _libc_start_main
+      0x00001b04: 4040 474c 4942 435f 322e 3000 5f5a 4e33 @@GLIBC_2.0._ZN3
+      0x00001b14: 636c 5343 3245 7600 5f49 4f5f 7374 6469 clSC2Ev._IO_stdi
+      0x00001b24: 6e5f 7573 6564 005f 5f64 6174 615f 7374 n_used.__data_st
+      0x00001b34: 6172 7400 5f5a 4e33 636c 4143 3145 7600 art._ZN3clAC1Ev.
+      0x00001b44: 5f5a 4e33 636c 5344 3245 7600 5f5f 6473 _ZN3clSD2Ev.__ds
+      0x00001b54: 6f5f 6861 6e64 6c65 005f 5f6c 6962 635f o_handle.__libc_
+      0x00001b64: 6373 755f 696e 6974 005f 5f62 7373 5f73 csu_init.__bss_s
+      0x00001b74: 7461 7274 005f 656e 6400 5f65 6461 7461 tart._end._edata
+      0x00001b84: 005f 5f67 7878 5f70 6572 736f 6e61 6c69 .__gxx_personali
+      0x00001b94: 7479 5f76 3040 4043 5858 4142 495f 312e ty_v0@@CXXABI_1.
+      0x00001ba4: 3300 5f5f 6936 3836 2e67 6574 5f70 635f 3.__i686.get_pc_
+      0x00001bb4: 7468 756e 6b2e 6278 006d 6169 6e00 5f69 thunk.bx.main._i
+      0x00001bc4: 6e69 7400 

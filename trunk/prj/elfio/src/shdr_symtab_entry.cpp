@@ -42,7 +42,7 @@ static const section_attr_t shdr_symtab_attr[] = {
 
 class shdr_symtab_attr_t : public elfAttribute {
 	public:
-		shdr_symtab_attr_t(Elf32_Sym& shdr, char* ename):hdr(shdr), st_name(0), num(sizeof(shdr_symtab_attr) / sizeof(section_attr_t)){
+		shdr_symtab_attr_t(Elf32_Sym& shdr, const char* ename):hdr(shdr), st_name(0), num(sizeof(shdr_symtab_attr) / sizeof(section_attr_t)){
 			if(ename) st_name = strdup(ename);
 		}
 
@@ -133,7 +133,7 @@ class elf_shdr_symtab_entry_t : public elfSection{
 		shdr_symtab_attr_t attr;
 
 	public:
-		elf_shdr_symtab_entry_t(Elf32_Sym esymtab, char* ename):attr(symtab, ename){
+		elf_shdr_symtab_entry_t(Elf32_Sym esymtab, const char* ename):attr(symtab, ename){
 			memcpy(&symtab, &esymtab, sizeof(Elf32_Sym));
 			ss_name = strdup(ename);
 		}
@@ -171,7 +171,7 @@ class elf_shdr_symtab_entry_t : public elfSection{
 		}
 };
 
-elfSection* shdr_symtab_entry_new(FILE* fd, unsigned int sh_offset, char* strtab){
+elfSection* shdr_symtab_entry_new(FILE* fd, unsigned int sh_offset, const char* strtab){
 	Elf32_Sym symtab;
 	fseek(fd, sh_offset, SEEK_SET);
 	fread(&symtab, sizeof(Elf32_Sym), 1, fd);

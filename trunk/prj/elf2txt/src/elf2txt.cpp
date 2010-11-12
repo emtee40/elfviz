@@ -105,7 +105,7 @@ void run_txt(elfSection* elfio, ucTxtWriter& writer, etState& state, etTitleType
 		elfBuffer* buf = elfio->body();
 		if(buf){
 			has_body = true;
-			writer.dump(buf->buffer, buf->size, buf->offset);
+			writer.dump(buf->buffer, buf->size, buf->offset, (state.getFlag() & ET_SHOW_RAW_INDEX) ? true : false);
 		}
 	}
 	unsigned int num = elfio->childs();

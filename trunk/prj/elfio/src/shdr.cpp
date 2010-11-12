@@ -33,12 +33,12 @@ class elf_shdr_t : public elfSection{
 		elfSection** entry;
 		unsigned int n_entry;
 		elfBuffer* shstr;
-
+		shdr_entry_factory factory;
 	public:
 		elf_shdr_t(int shnum, FILE* fd, int shoff, int shstrndx):shstr(0){
 			entry = new elfSection* [shnum];
 			n_entry = shnum;
-			elfSection* shdr_shstr = shdr_entry_new(fd, shoff + sizeof(Elf32_Shdr) * shstrndx, 0, 0);
+			elfSection* shdr_shstr = factory.entry_new(fd, shoff + sizeof(Elf32_Shdr) * shstrndx, 0, 0);
 			elfBuffer* shstr = shdr_shstr->body();
 			elfBuffer* strtab = 0;
 			unsigned int i = 0;
@@ -47,13 +47,15 @@ class elf_shdr_t : public elfSection{
 			entry = new elfSection* [n_entry];
 			memset(entry, 0, sizeof(elfSection*) * n_entry);
 			bool found = false;
+			int foundIdx = 0;
 			for(i = 0 ; i < n_entry ; i++){
-				entry[i] = shdr_entry_new(fd,
+				entry[i] = factory.entry_new(fd,
 							shoff + sizeof(Elf32_Shdr) * i,
 							(char*)((shstr) ? shstr->buffer : 0),
 							(char*)((strtab) ? strtab->buffer : 0));
 				if(!strtab && entry[i] && !strcmp(entry[i]->name(), ".strtab")) {
 					strtab = entry[i]->body();
+					foundIdx = i;
 					found = true;
 					break;
 				}
@@ -61,20 +63,26 @@ class elf_shdr_t : public elfSection{
 			if(!found){
 				for(i = 0 ; i < n_entry ; i++){
 					if(entry[i]) delete entry[i];
-					entry[i] = shdr_entry_new(fd,
+					entry[i] = factory.entry_new(fd,
 								shoff + sizeof(Elf32_Shdr) * i,
 								(char*)((shstr) ? shstr->buffer : 0),
 								(char*)((strtab) ? strtab->buffer : 0));
 					if(!strtab && entry[i] && !strcmp(entry[i]->name(), ".dynstr")) {
 						strtab = entry[i]->body();
+						foundIdx = i;
 						found = true;
 						break;
 					}
 				}
 			}
 			for(i = 0 ; i < n_entry ; i++){
-				if(entry[i]) delete entry[i];
-				entry[i] = shdr_entry_new(fd,
+				if(entry[i]) {
+					if(i != foundIdx)
+						delete entry[i];
+					else
+						continue;
+				}
+				entry[i] = factory.entry_new(fd,
 							shoff + sizeof(Elf32_Shdr) * i,
 							(char*)((shstr) ? shstr->buffer : 0),
 							(char*)((strtab) ? strtab->buffer : 0));

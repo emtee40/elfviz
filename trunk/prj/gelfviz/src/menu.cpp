@@ -16,7 +16,7 @@ static void exit_response(gchar* string){
 }
 
 static void open_response(gchar* string){
-	elf_section_t* pElf = open_file();
+	elfSection* pElf = open_file();
 	get_pane(pElf);
 }
 

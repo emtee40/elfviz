@@ -5,7 +5,7 @@ SRCDIR=../../src
 INCS=-I . -I ../../../../inc
 BINDIR=../../../../bin
 ELFIO=$(BINDIR)/$(SYMBOLIC_TARGET)
-UCRT=/usr/lib/libucrt.so.1
+UCRT=/usr/lib/libucrt.so.2
 objs=gelfviz.o menu.o state.o treeview.o pane.o
 
 OUT=gelfviz

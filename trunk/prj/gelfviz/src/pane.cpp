@@ -10,7 +10,7 @@ void set_vbox(GtkWidget* v_box){
 	vbox = v_box;
 }
 
-void get_pane(elf_section_t* pElf){
+void get_pane(elfSection* pElf){
 	GtkWidget *treeview;
 	GtkTextView *view;
 

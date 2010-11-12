@@ -8,7 +8,7 @@ enum {
 	NUM_COLS
 } ;
 
-static void fill_elf(GtkTreeStore * treestore, GtkTreeIter* parent, elf_section_t* elf){
+static void fill_elf(GtkTreeStore * treestore, GtkTreeIter* parent, elfSection* elf){
 	GtkTreeIter child;
 	/* Append a child to the second top level row, and fill in some data */
 	gtk_tree_store_append(treestore, &child, parent);
@@ -16,12 +16,12 @@ static void fill_elf(GtkTreeStore * treestore, GtkTreeIter* parent, elf_section_
 			COL_FIRST_NAME, elf->name(),
 			COL_ADDRESS, (guint)elf,
 			-1);
-	int num = elf->get_child_num();
+	int num = elf->childs();
 	for(int i = 0 ; i < num ; i++)
-		fill_elf(treestore, &child, elf->get_child(i));
+		fill_elf(treestore, &child, elf->childAt(i));
 }
 
-static GtkTreeModel* create_and_fill_model (elf_section_t* elf) {
+static GtkTreeModel* create_and_fill_model (elfSection* elf) {
 	GtkTreeModel        *model = 0;
 	GtkTreeStore  *treestore;
 	GtkTreeIter    toplevel, child;
@@ -56,9 +56,9 @@ static GtkTreeModel* create_and_fill_model (elf_section_t* elf) {
 				COL_FIRST_NAME, elf->name(),
 				COL_ADDRESS, (guint)elf,
 				-1);
-		int num = elf->get_child_num();
+		int num = elf->childs();
 		for(int i = 0 ; i < num ; i++)
-			fill_elf(treestore, &toplevel, elf->get_child(i));
+			fill_elf(treestore, &toplevel, elf->childAt(i));
 	}
 	model = GTK_TREE_MODEL(treestore);
 	return model;
@@ -69,7 +69,7 @@ void age_cell_data_func (GtkTreeViewColumn *col,
 		GtkTreeModel      *model,
 		GtkTreeIter       *iter,
 		gpointer           user_data) {
-	elf_section_t* elf = 0;
+	elfSection* elf = 0;
 	gtk_tree_model_get(model, iter, COL_ADDRESS, elf, -1);
 	if(elf) refresh(elf);
 	//	g_object_set(renderer, "foreground", "Red", "foreground-set", TRUE, NULL); /* make red */
@@ -79,13 +79,13 @@ static void tree_selection_changed_cb(GtkTreeSelection *selection, gpointer data
 	GtkTreeIter iter;
 	GtkTreeModel *store;
 	if(gtk_tree_selection_get_selected(selection, &store, &iter)){
-		elf_section_t* elf = 0;
+		elfSection* elf = 0;
 		gtk_tree_model_get(store, &iter, COL_ADDRESS, &elf, -1);
 		if(elf) refresh(elf);
 	}
 }
 
-GtkWidget * create_view_and_model (elf_section_t* pElf) {
+GtkWidget * create_view_and_model (elfSection* pElf) {
 	GtkTreeViewColumn   *col;
 	GtkCellRenderer     *renderer;
 	GtkTreeModel        *model = 0;

@@ -6,9 +6,9 @@ void set_window(GtkWindow* win);
 
 void set_buffer(GtkTextBuffer* text);
 
-elf_section_t* open_file(void);
+elfSection* open_file(void);
 
 void save_text(void);
 
-void refresh(elf_section_t* elf);
+void refresh(elfSection* elf);
 #endif //__GEV_STATE_H__

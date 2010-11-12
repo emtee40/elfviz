@@ -1,0 +1,4543 @@
+[sample/src1_tcpp.elf]
+    class=ELFCLASS32 (0x1)
+    data=ELFDATA2LSB (0x1)
+    machine=EM_ARM (0x28)
+    version=EV_CURRENT (0x1)
+    type=ET_EXEC (0x2)
+    phoff=0x6b40
+    shoff=0x6b60
+    flags=EF_ARM_HASENTRY | EF_ARM_SYMSARESORTED | EF_ARM_MAPSYMSFIRST (0x4000016)
+    ehsize=52
+    phentsize=32
+    phnum=1
+    shentsize=40
+    shnum=10
+    shstrndx=9
+    entry=0x8000
+    eabiversion=4
+  [phdr]
+    [0]
+        p_type=PT_LOAD (0x1)
+        p_offset=0x34
+        p_vaddr=0x8000
+        p_paddr=0x8000
+        p_filesz=2796
+        p_memsz=2892
+        p_flags=PF_X | PF_W | PF_R (0x80000007)
+        p_align=4
+  [shdr]
+    []
+        sh_name= (0x0)
+        sh_type=SHT_NULL (0x0)
+        sh_flags= (0x0)
+        sh_addr=0x0
+        sh_offset=0x0
+        sh_size=0
+        sh_link=0
+        sh_info=0
+        sh_addralign=0
+        sh_entsize=0
+
+    [ER_RO]
+        sh_name=ER_RO (0x1)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags=SHF_ALLOC | SHF_EXECINSTR (0x6)
+        sh_addr=0x8000
+        sh_offset=0x34
+        sh_size=2792
+        sh_link=0
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=0
+      0x00000034: 0000 00ea 3400 00ea 2800 8fe2 000c 90e8 ....4...(.......
+      0x00000044: 00a0 8ae0 0170 4ae2 00b0 8be0 0b00 5ae1 .....pJ.......Z.
+      0x00000054: 2d00 000a 0f00 bae8 14e0 4fe2 0100 13e3 -.........O.....
+      0x00000064: 03f0 4710 13ff 2fe1 9c0a 0000 ac0a 0000 ..G.../.........
+      0x00000074: 0030 a0e3 0040 a0e3 0050 a0e3 0060 a0e3 .0...@...P...`..
+      0x00000084: 1020 52e2 7800 a128 fcff ff8a 822e b0e1 . R.x..(........
+      0x00000094: 3000 a128 0030 8145 1eff 2fe1 7847 c046 0..(.0.E../.xG.F
+      0x000000a4: 0430 9fe5 0330 8fe0 13ff 2fe1 fd05 0000 .0...0..../.....
+      0x000000b4: 0020 7047 0448 0121 10b5 0160 0449 034a . pG.H.!...`.I.J
+      0x000000c4: 00f0 33fc 10bd 0000 e88a 0000 e48a 0000 ..3.............
+      0x000000d4: f588 0000 70b5 074c 7c44 074d 7d44 04e0 ....p..L|D.M}D..
+      0x000000e4: 2068 0019 00f0 a0f8 241d ac42 f8d1 70bc  h......$..B..p.
+      0x000000f4: 08bc 1847 380a 0000 380a 0000 7847 c046 ...G8...8...xG.F
+      0x00000104: 0000 9fe5 1eff 2fe1 ec8a 0000 0e01 00eb ....../.........
+      0x00000114: 9600 00eb 0300 2de9 0c01 00eb 0300 bde8 ......-.........
+      0x00000124: d300 00eb 0f00 2de9 0b01 00eb 0f00 bde8 ......-.........
+      0x00000134: 1cc0 9fe5 0fc0 8ce0 0100 1ce3 0de0 8f12 ................
+      0x00000144: 0fe0 a001 1cff 2fe1 01c0 8fe2 1cff 2fe1 ....../......./.
+      0x00000154: 00f0 f9f8 75ff ffff 0140 2de9 0201 00eb ....u....@-.....
+      0x00000164: ea01 00eb 0140 bde8 0000 00ea 0000 e0e3 .....@..........
+      0x00000174: 3100 00ea 7047 7047 38b5 0400 0800 6946 1...pGpG8.....iF
+      0x00000184: 00f0 ecf8 0028 08d0 0200 0099 2000 00f0 .....(...... ...
+      0x00000194: bff8 38bc 0120 08bc 1847 38bc 0020 08bc ..8.. ...G8.. ..
+      0x000001a4: 1847 0121 10b5 0920 00f0 54f8 10bc 08bc .G.!... ..T.....
+      0x000001b4: 1847 c0b5 38b4 0500 0c00 0020 00f0 6ff8 .G..8...... ..o.
+      0x000001c4: 0600 2818 a042 0ed9 3000 6946 00f0 c6f8 ..(..B..0.iF....
+      0x000001d4: 0700 03d1 0021 0920 00f0 3cf8 0098 a042 .....!. ..<....B
+      0x000001e4: 00d0 0500 c419 fff7 89ff f61d 0700 f108 ................
+      0x000001f4: 8560 2800 c900 4e19 00f0 4cf8 b442 04d0 .`(...N...L..B..
+      0x00000204: a21b b868 3100 00f0 83f8 f8bc 08bc 1847 ...h1..........G
+      0x00000214: 10b5 0400 fff7 72ff 2100 8068 00f0 41f8 ......r.!..h..A.
+      0x00000224: 10bc 08bc 1847 0000 0047 0847 1047 1847 .....G...G.G.G.G
+      0x00000234: 2047 2847 3047 3847 7847 c046 0c10 9fe5  G(G0G8GxG.F....
+      0x00000244: 1800 a0e3 5634 12ef 1eff 2fe1 7403 0000 ....V4..../.t...
+      0x00000254: 2600 0200 7847 c046 1040 2de9 f000 00eb &...xG.F.@-.....
+      0x00000264: 0000 50e3 1040 bd08 1eff 2f01 1040 bde8 ..P..@..../..@..
+      0x00000274: f1ff ffea 0028 0ad0 10b5 0400 fff7 3eff .....(........>.
+      0x00000284: 2100 8068 00f0 9ef9 10bc 08bc 1847 7047 !..h.........GpG
+      0x00000294: 7047 7047 0021 0160 8060 4160 7047 1020 pGpG.!.`.`A`pG. 
+      0x000002a4: 7047 70b5 0500 081d 0828 00d2 0820 c01d pGp......(... ..
+      0x000002b4: 491e c408 e400 8c42 24d9 6868 2900 0028 I......B$.hh)..(
+      0x000002c4: 1ad0 0268 a242 13d3 0368 2200 0832 9342 ...h.B...h"..2.B
+      0x000002d4: 08d3 4368 0219 5360 0368 1b1b 1360 4a60 ..Ch..S`.h...`J`
+      0x000002e4: 0460 01e0 4268 4a60 70bc 001d 08bc 1847 .`..BhJ`p......G
+      0x000002f4: 0100 4068 0028 e4d1 2100 2800 fff7 3cff ..@h.(..!.(...<.
+      0x00000304: 0028 dad1 70bc 0020 08bc 1847 00f0 7cf9 .(..p.. ...G..|.
+      0x00000314: 70b5 4368 0400 01e0 1c00 5b68 002b 01d0 p.Ch......[h.+..
+      0x00000324: 8b42 f9d3 2368 1b19 8b42 06d0 0b00 c91c .B..#h...B......
+      0x00000334: c908 c900 091d cb1a d21a 04c1 00f0 42f9 ..............B.
+      0x00000344: 70bc 08bc 1847 10b5 0400 c046 c046 2000 p....G.....F.F .
+      0x00000354: 00f0 e4fa 10bc 08bc 1847 0000 7847 c046 .........G..xG.F
+      0x00000364: 1040 2de9 2500 00eb 1040 bde8 1eff 2fe1 .@-.%....@..../.
+      0x00000374: 0e50 a0e1 61ff ffeb 0040 a0e1 0700 c0e3 .P..a....@......
+      0x00000384: 0d10 a0e1 60d0 80e2 05e0 a0e1 1040 2de9 ....`........@-.
+      0x00000394: 0a30 a0e1 7500 00eb 0060 a0e3 0070 a0e3 .0..u....`...p..
+      0x000003a4: 0080 a0e3 00b0 a0e3 1040 bde8 07d0 c1e3 .........@......
+      0x000003b4: 04c0 a0e1 c009 ace8 c009 ace8 c009 ace8 ................
+      0x000003c4: c009 ace8 1340 2de9 0010 a0e3 0000 a0e3 .....@-.........
+      0x000003d4: 0000 a0e1 4010 81e2 0120 80e0 112e 82e2 ....@.... ......
+      0x000003e4: 1c20 84e5 0100 a0e3 1810 84e5 1000 84e5 . ..............
+      0x000003f4: 1340 bde8 0010 a0e1 1400 84e5 0ef0 a0e1 .@..............
+      0x00000404: 1040 2de9 0300 2de9 3cff ffeb 0040 a0e1 .@-...-.<....@..
+      0x00000414: 0300 bde8 1420 94e5 1c30 94e5 00e0 82e0 ..... ...0......
+      0x00000424: 0330 4de0 0300 5ee1 0020 81e5 0b00 008a .0M...^.. ......
+      0x00000434: 0e30 93e0 011a 8ee2 0710 81e2 6330 a0e1 .0..........c0..
+      0x00000444: 0730 c3e3 0710 c1e3 0300 51e1 0310 a081 .0........Q.....
+      0x00000454: 1410 84e5 1040 bde8 0200 41e0 1eff 2fe1 .....@....A.../.
+      0x00000464: 0020 a0e1 0000 a0e3 0000 a0e1 1040 bde8 . ...........@..
+      0x00000474: 1eff 2fe1 01c0 8fe2 1cff 2fe1 f0b5 0400 ../......./.....
+      0x00000484: 0d00 85b0 00f0 8efa 01a9 0020 30c1 fff7 ........... 0...
+      0x00000494: 06ff 0390 01a8 fff7 01fe 0400 0d00 01a8 ................
+      0x000004a4: 0093 03c8 1600 fff7 84fe fff7 64fe c046 ............d..F
+      0x000004b4: c046 0021 0020 c046 c046 0700 fff7 1efe .F.!. .F.F......
+      0x000004c4: 0490 0021 0762 0020 c046 c046 411c 0498 ...!.b. .F.FA...
+      0x000004d4: 4162 0021 0020 c046 c046 0100 0498 8162 Ab.!. .F.F.....b
+      0x000004e4: 0021 0020 c046 c046 0100 0498 c162 0021 .!. .F.F.....b.!
+      0x000004f4: 0020 c046 c046 0100 0498 0163 c046 c046 . .F.F.....c.F.F
+      0x00000504: c046 c046 c046 c046 c046 c046 c046 c046 .F.F.F.F.F.F.F.F
+      0x00000514: c046 c046 c046 c046 c046 c046 fff7 dafd .F.F.F.F.F.F....
+      0x00000524: 009b 05b0 2000 049c 2900 3200 a646 f0bc .... ...).2..F..
+      0x00000534: 01b0 7047 0020 10b5 00f0 0efa c046 c046 ..pG. .......F.F
+      0x00000544: fff7 18fe 10bc 08bc 1847 0000 1eff 2fe1 .........G..../.
+      0x00000554: 0000 e0e3 0210 e0e3 1eff 2fe1 1040 2de9 ........../..@-.
+      0x00000564: 9600 00eb 1040 bde8 1eff 2fe1 1eff 2fe1 .....@..../.../.
+      0x00000574: 1600 a0e3 0040 2de9 14d0 4de2 0d10 a0e1 .....@-...M.....
+      0x00000584: 0420 8de2 0020 81e5 5634 12ef 0400 9de5 . ... ..V4......
+      0x00000594: 0c10 9de5 0820 9de5 1030 9de5 0000 50e3 ..... ...0....P.
+      0x000005a4: 14d0 8de2 1000 9f05 0040 bde8 0700 8002 .........@......
+      0x000005b4: 0700 c003 1eff 2fe1 0800 0000 4c8b 0000 ....../.....L...
+      0x000005c4: 1eff 2fe1 091f 10b4 0200 4068 0028 01d0 ../.......@h.(..
+      0x000005d4: 8842 f9d3 1368 9c18 8c42 04d1 0968 5918 .B...h...B...hY.
+      0x000005e4: 1160 1100 00e0 5160 0a68 5318 8342 06d1 .`....Q`.hS..B..
+      0x000005f4: 4368 4b60 0068 1018 0860 10bc 7047 4860 ChK`.h...`..pGH`
+      0x00000604: 10bc 7047 00f0 00f8 0021 10b5 0120 fff7 ..pG.....!... ..
+      0x00000614: 21fe fff7 8fff 0120 fff7 0efe 10bc 08bc !...... ........
+      0x00000624: 1847 0000 01c0 8fe2 1cff 2fe1 70b5 0d00 .G......../.p...
+      0x00000634: 0100 0400 0020 c043 c046 c046 0200 431c ..... .C.F.F..C.
+      0x00000644: 06d1 2900 2000 00f0 d7f8 70bc 08bc 1847 ..). .....p....G
+      0x00000654: d31c 03d0 2900 2000 fff7 e8fd 0020 f4e7 ....). ...... ..
+      0x00000664: c0b5 c91c 38b4 0400 8d08 2168 4068 ad00 ....8.....!h@h..
+      0x00000674: 401a a842 12d2 a068 6946 4019 fff7 6efe @..B...hiF@...n.
+      0x00000684: 0600 03d1 0021 0920 fff7 e4fd 6168 0098 .....!. ....ah..
+      0x00000694: 8142 00d0 2060 0098 8019 6060 2068 4119 .B.. `....`` hA.
+      0x000006a4: 2160 f8bc 08bc 1847 c0b5 0027 31b4 88b0 !`.....G...'1...
+      0x000006b4: 0020 6b46 ff24 0597 641c 1871 0898 2100 . kF.$..d..q..!.
+      0x000006c4: fff7 ceff 2100 0690 00f0 7cf8 0600 0dd1 ....!.....|.....
+      0x000006d4: 0699 0024 0800 0a00 0830 11c2 0120 0c72 ...$.....0... .r
+      0x000006e4: 09b0 049c a646 f0bc 01b0 7047 069d 0120 .....F....pG... 
+      0x000006f4: 0490 0795 3478 761c 002f 06d1 222c 01d0 ....4xv../..",..
+      0x00000704: 272c 12d1 2700 0594 39e0 5c2c 09d1 3078 ',..'...9.\,..0x
+      0x00000714: 2228 03d0 5c28 01d0 2728 02d1 0400 761c "(..\(..'(....v.
+      0x00000724: 03e0 bc42 01d1 0027 29e0 002c 0dd0 002f ...B...')..,.../
+      0x00000734: 08d1 0121 202c 03d0 2000 0938 0428 01d8 ...! ,.. ..8.(..
+      0x00000744: 0029 02d1 2c70 6d1c d4e7 0798 8542 02d1 .)..,pm......B..
+      0x00000754: 0598 0028 13d0 0020 2870 0799 059a 6d1c ...(... (p....m.
+      0x00000764: 01a8 c046 c046 6b46 1879 0028 01d1 0795 ...F.FkF.y.(....
+      0x00000774: 00e0 079d 0020 0590 0498 401c 0490 002c ..... ....@....,
+      0x00000784: b8d1 0498 8100 0898 fff7 6aff 069a 0100 ..........j.....
+      0x00000794: 0260 069a 0020 06e0 1378 521c 002b 02d1 .`... ...xR..+..
+      0x000007a4: 401c 8300 ca50 aa42 f6d3 0024 8200 8c50 @....P.B...$...P
+      0x000007b4: 09b0 049c a646 f0bc 01b0 7047 7047 0000 .....F....pGpG..
+      0x000007c4: 1eff 2fe1 1cb5 6a46 0400 03c2 1520 6946 ../...jF..... iF
+      0x000007d4: abdf 0028 03d0 0020 1cbc 08bc 1847 2000 ...(... .....G .
+      0x000007e4: fae7 0000 1040 2de9 44fe ffeb 0400 80e2 .....@-.D.......
+      0x000007f4: 1040 bde8 1eff 2fe1 421e 70b5 0e2a 20a4 .@..../.B.p..* .
+      0x00000804: 26d2 1722 1f4b 4243 7b44 d518 173d 0228 &..".KBC{D...=.(
+      0x00000814: 14d1 4801 01d5 1ca4 1be0 2048 0142 01d0 ..H....... H.B..
+      0x00000824: 1fa4 16e0 c800 01d5 21a4 12e0 8800 01d5 ........!.......
+      0x00000834: 22a4 0ee0 4800 0cd5 23a4 0ae0 0828 01d1 "...H...#....(..
+      0x00000844: 0c00 06e0 0928 04d1 0129 02d1 22a5 00e0 .....(...).."...
+      0x00000854: 27a5 0a20 00e0 6d1c 00f0 52f8 2878 0028 '.. ..m...R.(x.(
+      0x00000864: f9d1 02e0 641c 00f0 4bf8 2078 0028 f9d1 ....d...K. x.(..
+      0x00000874: 0a20 00f0 45f8 70bc 0120 08bc 1847 0000 . ..E.p.. ...G..
+      0x00000884: 0000 0000 b401 0000 496e 7661 6c69 6420 ........Invalid 
+      0x00000894: 4f70 6572 6174 696f 6e00 0000 0200 0008 Operation.......
+      0x000008a4: 4469 7669 6465 2042 7920 5a65 726f 0000 Divide By Zero..
+      0x000008b4: 4f76 6572 666c 6f77 0000 0000 556e 6465 Overflow....Unde
+      0x000008c4: 7266 6c6f 7700 0000 496e 6578 6163 7420 rflow...Inexact 
+      0x000008d4: 5265 7375 6c74 0000 3a20 4865 6170 206d Result..: Heap m
+      0x000008e4: 656d 6f72 7920 636f 7272 7570 7465 6400 emory corrupted.
+      0x000008f4: 556e 6b6e 6f77 6e20 7369 676e 616c 0000 Unknown signal..
+      0x00000904: 08b5 6946 0090 0320 abdf 01b0 08bc 1847 ..iF... .......G
+      0x00000914: 00c0 9fe5 1cff 2fe1 0585 0000 7847 c046 ....../.....xG.F
+      0x00000924: 0cfe ffea 0021 0160 7047 f7b5 1700 0e00 .....!.`pG......
+      0x00000934: 0125 1020 fff7 6cfc 0400 01d1 0025 07e0 .%. ..l......%..
+      0x00000944: 0098 211d c1c1 fff7 d9fb 816b 2160 8463 ..!........k!`.c
+      0x00000954: 2800 febc 08bc 1847 feb5 0600 fff7 cefb (......G........
+      0x00000964: 0500 3835 0195 0290 16e0 002e 04d0 e068 ..85...........h
+      0x00000974: b042 01d0 2500 0fe0 2068 2860 0298 876b .B..%... h(`...k
+      0x00000984: 201d 03c8 fff7 51fc 2000 fff7 73fc 0298  .....Q. ...s...
+      0x00000994: 806b b842 00d0 019d 2c68 002c e5d1 febc .k.B....,h.,....
+      0x000009a4: 08bc 1847 7847 c046 1040 2de9 8cff ffeb ...GxG.F.@-.....
+      0x000009b4: 0010 a0e3 0010 80e5 1040 bde8 1eff 2fe1 .........@..../.
+      0x000009c4: 4162 6e6f 726d 616c 2074 6572 6d69 6e61 Abnormal termina
+      0x000009d4: 7469 6f6e 0000 0041 7269 7468 6d65 7469 tion...Arithmeti
+      0x000009e4: 6320 6578 6365 7074 696f 6e3a 2000 496c c exception: .Il
+      0x000009f4: 6c65 6761 6c20 696e 7374 7275 6374 696f legal instructio
+      0x00000a04: 6e00 0000 0049 6e74 6572 7275 7074 2072 n....Interrupt r
+      0x00000a14: 6563 6569 7665 6400 0000 0000 496c 6c65 eceived.....Ille
+      0x00000a24: 6761 6c20 6164 6472 6573 7300 0000 0000 gal address.....
+      0x00000a34: 0000 0054 6572 6d69 6e61 7469 6f6e 2072 ...Termination r
+      0x00000a44: 6571 7565 7374 0000 0000 5374 6163 6b20 equest....Stack 
+      0x00000a54: 6f76 6572 666c 6f77 0000 0000 0000 0000 overflow........
+      0x00000a64: 0052 6564 6972 6563 743a 2063 616e 2774 .Redirect: can't
+      0x00000a74: 206f 7065 6e3a 2000 4f75 7420 6f66 2068  open: .Out of h
+      0x00000a84: 6561 7020 6d65 6d6f 7279 0000 0000 0055 eap memory.....U
+      0x00000a94: 7365 722d 6465 6669 6e65 6420 7369 676e ser-defined sign
+      0x00000aa4: 616c 2031 0000 5573 6572 2d64 6566 696e al 1..User-defin
+      0x00000ab4: 6564 2073 6967 6e61 6c20 3200 0050 7572 ed signal 2..Pur
+      0x00000ac4: 6520 7669 7274 7561 6c20 666e 2063 616c e virtual fn cal
+      0x00000ad4: 6c65 6400 432b 2b20 6c69 6272 6172 7920 led.C++ library 
+      0x00000ae4: 6578 6365 7074 696f 6e00 004f 7574 206f exception..Out o
+      0x00000af4: 6620 6865 6170 0000 0000 0000 0000 0000 f heap..........
+      0x00000b04: 0000 0000 ec8a 0000 ec8a 0000 6000 0000 ............`...
+      0x00000b14: 4080 0000 a1f5 ffff 
+    [ER_RW]
+        sh_name=ER_RW (0x7)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags=SHF_WRITE | SHF_ALLOC (0x3)
+        sh_addr=0x8ae8
+        sh_offset=0xb1c
+        sh_size=4
+        sh_link=0
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=0
+      0x00000b1c: 0000 0000 
+    [ER_ZI]
+        sh_name=ER_ZI (0xd)
+        sh_type=SHT_NOBITS (0x8)
+        sh_flags=SHF_WRITE | SHF_ALLOC (0x3)
+        sh_addr=0x8aec
+        sh_offset=0xb20
+        sh_size=96
+        sh_link=0
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=0
+      0x00000b20: 2800 0000 ffff ffff 0100 017c 0e0c 0d00 (..........|....
+      0x00000b30: 0700 0701 0702 0703 0804 0805 0806 0807 ................
+      0x00000b40: 0808 0809 080a 080b 070c 080e 0c00 0000 ................
+      0x00000b50: 0000 0000 4080 0000 2c00 0000 2800 0000 ....@...,...(...
+      0x00000b60: ffff ffff 0100 017c 0e0c 0d00 0700 0701 .......|........
+      0x00000b70: 0702 0703 0804 0805 0806 0807 0808 0809 ................
+
+    [.debug_frame]
+        sh_name=.debug_frame (0x13)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags= (0x0)
+        sh_addr=0x0
+        sh_offset=0xb20
+        sh_size=2164
+        sh_link=0
+        sh_info=0
+        sh_addralign=0
+        sh_entsize=0
+      0x00000b20: 2800 0000 ffff ffff 0100 017c 0e0c 0d00 (..........|....
+      0x00000b30: 0700 0701 0702 0703 0804 0805 0806 0807 ................
+      0x00000b40: 0808 0809 080a 080b 070c 080e 0c00 0000 ................
+      0x00000b50: 0000 0000 4080 0000 2c00 0000 2800 0000 ....@...,...(...
+      0x00000b60: ffff ffff 0100 017c 0e0c 0d00 0700 0701 .......|........
+      0x00000b70: 0702 0703 0804 0805 0806 0807 0808 0809 ................
+      0x00000b80: 080a 080b 070c 080e 0c00 0000 3c00 0000 ............<...
+      0x00000b90: 0880 0000 3000 0000 2800 0000 ffff ffff ....0...(.......
+      0x00000ba0: 0100 027c 0e0c 0d00 0700 0701 0702 0703 ...|............
+      0x00000bb0: 0804 0805 0806 0807 0808 0809 080a 080b ................
+      0x00000bc0: 070c 080e 2800 0000 ffff ffff 0100 027c ....(..........|
+      0x00000bd0: 0e0c 0d00 0700 0701 0802 0803 0804 0805 ................
+      0x00000be0: 0806 0807 0808 0809 080a 080b 080c 080e ................
+      0x00000bf0: 2800 0000 ffff ffff 0100 017c 0e0c 0d00 (..........|....
+      0x00000c00: 0700 0701 0702 0703 0804 0805 0806 0807 ................
+      0x00000c10: 0808 0809 080a 080b 070c 080e 2800 0000 ............(...
+      0x00000c20: ffff ffff 0100 027c 0e0c 0d00 0800 0801 .......|........
+      0x00000c30: 0802 0803 0804 0805 0806 0807 0808 0809 ................
+      0x00000c40: 080a 080b 080c 080e 2800 0000 ffff ffff ........(.......
+      0x00000c50: 0100 027c 0e0c 0d00 0700 0801 0802 0803 ...|............
+      0x00000c60: 0804 0805 0806 0807 0808 0809 080a 080b ................
+      0x00000c70: 080c 080e 2800 0000 ffff ffff 0100 027c ....(..........|
+      0x00000c80: 0e0c 0d00 0700 0701 0702 0703 0804 0805 ................
+      0x00000c90: 0806 0807 0808 0809 080a 080b 080c 080e ................
+      0x00000ca0: 0c00 0000 a400 0000 8080 0000 0400 0000 ................
+      0x00000cb0: 1c00 0000 7800 0000 8480 0000 1200 0000 ....x...........
+      0x00000cc0: 438e 0184 020e 0246 0ac4 0e00 0b00 0000 C......F........
+      0x00000cd0: 0c00 0000 d000 0000 0080 0000 0800 0000 ................
+      0x00000ce0: 2800 0000 7800 0000 a480 0000 2000 0000 (...x....... ...
+      0x00000cf0: 418e 0186 0285 0384 040e 044d 0ac4 c5c6 A..........M....
+      0x00000d00: 0e01 410e 0009 0e03 410b 0000 2c00 0000 ..A.....A...,...
+      0x00000d10: 7800 0000 fa88 0000 2e00 0000 418e 0187 x...........A...
+      0x00000d20: 0286 0385 0484 050e 0854 0ac4 c5c6 c70e .........T......
+      0x00000d30: 0141 0e00 090e 0341 0b00 0000 1400 0000 .A.....A........
+      0x00000d40: d000 0000 d080 0000 0800 0000 440a 0a44 ............D..D
+      0x00000d50: 0b0b 0000 1800 0000 d000 0000 dc80 0000 ................
+      0x00000d60: 4c00 0000 4c0e 0248 0e00 480e 0448 0e00 L...L..H..H..H..
+      0x00000d70: 1c00 0000 d000 0000 2881 0000 1400 0000 ........(.......
+      0x00000d80: 440e 018e 010e 024c 0e01 ce0e 0000 0000 D......L........
+      0x00000d90: 0c00 0000 d000 0000 3c81 0000 0800 0000 ........<.......
+      0x00000da0: 0c00 0000 fc00 0000 4481 0000 0200 0000 ........D.......
+      0x00000db0: 0c00 0000 fc00 0000 4681 0000 0200 0000 ........F.......
+      0x00000dc0: 3400 0000 7800 0000 4881 0000 2a00 0000 4...x...H...*...
+      0x00000dd0: 418e 0185 0284 030e 044d 0ac4 c50e 0142 A........M.....B
+      0x00000de0: 0e00 090e 0341 0b41 0ac4 c50e 0142 0e00 .....A.A.....B..
+      0x00000df0: 090e 0341 0b00 0000 2000 0000 7800 0000 ...A.... ...x...
+      0x00000e00: 7281 0000 1000 0000 428e 0184 020e 0244 r.......B......D
+      0x00000e10: 0ac4 0e01 410e 0009 0e03 410b 2c00 0000 ....A.....A.,...
+      0x00000e20: 7800 0000 8281 0000 5e00 0000 428e 0187 x.......^...B...
+      0x00000e30: 0286 0385 0484 050e 066b 0ac4 c5c6 c70e .........k......
+      0x00000e40: 0141 0e00 090e 0341 0b00 0000 2000 0000 .A.....A.... ...
+      0x00000e50: 7800 0000 e081 0000 1600 0000 418e 0184 x...........A...
+      0x00000e60: 020e 0248 0ac4 0e01 410e 0009 0e03 410b ...H....A.....A.
+      0x00000e70: 2c00 0000 7800 0000 2889 0000 4c00 0000 ,...x...(...L...
+      0x00000e80: 418e 0187 0286 0385 0484 050e 0863 0ac4 A............c..
+      0x00000e90: c5c6 c70e 0141 0e00 090e 0341 0b00 0000 .....A.....A....
+      0x00000ea0: 1400 0000 d000 0000 0c82 0000 1400 0000 ................
+      0x00000eb0: 4c0a 0a44 0b0b 0000 2c00 0000 d000 0000 L..D....,.......
+      0x00000ec0: 2882 0000 1c00 0000 440e 018e 010e 0284 (.......D.......
+      0x00000ed0: 0248 0a44 c40e 01ce 0e00 0a44 0b0b 0e02 .H.D.......D....
+      0x00000ee0: 44c4 0e01 ce0e 0000 2000 0000 7800 0000 D....... ...x...
+      0x00000ef0: 4482 0000 1c00 0000 438e 0184 020e 0248 D.......C......H
+      0x00000f00: 0ac4 0e01 410e 0009 0e03 410b 0c00 0000 ....A.....A.....
+      0x00000f10: fc00 0000 6082 0000 0200 0000 0c00 0000 ....`...........
+      0x00000f20: fc00 0000 6282 0000 0200 0000 0c00 0000 ....b...........
+      0x00000f30: a400 0000 6482 0000 0a00 0000 0c00 0000 ....d...........
+      0x00000f40: 2801 0000 6e82 0000 0400 0000 3800 0000 (...n.......8...
+      0x00000f50: 7800 0000 7282 0000 6a00 0000 418e 0186 x...r...j...A...
+      0x00000f60: 0285 0384 040e 0463 0ac4 c5c6 0e01 420e .......c......B.
+      0x00000f70: 0009 0e03 410b 4b0a c4c5 c60e 0142 0e00 ....A.K......B..
+      0x00000f80: 090e 0341 0b00 0000 0c00 0000 7800 0000 ...A........x...
+      0x00000f90: dc82 0000 0400 0000 2800 0000 7800 0000 ........(...x...
+      0x00000fa0: e082 0000 3600 0000 418e 0186 0285 0384 ....6...A.......
+      0x00000fb0: 040e 0458 0ac4 c5c6 0e01 410e 0009 0e03 ...X......A.....
+      0x00000fc0: 410b 0000 2000 0000 7800 0000 1683 0000 A... ...x.......
+      0x00000fd0: 1400 0000 418e 0184 020e 0247 0ac4 0e01 ....A......G....
+      0x00000fe0: 410e 0009 0e03 410b 2400 0000 d000 0000 A.....A.$.......
+      0x00000ff0: 3083 0000 1000 0000 440e 018e 010e 0284 0.......D.......
+      0x00001000: 0244 0a44 c40e 01ce 0e00 0a44 0b0b 0e02 .D.D.......D....
+      0x00001010: 3000 0000 d000 0000 4083 0000 9000 0000 0.......@.......
+      0x00001020: 600e 018e 010e 0284 025c c40e 01ce 0e00 `........\......
+      0x00001030: 5c0e 018e 010e 0284 020e 046c 0e02 c40e \..........l....
+      0x00001040: 01ce 0e00 3c00 0000 d000 0000 d083 0000 ....<...........
+      0x00001050: 7400 0000 440e 018e 010e 0284 0244 0e04 t...D........D..
+      0x00001060: 4c0e 0202 400a 44c4 0e01 ce0e 000a 480b L...@.D.......H.
+      0x00001070: 0b0e 024c 0a44 c40e 01ce 0e00 0a44 0b0b ...L.D.......D..
+      0x00001080: 0e02 0000 0c00 0000 d000 0000 7080 0000 ............p...
+      0x00001090: 1000 0000 3000 0000 7800 0000 4c84 0000 ....0...x...L...
+      0x000010a0: b800 0000 418e 0187 0286 0385 0484 050e ....A...........
+      0x000010b0: 0543 0e0a 0250 0e05 460a c4c5 c6c7 0e01 .C...P..F.......
+      0x000010c0: 410e 0041 0b0e 0a00 2000 0000 7800 0000 A..A.... ...x...
+      0x000010d0: 0485 0000 1600 0000 428e 0184 020e 0247 ........B......G
+      0x000010e0: 0ac4 0e01 410e 0009 0e03 410b 1400 0000 ....A.....A.....
+      0x000010f0: d000 0000 1c85 0000 0400 0000 0a0a 440b ..............D.
+      0x00001100: 0b00 0000 1400 0000 d000 0000 2085 0000 ............ ...
+      0x00001110: 0c00 0000 480a 0a44 0b0b 0000 2400 0000 ....H..D....$...
+      0x00001120: d000 0000 2c85 0000 1000 0000 440e 018e ....,.......D...
+      0x00001130: 010e 0284 0244 0a44 c40e 01ce 0e00 0a44 .....D.D.......D
+      0x00001140: 0b0b 0e02 1400 0000 d000 0000 3c85 0000 ............<...
+      0x00001150: 0400 0000 0a0a 440b 0b00 0000 2400 0000 ......D.....$...
+      0x00001160: d000 0000 4085 0000 5000 0000 480e 018e ....@...P...H...
+      0x00001170: 0144 0e06 680e 010a 48ce 0e00 0a4c 0b0b .D..h...H....L..
+      0x00001180: 0e01 0000 1400 0000 d000 0000 9085 0000 ................
+      0x00001190: 0400 0000 0a0a 440b 0b00 0000 2000 0000 ......D..... ...
+      0x000011a0: 5401 0000 9485 0000 4000 0000 4284 010e T.......@...B...
+      0x000011b0: 015a 0ac4 0e00 410b 420a c40e 0041 0b00 .Z....A.B....A..
+      0x000011c0: 0c00 0000 7800 0000 d485 0000 0400 0000 ....x...........
+      0x000011d0: 2000 0000 7800 0000 d885 0000 1a00 0000  ...x...........
+      0x000011e0: 428e 0184 020e 0249 0ac4 0e01 410e 0009 B......I....A...
+      0x000011f0: 0e03 410b 2800 0000 7800 0000 fc85 0000 ..A.(...x.......
+      0x00001200: 3400 0000 418e 0186 0285 0384 040e 044f 4...A..........O
+      0x00001210: 0ac4 c5c6 0e01 410e 0009 0e03 410b 0000 ......A.....A...
+      0x00001220: 2c00 0000 7800 0000 3086 0000 4800 0000 ,...x...0...H...
+      0x00001230: 438e 0187 0286 0385 0484 050e 065f 0ac4 C............_..
+      0x00001240: c5c6 c70e 0141 0e00 090e 0341 0b00 0000 .....A.....A....
+      0x00001250: 4400 0000 7800 0000 7886 0000 1401 0000 D...x...x.......
+      0x00001260: 438e 0187 0286 0385 0484 050e 0641 0e0e C............A..
+      0x00001270: 590e 0543 0ac4 c5c6 c70e 0141 0e00 410b Y..C.......A..A.
+      0x00001280: 0e0e 0263 0e05 430a c4c5 c6c7 0e01 410e ...c..C.......A.
+      0x00001290: 0041 0b0e 0e00 0000 0c00 0000 fc00 0000 .A..............
+      0x000012a0: 8c87 0000 0200 0000 1400 0000 d000 0000 ................
+      0x000012b0: 9087 0000 0400 0000 0a0a 440b 0b00 0000 ..........D.....
+      0x000012c0: 2400 0000 d000 0000 7889 0000 1800 0000 $.......x.......
+      0x000012d0: 440e 018e 010e 0284 024c 0a44 c40e 01ce D........L.D....
+      0x000012e0: 0e00 0a44 0b0b 0e02 2000 0000 7800 0000 ...D.... ...x...
+      0x000012f0: 9487 0000 1e00 0000 418e 0184 020e 044a ........A......J
+      0x00001300: 0ac4 0e01 410e 0009 0e03 410b 2400 0000 ....A.....A.$...
+      0x00001310: d000 0000 b487 0000 1400 0000 440e 018e ............D...
+      0x00001320: 010e 0284 0248 0a44 c40e 01ce 0e00 0a44 .....H.D.......D
+      0x00001330: 0b0b 0e02 2800 0000 7800 0000 c887 0000 ....(...x.......
+      0x00001340: 8600 0000 428e 0186 0285 0384 040e 047e ....B..........~
+      0x00001350: 0ac4 c5c6 0e01 420e 0009 0e03 410b 0000 ......B.....A...
+      0x00001360: 2000 0000 7800 0000 d088 0000 1000 0000  ...x...........
+      0x00001370: 418e 010e 0245 0e01 410e 000a 090e 0341 A....E..A......A
+      0x00001380: 0b0e 0200 0c00 0000 7800 0000 f488 0000 ........x.......
+      0x00001390: 0600 0000 
+    [.symtab]
+        sh_name=.symtab (0x20)
+        sh_type=SHT_SYMTAB (0x2)
+        sh_flags= (0x0)
+        sh_addr=0x0
+        sh_offset=0x1394
+        sh_size=5360
+        sh_link=6
+        sh_info=241
+        sh_addralign=4
+        sh_entsize=16
+      []
+          st_name= (0x0)
+          st_value=0x0
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=0
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$m]
+          st_name=$m (0x1)
+          st_value=0x8d
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$a]
+          st_name=$a (0x4)
+          st_value=0x8000
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$a]
+          st_name=$a (0x4)
+          st_value=0x8008
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$d]
+          st_name=$d (0x7)
+          st_value=0x8038
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$a]
+          st_name=$a (0x4)
+          st_value=0x8040
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$t]
+          st_name=$t (0xa)
+          st_value=0x806c
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$a]
+          st_name=$a (0x4)
+          st_value=0x8070
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$d]
+          st_name=$d (0x7)
+          st_value=0x807c
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$f]
+          st_name=$f (0xd)
+          st_value=0x807c
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$t]
+          st_name=$t (0xa)
+          st_value=0x8080
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x8090
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$d]
+          st_name=$d (0x7)
+          st_value=0x8096
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$f]
+          st_name=$f (0xd)
+          st_value=0x80a0
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$t]
+          st_name=$t (0xa)
+          st_value=0x80a4
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x80b4
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$d]
+          st_name=$d (0x7)
+          st_value=0x80c4
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$t]
+          st_name=$t (0xa)
+          st_value=0x80cc
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$a]
+          st_name=$a (0x4)
+          st_value=0x80d0
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$d]
+          st_name=$d (0x7)
+          st_value=0x80d8
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$a]
+          st_name=$a (0x4)
+          st_value=0x80dc
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x8120
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$t]
+          st_name=$t (0xa)
+          st_value=0x8120
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$d]
+          st_name=$d (0x7)
+          st_value=0x8124
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$f]
+          st_name=$f (0xd)
+          st_value=0x8124
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$a]
+          st_name=$a (0x4)
+          st_value=0x8128
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$t]
+          st_name=$t (0xa)
+          st_value=0x8144
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x8150
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x815e
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x8178
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x818c
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x819c
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x81a8
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x81b6
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x81c8
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x81d6
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x81e4
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x81ec
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$t]
+          st_name=$t (0xa)
+          st_value=0x81f8
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$t]
+          st_name=$t (0xa)
+          st_value=0x8208
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$a]
+          st_name=$a (0x4)
+          st_value=0x820c
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$d]
+          st_name=$d (0x7)
+          st_value=0x821c
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$f]
+          st_name=$f (0xd)
+          st_value=0x821c
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$t]
+          st_name=$t (0xa)
+          st_value=0x8224
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$a]
+          st_name=$a (0x4)
+          st_value=0x8228
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$t]
+          st_name=$t (0xa)
+          st_value=0x8244
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x824c
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x8254
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$t]
+          st_name=$t (0xa)
+          st_value=0x8260
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$t]
+          st_name=$t (0xa)
+          st_value=0x8264
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x82cc
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x82dc
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$t]
+          st_name=$t (0xa)
+          st_value=0x82e0
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x830c
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$t]
+          st_name=$t (0xa)
+          st_value=0x8316
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x831a
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x8320
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$t]
+          st_name=$t (0xa)
+          st_value=0x832c
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$a]
+          st_name=$a (0x4)
+          st_value=0x8330
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$a]
+          st_name=$a (0x4)
+          st_value=0x8340
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$a]
+          st_name=$a (0x4)
+          st_value=0x8444
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$t]
+          st_name=$t (0xa)
+          st_value=0x844c
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x8454
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x845e
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x8466
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x8476
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x847a
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x847e
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x8486
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x848c
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x8498
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x84a6
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x84b4
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x84c2
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x84cc
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x84d0
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x84d4
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x84d8
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x84dc
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x84e0
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x84e4
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x84e8
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x84ec
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x8508
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x850c
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x8510
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$a]
+          st_name=$a (0x4)
+          st_value=0x851c
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$a]
+          st_name=$a (0x4)
+          st_value=0x8520
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$a]
+          st_name=$a (0x4)
+          st_value=0x852c
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$a]
+          st_name=$a (0x4)
+          st_value=0x853c
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$a]
+          st_name=$a (0x4)
+          st_value=0x8540
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$d]
+          st_name=$d (0x7)
+          st_value=0x8588
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$f]
+          st_name=$f (0xd)
+          st_value=0x8588
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$a]
+          st_name=$a (0x4)
+          st_value=0x8590
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$t]
+          st_name=$t (0xa)
+          st_value=0x8594
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x85d4
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$t]
+          st_name=$t (0xa)
+          st_value=0x85d8
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x85de
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x85e2
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x85e8
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$a]
+          st_name=$a (0x4)
+          st_value=0x85f4
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$t]
+          st_name=$t (0xa)
+          st_value=0x85fc
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x8608
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x8616
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x8628
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$t]
+          st_name=$t (0xa)
+          st_value=0x8630
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x864c
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x8658
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x8690
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x8698
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x8732
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x8758
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$a]
+          st_name=$a (0x4)
+          st_value=0x8790
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$t]
+          st_name=$t (0xa)
+          st_value=0x8794
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$a]
+          st_name=$a (0x4)
+          st_value=0x87b4
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$t]
+          st_name=$t (0xa)
+          st_value=0x87c8
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x8828
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x8836
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x8842
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$d]
+          st_name=$d (0x7)
+          st_value=0x884e
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$t]
+          st_name=$t (0xa)
+          st_value=0x88d0
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$a]
+          st_name=$a (0x4)
+          st_value=0x88e0
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$d]
+          st_name=$d (0x7)
+          st_value=0x88e8
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$f]
+          st_name=$f (0xd)
+          st_value=0x88e8
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$t]
+          st_name=$t (0xa)
+          st_value=0x88ec
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$a]
+          st_name=$a (0x4)
+          st_value=0x88f0
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$t]
+          st_name=$t (0xa)
+          st_value=0x88f4
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$t]
+          st_name=$t (0xa)
+          st_value=0x88fa
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x8904
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x8916
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$t]
+          st_name=$t (0xa)
+          st_value=0x8928
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x892c
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x8954
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$b]
+          st_name=$b (0x10)
+          st_value=0x895a
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$t]
+          st_name=$t (0xa)
+          st_value=0x8974
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$a]
+          st_name=$a (0x4)
+          st_value=0x8978
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$d.realdata]
+          st_name=$d.realdata (0x13)
+          st_value=0x8990
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$d.realdata]
+          st_name=$d.realdata (0x13)
+          st_value=0x8ad4
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$d.realdata]
+          st_name=$d.realdata (0x13)
+          st_value=0x8ae4
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$f]
+          st_name=$f (0xd)
+          st_value=0x8ae4
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$d.realdata]
+          st_name=$d.realdata (0x13)
+          st_value=0x8ae8
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=2
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [$d.realdata]
+          st_name=$d.realdata (0x13)
+          st_value=0x8aec
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=3
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [staticcpp.cpp]
+          st_name=staticcpp.cpp (0x1f)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [.data]
+          st_name=.data (0x2d)
+          st_value=0x8ae8
+          st_size=4
+          st_info=3
+          st_other=0
+          st_shndx=2
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [.text]
+          st_name=.text (0x33)
+          st_value=0x8080
+          st_size=36
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [i._ZN3clAD1Ev]
+          st_name=i._ZN3clAD1Ev (0x39)
+          st_value=0x88f4
+          st_size=6
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [.init_array]
+          st_name=.init_array (0x47)
+          st_value=0x8ae4
+          st_size=4
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [__sti___13_staticcpp_cpp]
+          st_name=__sti___13_staticcpp_cpp (0x53)
+          st_value=0x8085
+          st_size=18
+          st_info=2
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_FUNC
+      [.data$0]
+          st_name=.data$0 (0x6c)
+          st_value=0x8ae8
+          st_size=0
+          st_info=1
+          st_other=0
+          st_shndx=2
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [cla]
+          st_name=cla (0x74)
+          st_value=0x8ae8
+          st_size=4
+          st_info=1
+          st_other=0
+          st_shndx=2
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [dc.s]
+          st_name=dc.s (0x78)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [../../angel/startup.s]
+          st_name=../../angel/startup.s (0x7d)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [!!!main]
+          st_name=!!!main (0x93)
+          st_value=0x8000
+          st_size=8
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [../../arm_runtime.c]
+          st_name=../../arm_runtime.c (0x9b)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [../../arm_runtime.c]
+          st_name=../../arm_runtime.c (0x9b)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [.text]
+          st_name=.text (0x33)
+          st_value=0x80a4
+          st_size=40
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [../../../edgfe/lib_src/dtor_list.c]
+          st_name=../../../edgfe/lib_src/dtor_list.c (0xaf)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [i.__aeabi_atexit]
+          st_name=i.__aeabi_atexit (0xd2)
+          st_value=0x88fa
+          st_size=46
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [../../dso_handle.s]
+          st_name=../../dso_handle.s (0xe3)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [../../angel/sys.s]
+          st_name=../../angel/sys.s (0xf6)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [.bss]
+          st_name=.bss (0x108)
+          st_value=0x8aec
+          st_size=96
+          st_info=3
+          st_other=0
+          st_shndx=3
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [.text]
+          st_name=.text (0x33)
+          st_value=0x80d0
+          st_size=12
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [__libspace_start]
+          st_name=__libspace_start (0x10d)
+          st_value=0x8aec
+          st_size=96
+          st_info=1
+          st_other=0
+          st_shndx=3
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [../../angel/kernel.s]
+          st_name=../../angel/kernel.s (0x11e)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [.text]
+          st_name=.text (0x33)
+          st_value=0x80dc
+          st_size=104
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [mainaddruse]
+          st_name=mainaddruse (0x133)
+          st_value=0x8104
+          st_size=4
+          st_info=2
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_FUNC
+      [thumbmainreturn]
+          st_name=thumbmainreturn (0x13f)
+          st_value=0x8121
+          st_size=0
+          st_info=2
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_FUNC
+      [mainaddr]
+          st_name=mainaddr (0x14f)
+          st_value=0x8124
+          st_size=4
+          st_info=1
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [__rt_abort1]
+          st_name=__rt_abort1 (0x158)
+          st_value=0x8140
+          st_size=0
+          st_info=2
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_FUNC
+      [../../heapalloc.c]
+          st_name=../../heapalloc.c (0x164)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [.text]
+          st_name=.text (0x33)
+          st_value=0x8144
+          st_size=178
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [../../../edgfe/lib_src/dtor_list.c]
+          st_name=../../../edgfe/lib_src/dtor_list.c (0xaf)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [i.__cxa_finalize]
+          st_name=i.__cxa_finalize (0x176)
+          st_value=0x8928
+          st_size=76
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [../../unhosted.s]
+          st_name=../../unhosted.s (0x187)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [.text]
+          st_name=.text (0x33)
+          st_value=0x81f8
+          st_size=16
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [../../angel/sys.s]
+          st_name=../../angel/sys.s (0xf6)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [.text]
+          st_name=.text (0x33)
+          st_value=0x820c
+          st_size=24
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [../../angel/rt.s]
+          st_name=../../angel/rt.s (0x198)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [.text]
+          st_name=.text (0x33)
+          st_value=0x8228
+          st_size=28
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [../../heapalloc.c]
+          st_name=../../heapalloc.c (0x164)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [.text]
+          st_name=.text (0x33)
+          st_value=0x8244
+          st_size=28
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [../../heapalloc.c]
+          st_name=../../heapalloc.c (0x164)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [.text]
+          st_name=.text (0x33)
+          st_value=0x8260
+          st_size=4
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [../../heap1.c]
+          st_name=../../heap1.c (0x1a9)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [.text]
+          st_name=.text (0x33)
+          st_value=0x8264
+          st_size=124
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [../../heap1.c]
+          st_name=../../heap1.c (0x1a9)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [.text]
+          st_name=.text (0x33)
+          st_value=0x82e0
+          st_size=54
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [../../stdlib.c]
+          st_name=../../stdlib.c (0x1b7)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [.text]
+          st_name=.text (0x33)
+          st_value=0x8316
+          st_size=20
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [../../stkheap.s]
+          st_name=../../stkheap.s (0x1c6)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [.text]
+          st_name=.text (0x33)
+          st_value=0x8330
+          st_size=16
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [../../stkheap1.s]
+          st_name=../../stkheap1.s (0x1d6)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [.text]
+          st_name=.text (0x33)
+          st_value=0x8340
+          st_size=260
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [_heap_overflow]
+          st_name=_heap_overflow (0x1e7)
+          st_value=0x8430
+          st_size=0
+          st_info=2
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_FUNC
+      [../../armsys.c]
+          st_name=../../armsys.c (0x1f6)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [.emb_text]
+          st_name=.emb_text (0x205)
+          st_value=0x8070
+          st_size=16
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [argv]
+          st_name=argv (0x20f)
+          st_value=0x807c
+          st_size=0
+          st_info=1
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [../../armsys.c]
+          st_name=../../armsys.c (0x1f6)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [.text]
+          st_name=.text (0x33)
+          st_value=0x844c
+          st_size=206
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [../../angel/boardlib.s]
+          st_name=../../angel/boardlib.s (0x214)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [.text]
+          st_name=.text (0x33)
+          st_value=0x851c
+          st_size=4
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [../../angel/boardlib.s]
+          st_name=../../angel/boardlib.s (0x214)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [.text]
+          st_name=.text (0x33)
+          st_value=0x8520
+          st_size=12
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [../../angel/boardlib.s]
+          st_name=../../angel/boardlib.s (0x214)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [.text]
+          st_name=.text (0x33)
+          st_value=0x852c
+          st_size=16
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [../../angel/boardlib.s]
+          st_name=../../angel/boardlib.s (0x214)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [.text]
+          st_name=.text (0x33)
+          st_value=0x853c
+          st_size=4
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [../../angel/sys.s]
+          st_name=../../angel/sys.s (0xf6)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [.text]
+          st_name=.text (0x33)
+          st_value=0x8540
+          st_size=80
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [../../angel/sys.s]
+          st_name=../../angel/sys.s (0xf6)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [.text]
+          st_name=.text (0x33)
+          st_value=0x8590
+          st_size=4
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [../../heap1.c]
+          st_name=../../heap1.c (0x1a9)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [.text]
+          st_name=.text (0x33)
+          st_value=0x8594
+          st_size=68
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [../../stdlib.c]
+          st_name=../../stdlib.c (0x1b7)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [.text]
+          st_name=.text (0x33)
+          st_value=0x85d8
+          st_size=26
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [../../signal.c]
+          st_name=../../signal.c (0x22b)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [.text]
+          st_name=.text (0x33)
+          st_value=0x85fc
+          st_size=52
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [../../armsys.c]
+          st_name=../../armsys.c (0x1f6)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [.text]
+          st_name=.text (0x33)
+          st_value=0x8630
+          st_size=350
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [__argv_alloc]
+          st_name=__argv_alloc (0x23a)
+          st_value=0x8631
+          st_size=72
+          st_info=2
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_FUNC
+      [../../angel/boardlib.s]
+          st_name=../../angel/boardlib.s (0x214)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [.text]
+          st_name=.text (0x33)
+          st_value=0x8790
+          st_size=4
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [../../fpinit.s]
+          st_name=../../fpinit.s (0x247)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [x$fpl$fpinit]
+          st_name=x$fpl$fpinit (0x256)
+          st_value=0x8978
+          st_size=24
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [../../angel/sysapp.c]
+          st_name=../../angel/sysapp.c (0x263)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [.text]
+          st_name=.text (0x33)
+          st_value=0x8794
+          st_size=30
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [../../angel/rt.s]
+          st_name=../../angel/rt.s (0x198)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [.text]
+          st_name=.text (0x33)
+          st_value=0x87b4
+          st_size=20
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [../../signal.c]
+          st_name=../../signal.c (0x22b)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [.constdata]
+          st_name=.constdata (0x278)
+          st_value=0x8990
+          st_size=322
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [.text]
+          st_name=.text (0x33)
+          st_value=0x87c8
+          st_size=264
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [.constdata$1]
+          st_name=.constdata$1 (0x283)
+          st_value=0x8990
+          st_size=0
+          st_info=1
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [messages@__default_signal_handler_0]
+          st_name=messages@__default_signal_handler_0 (0x290)
+          st_value=0x8990
+          st_size=322
+          st_info=1
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [../../angel/sysapp.c]
+          st_name=../../angel/sysapp.c (0x263)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [.text]
+          st_name=.text (0x33)
+          st_value=0x88d0
+          st_size=16
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [../../angel/scatter.s]
+          st_name=../../angel/scatter.s (0x2b4)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [!!!scatter]
+          st_name=!!!scatter (0x2ca)
+          st_value=0x8008
+          st_size=56
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [_region_table]
+          st_name=_region_table (0x2d5)
+          st_value=0x8038
+          st_size=0
+          st_info=1
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [../../angel/handlers.s]
+          st_name=../../angel/handlers.s (0x2e3)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [!!handler_zi]
+          st_name=!!handler_zi (0x2fa)
+          st_value=0x8040
+          st_size=44
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [_zero_loop]
+          st_name=_zero_loop (0x307)
+          st_value=0x8050
+          st_size=0
+          st_info=2
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_FUNC
+      [BuildAttributes$$THUMB_ISAv1$ARM_ISAv4$M$PE$A:L22$X:L11$S22$IEEE1$~IW$USESV6$~STKCKD$USESV7$~SHL$OSPACE$EBA8$REQ8$PRES8$EABIv2]
+          st_name=BuildAttributes$$THUMB_ISAv1$ARM_ISAv4$M$PE$A:L22$X:L11$S22$IEEE1$~IW$USESV6$~STKCKD$USESV7$~SHL$OSPACE$EBA8$REQ8$PRES8$EABIv2 (0x312)
+          st_value=0x0
+          st_size=0
+          st_info=16
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_GLOBAL
+          st_type=STT_NOTYPE
+      [__main]
+          st_name=__main (0x391)
+          st_value=0x8000
+          st_size=8
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__scatterload]
+          st_name=__scatterload (0x398)
+          st_value=0x8008
+          st_size=0
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__scatterload_rt2]
+          st_name=__scatterload_rt2 (0x3a6)
+          st_value=0x8008
+          st_size=48
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__scatterload_null]
+          st_name=__scatterload_null (0x3b8)
+          st_value=0x801c
+          st_size=0
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__scatterload_zeroinit]
+          st_name=__scatterload_zeroinit (0x3cb)
+          st_value=0x8040
+          st_size=44
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [$Ven$TA$I$$__ARM_argv_veneer]
+          st_name=$Ven$TA$I$$__ARM_argv_veneer (0x3e2)
+          st_value=0x806d
+          st_size=0
+          st_info=18
+          st_other=0
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__ARM_argv_veneer]
+          st_name=__ARM_argv_veneer (0x3ff)
+          st_value=0x8070
+          st_size=16
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [main]
+          st_name=main (0x411)
+          st_value=0x8081
+          st_size=4
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__cpp_initialize__aeabi_]
+          st_name=__cpp_initialize__aeabi_ (0x416)
+          st_value=0x80a5
+          st_size=32
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [$Ven$TA$I$$__user_perproc_libspace]
+          st_name=$Ven$TA$I$$__user_perproc_libspace (0x42f)
+          st_value=0x80cd
+          st_size=0
+          st_info=34
+          st_other=0
+          st_shndx=1
+          st_bind=STB_WEAK
+          st_type=STT_FUNC
+      [__user_libspace]
+          st_name=__user_libspace (0x452)
+          st_value=0x80d0
+          st_size=8
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__user_perproc_libspace]
+          st_name=__user_perproc_libspace (0x462)
+          st_value=0x80d0
+          st_size=0
+          st_info=34
+          st_other=2
+          st_shndx=1
+          st_bind=STB_WEAK
+          st_type=STT_FUNC
+      [__user_perthread_libspace]
+          st_name=__user_perthread_libspace (0x47a)
+          st_value=0x80d0
+          st_size=0
+          st_info=34
+          st_other=2
+          st_shndx=1
+          st_bind=STB_WEAK
+          st_type=STT_FUNC
+      [__rt_entry]
+          st_name=__rt_entry (0x494)
+          st_value=0x80dc
+          st_size=76
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__rt_exit]
+          st_name=__rt_exit (0x49f)
+          st_value=0x8128
+          st_size=20
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__rt_abort]
+          st_name=__rt_abort (0x4a9)
+          st_value=0x813c
+          st_size=8
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_terminate_user_alloc]
+          st_name=_terminate_user_alloc (0x4b4)
+          st_value=0x8145
+          st_size=2
+          st_info=18
+          st_other=0
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_init_user_alloc]
+          st_name=_init_user_alloc (0x4ca)
+          st_value=0x8147
+          st_size=2
+          st_info=18
+          st_other=0
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__Heap_Full]
+          st_name=__Heap_Full (0x4db)
+          st_value=0x8149
+          st_size=42
+          st_info=18
+          st_other=0
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__Heap_Broken]
+          st_name=__Heap_Broken (0x4e7)
+          st_value=0x8173
+          st_size=16
+          st_info=18
+          st_other=0
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_init_alloc]
+          st_name=_init_alloc (0x4f5)
+          st_value=0x8183
+          st_size=94
+          st_info=18
+          st_other=0
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [malloc]
+          st_name=malloc (0x501)
+          st_value=0x81e1
+          st_size=22
+          st_info=18
+          st_other=0
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__ARM_call_via_r0]
+          st_name=__ARM_call_via_r0 (0x508)
+          st_value=0x81f9
+          st_size=2
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__call_via_r0]
+          st_name=__call_via_r0 (0x51a)
+          st_value=0x81f9
+          st_size=0
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__ARM_call_via_r1]
+          st_name=__ARM_call_via_r1 (0x528)
+          st_value=0x81fb
+          st_size=2
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__call_via_r1]
+          st_name=__call_via_r1 (0x53a)
+          st_value=0x81fb
+          st_size=0
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__ARM_call_via_r2]
+          st_name=__ARM_call_via_r2 (0x548)
+          st_value=0x81fd
+          st_size=2
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__call_via_r2]
+          st_name=__call_via_r2 (0x55a)
+          st_value=0x81fd
+          st_size=0
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__ARM_call_via_r3]
+          st_name=__ARM_call_via_r3 (0x568)
+          st_value=0x81ff
+          st_size=2
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__call_via_r3]
+          st_name=__call_via_r3 (0x57a)
+          st_value=0x81ff
+          st_size=0
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__ARM_call_via_r4]
+          st_name=__ARM_call_via_r4 (0x588)
+          st_value=0x8201
+          st_size=2
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__call_via_r4]
+          st_name=__call_via_r4 (0x59a)
+          st_value=0x8201
+          st_size=0
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__ARM_call_via_r5]
+          st_name=__ARM_call_via_r5 (0x5a8)
+          st_value=0x8203
+          st_size=2
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__call_via_r5]
+          st_name=__call_via_r5 (0x5ba)
+          st_value=0x8203
+          st_size=0
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__ARM_call_via_r6]
+          st_name=__ARM_call_via_r6 (0x5c8)
+          st_value=0x8205
+          st_size=2
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__call_via_r6]
+          st_name=__call_via_r6 (0x5da)
+          st_value=0x8205
+          st_size=0
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__ARM_call_via_r7]
+          st_name=__ARM_call_via_r7 (0x5e8)
+          st_value=0x8207
+          st_size=2
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__call_via_r7]
+          st_name=__call_via_r7 (0x5fa)
+          st_value=0x8207
+          st_size=0
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [$Ven$TA$I$$_sys_exit]
+          st_name=$Ven$TA$I$$_sys_exit (0x608)
+          st_value=0x8209
+          st_size=0
+          st_info=18
+          st_other=0
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_sys_exit]
+          st_name=_sys_exit (0x61d)
+          st_value=0x820c
+          st_size=20
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [$Ven$TA$I$$__rt_raise]
+          st_name=$Ven$TA$I$$__rt_raise (0x627)
+          st_value=0x8225
+          st_size=0
+          st_info=18
+          st_other=0
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__rt_raise]
+          st_name=__rt_raise (0x63d)
+          st_value=0x8228
+          st_size=28
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [free]
+          st_name=free (0x648)
+          st_value=0x8245
+          st_size=28
+          st_info=18
+          st_other=0
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__heap_guard]
+          st_name=__heap_guard (0x64d)
+          st_value=0x8261
+          st_size=2
+          st_info=18
+          st_other=0
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__I_use_heap]
+          st_name=__I_use_heap (0x65a)
+          st_value=0x8263
+          st_size=2
+          st_info=18
+          st_other=0
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__Heap_Initialize]
+          st_name=__Heap_Initialize (0x667)
+          st_value=0x8265
+          st_size=10
+          st_info=18
+          st_other=0
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__Heap_DescSize]
+          st_name=__Heap_DescSize (0x679)
+          st_value=0x826f
+          st_size=4
+          st_info=18
+          st_other=0
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__Heap_Alloc]
+          st_name=__Heap_Alloc (0x689)
+          st_value=0x8273
+          st_size=106
+          st_info=18
+          st_other=0
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__Heap_Alloc_Internal]
+          st_name=__Heap_Alloc_Internal (0x696)
+          st_value=0x82dd
+          st_size=4
+          st_info=18
+          st_other=0
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__Heap_ProvideMemory]
+          st_name=__Heap_ProvideMemory (0x6ac)
+          st_value=0x82e1
+          st_size=54
+          st_info=18
+          st_other=0
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [exit]
+          st_name=exit (0x6c1)
+          st_value=0x8317
+          st_size=20
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [$Ven$TA$I$$__heap_extend]
+          st_name=$Ven$TA$I$$__heap_extend (0x6c6)
+          st_value=0x832d
+          st_size=0
+          st_info=18
+          st_other=0
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__heap_extend]
+          st_name=__heap_extend (0x6df)
+          st_value=0x8330
+          st_size=16
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__rt_stackheap_init]
+          st_name=__rt_stackheap_init (0x6ed)
+          st_value=0x8340
+          st_size=144
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__rt_heap_extend]
+          st_name=__rt_heap_extend (0x701)
+          st_value=0x83d0
+          st_size=116
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [$Ven$AT$I$$__rt_lib_init]
+          st_name=$Ven$AT$I$$__rt_lib_init (0x712)
+          st_value=0x8444
+          st_size=0
+          st_info=18
+          st_other=0
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__rt_lib_init]
+          st_name=__rt_lib_init (0x72b)
+          st_value=0x844d
+          st_size=184
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__rt_lib_shutdown]
+          st_name=__rt_lib_shutdown (0x739)
+          st_value=0x8505
+          st_size=22
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_platform_pre_stackheap_init]
+          st_name=_platform_pre_stackheap_init (0x74b)
+          st_value=0x851c
+          st_size=4
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_platform_post_stackheap_init]
+          st_name=_platform_post_stackheap_init (0x768)
+          st_value=0x8520
+          st_size=12
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_platform_post_lib_init]
+          st_name=_platform_post_lib_init (0x786)
+          st_value=0x852c
+          st_size=16
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_platform_pre_lib_shutdown]
+          st_name=_platform_pre_lib_shutdown (0x79e)
+          st_value=0x853c
+          st_size=4
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__user_initial_stackheap]
+          st_name=__user_initial_stackheap (0x7b9)
+          st_value=0x8540
+          st_size=80
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_RW_Limit]
+          st_name=_RW_Limit (0x7d2)
+          st_value=0x858c
+          st_size=0
+          st_info=17
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_OBJECT
+      [__I_use_semihosting_swi]
+          st_name=__I_use_semihosting_swi (0x7dc)
+          st_value=0x8590
+          st_size=4
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__semihosting_swi_guard]
+          st_name=__semihosting_swi_guard (0x7f4)
+          st_value=0x8590
+          st_size=0
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__Heap_Free]
+          st_name=__Heap_Free (0x80c)
+          st_value=0x8595
+          st_size=64
+          st_info=18
+          st_other=0
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__Heap_Free_Internal]
+          st_name=__Heap_Free_Internal (0x818)
+          st_value=0x85d5
+          st_size=4
+          st_info=18
+          st_other=0
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [abort]
+          st_name=abort (0x82d)
+          st_value=0x85d9
+          st_size=26
+          st_info=18
+          st_other=0
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [$Ven$AT$I$$__raise]
+          st_name=$Ven$AT$I$$__raise (0x833)
+          st_value=0x85f4
+          st_size=0
+          st_info=18
+          st_other=0
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__raise]
+          st_name=__raise (0x846)
+          st_value=0x85fd
+          st_size=52
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__ARM_get_argv]
+          st_name=__ARM_get_argv (0x84e)
+          st_value=0x8679
+          st_size=276
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__I_use_heap_region]
+          st_name=__I_use_heap_region (0x85d)
+          st_value=0x878d
+          st_size=2
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_cpu_pre_main]
+          st_name=_cpu_pre_main (0x871)
+          st_value=0x8790
+          st_size=4
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_sys_command_string]
+          st_name=_sys_command_string (0x87f)
+          st_value=0x8795
+          st_size=30
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__rt_fp_status_addr]
+          st_name=__rt_fp_status_addr (0x893)
+          st_value=0x87b4
+          st_size=20
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__default_signal_handler]
+          st_name=__default_signal_handler (0x8a7)
+          st_value=0x87c9
+          st_size=134
+          st_info=18
+          st_other=0
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_ttywrch]
+          st_name=_ttywrch (0x8c0)
+          st_value=0x88d1
+          st_size=16
+          st_info=18
+          st_other=0
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [$Ven$AT$L$$__rt_lib_shutdown]
+          st_name=$Ven$AT$L$$__rt_lib_shutdown (0x8c9)
+          st_value=0x88e0
+          st_size=0
+          st_info=18
+          st_other=0
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [$Ven$TA$S$$__rt_exit]
+          st_name=$Ven$TA$S$$__rt_exit (0x8e6)
+          st_value=0x88ed
+          st_size=0
+          st_info=18
+          st_other=0
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_ZN3clAD1Ev]
+          st_name=_ZN3clAD1Ev (0x8fb)
+          st_value=0x88f5
+          st_size=6
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_ZN3clAD2Ev]
+          st_name=_ZN3clAD2Ev (0x907)
+          st_value=0x88f5
+          st_size=0
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__aeabi_atexit]
+          st_name=__aeabi_atexit (0x913)
+          st_value=0x88fb
+          st_size=46
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__cxa_finalize]
+          st_name=__cxa_finalize (0x922)
+          st_value=0x8929
+          st_size=76
+          st_info=18
+          st_other=0
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [$Ven$TA$I$$_fp_init]
+          st_name=$Ven$TA$I$$_fp_init (0x931)
+          st_value=0x8975
+          st_size=0
+          st_info=18
+          st_other=0
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_fp_init]
+          st_name=_fp_init (0x945)
+          st_value=0x8978
+          st_size=24
+          st_info=18
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__fplib_config_pureend_doubles]
+          st_name=__fplib_config_pureend_doubles (0x94e)
+          st_value=0x8988
+          st_size=0
+          st_info=18
+          st_other=0
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [Region$$Table$$Base]
+          st_name=Region$$Table$$Base (0x96d)
+          st_value=0x8ad4
+          st_size=0
+          st_info=16
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_NOTYPE
+      [Region$$Table$$Limit]
+          st_name=Region$$Table$$Limit (0x981)
+          st_value=0x8ae4
+          st_size=0
+          st_info=17
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_OBJECT
+      [SHT$$INIT_ARRAY$$Base]
+          st_name=SHT$$INIT_ARRAY$$Base (0x996)
+          st_value=0x8ae4
+          st_size=0
+          st_info=16
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_NOTYPE
+      [__dso_handle]
+          st_name=__dso_handle (0x9ac)
+          st_value=0x8ae4
+          st_size=0
+          st_info=19
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_SECTION
+      [SHT$$INIT_ARRAY$$Limit]
+          st_name=SHT$$INIT_ARRAY$$Limit (0x9b9)
+          st_value=0x8ae8
+          st_size=0
+          st_info=17
+          st_other=2
+          st_shndx=1
+          st_bind=STB_GLOBAL
+          st_type=STT_OBJECT
+      [Image$$ZI$$Limit]
+          st_name=Image$$ZI$$Limit (0x9d0)
+          st_value=0x8b4c
+          st_size=0
+          st_info=16
+          st_other=2
+          st_shndx=65521
+          st_bind=STB_GLOBAL
+          st_type=STT_NOTYPE
+    [.strtab]
+        sh_name=.strtab (0x28)
+        sh_type=SHT_STRTAB (0x3)
+        sh_flags= (0x0)
+        sh_addr=0x0
+        sh_offset=0x2884
+        sh_size=2532
+        sh_link=0
+        sh_info=0
+        sh_addralign=0
+        sh_entsize=0
+      0x00002884: 0024 6d00 2461 0024 6400 2474 0024 6600 .$m.$a.$d.$t.$f.
+      0x00002894: 2462 0024 642e 7265 616c 6461 7461 0073 $b.$d.realdata.s
+      0x000028a4: 7461 7469 6363 7070 2e63 7070 002e 6461 taticcpp.cpp..da
+      0x000028b4: 7461 002e 7465 7874 0069 2e5f 5a4e 3363 ta..text.i._ZN3c
+      0x000028c4: 6c41 4431 4576 002e 696e 6974 5f61 7272 lAD1Ev..init_arr
+      0x000028d4: 6179 005f 5f73 7469 5f5f 5f31 335f 7374 ay.__sti___13_st
+      0x000028e4: 6174 6963 6370 705f 6370 7000 2e64 6174 aticcpp_cpp..dat
+      0x000028f4: 6124 3000 636c 6100 6463 2e73 002e 2e2f a$0.cla.dc.s.../
+      0x00002904: 2e2e 2f61 6e67 656c 2f73 7461 7274 7570 ../angel/startup
+      0x00002914: 2e73 0021 2121 6d61 696e 002e 2e2f 2e2e .s.!!!main.../..
+      0x00002924: 2f61 726d 5f72 756e 7469 6d65 2e63 002e /arm_runtime.c..
+      0x00002934: 2e2f 2e2e 2f2e 2e2f 6564 6766 652f 6c69 ./../../edgfe/li
+      0x00002944: 625f 7372 632f 6474 6f72 5f6c 6973 742e b_src/dtor_list.
+      0x00002954: 6300 692e 5f5f 6165 6162 695f 6174 6578 c.i.__aeabi_atex
+      0x00002964: 6974 002e 2e2f 2e2e 2f64 736f 5f68 616e it.../../dso_han
+      0x00002974: 646c 652e 7300 2e2e 2f2e 2e2f 616e 6765 dle.s.../../ange
+      0x00002984: 6c2f 7379 732e 7300 2e62 7373 005f 5f6c l/sys.s..bss.__l
+      0x00002994: 6962 7370 6163 655f 7374 6172 7400 2e2e ibspace_start...
+      0x000029a4: 2f2e 2e2f 616e 6765 6c2f 6b65 726e 656c /../angel/kernel
+      0x000029b4: 2e73 006d 6169 6e61 6464 7275 7365 0074 .s.mainaddruse.t
+      0x000029c4: 6875 6d62 6d61 696e 7265 7475 726e 006d humbmainreturn.m
+      0x000029d4: 6169 6e61 6464 7200 5f5f 7274 5f61 626f ainaddr.__rt_abo
+      0x000029e4: 7274 3100 2e2e 2f2e 2e2f 6865 6170 616c rt1.../../heapal
+      0x000029f4: 6c6f 632e 6300 692e 5f5f 6378 615f 6669 loc.c.i.__cxa_fi
+      0x00002a04: 6e61 6c69 7a65 002e 2e2f 2e2e 2f75 6e68 nalize.../../unh
+      0x00002a14: 6f73 7465 642e 7300 2e2e 2f2e 2e2f 616e osted.s.../../an
+      0x00002a24: 6765 6c2f 7274 2e73 002e 2e2f 2e2e 2f68 gel/rt.s.../../h
+      0x00002a34: 6561 7031 2e63 002e 2e2f 2e2e 2f73 7464 eap1.c.../../std
+      0x00002a44: 6c69 622e 6300 2e2e 2f2e 2e2f 7374 6b68 lib.c.../../stkh
+      0x00002a54: 6561 702e 7300 2e2e 2f2e 2e2f 7374 6b68 eap.s.../../stkh
+      0x00002a64: 6561 7031 2e73 005f 6865 6170 5f6f 7665 eap1.s._heap_ove
+      0x00002a74: 7266 6c6f 7700 2e2e 2f2e 2e2f 6172 6d73 rflow.../../arms
+      0x00002a84: 7973 2e63 002e 656d 625f 7465 7874 0061 ys.c..emb_text.a
+      0x00002a94: 7267 7600 2e2e 2f2e 2e2f 616e 6765 6c2f rgv.../../angel/
+      0x00002aa4: 626f 6172 646c 6962 2e73 002e 2e2f 2e2e boardlib.s.../..
+      0x00002ab4: 2f73 6967 6e61 6c2e 6300 5f5f 6172 6776 /signal.c.__argv
+      0x00002ac4: 5f61 6c6c 6f63 002e 2e2f 2e2e 2f66 7069 _alloc.../../fpi
+      0x00002ad4: 6e69 742e 7300 7824 6670 6c24 6670 696e nit.s.x$fpl$fpin
+      0x00002ae4: 6974 002e 2e2f 2e2e 2f61 6e67 656c 2f73 it.../../angel/s
+      0x00002af4: 7973 6170 702e 6300 2e63 6f6e 7374 6461 ysapp.c..constda
+      0x00002b04: 7461 002e 636f 6e73 7464 6174 6124 3100 ta..constdata$1.
+      0x00002b14: 6d65 7373 6167 6573 405f 5f64 6566 6175 messages@__defau
+      0x00002b24: 6c74 5f73 6967 6e61 6c5f 6861 6e64 6c65 lt_signal_handle
+      0x00002b34: 725f 3000 2e2e 2f2e 2e2f 616e 6765 6c2f r_0.../../angel/
+      0x00002b44: 7363 6174 7465 722e 7300 2121 2173 6361 scatter.s.!!!sca
+      0x00002b54: 7474 6572 005f 7265 6769 6f6e 5f74 6162 tter._region_tab
+      0x00002b64: 6c65 002e 2e2f 2e2e 2f61 6e67 656c 2f68 le.../../angel/h
+      0x00002b74: 616e 646c 6572 732e 7300 2121 6861 6e64 andlers.s.!!hand
+      0x00002b84: 6c65 725f 7a69 005f 7a65 726f 5f6c 6f6f ler_zi._zero_loo
+      0x00002b94: 7000 4275 696c 6441 7474 7269 6275 7465 p.BuildAttribute
+      0x00002ba4: 7324 2454 4855 4d42 5f49 5341 7631 2441 s$$THUMB_ISAv1$A
+      0x00002bb4: 524d 5f49 5341 7634 244d 2450 4524 413a RM_ISAv4$M$PE$A:
+      0x00002bc4: 4c32 3224 583a 4c31 3124 5332 3224 4945 L22$X:L11$S22$IE
+      0x00002bd4: 4545 3124 7e49 5724 5553 4553 5636 247e EE1$~IW$USESV6$~
+      0x00002be4: 5354 4b43 4b44 2455 5345 5356 3724 7e53 STKCKD$USESV7$~S
+      0x00002bf4: 484c 244f 5350 4143 4524 4542 4138 2452 HL$OSPACE$EBA8$R
+      0x00002c04: 4551 3824 5052 4553 3824 4541 4249 7632 EQ8$PRES8$EABIv2
+      0x00002c14: 005f 5f6d 6169 6e00 5f5f 7363 6174 7465 .__main.__scatte
+      0x00002c24: 726c 6f61 6400 5f5f 7363 6174 7465 726c rload.__scatterl
+      0x00002c34: 6f61 645f 7274 3200 5f5f 7363 6174 7465 oad_rt2.__scatte
+      0x00002c44: 726c 6f61 645f 6e75 6c6c 005f 5f73 6361 rload_null.__sca
+      0x00002c54: 7474 6572 6c6f 6164 5f7a 6572 6f69 6e69 tterload_zeroini
+      0x00002c64: 7400 2456 656e 2454 4124 4924 245f 5f41 t.$Ven$TA$I$$__A
+      0x00002c74: 524d 5f61 7267 765f 7665 6e65 6572 005f RM_argv_veneer._
+      0x00002c84: 5f41 524d 5f61 7267 765f 7665 6e65 6572 _ARM_argv_veneer
+      0x00002c94: 006d 6169 6e00 5f5f 6370 705f 696e 6974 .main.__cpp_init
+      0x00002ca4: 6961 6c69 7a65 5f5f 6165 6162 695f 0024 ialize__aeabi_.$
+      0x00002cb4: 5665 6e24 5441 2449 2424 5f5f 7573 6572 Ven$TA$I$$__user
+      0x00002cc4: 5f70 6572 7072 6f63 5f6c 6962 7370 6163 _perproc_libspac
+      0x00002cd4: 6500 5f5f 7573 6572 5f6c 6962 7370 6163 e.__user_libspac
+      0x00002ce4: 6500 5f5f 7573 6572 5f70 6572 7072 6f63 e.__user_perproc
+      0x00002cf4: 5f6c 6962 7370 6163 6500 5f5f 7573 6572 _libspace.__user
+      0x00002d04: 5f70 6572 7468 7265 6164 5f6c 6962 7370 _perthread_libsp
+      0x00002d14: 6163 6500 5f5f 7274 5f65 6e74 7279 005f ace.__rt_entry._
+      0x00002d24: 5f72 745f 6578 6974 005f 5f72 745f 6162 _rt_exit.__rt_ab
+      0x00002d34: 6f72 7400 5f74 6572 6d69 6e61 7465 5f75 ort._terminate_u
+      0x00002d44: 7365 725f 616c 6c6f 6300 5f69 6e69 745f ser_alloc._init_
+      0x00002d54: 7573 6572 5f61 6c6c 6f63 005f 5f48 6561 user_alloc.__Hea
+      0x00002d64: 705f 4675 6c6c 005f 5f48 6561 705f 4272 p_Full.__Heap_Br
+      0x00002d74: 6f6b 656e 005f 696e 6974 5f61 6c6c 6f63 oken._init_alloc
+      0x00002d84: 006d 616c 6c6f 6300 5f5f 4152 4d5f 6361 .malloc.__ARM_ca
+      0x00002d94: 6c6c 5f76 6961 5f72 3000 5f5f 6361 6c6c ll_via_r0.__call
+      0x00002da4: 5f76 6961 5f72 3000 5f5f 4152 4d5f 6361 _via_r0.__ARM_ca
+      0x00002db4: 6c6c 5f76 6961 5f72 3100 5f5f 6361 6c6c ll_via_r1.__call
+      0x00002dc4: 5f76 6961 5f72 3100 5f5f 4152 4d5f 6361 _via_r1.__ARM_ca
+      0x00002dd4: 6c6c 5f76 6961 5f72 3200 5f5f 6361 6c6c ll_via_r2.__call
+      0x00002de4: 5f76 6961 5f72 3200 5f5f 4152 4d5f 6361 _via_r2.__ARM_ca
+      0x00002df4: 6c6c 5f76 6961 5f72 3300 5f5f 6361 6c6c ll_via_r3.__call
+      0x00002e04: 5f76 6961 5f72 3300 5f5f 4152 4d5f 6361 _via_r3.__ARM_ca
+      0x00002e14: 6c6c 5f76 6961 5f72 3400 5f5f 6361 6c6c ll_via_r4.__call
+      0x00002e24: 5f76 6961 5f72 3400 5f5f 4152 4d5f 6361 _via_r4.__ARM_ca
+      0x00002e34: 6c6c 5f76 6961 5f72 3500 5f5f 6361 6c6c ll_via_r5.__call
+      0x00002e44: 5f76 6961 5f72 3500 5f5f 4152 4d5f 6361 _via_r5.__ARM_ca
+      0x00002e54: 6c6c 5f76 6961 5f72 3600 5f5f 6361 6c6c ll_via_r6.__call
+      0x00002e64: 5f76 6961 5f72 3600 5f5f 4152 4d5f 6361 _via_r6.__ARM_ca
+      0x00002e74: 6c6c 5f76 6961 5f72 3700 5f5f 6361 6c6c ll_via_r7.__call
+      0x00002e84: 5f76 6961 5f72 3700 2456 656e 2454 4124 _via_r7.$Ven$TA$
+      0x00002e94: 4924 245f 7379 735f 6578 6974 005f 7379 I$$_sys_exit._sy
+      0x00002ea4: 735f 6578 6974 0024 5665 6e24 5441 2449 s_exit.$Ven$TA$I
+      0x00002eb4: 2424 5f5f 7274 5f72 6169 7365 005f 5f72 $$__rt_raise.__r
+      0x00002ec4: 745f 7261 6973 6500 6672 6565 005f 5f68 t_raise.free.__h
+      0x00002ed4: 6561 705f 6775 6172 6400 5f5f 495f 7573 eap_guard.__I_us
+      0x00002ee4: 655f 6865 6170 005f 5f48 6561 705f 496e e_heap.__Heap_In
+      0x00002ef4: 6974 6961 6c69 7a65 005f 5f48 6561 705f itialize.__Heap_
+      0x00002f04: 4465 7363 5369 7a65 005f 5f48 6561 705f DescSize.__Heap_
+      0x00002f14: 416c 6c6f 6300 5f5f 4865 6170 5f41 6c6c Alloc.__Heap_All
+      0x00002f24: 6f63 5f49 6e74 6572 6e61 6c00 5f5f 4865 oc_Internal.__He
+      0x00002f34: 6170 5f50 726f 7669 6465 4d65 6d6f 7279 ap_ProvideMemory
+      0x00002f44: 0065 7869 7400 2456 656e 2454 4124 4924 .exit.$Ven$TA$I$
+      0x00002f54: 245f 5f68 6561 705f 6578 7465 6e64 005f $__heap_extend._
+      0x00002f64: 5f68 6561 705f 6578 7465 6e64 005f 5f72 _heap_extend.__r
+      0x00002f74: 745f 7374 6163 6b68 6561 705f 696e 6974 t_stackheap_init
+      0x00002f84: 005f 5f72 745f 6865 6170 5f65 7874 656e .__rt_heap_exten
+      0x00002f94: 6400 2456 656e 2441 5424 4924 245f 5f72 d.$Ven$AT$I$$__r
+      0x00002fa4: 745f 6c69 625f 696e 6974 005f 5f72 745f t_lib_init.__rt_
+      0x00002fb4: 6c69 625f 696e 6974 005f 5f72 745f 6c69 lib_init.__rt_li
+      0x00002fc4: 625f 7368 7574 646f 776e 005f 706c 6174 b_shutdown._plat
+      0x00002fd4: 666f 726d 5f70 7265 5f73 7461 636b 6865 form_pre_stackhe
+      0x00002fe4: 6170 5f69 6e69 7400 5f70 6c61 7466 6f72 ap_init._platfor
+      0x00002ff4: 6d5f 706f 7374 5f73 7461 636b 6865 6170 m_post_stackheap
+      0x00003004: 5f69 6e69 7400 5f70 6c61 7466 6f72 6d5f _init._platform_
+      0x00003014: 706f 7374 5f6c 6962 5f69 6e69 7400 5f70 post_lib_init._p
+      0x00003024: 6c61 7466 6f72 6d5f 7072 655f 6c69 625f latform_pre_lib_
+      0x00003034: 7368 7574 646f 776e 005f 5f75 7365 725f shutdown.__user_
+      0x00003044: 696e 6974 6961 6c5f 7374 6163 6b68 6561 initial_stackhea
+      0x00003054: 7000 5f52 575f 4c69 6d69 7400 5f5f 495f p._RW_Limit.__I_
+      0x00003064: 7573 655f 7365 6d69 686f 7374 696e 675f use_semihosting_
+      0x00003074: 7377 6900 5f5f 7365 6d69 686f 7374 696e swi.__semihostin
+      0x00003084: 675f 7377 695f 6775 6172 6400 5f5f 4865 g_swi_guard.__He
+      0x00003094: 6170 5f46 7265 6500 5f5f 4865 6170 5f46 ap_Free.__Heap_F
+      0x000030a4: 7265 655f 496e 7465 726e 616c 0061 626f ree_Internal.abo
+      0x000030b4: 7274 0024 5665 6e24 4154 2449 2424 5f5f rt.$Ven$AT$I$$__
+      0x000030c4: 7261 6973 6500 5f5f 7261 6973 6500 5f5f raise.__raise.__
+      0x000030d4: 4152 4d5f 6765 745f 6172 6776 005f 5f49 ARM_get_argv.__I
+      0x000030e4: 5f75 7365 5f68 6561 705f 7265 6769 6f6e _use_heap_region
+      0x000030f4: 005f 6370 755f 7072 655f 6d61 696e 005f ._cpu_pre_main._
+      0x00003104: 7379 735f 636f 6d6d 616e 645f 7374 7269 sys_command_stri
+      0x00003114: 6e67 005f 5f72 745f 6670 5f73 7461 7475 ng.__rt_fp_statu
+      0x00003124: 735f 6164 6472 005f 5f64 6566 6175 6c74 s_addr.__default
+      0x00003134: 5f73 6967 6e61 6c5f 6861 6e64 6c65 7200 _signal_handler.
+      0x00003144: 5f74 7479 7772 6368 0024 5665 6e24 4154 _ttywrch.$Ven$AT
+      0x00003154: 244c 2424 5f5f 7274 5f6c 6962 5f73 6875 $L$$__rt_lib_shu
+      0x00003164: 7464 6f77 6e00 2456 656e 2454 4124 5324 tdown.$Ven$TA$S$
+      0x00003174: 245f 5f72 745f 6578 6974 005f 5a4e 3363 $__rt_exit._ZN3c
+      0x00003184: 6c41 4431 4576 005f 5a4e 3363 6c41 4432 lAD1Ev._ZN3clAD2
+      0x00003194: 4576 005f 5f61 6561 6269 5f61 7465 7869 Ev.__aeabi_atexi
+      0x000031a4: 7400 5f5f 6378 615f 6669 6e61 6c69 7a65 t.__cxa_finalize
+      0x000031b4: 0024 5665 6e24 5441 2449 2424 5f66 705f .$Ven$TA$I$$_fp_
+      0x000031c4: 696e 6974 005f 6670 5f69 6e69 7400 5f5f init._fp_init.__
+      0x000031d4: 6670 6c69 625f 636f 6e66 6967 5f70 7572 fplib_config_pur
+      0x000031e4: 6565 6e64 5f64 6f75 626c 6573 0052 6567 eend_doubles.Reg
+      0x000031f4: 696f 6e24 2454 6162 6c65 2424 4261 7365 ion$$Table$$Base
+      0x00003204: 0052 6567 696f 6e24 2454 6162 6c65 2424 .Region$$Table$$
+      0x00003214: 4c69 6d69 7400 5348 5424 2449 4e49 545f Limit.SHT$$INIT_
+      0x00003224: 4152 5241 5924 2442 6173 6500 5f5f 6473 ARRAY$$Base.__ds
+      0x00003234: 6f5f 6861 6e64 6c65 0053 4854 2424 494e o_handle.SHT$$IN
+      0x00003244: 4954 5f41 5252 4159 2424 4c69 6d69 7400 IT_ARRAY$$Limit.
+      0x00003254: 496d 6167 6524 245a 4924 244c 696d 6974 Image$$ZI$$Limit
+      0x00003264: 0000 0000 
+    [.note]
+        sh_name=.note (0x30)
+        sh_type=SHT_NOTE (0x7)
+        sh_flags= (0x0)
+        sh_addr=0x0
+        sh_offset=0x3268
+        sh_size=28
+        sh_link=0
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=0
+      0x00003268: 0400 0000 0c00 0000 0000 0040 4152 4d00 ...........@ARM.
+      0x00003278: 0000 0000 0000 0000 0000 0000 
+    [.comment]
+        sh_name=.comment (0x36)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags= (0x0)
+        sh_addr=0x0
+        sh_offset=0x3284
+        sh_size=14448
+        sh_link=0
+        sh_info=0
+        sh_addralign=0
+        sh_entsize=0
+      0x00003284: 4152 4d20 4c69 6e6b 6572 2c20 5256 4354 ARM Linker, RVCT
+      0x00003294: 322e 3220 5b42 7569 6c64 2035 3033 5d0a 2.2 [Build 503].
+      0x000032a4: 0049 6e70 7574 2043 6f6d 6d65 6e74 733a .Input Comments:
+      0x000032b4: 0000 7379 735f 7772 6368 2e6f 0000 4152 ..sys_wrch.o..AR
+      0x000032c4: 4d2f 5468 756d 6220 432f 432b 2b20 436f M/Thumb C/C++ Co
+      0x000032d4: 6d70 696c 6572 2c20 5256 4354 322e 3220 mpiler, RVCT2.2 
+      0x000032e4: 5b42 7569 6c64 2035 3033 5d00 6172 6d63 [Build 503].armc
+      0x000032f4: 6320 2d2d 7468 756d 6220 2d63 202d 2d73 c --thumb -c --s
+      0x00003304: 706c 6974 5f6c 646d 202d 2d6e 6f5f 6869 plit_ldm --no_hi
+      0x00003314: 6465 5f61 6c6c 202d 2d6e 6f5f 7573 655f de_all --no_use_
+      0x00003324: 6469 7265 6374 6976 655f 7365 6374 696f directive_sectio
+      0x00003334: 6e73 202d 6f73 7973 5f77 7263 682e 6f20 ns -osys_wrch.o 
+      0x00003344: 2d2d 6465 7065 6e64 3d73 7973 5f77 7263 --depend=sys_wrc
+      0x00003354: 682e 6420 2d2d 7363 6865 6475 6c65 5f63 h.d --schedule_c
+      0x00003364: 7075 3d41 524d 3945 2d53 202d 2d73 6368 pu=ARM9E-S --sch
+      0x00003374: 6564 756c 655f 6370 753d 4152 4d31 3032 edule_cpu=ARM102
+      0x00003384: 3030 4520 2d2d 7363 6865 6475 6c65 5f63 00E --schedule_c
+      0x00003394: 7075 3d41 524d 3131 3336 4a46 2d53 202d pu=ARM1136JF-S -
+      0x000033a4: 2d74 7261 6365 3d7a 7a20 2d2d 6370 753d -trace=zz --cpu=
+      0x000033b4: 3474 202d 2d66 7075 3d6e 6f6e 6520 2d4f 4t --fpu=none -O
+      0x000033c4: 7370 6163 6520 2d2d 6170 6373 3d2f 6e6f space --apcs=/no
+      0x000033d4: 3862 7974 652f 696e 7465 7277 6f72 6b2f 8byte/interwork/
+      0x000033e4: 6e6f 7377 7374 2f6e 6f72 7770 692f 726f noswst/norwpi/ro
+      0x000033f4: 7069 202d 492e 2e2f 2e2e 2f20 2d49 2e2e pi -I../../ -I..
+      0x00003404: 2f2e 2e2f 616e 6765 6c20 2d49 2e2e 2f2e /../angel -I../.
+      0x00003414: 2e2f 7075 626c 6963 202d 4a2e 2e2f 2e2e ./public -J../..
+      0x00003424: 2f73 7464 6820 2d44 7379 735f 7772 6368 /stdh -Dsys_wrch
+      0x00003434: 5f63 202e 2e2f 2e2e 2f61 6e67 656c 2f73 _c ../../angel/s
+      0x00003444: 7973 6170 702e 6300 006d 616c 6c6f 632e ysapp.c..malloc.
+      0x00003454: 6f00 0041 524d 2f54 6875 6d62 2043 2f43 o..ARM/Thumb C/C
+      0x00003464: 2b2b 2043 6f6d 7069 6c65 722c 2052 5643 ++ Compiler, RVC
+      0x00003474: 5432 2e32 205b 4275 696c 6420 3530 335d T2.2 [Build 503]
+      0x00003484: 0061 726d 6363 202d 2d74 6875 6d62 202d .armcc --thumb -
+      0x00003494: 6320 2d2d 7370 6c69 745f 6c64 6d20 2d2d c --split_ldm --
+      0x000034a4: 6e6f 5f68 6964 655f 616c 6c20 2d2d 6e6f no_hide_all --no
+      0x000034b4: 5f75 7365 5f64 6972 6563 7469 7665 5f73 _use_directive_s
+      0x000034c4: 6563 7469 6f6e 7320 2d6f 6d61 6c6c 6f63 ections -omalloc
+      0x000034d4: 2e6f 202d 2d64 6570 656e 643d 6d61 6c6c .o --depend=mall
+      0x000034e4: 6f63 2e64 202d 2d73 6368 6564 756c 655f oc.d --schedule_
+      0x000034f4: 6370 753d 4152 4d39 452d 5320 2d2d 7363 cpu=ARM9E-S --sc
+      0x00003504: 6865 6475 6c65 5f63 7075 3d41 524d 3130 hedule_cpu=ARM10
+      0x00003514: 3230 3045 202d 2d73 6368 6564 756c 655f 200E --schedule_
+      0x00003524: 6370 753d 4152 4d31 3133 364a 462d 5320 cpu=ARM1136JF-S 
+      0x00003534: 2d2d 7472 6163 653d 7a7a 202d 2d63 7075 --trace=zz --cpu
+      0x00003544: 3d34 7420 2d2d 6670 753d 6e6f 6e65 202d =4t --fpu=none -
+      0x00003554: 4f74 696d 6520 2d2d 6170 6373 3d2f 6e6f Otime --apcs=/no
+      0x00003564: 3862 7974 652f 696e 7465 7277 6f72 6b2f 8byte/interwork/
+      0x00003574: 6e6f 7377 7374 2f6e 6f72 7770 692f 726f noswst/norwpi/ro
+      0x00003584: 7069 202d 492e 2e2f 2e2e 2f20 2d49 2e2e pi -I../../ -I..
+      0x00003594: 2f2e 2e2f 616e 6765 6c20 2d49 2e2e 2f2e /../angel -I../.
+      0x000035a4: 2e2f 7075 626c 6963 202d 4a2e 2e2f 2e2e ./public -J../..
+      0x000035b4: 2f73 7464 6820 2d44 616c 6c6f 635f 6320 /stdh -Dalloc_c 
+      0x000035c4: 2e2e 2f2e 2e2f 6865 6170 616c 6c6f 632e ../../heapalloc.
+      0x000035d4: 6300 006b 6572 6e65 6c2e 6f00 0041 524d c..kernel.o..ARM
+      0x000035e4: 2f54 6875 6d62 204d 6163 726f 2041 7373 /Thumb Macro Ass
+      0x000035f4: 656d 626c 6572 2c20 5256 4354 322e 3220 embler, RVCT2.2 
+      0x00003604: 5b42 7569 6c64 2035 3033 5d00 2d2d 6172 [Build 503].--ar
+      0x00003614: 6d20 2d2d 7363 6865 6475 6c65 202d 2d64 m --schedule --d
+      0x00003624: 6961 675f 7761 726e 696e 673d 3136 3432 iag_warning=1642
+      0x00003634: 202d 2d63 7075 3d34 7420 2d2d 6465 7065  --cpu=4t --depe
+      0x00003644: 6e64 3d6b 6572 6e65 6c2e 6420 2d2d 6670 nd=kernel.d --fp
+      0x00003654: 753d 6e6f 6e65 202d 6f6b 6572 6e65 6c2e u=none -okernel.
+      0x00003664: 6f20 2d2d 7363 6865 6475 6c65 5f63 7075 o --schedule_cpu
+      0x00003674: 3d41 524d 3945 2d53 202d 2d73 6368 6564 =ARM9E-S --sched
+      0x00003684: 756c 655f 6370 753d 4152 4d31 3032 3030 ule_cpu=ARM10200
+      0x00003694: 4520 2d2d 7363 6865 6475 6c65 5f63 7075 E --schedule_cpu
+      0x000036a4: 3d41 524d 3131 3336 4a46 2d53 202d 2d61 =ARM1136JF-S --a
+      0x000036b4: 7063 733d 2f6e 6f38 6279 7465 2f69 6e74 pcs=/no8byte/int
+      0x000036c4: 6572 776f 726b 2f6e 6f73 7773 742f 6e6f erwork/noswst/no
+      0x000036d4: 7277 7069 2f72 6f70 6920 2d49 2e2e 2f2e rwpi/ropi -I../.
+      0x000036e4: 2e2f 2c2e 2e2f 2e2e 2f61 6e67 656c 2c2e ./,../../angel,.
+      0x000036f4: 2e2f 2e2e 2f2e 2e2f 636c 7820 2d2d 7072 ./../../clx --pr
+      0x00003704: 6564 6566 696e 653d 2254 4800 0000 6670 edefine="TH...fp
+      0x00003714: 696e 6974 2e6f 0000 4152 4d2f 5468 756d init.o..ARM/Thum
+      0x00003724: 6220 4d61 6372 6f20 4173 7365 6d62 6c65 b Macro Assemble
+      0x00003734: 722c 2052 5643 5432 2e32 205b 4275 696c r, RVCT2.2 [Buil
+      0x00003744: 6420 3530 335d 002d 2d6e 6f5f 6869 6465 d 503].--no_hide
+      0x00003754: 5f61 6c6c 202d 2d73 6368 6564 756c 6520 _all --schedule 
+      0x00003764: 2d2d 6469 6167 5f77 6172 6e69 6e67 3d31 --diag_warning=1
+      0x00003774: 3634 3220 2d2d 6370 753d 3474 202d 2d64 642 --cpu=4t --d
+      0x00003784: 6570 656e 643d 6670 696e 6974 2e64 202d epend=fpinit.d -
+      0x00003794: 2d66 7075 3d6e 6f6e 6520 2d6f 6670 696e -fpu=none -ofpin
+      0x000037a4: 6974 2e6f 202d 2d73 6368 6564 756c 655f it.o --schedule_
+      0x000037b4: 6370 753d 4152 4d39 452d 5320 2d2d 7363 cpu=ARM9E-S --sc
+      0x000037c4: 6865 6475 6c65 5f63 7075 3d41 524d 3130 hedule_cpu=ARM10
+      0x000037d4: 3230 3045 202d 2d73 6368 6564 756c 655f 200E --schedule_
+      0x000037e4: 6370 753d 4152 4d31 3133 364a 462d 5320 cpu=ARM1136JF-S 
+      0x000037f4: 2d2d 6170 6373 3d2f 6e6f 3862 7974 652f --apcs=/no8byte/
+      0x00003804: 696e 7465 7277 6f72 6b2f 7377 7374 6e61 interwork/swstna
+      0x00003814: 2f72 6f70 692f 7277 7069 636c 6965 6e74 /ropi/rwpiclient
+      0x00003824: 202d 492e 2e2f 2e2e 2f2e 2e2f 636c 7820  -I../../../clx 
+      0x00003834: 2d2d 7072 6564 6566 696e 653d 2249 4e54 --predefine="INT
+      0x00003844: 4552 574f 524b 0000 0065 7869 742e 6f00 ERWORK...exit.o.
+      0x00003854: 0041 524d 2f54 6875 6d62 2043 2f43 2b2b .ARM/Thumb C/C++
+      0x00003864: 2043 6f6d 7069 6c65 722c 2052 5643 5432  Compiler, RVCT2
+      0x00003874: 2e32 205b 4275 696c 6420 3530 335d 0061 .2 [Build 503].a
+      0x00003884: 726d 6363 202d 2d74 6875 6d62 202d 6320 rmcc --thumb -c 
+      0x00003894: 2d2d 7370 6c69 745f 6c64 6d20 2d2d 6e6f --split_ldm --no
+      0x000038a4: 5f68 6964 655f 616c 6c20 2d2d 6e6f 5f75 _hide_all --no_u
+      0x000038b4: 7365 5f64 6972 6563 7469 7665 5f73 6563 se_directive_sec
+      0x000038c4: 7469 6f6e 7320 2d6f 6578 6974 2e6f 202d tions -oexit.o -
+      0x000038d4: 2d64 6570 656e 643d 6578 6974 2e64 202d -depend=exit.d -
+      0x000038e4: 2d73 6368 6564 756c 655f 6370 753d 4152 -schedule_cpu=AR
+      0x000038f4: 4d39 452d 5320 2d2d 7363 6865 6475 6c65 M9E-S --schedule
+      0x00003904: 5f63 7075 3d41 524d 3130 3230 3045 202d _cpu=ARM10200E -
+      0x00003914: 2d73 6368 6564 756c 655f 6370 753d 4152 -schedule_cpu=AR
+      0x00003924: 4d31 3133 364a 462d 5320 2d2d 7472 6163 M1136JF-S --trac
+      0x00003934: 653d 7a7a 202d 2d63 7075 3d34 7420 2d2d e=zz --cpu=4t --
+      0x00003944: 6670 753d 6e6f 6e65 202d 4f73 7061 6365 fpu=none -Ospace
+      0x00003954: 202d 2d61 7063 733d 2f6e 6f38 6279 7465  --apcs=/no8byte
+      0x00003964: 2f69 6e74 6572 776f 726b 2f6e 6f73 7773 /interwork/nosws
+      0x00003974: 742f 6e6f 7277 7069 2f72 6f70 6920 2d49 t/norwpi/ropi -I
+      0x00003984: 2e2e 2f2e 2e2f 202d 492e 2e2f 2e2e 2f61 ../../ -I../../a
+      0x00003994: 6e67 656c 202d 492e 2e2f 2e2e 2f70 7562 ngel -I../../pub
+      0x000039a4: 6c69 6320 2d4a 2e2e 2f2e 2e2f 7374 6468 lic -J../../stdh
+      0x000039b4: 202d 4465 7869 745f 6320 2e2e 2f2e 2e2f  -Dexit_c ../../
+      0x000039c4: 7374 646c 6962 2e63 0000 626f 6172 6473 stdlib.c..boards
+      0x000039d4: 6875 742e 6f00 0041 524d 2f54 6875 6d62 hut.o..ARM/Thumb
+      0x000039e4: 204d 6163 726f 2041 7373 656d 626c 6572  Macro Assembler
+      0x000039f4: 2c20 5256 4354 322e 3220 5b42 7569 6c64 , RVCT2.2 [Build
+      0x00003a04: 2035 3033 5d00 2d2d 6172 6d20 2d2d 7363  503].--arm --sc
+      0x00003a14: 6865 6475 6c65 202d 2d64 6961 675f 7761 hedule --diag_wa
+      0x00003a24: 726e 696e 673d 3136 3432 202d 2d63 7075 rning=1642 --cpu
+      0x00003a34: 3d34 7420 2d2d 6465 7065 6e64 3d62 6f61 =4t --depend=boa
+      0x00003a44: 7264 7368 7574 2e64 202d 2d66 7075 3d6e rdshut.d --fpu=n
+      0x00003a54: 6f6e 6520 2d6f 626f 6172 6473 6875 742e one -oboardshut.
+      0x00003a64: 6f20 2d2d 7363 6865 6475 6c65 5f63 7075 o --schedule_cpu
+      0x00003a74: 3d41 524d 3945 2d53 202d 2d73 6368 6564 =ARM9E-S --sched
+      0x00003a84: 756c 655f 6370 753d 4152 4d31 3032 3030 ule_cpu=ARM10200
+      0x00003a94: 4520 2d2d 7363 6865 6475 6c65 5f63 7075 E --schedule_cpu
+      0x00003aa4: 3d41 524d 3131 3336 4a46 2d53 202d 2d61 =ARM1136JF-S --a
+      0x00003ab4: 7063 733d 2f6e 6f38 6279 7465 2f69 6e74 pcs=/no8byte/int
+      0x00003ac4: 6572 776f 726b 2f6e 6f73 7773 742f 6e6f erwork/noswst/no
+      0x00003ad4: 7277 7069 2f72 6f70 6920 2d49 2e2e 2f2e rwpi/ropi -I../.
+      0x00003ae4: 2e2f 2c2e 2e2f 2e2e 2f61 6e67 656c 2c2e ./,../../angel,.
+      0x00003af4: 2e2f 2e2e 2f2e 2e2f 636c 7820 2d2d 7072 ./../../clx --pr
+      0x00003b04: 6564 6566 6900 0000 7374 6174 6963 6370 edefi...staticcp
+      0x00003b14: 702e 6f00 0041 524d 2f54 6875 6d62 2043 p.o..ARM/Thumb C
+      0x00003b24: 2f43 2b2b 2043 6f6d 7069 6c65 722c 2052 /C++ Compiler, R
+      0x00003b34: 5643 5432 2e32 205b 4275 696c 6420 3530 VCT2.2 [Build 50
+      0x00003b44: 335d 0074 6370 7020 2d6f 7372 6331 5f74 3].tcpp -osrc1_t
+      0x00003b54: 6370 702e 656c 6620 7374 6174 6963 6370 cpp.elf staticcp
+      0x00003b64: 702e 6370 7000 0073 7973 5f73 7461 636b p.cpp..sys_stack
+      0x00003b74: 6865 6170 2e6f 0000 4152 4d2f 5468 756d heap.o..ARM/Thum
+      0x00003b84: 6220 4d61 6372 6f20 4173 7365 6d62 6c65 b Macro Assemble
+      0x00003b94: 722c 2052 5643 5432 2e32 205b 4275 696c r, RVCT2.2 [Buil
+      0x00003ba4: 6420 3530 335d 002d 2d61 726d 202d 2d73 d 503].--arm --s
+      0x00003bb4: 6368 6564 756c 6520 2d2d 6469 6167 5f77 chedule --diag_w
+      0x00003bc4: 6172 6e69 6e67 3d31 3634 3220 2d2d 6370 arning=1642 --cp
+      0x00003bd4: 753d 3474 202d 2d64 6570 656e 643d 7379 u=4t --depend=sy
+      0x00003be4: 735f 7374 6163 6b68 6561 702e 6420 2d2d s_stackheap.d --
+      0x00003bf4: 6670 753d 6e6f 6e65 202d 6f73 7973 5f73 fpu=none -osys_s
+      0x00003c04: 7461 636b 6865 6170 2e6f 202d 2d73 6368 tackheap.o --sch
+      0x00003c14: 6564 756c 655f 6370 753d 4152 4d39 452d edule_cpu=ARM9E-
+      0x00003c24: 5320 2d2d 7363 6865 6475 6c65 5f63 7075 S --schedule_cpu
+      0x00003c34: 3d41 524d 3130 3230 3045 202d 2d73 6368 =ARM10200E --sch
+      0x00003c44: 6564 756c 655f 6370 753d 4152 4d31 3133 edule_cpu=ARM113
+      0x00003c54: 364a 462d 5320 2d2d 6170 6373 3d2f 6e6f 6JF-S --apcs=/no
+      0x00003c64: 3862 7974 652f 696e 7465 7277 6f72 6b2f 8byte/interwork/
+      0x00003c74: 6e6f 7377 7374 2f6e 6f72 7770 692f 726f noswst/norwpi/ro
+      0x00003c84: 7069 202d 492e 2e2f 2e2e 2f2c 2e2e 2f2e pi -I../../,../.
+      0x00003c94: 2e2f 616e 6765 6c2c 2e2e 2f2e 2e2f 2e2e ./angel,../../..
+      0x00003ca4: 2f63 6c78 202d 0000 005f 5f6d 6169 6e2e /clx -...__main.
+      0x00003cb4: 6f00 0041 524d 2f54 6875 6d62 204d 6163 o..ARM/Thumb Mac
+      0x00003cc4: 726f 2041 7373 656d 626c 6572 2c20 5256 ro Assembler, RV
+      0x00003cd4: 4354 322e 3220 5b42 7569 6c64 2035 3033 CT2.2 [Build 503
+      0x00003ce4: 5d00 2d2d 6172 6d20 2d2d 7363 6865 6475 ].--arm --schedu
+      0x00003cf4: 6c65 202d 2d64 6961 675f 7761 726e 696e le --diag_warnin
+      0x00003d04: 673d 3136 3432 202d 2d63 7075 3d34 7420 g=1642 --cpu=4t 
+      0x00003d14: 2d2d 6465 7065 6e64 3d5f 5f6d 6169 6e2e --depend=__main.
+      0x00003d24: 6420 2d2d 6670 753d 6e6f 6e65 202d 6f5f d --fpu=none -o_
+      0x00003d34: 5f6d 6169 6e2e 6f20 2d2d 7363 6865 6475 _main.o --schedu
+      0x00003d44: 6c65 5f63 7075 3d41 524d 3945 2d53 202d le_cpu=ARM9E-S -
+      0x00003d54: 2d73 6368 6564 756c 655f 6370 753d 4152 -schedule_cpu=AR
+      0x00003d64: 4d31 3032 3030 4520 2d2d 7363 6865 6475 M10200E --schedu
+      0x00003d74: 6c65 5f63 7075 3d41 524d 3131 3336 4a46 le_cpu=ARM1136JF
+      0x00003d84: 2d53 202d 2d61 7063 733d 2f6e 6f38 6279 -S --apcs=/no8by
+      0x00003d94: 7465 2f69 6e74 6572 776f 726b 2f6e 6f73 te/interwork/nos
+      0x00003da4: 7773 742f 6e6f 7277 7069 2f72 6f70 6920 wst/norwpi/ropi 
+      0x00003db4: 2d49 2e2e 2f2e 2e2f 2c2e 2e2f 2e2e 2f61 -I../../,../../a
+      0x00003dc4: 6e67 656c 2c2e 2e2f 2e2e 2f2e 2e2f 636c ngel,../../../cl
+      0x00003dd4: 7820 2d2d 7072 6564 6566 696e 653d 2254 x --predefine="T
+      0x00003de4: 4800 0000 696e 6974 5f61 6561 6269 2e6f H...init_aeabi.o
+      0x00003df4: 0000 4152 4d20 4c69 6e6b 6572 2c20 5256 ..ARM Linker, RV
+      0x00003e04: 4354 322e 3220 5b42 7569 6c64 2035 3033 CT2.2 [Build 503
+      0x00003e14: 5d0a 0049 6e70 7574 2043 6f6d 6d65 6e74 ]..Input Comment
+      0x00003e24: 733a 0000 696e 6974 5f61 6561 6269 2e6f s:..init_aeabi.o
+      0x00003e34: 0000 4152 4d2f 5468 756d 6220 432f 432b ..ARM/Thumb C/C+
+      0x00003e44: 2b20 436f 6d70 696c 6572 2c20 5256 4354 + Compiler, RVCT
+      0x00003e54: 322e 3220 5b42 7569 6c64 2035 3033 5d00 2.2 [Build 503].
+      0x00003e64: 6172 6d63 6320 2d2d 7468 756d 6220 2d63 armcc --thumb -c
+      0x00003e74: 202d 2d73 706c 6974 5f6c 646d 202d 2d65  --split_ldm --e
+      0x00003e84: 7863 6570 7469 6f6e 7320 2d2d 6e6f 5f65 xceptions --no_e
+      0x00003e94: 7863 6570 7469 6f6e 735f 756e 7769 6e64 xceptions_unwind
+      0x00003ea4: 202d 2d6e 6f5f 7573 655f 6469 7265 6374  --no_use_direct
+      0x00003eb4: 6976 655f 7365 6374 696f 6e73 202d 6f69 ive_sections -oi
+      0x00003ec4: 6e69 745f 6165 6162 692e 6f20 2d2d 6465 nit_aeabi.o --de
+      0x00003ed4: 7065 6e64 3d69 6e69 745f 6165 6162 692e pend=init_aeabi.
+      0x00003ee4: 6420 2d2d 7363 6865 6475 6c65 5f63 7075 d --schedule_cpu
+      0x00003ef4: 3d41 524d 3945 2d53 202d 2d73 6368 6564 =ARM9E-S --sched
+      0x00003f04: 756c 655f 6370 753d 4152 4d31 3032 3030 ule_cpu=ARM10200
+      0x00003f14: 4520 2d2d 7363 6865 6475 6c65 5f63 7075 E --schedule_cpu
+      0x00003f24: 3d41 524d 3131 3336 4a46 2d53 202d 2d74 =ARM1136JF-S --t
+      0x00003f34: 7261 6365 3d7a 7a20 2d2d 6370 753d 3474 race=zz --cpu=4t
+      0x00003f44: 202d 2d66 7075 3d6e 6f6e 6520 2d4f 7370  --fpu=none -Osp
+      0x00003f54: 6163 6520 2d2d 6170 6373 3d2f 6e6f 3862 ace --apcs=/no8b
+      0x00003f64: 7974 652f 696e 7465 7277 6f72 6b2f 6e6f yte/interwork/no
+      0x00003f74: 7377 7374 2f6e 6f72 7770 692f 726f 7069 swst/norwpi/ropi
+      0x00003f84: 202d 492e 2e2f 2e2e 2f20 2d49 2e2e 2f2e  -I../../ -I../.
+      0x00003f94: 2e2f 616e 6765 6c20 2d49 2e2e 2f2e 2e2f ./angel -I../../
+      0x00003fa4: 7075 626c 6963 202d 4a2e 2e2f 2e2e 2f73 public -J../../s
+      0x00003fb4: 7464 6820 2d44 696e 6974 5f61 6561 6269 tdh -Dinit_aeabi
+      0x00003fc4: 5f63 202e 2e2f 2e2e 2f61 726d 5f72 756e _c ../../arm_run
+      0x00003fd4: 7469 6d65 2e63 0000 6669 6c65 4b54 6b35 time.c..fileKTk5
+      0x00003fe4: 7347 0000 4152 4d2f 5468 756d 6220 4d61 sG..ARM/Thumb Ma
+      0x00003ff4: 6372 6f20 4173 7365 6d62 6c65 722c 2052 cro Assembler, R
+      0x00004004: 5643 5432 2e32 205b 4275 696c 6420 3530 VCT2.2 [Build 50
+      0x00004014: 335d 002d 2d74 6875 6d62 202d 2d65 7863 3].--thumb --exc
+      0x00004024: 6570 7469 6f6e 7320 2d2d 6469 6167 5f73 eptions --diag_s
+      0x00004034: 7570 7072 6573 733d 3136 3032 202d 2d63 uppress=1602 --c
+      0x00004044: 7075 3d34 7420 2d2d 6670 753d 6e6f 6e65 pu=4t --fpu=none
+      0x00004054: 202d 2d74 6f3d 2f74 6d70 2f66 696c 654b  --to=/tmp/fileK
+      0x00004064: 546b 3573 4720 2d2d 6170 6373 3d2f 6e6f Tk5sG --apcs=/no
+      0x00004074: 696e 7465 7277 6f72 6b2f 6e6f 7377 7374 interwork/noswst
+      0x00004084: 2f2f 6e6f 3862 7974 652f 696e 7465 7277 //no8byte/interw
+      0x00004094: 6f72 6b2f 6e6f 7377 7374 2f6e 6f72 7770 ork/noswst/norwp
+      0x000040a4: 692f 726f 7069 202f 746d 702f 6669 6c65 i/ropi /tmp/file
+      0x000040b4: 6e49 3430 4d72 0000 0000 0073 7973 5f63 nI40Mr.....sys_c
+      0x000040c4: 6f6d 6d61 6e64 2e6f 0000 4152 4d2f 5468 ommand.o..ARM/Th
+      0x000040d4: 756d 6220 432f 432b 2b20 436f 6d70 696c umb C/C++ Compil
+      0x000040e4: 6572 2c20 5256 4354 322e 3220 5b42 7569 er, RVCT2.2 [Bui
+      0x000040f4: 6c64 2035 3033 5d00 6172 6d63 6320 2d2d ld 503].armcc --
+      0x00004104: 7468 756d 6220 2d63 202d 2d73 706c 6974 thumb -c --split
+      0x00004114: 5f6c 646d 202d 2d6e 6f5f 6869 6465 5f61 _ldm --no_hide_a
+      0x00004124: 6c6c 202d 2d6e 6f5f 7573 655f 6469 7265 ll --no_use_dire
+      0x00004134: 6374 6976 655f 7365 6374 696f 6e73 202d ctive_sections -
+      0x00004144: 6f73 7973 5f63 6f6d 6d61 6e64 2e6f 202d osys_command.o -
+      0x00004154: 2d64 6570 656e 643d 7379 735f 636f 6d6d -depend=sys_comm
+      0x00004164: 616e 642e 6420 2d2d 7363 6865 6475 6c65 and.d --schedule
+      0x00004174: 5f63 7075 3d41 524d 3945 2d53 202d 2d73 _cpu=ARM9E-S --s
+      0x00004184: 6368 6564 756c 655f 6370 753d 4152 4d31 chedule_cpu=ARM1
+      0x00004194: 3032 3030 4520 2d2d 7363 6865 6475 6c65 0200E --schedule
+      0x000041a4: 5f63 7075 3d41 524d 3131 3336 4a46 2d53 _cpu=ARM1136JF-S
+      0x000041b4: 202d 2d74 7261 6365 3d7a 7a20 2d2d 6370  --trace=zz --cp
+      0x000041c4: 753d 3474 202d 2d66 7075 3d6e 6f6e 6520 u=4t --fpu=none 
+      0x000041d4: 2d4f 7370 6163 6520 2d2d 6170 6373 3d2f -Ospace --apcs=/
+      0x000041e4: 6e6f 3862 7974 652f 696e 7465 7277 6f72 no8byte/interwor
+      0x000041f4: 6b2f 6e6f 7377 7374 2f6e 6f72 7770 692f k/noswst/norwpi/
+      0x00004204: 726f 7069 202d 492e 2e2f 2e2e 2f20 2d49 ropi -I../../ -I
+      0x00004214: 2e2e 2f2e 2e2f 616e 6765 6c20 2d49 2e2e ../../angel -I..
+      0x00004224: 2f2e 2e2f 7075 626c 6963 202d 4a2e 2e2f /../public -J../
+      0x00004234: 2e2e 2f73 7464 6820 2d44 7379 735f 636f ../stdh -Dsys_co
+      0x00004244: 6d6d 616e 645f 6320 2e2e 2f2e 2e2f 616e mmand_c ../../an
+      0x00004254: 6765 6c2f 7379 7361 7070 2e63 0000 6865 gel/sysapp.c..he
+      0x00004264: 6170 6578 742e 6f00 0041 524d 2f54 6875 apext.o..ARM/Thu
+      0x00004274: 6d62 204d 6163 726f 2041 7373 656d 626c mb Macro Assembl
+      0x00004284: 6572 2c20 5256 4354 322e 3220 5b42 7569 er, RVCT2.2 [Bui
+      0x00004294: 6c64 2035 3033 5d00 2d2d 6172 6d20 2d2d ld 503].--arm --
+      0x000042a4: 7363 6865 6475 6c65 202d 2d64 6961 675f schedule --diag_
+      0x000042b4: 7761 726e 696e 673d 3136 3432 202d 2d63 warning=1642 --c
+      0x000042c4: 7075 3d34 7420 2d2d 6465 7065 6e64 3d68 pu=4t --depend=h
+      0x000042d4: 6561 7065 7874 2e64 202d 2d66 7075 3d6e eapext.d --fpu=n
+      0x000042e4: 6f6e 6520 2d6f 6865 6170 6578 742e 6f20 one -oheapext.o 
+      0x000042f4: 2d2d 7363 6865 6475 6c65 5f63 7075 3d41 --schedule_cpu=A
+      0x00004304: 524d 3945 2d53 202d 2d73 6368 6564 756c RM9E-S --schedul
+      0x00004314: 655f 6370 753d 4152 4d31 3032 3030 4520 e_cpu=ARM10200E 
+      0x00004324: 2d2d 7363 6865 6475 6c65 5f63 7075 3d41 --schedule_cpu=A
+      0x00004334: 524d 3131 3336 4a46 2d53 202d 2d61 7063 RM1136JF-S --apc
+      0x00004344: 733d 2f6e 6f38 6279 7465 2f69 6e74 6572 s=/no8byte/inter
+      0x00004354: 776f 726b 2f6e 6f73 7773 742f 6e6f 7277 work/noswst/norw
+      0x00004364: 7069 2f72 6f70 6920 2d49 2e2e 2f2e 2e2f pi/ropi -I../../
+      0x00004374: 2c2e 2e2f 2e2e 2f61 6e67 656c 2c2e 2e2f ,../../angel,../
+      0x00004384: 2e2e 2f2e 2e2f 636c 7820 2d2d 7072 6564 ../../clx --pred
+      0x00004394: 6566 696e 653d 2200 0000 6672 6565 2e6f efine="...free.o
+      0x000043a4: 0000 4152 4d2f 5468 756d 6220 432f 432b ..ARM/Thumb C/C+
+      0x000043b4: 2b20 436f 6d70 696c 6572 2c20 5256 4354 + Compiler, RVCT
+      0x000043c4: 322e 3220 5b42 7569 6c64 2035 3033 5d00 2.2 [Build 503].
+      0x000043d4: 6172 6d63 6320 2d2d 7468 756d 6220 2d63 armcc --thumb -c
+      0x000043e4: 202d 2d73 706c 6974 5f6c 646d 202d 2d6e  --split_ldm --n
+      0x000043f4: 6f5f 6869 6465 5f61 6c6c 202d 2d6e 6f5f o_hide_all --no_
+      0x00004404: 7573 655f 6469 7265 6374 6976 655f 7365 use_directive_se
+      0x00004414: 6374 696f 6e73 202d 6f66 7265 652e 6f20 ctions -ofree.o 
+      0x00004424: 2d2d 6465 7065 6e64 3d66 7265 652e 6420 --depend=free.d 
+      0x00004434: 2d2d 7363 6865 6475 6c65 5f63 7075 3d41 --schedule_cpu=A
+      0x00004444: 524d 3945 2d53 202d 2d73 6368 6564 756c RM9E-S --schedul
+      0x00004454: 655f 6370 753d 4152 4d31 3032 3030 4520 e_cpu=ARM10200E 
+      0x00004464: 2d2d 7363 6865 6475 6c65 5f63 7075 3d41 --schedule_cpu=A
+      0x00004474: 524d 3131 3336 4a46 2d53 202d 2d74 7261 RM1136JF-S --tra
+      0x00004484: 6365 3d7a 7a20 2d2d 6370 753d 3474 202d ce=zz --cpu=4t -
+      0x00004494: 2d66 7075 3d6e 6f6e 6520 2d4f 7469 6d65 -fpu=none -Otime
+      0x000044a4: 202d 2d61 7063 733d 2f6e 6f38 6279 7465  --apcs=/no8byte
+      0x000044b4: 2f69 6e74 6572 776f 726b 2f6e 6f73 7773 /interwork/nosws
+      0x000044c4: 742f 6e6f 7277 7069 2f72 6f70 6920 2d49 t/norwpi/ropi -I
+      0x000044d4: 2e2e 2f2e 2e2f 202d 492e 2e2f 2e2e 2f61 ../../ -I../../a
+      0x000044e4: 6e67 656c 202d 492e 2e2f 2e2e 2f70 7562 ngel -I../../pub
+      0x000044f4: 6c69 6320 2d4a 2e2e 2f2e 2e2f 7374 6468 lic -J../../stdh
+      0x00004504: 202d 4466 7265 655f 6320 2e2e 2f2e 2e2f  -Dfree_c ../../
+      0x00004514: 6865 6170 616c 6c6f 632e 6300 0068 6775 heapalloc.c..hgu
+      0x00004524: 6172 6463 2e6f 0000 4152 4d2f 5468 756d ardc.o..ARM/Thum
+      0x00004534: 6220 432f 432b 2b20 436f 6d70 696c 6572 b C/C++ Compiler
+      0x00004544: 2c20 5256 4354 322e 3220 5b42 7569 6c64 , RVCT2.2 [Build
+      0x00004554: 2035 3033 5d00 6172 6d63 6320 2d2d 7468  503].armcc --th
+      0x00004564: 756d 6220 2d63 202d 2d73 706c 6974 5f6c umb -c --split_l
+      0x00004574: 646d 202d 2d6e 6f5f 6869 6465 5f61 6c6c dm --no_hide_all
+      0x00004584: 202d 2d6e 6f5f 7573 655f 6469 7265 6374  --no_use_direct
+      0x00004594: 6976 655f 7365 6374 696f 6e73 202d 6f68 ive_sections -oh
+      0x000045a4: 6775 6172 6463 2e6f 202d 2d64 6570 656e guardc.o --depen
+      0x000045b4: 643d 6867 7561 7264 632e 6420 2d2d 7363 d=hguardc.d --sc
+      0x000045c4: 6865 6475 6c65 5f63 7075 3d41 524d 3945 hedule_cpu=ARM9E
+      0x000045d4: 2d53 202d 2d73 6368 6564 756c 655f 6370 -S --schedule_cp
+      0x000045e4: 753d 4152 4d31 3032 3030 4520 2d2d 7363 u=ARM10200E --sc
+      0x000045f4: 6865 6475 6c65 5f63 7075 3d41 524d 3131 hedule_cpu=ARM11
+      0x00004604: 3336 4a46 2d53 202d 2d74 7261 6365 3d7a 36JF-S --trace=z
+      0x00004614: 7a20 2d2d 6370 753d 3474 202d 2d66 7075 z --cpu=4t --fpu
+      0x00004624: 3d6e 6f6e 6520 2d4f 7370 6163 6520 2d2d =none -Ospace --
+      0x00004634: 6170 6373 3d2f 6e6f 3862 7974 652f 696e apcs=/no8byte/in
+      0x00004644: 7465 7277 6f72 6b2f 6e6f 7377 7374 2f6e terwork/noswst/n
+      0x00004654: 6f72 7770 692f 726f 7069 202d 492e 2e2f orwpi/ropi -I../
+      0x00004664: 2e2e 2f20 2d49 2e2e 2f2e 2e2f 616e 6765 ../ -I../../ange
+      0x00004674: 6c20 2d49 2e2e 2f2e 2e2f 7075 626c 6963 l -I../../public
+      0x00004684: 202d 4a2e 2e2f 2e2e 2f73 7464 6820 2d44  -J../../stdh -D
+      0x00004694: 6867 7561 7264 635f 6320 2e2e 2f2e 2e2f hguardc_c ../../
+      0x000046a4: 6865 6170 616c 6c6f 632e 6300 0064 6566 heapalloc.c..def
+      0x000046b4: 7369 672e 6f00 0041 524d 2f54 6875 6d62 sig.o..ARM/Thumb
+      0x000046c4: 2043 2f43 2b2b 2043 6f6d 7069 6c65 722c  C/C++ Compiler,
+      0x000046d4: 2052 5643 5432 2e32 205b 4275 696c 6420  RVCT2.2 [Build 
+      0x000046e4: 3530 335d 0061 726d 6363 202d 2d74 6875 503].armcc --thu
+      0x000046f4: 6d62 202d 6320 2d2d 7370 6c69 745f 6c64 mb -c --split_ld
+      0x00004704: 6d20 2d2d 6e6f 5f68 6964 655f 616c 6c20 m --no_hide_all 
+      0x00004714: 2d2d 6e6f 5f75 7365 5f64 6972 6563 7469 --no_use_directi
+      0x00004724: 7665 5f73 6563 7469 6f6e 7320 2d6f 6465 ve_sections -ode
+      0x00004734: 6673 6967 2e6f 202d 2d64 6570 656e 643d fsig.o --depend=
+      0x00004744: 6465 6673 6967 2e64 202d 2d73 6368 6564 defsig.d --sched
+      0x00004754: 756c 655f 6370 753d 4152 4d39 452d 5320 ule_cpu=ARM9E-S 
+      0x00004764: 2d2d 7363 6865 6475 6c65 5f63 7075 3d41 --schedule_cpu=A
+      0x00004774: 524d 3130 3230 3045 202d 2d73 6368 6564 RM10200E --sched
+      0x00004784: 756c 655f 6370 753d 4152 4d31 3133 364a ule_cpu=ARM1136J
+      0x00004794: 462d 5320 2d2d 7472 6163 653d 7a7a 202d F-S --trace=zz -
+      0x000047a4: 2d63 7075 3d34 7420 2d2d 6670 753d 6e6f -cpu=4t --fpu=no
+      0x000047b4: 6e65 202d 4f73 7061 6365 202d 2d61 7063 ne -Ospace --apc
+      0x000047c4: 733d 2f6e 6f38 6279 7465 2f69 6e74 6572 s=/no8byte/inter
+      0x000047d4: 776f 726b 2f6e 6f73 7773 742f 6e6f 7277 work/noswst/norw
+      0x000047e4: 7069 2f72 6f70 6920 2d49 2e2e 2f2e 2e2f pi/ropi -I../../
+      0x000047f4: 202d 492e 2e2f 2e2e 2f61 6e67 656c 202d  -I../../angel -
+      0x00004804: 492e 2e2f 2e2e 2f70 7562 6c69 6320 2d4a I../../public -J
+      0x00004814: 2e2e 2f2e 2e2f 7374 6468 202d 4464 6566 ../../stdh -Ddef
+      0x00004824: 7369 675f 6320 2e2e 2f2e 2e2f 7369 676e sig_c ../../sign
+      0x00004834: 616c 2e63 0000 5f5f 7363 6174 7465 725f al.c..__scatter_
+      0x00004844: 7a69 2e6f 0000 4152 4d2f 5468 756d 6220 zi.o..ARM/Thumb 
+      0x00004854: 4d61 6372 6f20 4173 7365 6d62 6c65 722c Macro Assembler,
+      0x00004864: 2052 5643 5432 2e32 205b 4275 696c 6420  RVCT2.2 [Build 
+      0x00004874: 3530 335d 002d 2d61 726d 202d 2d73 6368 503].--arm --sch
+      0x00004884: 6564 756c 6520 2d2d 6469 6167 5f77 6172 edule --diag_war
+      0x00004894: 6e69 6e67 3d31 3634 3220 2d2d 6370 753d ning=1642 --cpu=
+      0x000048a4: 3474 202d 2d64 6570 656e 643d 5f5f 7363 4t --depend=__sc
+      0x000048b4: 6174 7465 725f 7a69 2e64 202d 2d66 7075 atter_zi.d --fpu
+      0x000048c4: 3d6e 6f6e 6520 2d6f 5f5f 7363 6174 7465 =none -o__scatte
+      0x000048d4: 725f 7a69 2e6f 202d 2d73 6368 6564 756c r_zi.o --schedul
+      0x000048e4: 655f 6370 753d 4152 4d39 452d 5320 2d2d e_cpu=ARM9E-S --
+      0x000048f4: 7363 6865 6475 6c65 5f63 7075 3d41 524d schedule_cpu=ARM
+      0x00004904: 3130 3230 3045 202d 2d73 6368 6564 756c 10200E --schedul
+      0x00004914: 655f 6370 753d 4152 4d31 3133 364a 462d e_cpu=ARM1136JF-
+      0x00004924: 5320 2d2d 6170 6373 3d2f 6e6f 3862 7974 S --apcs=/no8byt
+      0x00004934: 652f 696e 7465 7277 6f72 6b2f 6e6f 7377 e/interwork/nosw
+      0x00004944: 7374 2f6e 6f72 7770 692f 726f 7069 202d st/norwpi/ropi -
+      0x00004954: 492e 2e2f 2e2e 2f2c 2e2e 2f2e 2e2f 616e I../../,../../an
+      0x00004964: 6765 6c2c 2e2e 2f2e 2e2f 2e2e 2f63 6c78 gel,../../../clx
+      0x00004974: 202d 2d70 0000 0064 736f 5f68 616e 646c  --p...dso_handl
+      0x00004984: 652e 6f00 0041 524d 2f54 6875 6d62 204d e.o..ARM/Thumb M
+      0x00004994: 6163 726f 2041 7373 656d 626c 6572 2c20 acro Assembler, 
+      0x000049a4: 5256 4354 322e 3220 5b42 7569 6c64 2035 RVCT2.2 [Build 5
+      0x000049b4: 3033 5d00 2d2d 6172 6d20 2d2d 7363 6865 03].--arm --sche
+      0x000049c4: 6475 6c65 202d 2d64 6961 675f 7761 726e dule --diag_warn
+      0x000049d4: 696e 673d 3136 3432 202d 2d63 7075 3d34 ing=1642 --cpu=4
+      0x000049e4: 7420 2d2d 6465 7065 6e64 3d64 736f 5f68 t --depend=dso_h
+      0x000049f4: 616e 646c 652e 6420 2d2d 6670 753d 6e6f andle.d --fpu=no
+      0x00004a04: 6e65 202d 6f64 736f 5f68 616e 646c 652e ne -odso_handle.
+      0x00004a14: 6f20 2d2d 7363 6865 6475 6c65 5f63 7075 o --schedule_cpu
+      0x00004a24: 3d41 524d 3945 2d53 202d 2d73 6368 6564 =ARM9E-S --sched
+      0x00004a34: 756c 655f 6370 753d 4152 4d31 3032 3030 ule_cpu=ARM10200
+      0x00004a44: 4520 2d2d 7363 6865 6475 6c65 5f63 7075 E --schedule_cpu
+      0x00004a54: 3d41 524d 3131 3336 4a46 2d53 202d 2d61 =ARM1136JF-S --a
+      0x00004a64: 7063 733d 2f6e 6f38 6279 7465 2f69 6e74 pcs=/no8byte/int
+      0x00004a74: 6572 776f 726b 2f6e 6f73 7773 742f 6e6f erwork/noswst/no
+      0x00004a84: 7277 7069 2f72 6f70 6920 2d49 2e2e 2f2e rwpi/ropi -I../.
+      0x00004a94: 2e2f 2c2e 2e2f 2e2e 2f61 6e67 656c 2c2e ./,../../angel,.
+      0x00004aa4: 2e2f 2e2e 2f2e 2e2f 636c 7820 2d2d 7072 ./../../clx --pr
+      0x00004ab4: 6564 6500 0000 6831 5f66 7265 652e 6f00 ede...h1_free.o.
+      0x00004ac4: 0041 524d 2f54 6875 6d62 2043 2f43 2b2b .ARM/Thumb C/C++
+      0x00004ad4: 2043 6f6d 7069 6c65 722c 2052 5643 5432  Compiler, RVCT2
+      0x00004ae4: 2e32 205b 4275 696c 6420 3530 335d 0061 .2 [Build 503].a
+      0x00004af4: 726d 6363 202d 2d74 6875 6d62 202d 6320 rmcc --thumb -c 
+      0x00004b04: 2d2d 7370 6c69 745f 6c64 6d20 2d2d 6e6f --split_ldm --no
+      0x00004b14: 5f68 6964 655f 616c 6c20 2d2d 6e6f 5f75 _hide_all --no_u
+      0x00004b24: 7365 5f64 6972 6563 7469 7665 5f73 6563 se_directive_sec
+      0x00004b34: 7469 6f6e 7320 2d6f 6831 5f66 7265 652e tions -oh1_free.
+      0x00004b44: 6f20 2d2d 6465 7065 6e64 3d68 315f 6672 o --depend=h1_fr
+      0x00004b54: 6565 2e64 202d 2d73 6368 6564 756c 655f ee.d --schedule_
+      0x00004b64: 6370 753d 4152 4d39 452d 5320 2d2d 7363 cpu=ARM9E-S --sc
+      0x00004b74: 6865 6475 6c65 5f63 7075 3d41 524d 3130 hedule_cpu=ARM10
+      0x00004b84: 3230 3045 202d 2d73 6368 6564 756c 655f 200E --schedule_
+      0x00004b94: 6370 753d 4152 4d31 3133 364a 462d 5320 cpu=ARM1136JF-S 
+      0x00004ba4: 2d2d 7472 6163 653d 7a7a 202d 2d63 7075 --trace=zz --cpu
+      0x00004bb4: 3d34 7420 2d2d 6670 753d 6e6f 6e65 202d =4t --fpu=none -
+      0x00004bc4: 4f74 696d 6520 2d2d 6170 6373 3d2f 6e6f Otime --apcs=/no
+      0x00004bd4: 3862 7974 652f 696e 7465 7277 6f72 6b2f 8byte/interwork/
+      0x00004be4: 6e6f 7377 7374 2f6e 6f72 7770 692f 726f noswst/norwpi/ro
+      0x00004bf4: 7069 202d 492e 2e2f 2e2e 2f20 2d49 2e2e pi -I../../ -I..
+      0x00004c04: 2f2e 2e2f 616e 6765 6c20 2d49 2e2e 2f2e /../angel -I../.
+      0x00004c14: 2e2f 7075 626c 6963 202d 4a2e 2e2f 2e2e ./public -J../..
+      0x00004c24: 2f73 7464 6820 2d44 6672 6565 5f63 202e /stdh -Dfree_c .
+      0x00004c34: 2e2f 2e2e 2f68 6561 7031 2e63 0000 6361 ./../heap1.c..ca
+      0x00004c44: 6c6c 7669 612e 6f00 0041 524d 2f54 6875 llvia.o..ARM/Thu
+      0x00004c54: 6d62 204d 6163 726f 2041 7373 656d 626c mb Macro Assembl
+      0x00004c64: 6572 2c20 5256 4354 322e 3220 5b42 7569 er, RVCT2.2 [Bui
+      0x00004c74: 6c64 2035 3033 5d00 2d2d 6172 6d20 2d2d ld 503].--arm --
+      0x00004c84: 7363 6865 6475 6c65 202d 2d64 6961 675f schedule --diag_
+      0x00004c94: 7761 726e 696e 673d 3136 3432 202d 2d63 warning=1642 --c
+      0x00004ca4: 7075 3d34 7420 2d2d 6465 7065 6e64 3d63 pu=4t --depend=c
+      0x00004cb4: 616c 6c76 6961 2e64 202d 2d66 7075 3d6e allvia.d --fpu=n
+      0x00004cc4: 6f6e 6520 2d6f 6361 6c6c 7669 612e 6f20 one -ocallvia.o 
+      0x00004cd4: 2d2d 7363 6865 6475 6c65 5f63 7075 3d41 --schedule_cpu=A
+      0x00004ce4: 524d 3945 2d53 202d 2d73 6368 6564 756c RM9E-S --schedul
+      0x00004cf4: 655f 6370 753d 4152 4d31 3032 3030 4520 e_cpu=ARM10200E 
+      0x00004d04: 2d2d 7363 6865 6475 6c65 5f63 7075 3d41 --schedule_cpu=A
+      0x00004d14: 524d 3131 3336 4a46 2d53 202d 2d61 7063 RM1136JF-S --apc
+      0x00004d24: 733d 2f6e 6f38 6279 7465 2f69 6e74 6572 s=/no8byte/inter
+      0x00004d34: 776f 726b 2f6e 6f73 7773 742f 6e6f 7277 work/noswst/norw
+      0x00004d44: 7069 2f72 6f70 6920 2d49 2e2e 2f2e 2e2f pi/ropi -I../../
+      0x00004d54: 2c2e 2e2f 2e2e 2f61 6e67 656c 2c2e 2e2f ,../../angel,../
+      0x00004d64: 2e2e 2f2e 2e2f 636c 7820 2d2d 7072 6564 ../../clx --pred
+      0x00004d74: 6566 696e 653d 2200 0000 6463 2e6f 0000 efine="...dc.o..
+      0x00004d84: 4152 4d2f 5468 756d 6220 4d61 6372 6f20 ARM/Thumb Macro 
+      0x00004d94: 4173 7365 6d62 6c65 722c 2052 5643 5432 Assembler, RVCT2
+      0x00004da4: 2e32 205b 4275 696c 6420 3530 335d 002d .2 [Build 503].-
+      0x00004db4: 2d61 726d 202d 2d73 6368 6564 756c 6520 -arm --schedule 
+      0x00004dc4: 2d2d 6469 6167 5f77 6172 6e69 6e67 3d31 --diag_warning=1
+      0x00004dd4: 3634 3220 2d2d 6370 753d 3474 202d 2d64 642 --cpu=4t --d
+      0x00004de4: 6570 656e 643d 6463 2e64 202d 2d66 7075 epend=dc.d --fpu
+      0x00004df4: 3d6e 6f6e 6520 2d6f 6463 2e6f 202d 2d73 =none -odc.o --s
+      0x00004e04: 6368 6564 756c 655f 6370 753d 4152 4d39 chedule_cpu=ARM9
+      0x00004e14: 452d 5320 2d2d 7363 6865 6475 6c65 5f63 E-S --schedule_c
+      0x00004e24: 7075 3d41 524d 3130 3230 3045 202d 2d73 pu=ARM10200E --s
+      0x00004e34: 6368 6564 756c 655f 6370 753d 4152 4d31 chedule_cpu=ARM1
+      0x00004e44: 3133 364a 462d 5320 2d2d 6170 6373 3d2f 136JF-S --apcs=/
+      0x00004e54: 6e6f 3862 7974 652f 696e 7465 7277 6f72 no8byte/interwor
+      0x00004e64: 6b2f 6e6f 7377 7374 2f6e 6f72 7770 692f k/noswst/norwpi/
+      0x00004e74: 726f 7069 202d 492e 2e2f 2e2e 2f2c 2e2e ropi -I../../,..
+      0x00004e84: 2f2e 2e2f 616e 6765 6c2c 2e2e 2f2e 2e2f /../angel,../../
+      0x00004e94: 2e2e 2f63 6c78 202d 2d70 7265 6465 6669 ../clx --predefi
+      0x00004ea4: 6e65 3d22 5448 554d 4220 5345 544c 0000 ne="THUMB SETL..
+      0x00004eb4: 0061 626f 7274 2e6f 0000 4152 4d2f 5468 .abort.o..ARM/Th
+      0x00004ec4: 756d 6220 432f 432b 2b20 436f 6d70 696c umb C/C++ Compil
+      0x00004ed4: 6572 2c20 5256 4354 322e 3220 5b42 7569 er, RVCT2.2 [Bui
+      0x00004ee4: 6c64 2035 3033 5d00 6172 6d63 6320 2d2d ld 503].armcc --
+      0x00004ef4: 7468 756d 6220 2d63 202d 2d73 706c 6974 thumb -c --split
+      0x00004f04: 5f6c 646d 202d 2d6e 6f5f 6869 6465 5f61 _ldm --no_hide_a
+      0x00004f14: 6c6c 202d 2d6e 6f5f 7573 655f 6469 7265 ll --no_use_dire
+      0x00004f24: 6374 6976 655f 7365 6374 696f 6e73 202d ctive_sections -
+      0x00004f34: 6f61 626f 7274 2e6f 202d 2d64 6570 656e oabort.o --depen
+      0x00004f44: 643d 6162 6f72 742e 6420 2d2d 7363 6865 d=abort.d --sche
+      0x00004f54: 6475 6c65 5f63 7075 3d41 524d 3945 2d53 dule_cpu=ARM9E-S
+      0x00004f64: 202d 2d73 6368 6564 756c 655f 6370 753d  --schedule_cpu=
+      0x00004f74: 4152 4d31 3032 3030 4520 2d2d 7363 6865 ARM10200E --sche
+      0x00004f84: 6475 6c65 5f63 7075 3d41 524d 3131 3336 dule_cpu=ARM1136
+      0x00004f94: 4a46 2d53 202d 2d74 7261 6365 3d7a 7a20 JF-S --trace=zz 
+      0x00004fa4: 2d2d 6370 753d 3474 202d 2d66 7075 3d6e --cpu=4t --fpu=n
+      0x00004fb4: 6f6e 6520 2d4f 7370 6163 6520 2d2d 6170 one -Ospace --ap
+      0x00004fc4: 6373 3d2f 6e6f 3862 7974 652f 696e 7465 cs=/no8byte/inte
+      0x00004fd4: 7277 6f72 6b2f 6e6f 7377 7374 2f6e 6f72 rwork/noswst/nor
+      0x00004fe4: 7770 692f 726f 7069 202d 492e 2e2f 2e2e wpi/ropi -I../..
+      0x00004ff4: 2f20 2d49 2e2e 2f2e 2e2f 616e 6765 6c20 / -I../../angel 
+      0x00005004: 2d49 2e2e 2f2e 2e2f 7075 626c 6963 202d -I../../public -
+      0x00005014: 4a2e 2e2f 2e2e 2f73 7464 6820 2d44 6162 J../../stdh -Dab
+      0x00005024: 6f72 745f 6320 2e2e 2f2e 2e2f 7374 646c ort_c ../../stdl
+      0x00005034: 6962 2e63 0000 5f5f 7261 6973 652e 6f00 ib.c..__raise.o.
+      0x00005044: 0041 524d 2f54 6875 6d62 2043 2f43 2b2b .ARM/Thumb C/C++
+      0x00005054: 2043 6f6d 7069 6c65 722c 2052 5643 5432  Compiler, RVCT2
+      0x00005064: 2e32 205b 4275 696c 6420 3530 335d 0061 .2 [Build 503].a
+      0x00005074: 726d 6363 202d 2d74 6875 6d62 202d 6320 rmcc --thumb -c 
+      0x00005084: 2d2d 7370 6c69 745f 6c64 6d20 2d2d 6e6f --split_ldm --no
+      0x00005094: 5f68 6964 655f 616c 6c20 2d2d 6e6f 5f75 _hide_all --no_u
+      0x000050a4: 7365 5f64 6972 6563 7469 7665 5f73 6563 se_directive_sec
+      0x000050b4: 7469 6f6e 7320 2d6f 5f5f 7261 6973 652e tions -o__raise.
+      0x000050c4: 6f20 2d2d 6465 7065 6e64 3d5f 5f72 6169 o --depend=__rai
+      0x000050d4: 7365 2e64 202d 2d73 6368 6564 756c 655f se.d --schedule_
+      0x000050e4: 6370 753d 4152 4d39 452d 5320 2d2d 7363 cpu=ARM9E-S --sc
+      0x000050f4: 6865 6475 6c65 5f63 7075 3d41 524d 3130 hedule_cpu=ARM10
+      0x00005104: 3230 3045 202d 2d73 6368 6564 756c 655f 200E --schedule_
+      0x00005114: 6370 753d 4152 4d31 3133 364a 462d 5320 cpu=ARM1136JF-S 
+      0x00005124: 2d2d 7472 6163 653d 7a7a 202d 2d63 7075 --trace=zz --cpu
+      0x00005134: 3d34 7420 2d2d 6670 753d 6e6f 6e65 202d =4t --fpu=none -
+      0x00005144: 4f73 7061 6365 202d 2d61 7063 733d 2f6e Ospace --apcs=/n
+      0x00005154: 6f38 6279 7465 2f69 6e74 6572 776f 726b o8byte/interwork
+      0x00005164: 2f6e 6f73 7773 742f 6e6f 7277 7069 2f72 /noswst/norwpi/r
+      0x00005174: 6f70 6920 2d49 2e2e 2f2e 2e2f 202d 492e opi -I../../ -I.
+      0x00005184: 2e2f 2e2e 2f61 6e67 656c 202d 492e 2e2f ./../angel -I../
+      0x00005194: 2e2e 2f70 7562 6c69 6320 2d4a 2e2e 2f2e ../public -J../.
+      0x000051a4: 2e2f 7374 6468 202d 445f 5f72 6169 7365 ./stdh -D__raise
+      0x000051b4: 5f63 202e 2e2f 2e2e 2f73 6967 6e61 6c2e _c ../../signal.
+      0x000051c4: 6300 0068 315f 616c 6c6f 632e 6f00 0041 c..h1_alloc.o..A
+      0x000051d4: 524d 2f54 6875 6d62 2043 2f43 2b2b 2043 RM/Thumb C/C++ C
+      0x000051e4: 6f6d 7069 6c65 722c 2052 5643 5432 2e32 ompiler, RVCT2.2
+      0x000051f4: 205b 4275 696c 6420 3530 335d 0061 726d  [Build 503].arm
+      0x00005204: 6363 202d 2d74 6875 6d62 202d 6320 2d2d cc --thumb -c --
+      0x00005214: 7370 6c69 745f 6c64 6d20 2d2d 6e6f 5f68 split_ldm --no_h
+      0x00005224: 6964 655f 616c 6c20 2d2d 6e6f 5f75 7365 ide_all --no_use
+      0x00005234: 5f64 6972 6563 7469 7665 5f73 6563 7469 _directive_secti
+      0x00005244: 6f6e 7320 2d6f 6831 5f61 6c6c 6f63 2e6f ons -oh1_alloc.o
+      0x00005254: 202d 2d64 6570 656e 643d 6831 5f61 6c6c  --depend=h1_all
+      0x00005264: 6f63 2e64 202d 2d73 6368 6564 756c 655f oc.d --schedule_
+      0x00005274: 6370 753d 4152 4d39 452d 5320 2d2d 7363 cpu=ARM9E-S --sc
+      0x00005284: 6865 6475 6c65 5f63 7075 3d41 524d 3130 hedule_cpu=ARM10
+      0x00005294: 3230 3045 202d 2d73 6368 6564 756c 655f 200E --schedule_
+      0x000052a4: 6370 753d 4152 4d31 3133 364a 462d 5320 cpu=ARM1136JF-S 
+      0x000052b4: 2d2d 7472 6163 653d 7a7a 202d 2d63 7075 --trace=zz --cpu
+      0x000052c4: 3d34 7420 2d2d 6670 753d 6e6f 6e65 202d =4t --fpu=none -
+      0x000052d4: 4f74 696d 6520 2d2d 6170 6373 3d2f 6e6f Otime --apcs=/no
+      0x000052e4: 3862 7974 652f 696e 7465 7277 6f72 6b2f 8byte/interwork/
+      0x000052f4: 6e6f 7377 7374 2f6e 6f72 7770 692f 726f noswst/norwpi/ro
+      0x00005304: 7069 202d 492e 2e2f 2e2e 2f20 2d49 2e2e pi -I../../ -I..
+      0x00005314: 2f2e 2e2f 616e 6765 6c20 2d49 2e2e 2f2e /../angel -I../.
+      0x00005324: 2e2f 7075 626c 6963 202d 4a2e 2e2f 2e2e ./public -J../..
+      0x00005334: 2f73 7464 6820 2d44 616c 6c6f 635f 6320 /stdh -Dalloc_c 
+      0x00005344: 2e2e 2f2e 2e2f 6865 6170 312e 6300 0062 ../../heap1.c..b
+      0x00005354: 6f61 7264 696e 6974 322e 6f00 0041 524d oardinit2.o..ARM
+      0x00005364: 2f54 6875 6d62 204d 6163 726f 2041 7373 /Thumb Macro Ass
+      0x00005374: 656d 626c 6572 2c20 5256 4354 322e 3220 embler, RVCT2.2 
+      0x00005384: 5b42 7569 6c64 2035 3033 5d00 2d2d 6172 [Build 503].--ar
+      0x00005394: 6d20 2d2d 7363 6865 6475 6c65 202d 2d64 m --schedule --d
+      0x000053a4: 6961 675f 7761 726e 696e 673d 3136 3432 iag_warning=1642
+      0x000053b4: 202d 2d63 7075 3d34 7420 2d2d 6465 7065  --cpu=4t --depe
+      0x000053c4: 6e64 3d62 6f61 7264 696e 6974 322e 6420 nd=boardinit2.d 
+      0x000053d4: 2d2d 6670 753d 6e6f 6e65 202d 6f62 6f61 --fpu=none -oboa
+      0x000053e4: 7264 696e 6974 322e 6f20 2d2d 7363 6865 rdinit2.o --sche
+      0x000053f4: 6475 6c65 5f63 7075 3d41 524d 3945 2d53 dule_cpu=ARM9E-S
+      0x00005404: 202d 2d73 6368 6564 756c 655f 6370 753d  --schedule_cpu=
+      0x00005414: 4152 4d31 3032 3030 4520 2d2d 7363 6865 ARM10200E --sche
+      0x00005424: 6475 6c65 5f63 7075 3d41 524d 3131 3336 dule_cpu=ARM1136
+      0x00005434: 4a46 2d53 202d 2d61 7063 733d 2f6e 6f38 JF-S --apcs=/no8
+      0x00005444: 6279 7465 2f69 6e74 6572 776f 726b 2f6e byte/interwork/n
+      0x00005454: 6f73 7773 742f 6e6f 7277 7069 2f72 6f70 oswst/norwpi/rop
+      0x00005464: 6920 2d49 2e2e 2f2e 2e2f 2c2e 2e2f 2e2e i -I../../,../..
+      0x00005474: 2f61 6e67 656c 2c2e 2e2f 2e2e 2f2e 2e2f /angel,../../../
+      0x00005484: 636c 7820 2d2d 7072 6564 6500 0000 626f clx --prede...bo
+      0x00005494: 6172 6469 6e69 7433 2e6f 0000 4152 4d2f ardinit3.o..ARM/
+      0x000054a4: 5468 756d 6220 4d61 6372 6f20 4173 7365 Thumb Macro Asse
+      0x000054b4: 6d62 6c65 722c 2052 5643 5432 2e32 205b mbler, RVCT2.2 [
+      0x000054c4: 4275 696c 6420 3530 335d 002d 2d61 726d Build 503].--arm
+      0x000054d4: 202d 2d73 6368 6564 756c 6520 2d2d 6469  --schedule --di
+      0x000054e4: 6167 5f77 6172 6e69 6e67 3d31 3634 3220 ag_warning=1642 
+      0x000054f4: 2d2d 6370 753d 3474 202d 2d64 6570 656e --cpu=4t --depen
+      0x00005504: 643d 626f 6172 6469 6e69 7433 2e64 202d d=boardinit3.d -
+      0x00005514: 2d66 7075 3d6e 6f6e 6520 2d6f 626f 6172 -fpu=none -oboar
+      0x00005524: 6469 6e69 7433 2e6f 202d 2d73 6368 6564 dinit3.o --sched
+      0x00005534: 756c 655f 6370 753d 4152 4d39 452d 5320 ule_cpu=ARM9E-S 
+      0x00005544: 2d2d 7363 6865 6475 6c65 5f63 7075 3d41 --schedule_cpu=A
+      0x00005554: 524d 3130 3230 3045 202d 2d73 6368 6564 RM10200E --sched
+      0x00005564: 756c 655f 6370 753d 4152 4d31 3133 364a ule_cpu=ARM1136J
+      0x00005574: 462d 5320 2d2d 6170 6373 3d2f 6e6f 3862 F-S --apcs=/no8b
+      0x00005584: 7974 652f 696e 7465 7277 6f72 6b2f 6e6f yte/interwork/no
+      0x00005594: 7377 7374 2f6e 6f72 7770 692f 726f 7069 swst/norwpi/ropi
+      0x000055a4: 202d 492e 2e2f 2e2e 2f2c 2e2e 2f2e 2e2f  -I../../,../../
+      0x000055b4: 616e 6765 6c2c 2e2e 2f2e 2e2f 2e2e 2f63 angel,../../../c
+      0x000055c4: 6c78 202d 2d70 7265 6465 0000 006c 6962 lx --prede...lib
+      0x000055d4: 5f69 6e69 742e 6f00 0041 524d 204c 696e _init.o..ARM Lin
+      0x000055e4: 6b65 722c 2052 5643 5432 2e32 205b 4275 ker, RVCT2.2 [Bu
+      0x000055f4: 696c 6420 3530 335d 0a00 496e 7075 7420 ild 503]..Input 
+      0x00005604: 436f 6d6d 656e 7473 3a00 0066 696c 6559 Comments:..fileY
+      0x00005614: 4f52 4949 5100 0041 524d 2f54 6875 6d62 ORIIQ..ARM/Thumb
+      0x00005624: 204d 6163 726f 2041 7373 656d 626c 6572  Macro Assembler
+      0x00005634: 2c20 5256 4354 322e 3220 5b42 7569 6c64 , RVCT2.2 [Build
+      0x00005644: 2035 3033 5d00 2d2d 7468 756d 6220 2d2d  503].--thumb --
+      0x00005654: 6469 6167 5f73 7570 7072 6573 733d 3136 diag_suppress=16
+      0x00005664: 3032 202d 2d63 7075 3d34 7420 2d2d 6670 02 --cpu=4t --fp
+      0x00005674: 753d 6e6f 6e65 202d 2d74 6f3d 2f74 6d70 u=none --to=/tmp
+      0x00005684: 2f66 696c 6559 4f52 4949 5120 2d2d 6170 /fileYORIIQ --ap
+      0x00005694: 6373 3d2f 6e6f 696e 7465 7277 6f72 6b2f cs=/nointerwork/
+      0x000056a4: 6e6f 7377 7374 2f2f 6e6f 3862 7974 652f noswst//no8byte/
+      0x000056b4: 696e 7465 7277 6f72 6b2f 6e6f 7377 7374 interwork/noswst
+      0x000056c4: 2f6e 6f72 7770 692f 726f 7069 202f 746d /norwpi/ropi /tm
+      0x000056d4: 702f 6669 6c65 6239 4c64 3944 0000 0000 p/fileb9Ld9D....
+      0x000056e4: 6c69 625f 696e 6974 2e6f 0000 4152 4d2f lib_init.o..ARM/
+      0x000056f4: 5468 756d 6220 432f 432b 2b20 436f 6d70 Thumb C/C++ Comp
+      0x00005704: 696c 6572 2c20 5256 4354 322e 3220 5b42 iler, RVCT2.2 [B
+      0x00005714: 7569 6c64 2035 3033 5d00 6172 6d63 6320 uild 503].armcc 
+      0x00005724: 2d2d 7468 756d 6220 2d63 202d 2d73 706c --thumb -c --spl
+      0x00005734: 6974 5f6c 646d 202d 2d6e 6f5f 7573 655f it_ldm --no_use_
+      0x00005744: 6469 7265 6374 6976 655f 7365 6374 696f directive_sectio
+      0x00005754: 6e73 202d 6f6c 6962 5f69 6e69 742e 6f20 ns -olib_init.o 
+      0x00005764: 2d2d 6465 7065 6e64 3d6c 6962 5f69 6e69 --depend=lib_ini
+      0x00005774: 742e 6420 2d2d 7363 6865 6475 6c65 5f63 t.d --schedule_c
+      0x00005784: 7075 3d41 524d 3945 2d53 202d 2d73 6368 pu=ARM9E-S --sch
+      0x00005794: 6564 756c 655f 6370 753d 4152 4d31 3032 edule_cpu=ARM102
+      0x000057a4: 3030 4520 2d2d 7363 6865 6475 6c65 5f63 00E --schedule_c
+      0x000057b4: 7075 3d41 524d 3131 3336 4a46 2d53 202d pu=ARM1136JF-S -
+      0x000057c4: 2d74 7261 6365 3d7a 7a20 2d2d 6370 753d -trace=zz --cpu=
+      0x000057d4: 3474 202d 2d66 7075 3d6e 6f6e 6520 2d4f 4t --fpu=none -O
+      0x000057e4: 7370 6163 6520 2d2d 6170 6373 3d2f 6e6f space --apcs=/no
+      0x000057f4: 3862 7974 652f 696e 7465 7277 6f72 6b2f 8byte/interwork/
+      0x00005804: 6e6f 7377 7374 2f6e 6f72 7770 692f 726f noswst/norwpi/ro
+      0x00005814: 7069 202d 492e 2e2f 2e2e 2f20 2d49 2e2e pi -I../../ -I..
+      0x00005824: 2f2e 2e2f 616e 6765 6c20 2d49 2e2e 2f2e /../angel -I../.
+      0x00005834: 2e2f 7075 626c 6963 202d 4a2e 2e2f 2e2e ./public -J../..
+      0x00005844: 2f73 7464 6820 2d44 6c69 625f 696e 6974 /stdh -Dlib_init
+      0x00005854: 5f63 202e 2e2f 2e2e 2f61 726d 7379 732e _c ../../armsys.
+      0x00005864: 6300 0000 0000 6c69 6273 7061 6365 2e6f c.....libspace.o
+      0x00005874: 0000 4152 4d2f 5468 756d 6220 4d61 6372 ..ARM/Thumb Macr
+      0x00005884: 6f20 4173 7365 6d62 6c65 722c 2052 5643 o Assembler, RVC
+      0x00005894: 5432 2e32 205b 4275 696c 6420 3530 335d T2.2 [Build 503]
+      0x000058a4: 002d 2d61 726d 202d 2d73 6368 6564 756c .--arm --schedul
+      0x000058b4: 6520 2d2d 6469 6167 5f77 6172 6e69 6e67 e --diag_warning
+      0x000058c4: 3d31 3634 3220 2d2d 6370 753d 3474 202d =1642 --cpu=4t -
+      0x000058d4: 2d64 6570 656e 643d 6c69 6273 7061 6365 -depend=libspace
+      0x000058e4: 2e64 202d 2d66 7075 3d6e 6f6e 6520 2d6f .d --fpu=none -o
+      0x000058f4: 6c69 6273 7061 6365 2e6f 202d 2d73 6368 libspace.o --sch
+      0x00005904: 6564 756c 655f 6370 753d 4152 4d39 452d edule_cpu=ARM9E-
+      0x00005914: 5320 2d2d 7363 6865 6475 6c65 5f63 7075 S --schedule_cpu
+      0x00005924: 3d41 524d 3130 3230 3045 202d 2d73 6368 =ARM10200E --sch
+      0x00005934: 6564 756c 655f 6370 753d 4152 4d31 3133 edule_cpu=ARM113
+      0x00005944: 364a 462d 5320 2d2d 6170 6373 3d2f 6e6f 6JF-S --apcs=/no
+      0x00005954: 3862 7974 652f 696e 7465 7277 6f72 6b2f 8byte/interwork/
+      0x00005964: 6e6f 7377 7374 2f6e 6f72 7770 692f 726f noswst/norwpi/ro
+      0x00005974: 7069 202d 492e 2e2f 2e2e 2f2c 2e2e 2f2e pi -I../../,../.
+      0x00005984: 2e2f 616e 6765 6c2c 2e2e 2f2e 2e2f 2e2e ./angel,../../..
+      0x00005994: 2f63 6c78 202d 2d70 7265 6465 6669 6e65 /clx --predefine
+      0x000059a4: 0000 0073 7973 5f65 7869 742e 6f00 0041 ...sys_exit.o..A
+      0x000059b4: 524d 2f54 6875 6d62 204d 6163 726f 2041 RM/Thumb Macro A
+      0x000059c4: 7373 656d 626c 6572 2c20 5256 4354 322e ssembler, RVCT2.
+      0x000059d4: 3220 5b42 7569 6c64 2035 3033 5d00 2d2d 2 [Build 503].--
+      0x000059e4: 6172 6d20 2d2d 7363 6865 6475 6c65 202d arm --schedule -
+      0x000059f4: 2d64 6961 675f 7761 726e 696e 673d 3136 -diag_warning=16
+      0x00005a04: 3432 202d 2d63 7075 3d34 7420 2d2d 6465 42 --cpu=4t --de
+      0x00005a14: 7065 6e64 3d73 7973 5f65 7869 742e 6420 pend=sys_exit.d 
+      0x00005a24: 2d2d 6670 753d 6e6f 6e65 202d 6f73 7973 --fpu=none -osys
+      0x00005a34: 5f65 7869 742e 6f20 2d2d 7363 6865 6475 _exit.o --schedu
+      0x00005a44: 6c65 5f63 7075 3d41 524d 3945 2d53 202d le_cpu=ARM9E-S -
+      0x00005a54: 2d73 6368 6564 756c 655f 6370 753d 4152 -schedule_cpu=AR
+      0x00005a64: 4d31 3032 3030 4520 2d2d 7363 6865 6475 M10200E --schedu
+      0x00005a74: 6c65 5f63 7075 3d41 524d 3131 3336 4a46 le_cpu=ARM1136JF
+      0x00005a84: 2d53 202d 2d61 7063 733d 2f6e 6f38 6279 -S --apcs=/no8by
+      0x00005a94: 7465 2f69 6e74 6572 776f 726b 2f6e 6f73 te/interwork/nos
+      0x00005aa4: 7773 742f 6e6f 7277 7069 2f72 6f70 6920 wst/norwpi/ropi 
+      0x00005ab4: 2d49 2e2e 2f2e 2e2f 2c2e 2e2f 2e2e 2f61 -I../../,../../a
+      0x00005ac4: 6e67 656c 2c2e 2e2f 2e2e 2f2e 2e2f 636c ngel,../../../cl
+      0x00005ad4: 7820 2d2d 7072 6564 6566 696e 6500 0000 x --predefine...
+      0x00005ae4: 7274 5f72 6169 7365 2e6f 0000 4152 4d2f rt_raise.o..ARM/
+      0x00005af4: 5468 756d 6220 4d61 6372 6f20 4173 7365 Thumb Macro Asse
+      0x00005b04: 6d62 6c65 722c 2052 5643 5432 2e32 205b mbler, RVCT2.2 [
+      0x00005b14: 4275 696c 6420 3530 335d 002d 2d61 726d Build 503].--arm
+      0x00005b24: 202d 2d73 6368 6564 756c 6520 2d2d 6469  --schedule --di
+      0x00005b34: 6167 5f77 6172 6e69 6e67 3d31 3634 3220 ag_warning=1642 
+      0x00005b44: 2d2d 6370 753d 3474 202d 2d64 6570 656e --cpu=4t --depen
+      0x00005b54: 643d 7274 5f72 6169 7365 2e64 202d 2d66 d=rt_raise.d --f
+      0x00005b64: 7075 3d6e 6f6e 6520 2d6f 7274 5f72 6169 pu=none -ort_rai
+      0x00005b74: 7365 2e6f 202d 2d73 6368 6564 756c 655f se.o --schedule_
+      0x00005b84: 6370 753d 4152 4d39 452d 5320 2d2d 7363 cpu=ARM9E-S --sc
+      0x00005b94: 6865 6475 6c65 5f63 7075 3d41 524d 3130 hedule_cpu=ARM10
+      0x00005ba4: 3230 3045 202d 2d73 6368 6564 756c 655f 200E --schedule_
+      0x00005bb4: 6370 753d 4152 4d31 3133 364a 462d 5320 cpu=ARM1136JF-S 
+      0x00005bc4: 2d2d 6170 6373 3d2f 6e6f 3862 7974 652f --apcs=/no8byte/
+      0x00005bd4: 696e 7465 7277 6f72 6b2f 6e6f 7377 7374 interwork/noswst
+      0x00005be4: 2f6e 6f72 7770 692f 726f 7069 202d 492e /norwpi/ropi -I.
+      0x00005bf4: 2e2f 2e2e 2f2c 2e2e 2f2e 2e2f 616e 6765 ./../,../../ange
+      0x00005c04: 6c2c 2e2e 2f2e 2e2f 2e2e 2f63 6c78 202d l,../../../clx -
+      0x00005c14: 2d70 7265 6465 6669 6e65 0000 0073 746b -predefine...stk
+      0x00005c24: 6865 6170 312e 6f00 0041 524d 2f54 6875 heap1.o..ARM/Thu
+      0x00005c34: 6d62 204d 6163 726f 2041 7373 656d 626c mb Macro Assembl
+      0x00005c44: 6572 2c20 5256 4354 322e 3220 5b42 7569 er, RVCT2.2 [Bui
+      0x00005c54: 6c64 2035 3033 5d00 2d2d 6172 6d20 2d2d ld 503].--arm --
+      0x00005c64: 7363 6865 6475 6c65 202d 2d64 6961 675f schedule --diag_
+      0x00005c74: 7761 726e 696e 673d 3136 3432 202d 2d63 warning=1642 --c
+      0x00005c84: 7075 3d34 7420 2d2d 6465 7065 6e64 3d73 pu=4t --depend=s
+      0x00005c94: 746b 6865 6170 312e 6420 2d2d 6670 753d tkheap1.d --fpu=
+      0x00005ca4: 6e6f 6e65 202d 6f73 746b 6865 6170 312e none -ostkheap1.
+      0x00005cb4: 6f20 2d2d 7363 6865 6475 6c65 5f63 7075 o --schedule_cpu
+      0x00005cc4: 3d41 524d 3945 2d53 202d 2d73 6368 6564 =ARM9E-S --sched
+      0x00005cd4: 756c 655f 6370 753d 4152 4d31 3032 3030 ule_cpu=ARM10200
+      0x00005ce4: 4520 2d2d 7363 6865 6475 6c65 5f63 7075 E --schedule_cpu
+      0x00005cf4: 3d41 524d 3131 3336 4a46 2d53 202d 2d61 =ARM1136JF-S --a
+      0x00005d04: 7063 733d 2f6e 6f38 6279 7465 2f69 6e74 pcs=/no8byte/int
+      0x00005d14: 6572 776f 726b 2f6e 6f73 7773 742f 6e6f erwork/noswst/no
+      0x00005d24: 7277 7069 2f72 6f70 6920 2d49 2e2e 2f2e rwpi/ropi -I../.
+      0x00005d34: 2e2f 2c2e 2e2f 2e2e 2f61 6e67 656c 2c2e ./,../../angel,.
+      0x00005d44: 2e2f 2e2e 2f2e 2e2f 636c 7820 2d2d 7072 ./../../clx --pr
+      0x00005d54: 6564 6566 696e 6500 0000 7573 655f 7365 edefine...use_se
+      0x00005d64: 6d69 2e6f 0000 4152 4d2f 5468 756d 6220 mi.o..ARM/Thumb 
+      0x00005d74: 4d61 6372 6f20 4173 7365 6d62 6c65 722c Macro Assembler,
+      0x00005d84: 2052 5643 5432 2e32 205b 4275 696c 6420  RVCT2.2 [Build 
+      0x00005d94: 3530 335d 002d 2d61 726d 202d 2d73 6368 503].--arm --sch
+      0x00005da4: 6564 756c 6520 2d2d 6469 6167 5f77 6172 edule --diag_war
+      0x00005db4: 6e69 6e67 3d31 3634 3220 2d2d 6370 753d ning=1642 --cpu=
+      0x00005dc4: 3474 202d 2d64 6570 656e 643d 7573 655f 4t --depend=use_
+      0x00005dd4: 7365 6d69 2e64 202d 2d66 7075 3d6e 6f6e semi.d --fpu=non
+      0x00005de4: 6520 2d6f 7573 655f 7365 6d69 2e6f 202d e -ouse_semi.o -
+      0x00005df4: 2d73 6368 6564 756c 655f 6370 753d 4152 -schedule_cpu=AR
+      0x00005e04: 4d39 452d 5320 2d2d 7363 6865 6475 6c65 M9E-S --schedule
+      0x00005e14: 5f63 7075 3d41 524d 3130 3230 3045 202d _cpu=ARM10200E -
+      0x00005e24: 2d73 6368 6564 756c 655f 6370 753d 4152 -schedule_cpu=AR
+      0x00005e34: 4d31 3133 364a 462d 5320 2d2d 6170 6373 M1136JF-S --apcs
+      0x00005e44: 3d2f 6e6f 3862 7974 652f 696e 7465 7277 =/no8byte/interw
+      0x00005e54: 6f72 6b2f 6e6f 7377 7374 2f6e 6f72 7770 ork/noswst/norwp
+      0x00005e64: 692f 726f 7069 202d 492e 2e2f 2e2e 2f2c i/ropi -I../../,
+      0x00005e74: 2e2e 2f2e 2e2f 616e 6765 6c2c 2e2e 2f2e ../../angel,../.
+      0x00005e84: 2e2f 2e2e 2f63 6c78 202d 2d70 7265 6465 ./../clx --prede
+      0x00005e94: 6669 6e65 0000 005f 6765 745f 6172 6776 fine..._get_argv
+      0x00005ea4: 2e6f 0000 4152 4d2f 5468 756d 6220 432f .o..ARM/Thumb C/
+      0x00005eb4: 432b 2b20 436f 6d70 696c 6572 2c20 5256 C++ Compiler, RV
+      0x00005ec4: 4354 322e 3220 5b42 7569 6c64 2035 3033 CT2.2 [Build 503
+      0x00005ed4: 5d00 6172 6d63 6320 2d2d 7468 756d 6220 ].armcc --thumb 
+      0x00005ee4: 2d63 202d 2d73 706c 6974 5f6c 646d 202d -c --split_ldm -
+      0x00005ef4: 2d6e 6f5f 7573 655f 6469 7265 6374 6976 -no_use_directiv
+      0x00005f04: 655f 7365 6374 696f 6e73 202d 6f5f 6765 e_sections -o_ge
+      0x00005f14: 745f 6172 6776 2e6f 202d 2d64 6570 656e t_argv.o --depen
+      0x00005f24: 643d 5f67 6574 5f61 7267 762e 6420 2d2d d=_get_argv.d --
+      0x00005f34: 7363 6865 6475 6c65 5f63 7075 3d41 524d schedule_cpu=ARM
+      0x00005f44: 3945 2d53 202d 2d73 6368 6564 756c 655f 9E-S --schedule_
+      0x00005f54: 6370 753d 4152 4d31 3032 3030 4520 2d2d cpu=ARM10200E --
+      0x00005f64: 7363 6865 6475 6c65 5f63 7075 3d41 524d schedule_cpu=ARM
+      0x00005f74: 3131 3336 4a46 2d53 202d 2d74 7261 6365 1136JF-S --trace
+      0x00005f84: 3d7a 7a20 2d2d 6370 753d 3474 202d 2d66 =zz --cpu=4t --f
+      0x00005f94: 7075 3d6e 6f6e 6520 2d4f 7370 6163 6520 pu=none -Ospace 
+      0x00005fa4: 2d2d 6170 6373 3d2f 6e6f 3862 7974 652f --apcs=/no8byte/
+      0x00005fb4: 696e 7465 7277 6f72 6b2f 6e6f 7377 7374 interwork/noswst
+      0x00005fc4: 2f6e 6f72 7770 692f 726f 7069 202d 492e /norwpi/ropi -I.
+      0x00005fd4: 2e2f 2e2e 2f20 2d49 2e2e 2f2e 2e2f 616e ./../ -I../../an
+      0x00005fe4: 6765 6c20 2d49 2e2e 2f2e 2e2f 7075 626c gel -I../../publ
+      0x00005ff4: 6963 202d 4a2e 2e2f 2e2e 2f73 7464 6820 ic -J../../stdh 
+      0x00006004: 2d44 5f67 6574 5f61 7267 765f 6320 2e2e -D_get_argv_c ..
+      0x00006014: 2f2e 2e2f 6172 6d73 7973 2e63 0000 6370 /../armsys.c..cp
+      0x00006024: 7569 6e69 742e 6f00 0041 524d 2f54 6875 uinit.o..ARM/Thu
+      0x00006034: 6d62 204d 6163 726f 2041 7373 656d 626c mb Macro Assembl
+      0x00006044: 6572 2c20 5256 4354 322e 3220 5b42 7569 er, RVCT2.2 [Bui
+      0x00006054: 6c64 2035 3033 5d00 2d2d 6172 6d20 2d2d ld 503].--arm --
+      0x00006064: 7363 6865 6475 6c65 202d 2d64 6961 675f schedule --diag_
+      0x00006074: 7761 726e 696e 673d 3136 3432 202d 2d63 warning=1642 --c
+      0x00006084: 7075 3d34 7420 2d2d 6465 7065 6e64 3d63 pu=4t --depend=c
+      0x00006094: 7075 696e 6974 2e64 202d 2d66 7075 3d6e puinit.d --fpu=n
+      0x000060a4: 6f6e 6520 2d6f 6370 7569 6e69 742e 6f20 one -ocpuinit.o 
+      0x000060b4: 2d2d 7363 6865 6475 6c65 5f63 7075 3d41 --schedule_cpu=A
+      0x000060c4: 524d 3945 2d53 202d 2d73 6368 6564 756c RM9E-S --schedul
+      0x000060d4: 655f 6370 753d 4152 4d31 3032 3030 4520 e_cpu=ARM10200E 
+      0x000060e4: 2d2d 7363 6865 6475 6c65 5f63 7075 3d41 --schedule_cpu=A
+      0x000060f4: 524d 3131 3336 4a46 2d53 202d 2d61 7063 RM1136JF-S --apc
+      0x00006104: 733d 2f6e 6f38 6279 7465 2f69 6e74 6572 s=/no8byte/inter
+      0x00006114: 776f 726b 2f6e 6f73 7773 742f 6e6f 7277 work/noswst/norw
+      0x00006124: 7069 2f72 6f70 6920 2d49 2e2e 2f2e 2e2f pi/ropi -I../../
+      0x00006134: 2c2e 2e2f 2e2e 2f61 6e67 656c 2c2e 2e2f ,../../angel,../
+      0x00006144: 2e2e 2f2e 2e2f 636c 7820 2d2d 7072 6564 ../../clx --pred
+      0x00006154: 6566 696e 653d 2200 0000 6831 5f65 7874 efine="...h1_ext
+      0x00006164: 656e 642e 6f00 0041 524d 2f54 6875 6d62 end.o..ARM/Thumb
+      0x00006174: 2043 2f43 2b2b 2043 6f6d 7069 6c65 722c  C/C++ Compiler,
+      0x00006184: 2052 5643 5432 2e32 205b 4275 696c 6420  RVCT2.2 [Build 
+      0x00006194: 3530 335d 0061 726d 6363 202d 2d74 6875 503].armcc --thu
+      0x000061a4: 6d62 202d 6320 2d2d 7370 6c69 745f 6c64 mb -c --split_ld
+      0x000061b4: 6d20 2d2d 6e6f 5f68 6964 655f 616c 6c20 m --no_hide_all 
+      0x000061c4: 2d2d 6e6f 5f75 7365 5f64 6972 6563 7469 --no_use_directi
+      0x000061d4: 7665 5f73 6563 7469 6f6e 7320 2d6f 6831 ve_sections -oh1
+      0x000061e4: 5f65 7874 656e 642e 6f20 2d2d 6465 7065 _extend.o --depe
+      0x000061f4: 6e64 3d68 315f 6578 7465 6e64 2e64 202d nd=h1_extend.d -
+      0x00006204: 2d73 6368 6564 756c 655f 6370 753d 4152 -schedule_cpu=AR
+      0x00006214: 4d39 452d 5320 2d2d 7363 6865 6475 6c65 M9E-S --schedule
+      0x00006224: 5f63 7075 3d41 524d 3130 3230 3045 202d _cpu=ARM10200E -
+      0x00006234: 2d73 6368 6564 756c 655f 6370 753d 4152 -schedule_cpu=AR
+      0x00006244: 4d31 3133 364a 462d 5320 2d2d 7472 6163 M1136JF-S --trac
+      0x00006254: 653d 7a7a 202d 2d63 7075 3d34 7420 2d2d e=zz --cpu=4t --
+      0x00006264: 6670 753d 6e6f 6e65 202d 4f74 696d 6520 fpu=none -Otime 
+      0x00006274: 2d2d 6170 6373 3d2f 6e6f 3862 7974 652f --apcs=/no8byte/
+      0x00006284: 696e 7465 7277 6f72 6b2f 6e6f 7377 7374 interwork/noswst
+      0x00006294: 2f6e 6f72 7770 692f 726f 7069 202d 492e /norwpi/ropi -I.
+      0x000062a4: 2e2f 2e2e 2f20 2d49 2e2e 2f2e 2e2f 616e ./../ -I../../an
+      0x000062b4: 6765 6c20 2d49 2e2e 2f2e 2e2f 7075 626c gel -I../../publ
+      0x000062c4: 6963 202d 4a2e 2e2f 2e2e 2f73 7464 6820 ic -J../../stdh 
+      0x000062d4: 2d44 6578 7465 6e64 5f63 202e 2e2f 2e2e -Dextend_c ../..
+      0x000062e4: 2f68 6561 7031 2e63 0000 7274 5f66 705f /heap1.c..rt_fp_
+      0x000062f4: 7374 6174 7573 5f61 6464 722e 6f00 0041 status_addr.o..A
+      0x00006304: 524d 2f54 6875 6d62 204d 6163 726f 2041 RM/Thumb Macro A
+      0x00006314: 7373 656d 626c 6572 2c20 5256 4354 322e ssembler, RVCT2.
+      0x00006324: 3220 5b42 7569 6c64 2035 3033 5d00 2d2d 2 [Build 503].--
+      0x00006334: 6172 6d20 2d2d 7363 6865 6475 6c65 202d arm --schedule -
+      0x00006344: 2d64 6961 675f 7761 726e 696e 673d 3136 -diag_warning=16
+      0x00006354: 3432 202d 2d63 7075 3d34 7420 2d2d 6465 42 --cpu=4t --de
+      0x00006364: 7065 6e64 3d72 745f 6670 5f73 7461 7475 pend=rt_fp_statu
+      0x00006374: 735f 6164 6472 2e64 202d 2d66 7075 3d6e s_addr.d --fpu=n
+      0x00006384: 6f6e 6520 2d6f 7274 5f66 705f 7374 6174 one -ort_fp_stat
+      0x00006394: 7573 5f61 6464 722e 6f20 2d2d 7363 6865 us_addr.o --sche
+      0x000063a4: 6475 6c65 5f63 7075 3d41 524d 3945 2d53 dule_cpu=ARM9E-S
+      0x000063b4: 202d 2d73 6368 6564 756c 655f 6370 753d  --schedule_cpu=
+      0x000063c4: 4152 4d31 3032 3030 4520 2d2d 7363 6865 ARM10200E --sche
+      0x000063d4: 6475 6c65 5f63 7075 3d41 524d 3131 3336 dule_cpu=ARM1136
+      0x000063e4: 4a46 2d53 202d 2d61 7063 733d 2f6e 6f38 JF-S --apcs=/no8
+      0x000063f4: 6279 7465 2f69 6e74 6572 776f 726b 2f6e byte/interwork/n
+      0x00006404: 6f73 7773 742f 6e6f 7277 7069 2f72 6f70 oswst/norwpi/rop
+      0x00006414: 6920 2d49 2e2e 2f2e 2e2f 2c2e 2e2f 2e2e i -I../../,../..
+      0x00006424: 2f61 6e67 656c 2c2e 2e2f 2e2e 2f00 0000 /angel,../../...
+      0x00006434: 6165 6162 695f 6174 6578 6974 2e6f 0000 aeabi_atexit.o..
+      0x00006444: 4152 4d2f 5468 756d 6220 432f 432b 2b20 ARM/Thumb C/C++ 
+      0x00006454: 436f 6d70 696c 6572 2c20 5256 4354 322e Compiler, RVCT2.
+      0x00006464: 3220 5b42 7569 6c64 2035 3033 5d00 6172 2 [Build 503].ar
+      0x00006474: 6d63 6320 2d2d 6370 7020 2d2d 7468 756d mcc --cpp --thum
+      0x00006484: 6220 2d2d 7370 6c69 745f 7365 6374 696f b --split_sectio
+      0x00006494: 6e73 202d 6320 2d2d 6e6f 5f61 6c6c 6f77 ns -c --no_allow
+      0x000064a4: 5f64 6174 615f 7265 6665 7265 6e63 6573 _data_references
+      0x000064b4: 202d 2d65 7863 6570 7469 6f6e 7320 2d2d  --exceptions --
+      0x000064c4: 6e6f 5f68 6964 655f 616c 6c20 2d2d 6e6f no_hide_all --no
+      0x000064d4: 5f75 7365 5f64 6972 6563 7469 7665 5f73 _use_directive_s
+      0x000064e4: 6563 7469 6f6e 7320 2d6f 6165 6162 695f ections -oaeabi_
+      0x000064f4: 6174 6578 6974 2e6f 202d 2d74 7261 6365 atexit.o --trace
+      0x00006504: 3d7a 7a7a 7a20 2d2d 6370 753d 3474 202d =zzzz --cpu=4t -
+      0x00006514: 2d66 7075 3d6e 6f6e 6520 2d2d 6170 6373 -fpu=none --apcs
+      0x00006524: 3d2f 6e6f 726f 7069 2f69 6e74 6572 776f =/noropi/interwo
+      0x00006534: 726b 2f6e 6f73 7773 742f 7277 7069 636c rk/noswst/rwpicl
+      0x00006544: 6965 6e74 2f6e 6f38 6279 7465 202d 492e ient/no8byte -I.
+      0x00006554: 2e2f 2e2e 2f2e 2e2f 6564 6766 652f 6c69 ./../../edgfe/li
+      0x00006564: 625f 7372 6320 2d49 2e2e 2f2e 2e2f 2e2e b_src -I../../..
+      0x00006574: 2f63 6c78 202d 492e 2e2f 2e2e 2f2e 2e2f /clx -I../../../
+      0x00006584: 636c 6962 202d 492e 2e2f 2e2e 2f2e 2e2f clib -I../../../
+      0x00006594: 636c 6962 2f70 7562 6c69 6320 2d49 2e2e clib/public -I..
+      0x000065a4: 2f2e 2e2f 2e2e 2f65 6467 6665 2f69 6e63 /../../edgfe/inc
+      0x000065b4: 6c75 6465 202d 492e 2e2f 2e2e 202d 4a2e lude -I../.. -J.
+      0x000065c4: 2e2f 2e2e 2f2e 2e2f 636c 6962 2f73 7464 ./../../clib/std
+      0x000065d4: 6820 2d44 4e44 4542 5547 202d 4441 524d h -DNDEBUG -DARM
+      0x000065e4: 5f52 454c 4541 5345 3d5c 2252 5643 5432 _RELEASE=\"RVCT2
+      0x000065f4: 2e32 5c22 202d 4442 5549 4c44 5f4e 554d .2\" -DBUILD_NUM
+      0x00006604: 4245 523d 3530 3320 2d44 6165 6162 695f BER=503 -Daeabi_
+      0x00006614: 6174 6578 6974 5f63 202d 2d62 7569 6c64 atexit_c --build
+      0x00006624: 696e 675f 7275 6e74 696d 6520 2e2e 2f2e ing_runtime ../.
+      0x00006634: 2e2f 2e2e 2f65 6467 6665 2f6c 6962 5f73 ./../edgfe/lib_s
+      0x00006644: 7263 2f64 746f 725f 6c69 7374 2e63 0000 rc/dtor_list.c..
+      0x00006654: 6378 615f 6669 6e61 6c69 7a65 2e6f 0000 cxa_finalize.o..
+      0x00006664: 4152 4d2f 5468 756d 6220 432f 432b 2b20 ARM/Thumb C/C++ 
+      0x00006674: 436f 6d70 696c 6572 2c20 5256 4354 322e Compiler, RVCT2.
+      0x00006684: 3220 5b42 7569 6c64 2035 3033 5d00 6172 2 [Build 503].ar
+      0x00006694: 6d63 6320 2d2d 6370 7020 2d2d 7468 756d mcc --cpp --thum
+      0x000066a4: 6220 2d2d 7370 6c69 745f 7365 6374 696f b --split_sectio
+      0x000066b4: 6e73 202d 6320 2d2d 6e6f 5f61 6c6c 6f77 ns -c --no_allow
+      0x000066c4: 5f64 6174 615f 7265 6665 7265 6e63 6573 _data_references
+      0x000066d4: 202d 2d65 7863 6570 7469 6f6e 7320 2d2d  --exceptions --
+      0x000066e4: 6e6f 5f68 6964 655f 616c 6c20 2d2d 6e6f no_hide_all --no
+      0x000066f4: 5f75 7365 5f64 6972 6563 7469 7665 5f73 _use_directive_s
+      0x00006704: 6563 7469 6f6e 7320 2d6f 6378 615f 6669 ections -ocxa_fi
+      0x00006714: 6e61 6c69 7a65 2e6f 202d 2d74 7261 6365 nalize.o --trace
+      0x00006724: 3d7a 7a7a 7a20 2d2d 6370 753d 3474 202d =zzzz --cpu=4t -
+      0x00006734: 2d66 7075 3d6e 6f6e 6520 2d2d 6170 6373 -fpu=none --apcs
+      0x00006744: 3d2f 6e6f 726f 7069 2f69 6e74 6572 776f =/noropi/interwo
+      0x00006754: 726b 2f6e 6f73 7773 742f 7277 7069 636c rk/noswst/rwpicl
+      0x00006764: 6965 6e74 2f6e 6f38 6279 7465 202d 492e ient/no8byte -I.
+      0x00006774: 2e2f 2e2e 2f2e 2e2f 6564 6766 652f 6c69 ./../../edgfe/li
+      0x00006784: 625f 7372 6320 2d49 2e2e 2f2e 2e2f 2e2e b_src -I../../..
+      0x00006794: 2f63 6c78 202d 492e 2e2f 2e2e 2f2e 2e2f /clx -I../../../
+      0x000067a4: 636c 6962 202d 492e 2e2f 2e2e 2f2e 2e2f clib -I../../../
+      0x000067b4: 636c 6962 2f70 7562 6c69 6320 2d49 2e2e clib/public -I..
+      0x000067c4: 2f2e 2e2f 2e2e 2f65 6467 6665 2f69 6e63 /../../edgfe/inc
+      0x000067d4: 6c75 6465 202d 492e 2e2f 2e2e 202d 4a2e lude -I../.. -J.
+      0x000067e4: 2e2f 2e2e 2f2e 2e2f 636c 6962 2f73 7464 ./../../clib/std
+      0x000067f4: 6820 2d44 4e44 4542 5547 202d 4441 524d h -DNDEBUG -DARM
+      0x00006804: 5f52 454c 4541 5345 3d5c 2252 5643 5432 _RELEASE=\"RVCT2
+      0x00006814: 2e32 5c22 202d 4442 5549 4c44 5f4e 554d .2\" -DBUILD_NUM
+      0x00006824: 4245 523d 3530 3320 2d44 6378 615f 6669 BER=503 -Dcxa_fi
+      0x00006834: 6e61 6c69 7a65 5f63 202d 2d62 7569 6c64 nalize_c --build
+      0x00006844: 696e 675f 7275 6e74 696d 6520 2e2e 2f2e ing_runtime ../.
+      0x00006854: 2e2f 2e2e 2f65 6467 6665 2f6c 6962 5f73 ./../edgfe/lib_s
+      0x00006864: 7263 2f64 746f 725f 6c69 7374 2e63 0000 rc/dtor_list.c..
+      0x00006874: 626f 6172 6469 6e69 7431 2e6f 0000 4152 boardinit1.o..AR
+      0x00006884: 4d2f 5468 756d 6220 4d61 6372 6f20 4173 M/Thumb Macro As
+      0x00006894: 7365 6d62 6c65 722c 2052 5643 5432 2e32 sembler, RVCT2.2
+      0x000068a4: 205b 4275 696c 6420 3530 335d 002d 2d61  [Build 503].--a
+      0x000068b4: 726d 202d 2d73 6368 6564 756c 6520 2d2d rm --schedule --
+      0x000068c4: 6469 6167 5f77 6172 6e69 6e67 3d31 3634 diag_warning=164
+      0x000068d4: 3220 2d2d 6370 753d 3474 202d 2d64 6570 2 --cpu=4t --dep
+      0x000068e4: 656e 643d 626f 6172 6469 6e69 7431 2e64 end=boardinit1.d
+      0x000068f4: 202d 2d66 7075 3d6e 6f6e 6520 2d6f 626f  --fpu=none -obo
+      0x00006904: 6172 6469 6e69 7431 2e6f 202d 2d73 6368 ardinit1.o --sch
+      0x00006914: 6564 756c 655f 6370 753d 4152 4d39 452d edule_cpu=ARM9E-
+      0x00006924: 5320 2d2d 7363 6865 6475 6c65 5f63 7075 S --schedule_cpu
+      0x00006934: 3d41 524d 3130 3230 3045 202d 2d73 6368 =ARM10200E --sch
+      0x00006944: 6564 756c 655f 6370 753d 4152 4d31 3133 edule_cpu=ARM113
+      0x00006954: 364a 462d 5320 2d2d 6170 6373 3d2f 6e6f 6JF-S --apcs=/no
+      0x00006964: 3862 7974 652f 696e 7465 7277 6f72 6b2f 8byte/interwork/
+      0x00006974: 6e6f 7377 7374 2f6e 6f72 7770 692f 726f noswst/norwpi/ro
+      0x00006984: 7069 202d 492e 2e2f 2e2e 2f2c 2e2e 2f2e pi -I../../,../.
+      0x00006994: 2e2f 616e 6765 6c2c 2e2e 2f2e 2e2f 2e2e ./angel,../../..
+      0x000069a4: 2f63 6c78 202d 2d70 7265 6465 0000 005f /clx --prede..._
+      0x000069b4: 5f73 6361 7474 6572 2e6f 0000 4152 4d2f _scatter.o..ARM/
+      0x000069c4: 5468 756d 6220 4d61 6372 6f20 4173 7365 Thumb Macro Asse
+      0x000069d4: 6d62 6c65 722c 2052 5643 5432 2e32 205b mbler, RVCT2.2 [
+      0x000069e4: 4275 696c 6420 3530 335d 002d 2d61 726d Build 503].--arm
+      0x000069f4: 202d 2d73 6368 6564 756c 6520 2d2d 6469  --schedule --di
+      0x00006a04: 6167 5f77 6172 6e69 6e67 3d31 3634 3220 ag_warning=1642 
+      0x00006a14: 2d2d 6370 753d 3474 202d 2d64 6570 656e --cpu=4t --depen
+      0x00006a24: 643d 5f5f 7363 6174 7465 722e 6420 2d2d d=__scatter.d --
+      0x00006a34: 6670 753d 6e6f 6e65 202d 6f5f 5f73 6361 fpu=none -o__sca
+      0x00006a44: 7474 6572 2e6f 202d 2d73 6368 6564 756c tter.o --schedul
+      0x00006a54: 655f 6370 753d 4152 4d39 452d 5320 2d2d e_cpu=ARM9E-S --
+      0x00006a64: 7363 6865 6475 6c65 5f63 7075 3d41 524d schedule_cpu=ARM
+      0x00006a74: 3130 3230 3045 202d 2d73 6368 6564 756c 10200E --schedul
+      0x00006a84: 655f 6370 753d 4152 4d31 3133 364a 462d e_cpu=ARM1136JF-
+      0x00006a94: 5320 2d2d 6170 6373 3d2f 6e6f 3862 7974 S --apcs=/no8byt
+      0x00006aa4: 652f 696e 7465 7277 6f72 6b2f 6e6f 7377 e/interwork/nosw
+      0x00006ab4: 7374 2f6e 6f72 7770 692f 726f 7069 202d st/norwpi/ropi -
+      0x00006ac4: 492e 2e2f 2e2e 2f2c 2e2e 2f2e 2e2f 616e I../../,../../an
+      0x00006ad4: 6765 6c2c 2e2e 2f2e 2e2f 2e2e 2f63 6c78 gel,../../../clx
+      0x00006ae4: 202d 2d70 7265 6465 6669 0000 0000 0000  --predefi......
+
+    [.shstrtab]
+        sh_name=.shstrtab (0x3f)
+        sh_type=SHT_STRTAB (0x3)
+        sh_flags= (0x0)
+        sh_addr=0x0
+        sh_offset=0x6af4
+        sh_size=76
+        sh_link=0
+        sh_info=0
+        sh_addralign=0
+        sh_entsize=0
+      0x00006af4: 0045 525f 524f 0045 525f 5257 0045 525f .ER_RO.ER_RW.ER_
+      0x00006b04: 5a49 002e 6465 6275 675f 6672 616d 6500 ZI..debug_frame.
+      0x00006b14: 2e73 796d 7461 6200 2e73 7472 7461 6200 .symtab..strtab.
+      0x00006b24: 2e6e 6f74 6500 2e63 6f6d 6d65 6e74 002e .note..comment..
+      0x00006b34: 7368 7374 7274 6162 0000 0000 

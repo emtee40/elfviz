@@ -1,0 +1,4070 @@
+[sample/dialtest]
+    class=ELFCLASS32 (0x1)
+    data=ELFDATA2LSB (0x1)
+    machine=EM_386 (0x3)
+    version=EV_CURRENT (0x1)
+    type=ET_EXEC (0x2)
+    phoff=0x34
+    shoff=0x449c
+    flags= (0x0)
+    ehsize=52
+    phentsize=32
+    phnum=7
+    shentsize=40
+    shnum=36
+    shstrndx=33
+    entry=0x8049360
+    eabiversion=0
+  [phdr]
+    [0]
+        p_type=PT_PHDR (0x6)
+        p_offset=0x34
+        p_vaddr=0x8048034
+        p_paddr=0x8048034
+        p_filesz=224
+        p_memsz=224
+        p_flags=PF_X | PF_R (0x5)
+        p_align=4
+    [1]
+        p_type=PT_INTERP (0x3)
+        p_offset=0x114
+        p_vaddr=0x8048114
+        p_paddr=0x8048114
+        p_filesz=19
+        p_memsz=19
+        p_flags=PF_R (0x4)
+        p_align=1
+    [2]
+        p_type=PT_LOAD (0x1)
+        p_offset=0x0
+        p_vaddr=0x8048000
+        p_paddr=0x8048000
+        p_filesz=15124
+        p_memsz=15124
+        p_flags=PF_X | PF_R (0x5)
+        p_align=4096
+    [3]
+        p_type=PT_LOAD (0x1)
+        p_offset=0x3b14
+        p_vaddr=0x804cb14
+        p_paddr=0x804cb14
+        p_filesz=588
+        p_memsz=600
+        p_flags=PF_W | PF_R (0x6)
+        p_align=4096
+    [4]
+        p_type=PT_DYNAMIC (0x2)
+        p_offset=0x3b28
+        p_vaddr=0x804cb28
+        p_paddr=0x804cb28
+        p_filesz=304
+        p_memsz=304
+        p_flags=PF_W | PF_R (0x6)
+        p_align=4
+    [5]
+        p_type=PT_NOTE (0x4)
+        p_offset=0x128
+        p_vaddr=0x8048128
+        p_paddr=0x8048128
+        p_filesz=32
+        p_memsz=32
+        p_flags=PF_R (0x4)
+        p_align=4
+    [6]
+        p_type=unknown (0x6474e551)
+        p_offset=0x0
+        p_vaddr=0x0
+        p_paddr=0x0
+        p_filesz=0
+        p_memsz=0
+        p_flags=PF_W | PF_R (0x6)
+        p_align=4
+  [shdr]
+    []
+        sh_name= (0x0)
+        sh_type=SHT_NULL (0x0)
+        sh_flags= (0x0)
+        sh_addr=0x0
+        sh_offset=0x0
+        sh_size=0
+        sh_link=0
+        sh_info=0
+        sh_addralign=0
+        sh_entsize=0
+
+    [.interp]
+        sh_name=.interp (0x1b)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags=SHF_ALLOC (0x2)
+        sh_addr=0x8048114
+        sh_offset=0x114
+        sh_size=19
+        sh_link=0
+        sh_info=0
+        sh_addralign=1
+        sh_entsize=0
+      0x00000114: 2f6c 6962 2f6c 642d 6c69 6e75 782e 736f /lib/ld-linux.so
+      0x00000124: 2e32 00
+    [.note.ABI-tag]
+        sh_name=.note.ABI-tag (0x23)
+        sh_type=SHT_NOTE (0x7)
+        sh_flags=SHF_ALLOC (0x2)
+        sh_addr=0x8048128
+        sh_offset=0x128
+        sh_size=32
+        sh_link=0
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=0
+      0x00000128: 0400 0000 1000 0000 0100 0000 474e 5500 ............GNU.
+      0x00000138: 0000 0000 0200 0000 0600 0000 0800 0000 ................
+
+    [.hash]
+        sh_name=.hash (0x35)
+        sh_type=SHT_HASH (0x5)
+        sh_flags=SHF_ALLOC (0x2)
+        sh_addr=0x8048148
+        sh_offset=0x148
+        sh_size=424
+        sh_link=5
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=4
+      0x00000148: 2500 0000 4300 0000 1100 0000 2500 0000 %...C.......%...
+      0x00000158: 1b00 0000 2d00 0000 0700 0000 3000 0000 ....-.......0...
+      0x00000168: 2700 0000 3900 0000 3500 0000 3400 0000 '...9...5...4...
+      0x00000178: 0000 0000 1400 0000 0000 0000 1a00 0000 ................
+      0x00000188: 1e00 0000 1800 0000 2300 0000 3b00 0000 ........#...;...
+      0x00000198: 3c00 0000 3f00 0000 1000 0000 3e00 0000 <...?.......>...
+      0x000001a8: 0300 0000 2800 0000 1600 0000 3800 0000 ....(.......8...
+      0x000001b8: 0000 0000 2000 0000 3200 0000 4000 0000 .... ...2...@...
+      0x000001c8: 3100 0000 3d00 0000 0200 0000 1700 0000 1...=...........
+      0x000001d8: 3a00 0000 3700 0000 3600 0000 0000 0000 :...7...6.......
+      0x000001e8: 0000 0000 0000 0000 0000 0000 0000 0000 ................
+      0x000001f8: 0000 0000 0000 0000 0000 0000 0000 0000 ................
+      0x00000208: 0000 0000 0000 0000 0000 0000 0000 0000 ................
+      0x00000218: 0000 0000 0a00 0000 0000 0000 0000 0000 ................
+      0x00000228: 0c00 0000 0000 0000 0b00 0000 0000 0000 ................
+      0x00000238: 0000 0000 0800 0000 0000 0000 0000 0000 ................
+      0x00000248: 0000 0000 1900 0000 0000 0000 4200 0000 ............B...
+      0x00000258: 0000 0000 0000 0000 0500 0000 0f00 0000 ................
+      0x00000268: 1500 0000 0400 0000 1d00 0000 1300 0000 ................
+      0x00000278: 0000 0000 0000 0000 0e00 0000 0000 0000 ................
+      0x00000288: 0000 0000 2600 0000 0000 0000 2a00 0000 ....&.......*...
+      0x00000298: 1f00 0000 0d00 0000 0000 0000 0900 0000 ................
+      0x000002a8: 2200 0000 2c00 0000 2f00 0000 3300 0000 "...,.../...3...
+      0x000002b8: 2100 0000 2b00 0000 4100 0000 1c00 0000 !...+...A.......
+      0x000002c8: 2900 0000 2e00 0000 0000 0000 0000 0000 )...............
+      0x000002d8: 0600 0000 0000 0000 1200 0000 2400 0000 ............$...
+      0x000002e8: 0000 0000 0100 0000 
+    [.gnu.hash]
+        sh_name=.gnu.hash (0x31)
+        sh_type=unknown (0x6ffffff6)
+        sh_flags=SHF_ALLOC (0x2)
+        sh_addr=0x80482f0
+        sh_offset=0x2f0
+        sh_size=64
+        sh_link=5
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=4
+      0x000002f0: 0300 0000 3c00 0000 0200 0000 0600 0000 ....<...........
+      0x00000300: 8800 2001 00e4 4089 3c00 0000 3e00 0000 .. ...@.<...>...
+      0x00000310: 4200 0000 4245 d5ec bbe3 927c ac4b e3c0 B...BE.....|.K..
+      0x00000320: b88d f10e 3e7e 967c d971 581c ebd3 ef0e ....>~.|.qX.....
+
+    [.dynsym]
+        sh_name=.dynsym (0x3b)
+        sh_type=SHT_DYNSYM (0xb)
+        sh_flags=SHF_ALLOC (0x2)
+        sh_addr=0x8048330
+        sh_offset=0x330
+        sh_size=1072
+        sh_link=6
+        sh_info=1
+        sh_addralign=4
+        sh_entsize=16
+      []
+          st_name= (0x0)
+          st_value=0x0
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=0
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [_DTOR_END__]
+          st_name=_DTOR_END__ (0x8d)
+          st_value=0x0
+          st_size=112
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [PRETTY_FUNCTION__.19659]
+          st_name=PRETTY_FUNCTION__.19659 (0x2b2)
+          st_value=0x0
+          st_size=216
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_FRAME_END__]
+          st_name=_FRAME_END__ (0x9a)
+          st_value=0x0
+          st_size=170
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_FUNCTION__.19539]
+          st_name=_FUNCTION__.19539 (0x284)
+          st_value=0x0
+          st_size=147
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [0292]
+          st_name=0292 (0x3a0)
+          st_value=0x0
+          st_size=160
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [ss_init]
+          st_name=ss_init (0xfc)
+          st_value=0x0
+          st_size=1111
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [l_info.19353]
+          st_name=l_info.19353 (0xe3)
+          st_value=0x0
+          st_size=101
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [l_size_allocate]
+          st_name=l_size_allocate (0x171)
+          st_value=0x0
+          st_size=49
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [ase]
+          st_name=ase (0x1ab)
+          st_value=0x0
+          st_size=150
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_type_register_static]
+          st_name=_type_register_static (0x464)
+          st_value=0x0
+          st_size=154
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [justment_changed]
+          st_name=justment_changed (0x239)
+          st_value=0x0
+          st_size=62
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      []
+          st_name= (0x213)
+          st_value=0x0
+          st_size=164
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [e]
+          st_name=e (0x17f)
+          st_value=0x0
+          st_size=548
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [ON__.19973]
+          st_name=ON__.19973 (0x309)
+          st_value=0x0
+          st_size=198
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [frame_get_type]
+          st_name=frame_get_type (0x41e)
+          st_value=0x0
+          st_size=517
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__JCR_END__]
+          st_name=__JCR_END__ (0xa7)
+          st_value=0x0
+          st_size=362
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [request]
+          st_name=request (0x162)
+          st_value=0x0
+          st_size=1803
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [start]
+          st_name=start (0x507)
+          st_value=0x0
+          st_size=52
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [PRETTY_FUNCTION__.19460]
+          st_name=PRETTY_FUNCTION__.19460 (0x1fc)
+          st_value=0x0
+          st_size=135
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [test.c]
+          st_name=test.c (0x3c3)
+          st_value=0x0
+          st_size=175
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_.20087]
+          st_name=_.20087 (0x340)
+          st_value=0x0
+          st_size=177
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [FUNCTION__.20031]
+          st_name=FUNCTION__.20031 (0x31d)
+          st_value=0x0
+          st_size=272
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [ION__.19595]
+          st_name=ION__.19595 (0x2a4)
+          st_value=0x0
+          st_size=94
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_value_changed]
+          st_name=_value_changed (0x25d)
+          st_value=0x0
+          st_size=196
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [al_update]
+          st_name=al_update (0x272)
+          st_value=0x0
+          st_size=302
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [PRETTY_FUNCTION__.19436]
+          st_name=PRETTY_FUNCTION__.19436 (0x1e2)
+          st_value=0x0
+          st_size=164
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [aw]
+          st_name=aw (0x460)
+          st_value=0x0
+          st_size=38
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [alize]
+          st_name=alize (0x13e)
+          st_value=0x0
+          st_size=862
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_PRETTY_FUNCTION__.19595]
+          st_name=_PRETTY_FUNCTION__.19595 (0x297)
+          st_value=0x0
+          st_size=72
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [style_attach]
+          st_name=style_attach (0x520)
+          st_value=0x0
+          st_size=434
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_.19485]
+          st_name=_.19485 (0x226)
+          st_value=0x0
+          st_size=185
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_mouse]
+          st_name=_mouse (0x2f3)
+          st_value=0x0
+          st_size=130
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [ETTY_FUNCTION__.20292]
+          st_name=ETTY_FUNCTION__.20292 (0x38f)
+          st_value=0x0
+          st_size=408
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [O_stdin_used]
+          st_name=O_stdin_used (0x50f)
+          st_value=0x0
+          st_size=32
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [ion_notify]
+          st_name=ion_notify (0x1bb)
+          st_value=0x0
+          st_size=117
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [N__.20222]
+          st_name=N__.20222 (0x381)
+          st_value=0x0
+          st_size=45
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_JCR_LIST__]
+          st_name=_JCR_LIST__ (0x3b)
+          st_value=0x0
+          st_size=0
+          st_info=32
+          st_other=0
+          st_shndx=0
+          st_bind=STB_WEAK
+          st_type=STT_NOTYPE
+      [tstuff.c]
+          st_name=tstuff.c (0x15)
+          st_value=0x0
+          st_size=360
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [.19436]
+          st_name=.19436 (0x1f3)
+          st_value=0x0
+          st_size=539
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [ial_type.19352]
+          st_name=ial_type.19352 (0x113)
+          st_value=0x0
+          st_size=347
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [9659]
+          st_name=9659 (0x2c5)
+          st_value=0x0
+          st_size=106
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__PRETTY_FUNCTION__.20222]
+          st_name=__PRETTY_FUNCTION__.20222 (0x371)
+          st_value=0x0
+          st_size=187
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [bal_dtors_aux]
+          st_name=bal_dtors_aux (0x4f)
+          st_value=0x0
+          st_size=389
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [dial.c]
+          st_name=dial.c (0xcc)
+          st_value=0x0
+          st_size=242
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [register_static]
+          st_name=register_static (0x46a)
+          st_value=0x0
+          st_size=38
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [rame_dummy]
+          st_name=rame_dummy (0x74)
+          st_value=0x0
+          st_size=73
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_press]
+          st_name=_press (0x190)
+          st_value=0x0
+          st_size=131
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [ETTY_FUNCTION__.19390]
+          st_name=ETTY_FUNCTION__.19390 (0x1ca)
+          st_value=0x0
+          st_size=164
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [k_dial_button_release]
+          st_name=k_dial_button_release (0x199)
+          st_value=0x0
+          st_size=231
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [ed]
+          st_name=ed (0x247)
+          st_value=0x0
+          st_size=139
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [TABLE_]
+          st_name=TABLE_ (0x406)
+          st_value=0x0
+          st_size=343
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [ON__.19901]
+          st_name=ON__.19901 (0x2d9)
+          st_value=0x0
+          st_size=189
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__DTOR_LIST__]
+          st_name=__DTOR_LIST__ (0x2c)
+          st_value=0x0
+          st_size=0
+          st_info=32
+          st_other=0
+          st_shndx=0
+          st_bind=STB_WEAK
+          st_type=STT_NOTYPE
+      [ompleted.5843]
+          st_name=ompleted.5843 (0x5e)
+          st_value=0x0
+          st_size=398
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_PRETTY_FUNCTION__.20123]
+          st_name=_PRETTY_FUNCTION__.20123 (0x358)
+          st_value=0x0
+          st_size=142
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_dial_size_request]
+          st_name=gtk_dial_size_request (0x154)
+          st_value=0x0
+          st_size=243
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [1]
+          st_name=1 (0x32c)
+          st_value=0x0
+          st_size=216
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [troy]
+          st_name=troy (0x12e)
+          st_value=0x0
+          st_size=115
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__.20325]
+          st_name=__.20325 (0x3b6)
+          st_value=0x0
+          st_size=188
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [idget_get_type]
+          st_name=idget_get_type (0x532)
+          st_value=0x804cd60
+          st_size=0
+          st_info=16
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_GLOBAL
+          st_type=STT_NOTYPE
+      [N__.20292]
+          st_name=N__.20292 (0x39b)
+          st_value=0x804cd6c
+          st_size=0
+          st_info=16
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_GLOBAL
+          st_type=STT_NOTYPE
+      [label_get_type]
+          st_name=label_get_type (0x4f3)
+          st_value=0x804b7e4
+          st_size=4
+          st_info=17
+          st_other=0
+          st_shndx=15
+          st_bind=STB_GLOBAL
+          st_type=STT_OBJECT
+      [ess]
+          st_name=ess (0x193)
+          st_value=0x8048f70
+          st_size=0
+          st_info=18
+          st_other=0
+          st_shndx=11
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [data_start]
+          st_name=data_start (0x502)
+          st_value=0x8049220
+          st_size=250
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [et_type]
+          st_name=et_type (0x539)
+          st_value=0x804cd60
+          st_size=0
+          st_info=16
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_GLOBAL
+          st_type=STT_NOTYPE
+      []
+          st_name= (0x439)
+          st_value=0x804b7ac
+          st_size=0
+          st_info=18
+          st_other=0
+          st_shndx=14
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+    [.dynstr]
+        sh_name=.dynstr (0x43)
+        sh_type=SHT_STRTAB (0x3)
+        sh_flags=SHF_ALLOC (0x2)
+        sh_addr=0x8048760
+        sh_offset=0x760
+        sh_size=1369
+        sh_link=0
+        sh_info=0
+        sh_addralign=1
+        sh_entsize=0
+      0x00000760: 006c 6962 6774 6b2d 7831 312d 322e 302e .libgtk-x11-2.0.
+      0x00000770: 736f 2e30 0067 646b 5f77 696e 646f 775f so.0.gdk_window_
+      0x00000780: 6d6f 7665 5f72 6573 697a 6500 5f5f 676d move_resize.__gm
+      0x00000790: 6f6e 5f73 7461 7274 5f5f 005f 4a76 5f52 on_start__._Jv_R
+      0x000007a0: 6567 6973 7465 7243 6c61 7373 6573 0067 egisterClasses.g
+      0x000007b0: 5f6f 626a 6563 745f 756e 7265 6600 675f _object_unref.g_
+      0x000007c0: 7369 676e 616c 5f65 6d69 745f 6279 5f6e signal_emit_by_n
+      0x000007d0: 616d 6500 6764 6b5f 7769 6e64 6f77 5f73 ame.gdk_window_s
+      0x000007e0: 6574 5f75 7365 725f 6461 7461 0067 5f6f et_user_data.g_o
+      0x000007f0: 626a 6563 745f 6e65 7700 675f 6f62 6a65 bject_new.g_obje
+      0x00000800: 6374 5f72 6566 0067 5f73 6967 6e61 6c5f ct_ref.g_signal_
+      0x00000810: 6861 6e64 6c65 7273 5f64 6973 636f 6e6e handlers_disconn
+      0x00000820: 6563 745f 6d61 7463 6865 6400 6764 6b5f ect_matched.gdk_
+      0x00000830: 7769 6e64 6f77 5f67 6574 5f70 6f69 6e74 window_get_point
+      0x00000840: 6572 0067 5f72 6574 7572 6e5f 6966 5f66 er.g_return_if_f
+      0x00000850: 6169 6c5f 7761 726e 696e 6700 675f 7479 ail_warning.g_ty
+      0x00000860: 7065 5f72 6567 6973 7465 725f 7374 6174 pe_register_stat
+      0x00000870: 6963 0067 5f74 7970 655f 6368 6563 6b5f ic.g_type_check_
+      0x00000880: 696e 7374 616e 6365 5f69 735f 6100 675f instance_is_a.g_
+      0x00000890: 736f 7572 6365 5f72 656d 6f76 6500 675f source_remove.g_
+      0x000008a0: 7369 676e 616c 5f63 6f6e 6e65 6374 5f64 signal_connect_d
+      0x000008b0: 6174 6100 6764 6b5f 6472 6177 5f6c 696e ata.gdk_draw_lin
+      0x000008c0: 6500 6764 6b5f 7769 6e64 6f77 5f6e 6577 e.gdk_window_new
+      0x000008d0: 0067 5f74 696d 656f 7574 5f61 6464 0067 .g_timeout_add.g
+      0x000008e0: 746b 5f73 7479 6c65 5f61 7474 6163 6800 tk_style_attach.
+      0x000008f0: 6774 6b5f 696e 6974 0067 746b 5f70 6169 gtk_init.gtk_pai
+      0x00000900: 6e74 5f70 6f6c 7967 6f6e 0067 746b 5f67 nt_polygon.gtk_g
+      0x00000910: 7261 625f 7265 6d6f 7665 0067 746b 5f77 rab_remove.gtk_w
+      0x00000920: 696e 646f 775f 6e65 7700 6774 6b5f 6164 indow_new.gtk_ad
+      0x00000930: 6a75 7374 6d65 6e74 5f67 6574 5f74 7970 justment_get_typ
+      0x00000940: 6500 6774 6b5f 626f 785f 6765 745f 7479 e.gtk_box_get_ty
+      0x00000950: 7065 0067 746b 5f6d 6169 6e00 6774 6b5f pe.gtk_main.gtk_
+      0x00000960: 636f 6e74 6169 6e65 725f 6765 745f 7479 container_get_ty
+      0x00000970: 7065 0067 746b 5f6c 6162 656c 5f67 6574 pe.gtk_label_get
+      0x00000980: 5f74 7970 6500 6774 6b5f 6c61 6265 6c5f _type.gtk_label_
+      0x00000990: 7365 745f 7465 7874 0067 746b 5f66 7261 set_text.gtk_fra
+      0x000009a0: 6d65 5f6e 6577 0067 746b 5f77 6964 6765 me_new.gtk_widge
+      0x000009b0: 745f 6765 745f 6576 656e 7473 0067 746b t_get_events.gtk
+      0x000009c0: 5f77 696e 646f 775f 7365 745f 7469 746c _window_set_titl
+      0x000009d0: 6500 6774 6b5f 636f 6e74 6169 6e65 725f e.gtk_container_
+      0x000009e0: 6164 6400 6774 6b5f 6164 6a75 7374 6d65 add.gtk_adjustme
+      0x000009f0: 6e74 5f6e 6577 0067 746b 5f76 626f 785f nt_new.gtk_vbox_
+      0x00000a00: 6e65 7700 6774 6b5f 6c61 6265 6c5f 6e65 new.gtk_label_ne
+      0x00000a10: 7700 6774 6b5f 6672 616d 655f 6765 745f w.gtk_frame_get_
+      0x00000a20: 7479 7065 0067 746b 5f6f 626a 6563 745f type.gtk_object_
+      0x00000a30: 6765 745f 7479 7065 0067 746b 5f66 7261 get_type.gtk_fra
+      0x00000a40: 6d65 5f73 6574 5f73 6861 646f 775f 7479 me_set_shadow_ty
+      0x00000a50: 7065 0067 746b 5f77 6964 6765 745f 6765 pe.gtk_widget_ge
+      0x00000a60: 745f 7669 7375 616c 0067 746b 5f77 6964 t_visual.gtk_wid
+      0x00000a70: 6765 745f 6765 745f 7479 7065 0067 746b get_get_type.gtk
+      0x00000a80: 5f74 7970 655f 636c 6173 7300 6774 6b5f _type_class.gtk_
+      0x00000a90: 7769 6e64 6f77 5f67 6574 5f74 7970 6500 window_get_type.
+      0x00000aa0: 6774 6b5f 7769 6467 6574 5f67 6574 5f63 gtk_widget_get_c
+      0x00000ab0: 6f6c 6f72 6d61 7000 6774 6b5f 7374 796c olormap.gtk_styl
+      0x00000ac0: 655f 7365 745f 6261 636b 6772 6f75 6e64 e_set_background
+      0x00000ad0: 0067 746b 5f77 6964 6765 745f 7368 6f77 .gtk_widget_show
+      0x00000ae0: 0067 746b 5f73 7479 6c65 5f6e 6577 0067 .gtk_style_new.g
+      0x00000af0: 746b 5f62 6f78 5f70 6163 6b5f 656e 6400 tk_box_pack_end.
+      0x00000b00: 6774 6b5f 7769 6467 6574 5f71 7565 7565 gtk_widget_queue
+      0x00000b10: 5f64 7261 7700 6774 6b5f 6772 6162 5f61 _draw.gtk_grab_a
+      0x00000b20: 6464 0067 746b 5f63 6f6e 7461 696e 6572 dd.gtk_container
+      0x00000b30: 5f73 6574 5f62 6f72 6465 725f 7769 6474 _set_border_widt
+      0x00000b40: 6800 6c69 6267 646b 2d78 3131 2d32 2e30 h.libgdk-x11-2.0
+      0x00000b50: 2e73 6f2e 3000 6c69 6261 746b 2d31 2e30 .so.0.libatk-1.0
+      0x00000b60: 2e73 6f2e 3000 675f 7479 7065 5f63 6865 .so.0.g_type_che
+      0x00000b70: 636b 5f63 6c61 7373 5f63 6173 7400 675f ck_class_cast.g_
+      0x00000b80: 7479 7065 5f63 6865 636b 5f69 6e73 7461 type_check_insta
+      0x00000b90: 6e63 655f 6361 7374 005f 6669 6e69 006c nce_cast._fini.l
+      0x00000ba0: 6962 6764 6b5f 7069 7862 7566 2d32 2e30 ibgdk_pixbuf-2.0
+      0x00000bb0: 2e73 6f2e 3000 6c69 626d 2e73 6f2e 3600 .so.0.libm.so.6.
+      0x00000bc0: 7369 6e00 6174 616e 3200 636f 7300 6c69 sin.atan2.cos.li
+      0x00000bd0: 6270 616e 676f 6361 6972 6f2d 312e 302e bpangocairo-1.0.
+      0x00000be0: 736f 2e30 006c 6962 7061 6e67 6f2d 312e so.0.libpango-1.
+      0x00000bf0: 302e 736f 2e30 006c 6962 6361 6972 6f2e 0.so.0.libcairo.
+      0x00000c00: 736f 2e32 006c 6962 676f 626a 6563 742d so.2.libgobject-
+      0x00000c10: 322e 302e 736f 2e30 006c 6962 676d 6f64 2.0.so.0.libgmod
+      0x00000c20: 756c 652d 322e 302e 736f 2e30 006c 6962 ule-2.0.so.0.lib
+      0x00000c30: 646c 2e73 6f2e 3200 6c69 6267 6c69 622d dl.so.2.libglib-
+      0x00000c40: 322e 302e 736f 2e30 006c 6962 632e 736f 2.0.so.0.libc.so
+      0x00000c50: 2e36 005f 494f 5f73 7464 696e 5f75 7365 .6._IO_stdin_use
+      0x00000c60: 6400 6578 6974 0073 7072 696e 7466 005f d.exit.sprintf._
+      0x00000c70: 5f73 7461 636b 5f63 686b 5f66 6169 6c00 _stack_chk_fail.
+      0x00000c80: 5f5f 6c69 6263 5f73 7461 7274 5f6d 6169 __libc_start_mai
+      0x00000c90: 6e00 5f65 6461 7461 005f 5f62 7373 5f73 n._edata.__bss_s
+      0x00000ca0: 7461 7274 0047 4c49 4243 5f32 2e34 0047 tart.GLIBC_2.4.G
+      0x00000cb0: 4c49 4243 5f32 2e30 00
+    [.gnu.version]
+        sh_name=.gnu.version (0x4b)
+        sh_type=unknown (0x6fffffff)
+        sh_flags=SHF_ALLOC (0x2)
+        sh_addr=0x8048cba
+        sh_offset=0xcba
+        sh_size=134
+        sh_link=5
+        sh_info=0
+        sh_addralign=2
+        sh_entsize=2
+      0x00000cba: 0000 0000 0000 0000 0000 0000 0000 0000 ................
+      0x00000cca: 0000 0000 0200 0000 0000 0000 0000 0000 ................
+      0x00000cda: 0000 0000 0300 0000 0000 0000 0000 0000 ................
+      0x00000cea: 0000 0000 0000 0200 0000 0000 0300 0000 ................
+      0x00000cfa: 0000 0000 0400 0000 0000 0000 0000 0000 ................
+      0x00000d0a: 0000 0000 0000 0000 0000 0200 0000 0000 ................
+      0x00000d1a: 0000 0000 0000 0000 0000 0000 0000 0000 ................
+      0x00000d2a: 0000 0000 0000 0000 0100 0100 0100 0100 ................
+      0x00000d3a: 0300 0100 0100 
+    [.gnu.version_r]
+        sh_name=.gnu.version_r (0x58)
+        sh_type=unknown (0x6ffffffe)
+        sh_flags=SHF_ALLOC (0x2)
+        sh_addr=0x8048d40
+        sh_offset=0xd40
+        sh_size=80
+        sh_link=6
+        sh_info=2
+        sh_addralign=4
+        sh_entsize=0
+      0x00000d40: 0100 0200 e904 0000 1000 0000 3000 0000 ............0...
+      0x00000d50: 1469 690d 0000 0400 4505 0000 1000 0000 .ii.....E.......
+      0x00000d60: 1069 690d 0000 0300 4f05 0000 0000 0000 .ii.....O.......
+      0x00000d70: 0100 0100 5604 0000 1000 0000 0000 0000 ....V...........
+      0x00000d80: 1069 690d 0000 0200 4f05 0000 0000 0000 .ii.....O.......
+
+    [.rel.dyn]
+        sh_name=.rel.dyn (0x67)
+        sh_type=SHT_REL (0x9)
+        sh_flags=SHF_ALLOC (0x2)
+        sh_addr=0x8048d90
+        sh_offset=0xd90
+        sh_size=8
+        sh_link=5
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=8
+      [__DTOR_LIST__]
+          r_offset=0x804cc58
+          r_symbol=53
+          r_type=R_ARM_ABS12 (0x6)
+          r_info=0x3506
+    [.rel.plt]
+        sh_name=.rel.plt (0x70)
+        sh_type=SHT_REL (0x9)
+        sh_flags=SHF_ALLOC (0x2)
+        sh_addr=0x8048d98
+        sh_offset=0xd98
+        sh_size=472
+        sh_link=5
+        sh_info=12
+        sh_addralign=4
+        sh_entsize=8
+      [_DTOR_END__]
+          r_offset=0x804cc68
+          r_symbol=1
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x107
+      [PRETTY_FUNCTION__.19659]
+          r_offset=0x804cc6c
+          r_symbol=2
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x207
+      [_FRAME_END__]
+          r_offset=0x804cc70
+          r_symbol=3
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x307
+      [_FUNCTION__.19539]
+          r_offset=0x804cc74
+          r_symbol=4
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x407
+      [0292]
+          r_offset=0x804cc78
+          r_symbol=5
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x507
+      [ss_init]
+          r_offset=0x804cc7c
+          r_symbol=6
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x607
+      [l_info.19353]
+          r_offset=0x804cc80
+          r_symbol=7
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x707
+      [l_size_allocate]
+          r_offset=0x804cc84
+          r_symbol=8
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x807
+      [ase]
+          r_offset=0x804cc88
+          r_symbol=9
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x907
+      [_type_register_static]
+          r_offset=0x804cc8c
+          r_symbol=10
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0xa07
+      [justment_changed]
+          r_offset=0x804cc90
+          r_symbol=11
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0xb07
+      [null]
+          r_offset=0x804cc94
+          r_symbol=12
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0xc07
+      [e]
+          r_offset=0x804cc98
+          r_symbol=13
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0xd07
+      [ON__.19973]
+          r_offset=0x804cc9c
+          r_symbol=14
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0xe07
+      [frame_get_type]
+          r_offset=0x804cca0
+          r_symbol=15
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0xf07
+      [__JCR_END__]
+          r_offset=0x804cca4
+          r_symbol=16
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x1007
+      [request]
+          r_offset=0x804cca8
+          r_symbol=17
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x1107
+      [start]
+          r_offset=0x804ccac
+          r_symbol=18
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x1207
+      [PRETTY_FUNCTION__.19460]
+          r_offset=0x804ccb0
+          r_symbol=19
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x1307
+      [test.c]
+          r_offset=0x804ccb4
+          r_symbol=20
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x1407
+      [_.20087]
+          r_offset=0x804ccb8
+          r_symbol=21
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x1507
+      [FUNCTION__.20031]
+          r_offset=0x804ccbc
+          r_symbol=22
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x1607
+      [ION__.19595]
+          r_offset=0x804ccc0
+          r_symbol=23
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x1707
+      [_value_changed]
+          r_offset=0x804ccc4
+          r_symbol=24
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x1807
+      [al_update]
+          r_offset=0x804ccc8
+          r_symbol=25
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x1907
+      [PRETTY_FUNCTION__.19436]
+          r_offset=0x804cccc
+          r_symbol=26
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x1a07
+      [aw]
+          r_offset=0x804ccd0
+          r_symbol=27
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x1b07
+      [alize]
+          r_offset=0x804ccd4
+          r_symbol=28
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x1c07
+      [_PRETTY_FUNCTION__.19595]
+          r_offset=0x804ccd8
+          r_symbol=29
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x1d07
+      [style_attach]
+          r_offset=0x804ccdc
+          r_symbol=30
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x1e07
+      [_.19485]
+          r_offset=0x804cce0
+          r_symbol=31
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x1f07
+      [_mouse]
+          r_offset=0x804cce4
+          r_symbol=32
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x2007
+      [ETTY_FUNCTION__.20292]
+          r_offset=0x804cce8
+          r_symbol=33
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x2107
+      [O_stdin_used]
+          r_offset=0x804ccec
+          r_symbol=34
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x2207
+      [ion_notify]
+          r_offset=0x804ccf0
+          r_symbol=35
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x2307
+      [N__.20222]
+          r_offset=0x804ccf4
+          r_symbol=36
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x2407
+      [tstuff.c]
+          r_offset=0x804ccf8
+          r_symbol=38
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x2607
+      [.19436]
+          r_offset=0x804ccfc
+          r_symbol=39
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x2707
+      [ial_type.19352]
+          r_offset=0x804cd00
+          r_symbol=40
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x2807
+      [data_start]
+          r_offset=0x804cd04
+          r_symbol=64
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x4007
+      [9659]
+          r_offset=0x804cd08
+          r_symbol=41
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x2907
+      [__PRETTY_FUNCTION__.20222]
+          r_offset=0x804cd0c
+          r_symbol=42
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x2a07
+      [bal_dtors_aux]
+          r_offset=0x804cd10
+          r_symbol=43
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x2b07
+      [dial.c]
+          r_offset=0x804cd14
+          r_symbol=44
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x2c07
+      [register_static]
+          r_offset=0x804cd18
+          r_symbol=45
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x2d07
+      [rame_dummy]
+          r_offset=0x804cd1c
+          r_symbol=46
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x2e07
+      [_press]
+          r_offset=0x804cd20
+          r_symbol=47
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x2f07
+      [ETTY_FUNCTION__.19390]
+          r_offset=0x804cd24
+          r_symbol=48
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x3007
+      [k_dial_button_release]
+          r_offset=0x804cd28
+          r_symbol=49
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x3107
+      [ed]
+          r_offset=0x804cd2c
+          r_symbol=50
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x3207
+      [TABLE_]
+          r_offset=0x804cd30
+          r_symbol=51
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x3307
+      [ON__.19901]
+          r_offset=0x804cd34
+          r_symbol=52
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x3407
+      [__DTOR_LIST__]
+          r_offset=0x804cd38
+          r_symbol=53
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x3507
+      [ompleted.5843]
+          r_offset=0x804cd3c
+          r_symbol=54
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x3607
+      [_PRETTY_FUNCTION__.20123]
+          r_offset=0x804cd40
+          r_symbol=55
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x3707
+      [gtk_dial_size_request]
+          r_offset=0x804cd44
+          r_symbol=56
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x3807
+      [1]
+          r_offset=0x804cd48
+          r_symbol=57
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x3907
+      [troy]
+          r_offset=0x804cd4c
+          r_symbol=58
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x3a07
+      [__.20325]
+          r_offset=0x804cd50
+          r_symbol=59
+          r_type=R_ARM_THM_ABS5 (0x7)
+          r_info=0x3b07
+    [.init]
+        sh_name=.init (0x79)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags=SHF_ALLOC | SHF_EXECINSTR (0x6)
+        sh_addr=0x8048f70
+        sh_offset=0xf70
+        sh_size=48
+        sh_link=0
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=0
+      0x00000f70: 5589 e553 83ec 04e8 0000 0000 5b81 c3e0 U..S........[...
+      0x00000f80: 3c00 008b 93fc ffff ff85 d274 05e8 5e03 <..........t..^.
+      0x00000f90: 0000 e829 0400 00e8 e427 0000 585b c9c3 ...).....'..X[..
+
+    [.plt]
+        sh_name=.plt (0x74)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags=SHF_ALLOC | SHF_EXECINSTR (0x6)
+        sh_addr=0x8048fa0
+        sh_offset=0xfa0
+        sh_size=960
+        sh_link=0
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=4
+      0x00000fa0: ff35 60cc 0408 ff25 64cc 0408 0000 0000 .5`....%d.......
+      0x00000fb0: ff25 68cc 0408 6800 0000 00e9 e0ff ffff .%h...h.........
+      0x00000fc0: ff25 6ccc 0408 6808 0000 00e9 d0ff ffff .%l...h.........
+      0x00000fd0: ff25 70cc 0408 6810 0000 00e9 c0ff ffff .%p...h.........
+      0x00000fe0: ff25 74cc 0408 6818 0000 00e9 b0ff ffff .%t...h.........
+      0x00000ff0: ff25 78cc 0408 6820 0000 00e9 a0ff ffff .%x...h ........
+      0x00001000: ff25 7ccc 0408 6828 0000 00e9 90ff ffff .%|...h(........
+      0x00001010: ff25 80cc 0408 6830 0000 00e9 80ff ffff .%....h0........
+      0x00001020: ff25 84cc 0408 6838 0000 00e9 70ff ffff .%....h8....p...
+      0x00001030: ff25 88cc 0408 6840 0000 00e9 60ff ffff .%....h@....`...
+      0x00001040: ff25 8ccc 0408 6848 0000 00e9 50ff ffff .%....hH....P...
+      0x00001050: ff25 90cc 0408 6850 0000 00e9 40ff ffff .%....hP....@...
+      0x00001060: ff25 94cc 0408 6858 0000 00e9 30ff ffff .%....hX....0...
+      0x00001070: ff25 98cc 0408 6860 0000 00e9 20ff ffff .%....h`.... ...
+      0x00001080: ff25 9ccc 0408 6868 0000 00e9 10ff ffff .%....hh........
+      0x00001090: ff25 a0cc 0408 6870 0000 00e9 00ff ffff .%....hp........
+      0x000010a0: ff25 a4cc 0408 6878 0000 00e9 f0fe ffff .%....hx........
+      0x000010b0: ff25 a8cc 0408 6880 0000 00e9 e0fe ffff .%....h.........
+      0x000010c0: ff25 accc 0408 6888 0000 00e9 d0fe ffff .%....h.........
+      0x000010d0: ff25 b0cc 0408 6890 0000 00e9 c0fe ffff .%....h.........
+      0x000010e0: ff25 b4cc 0408 6898 0000 00e9 b0fe ffff .%....h.........
+      0x000010f0: ff25 b8cc 0408 68a0 0000 00e9 a0fe ffff .%....h.........
+      0x00001100: ff25 bccc 0408 68a8 0000 00e9 90fe ffff .%....h.........
+      0x00001110: ff25 c0cc 0408 68b0 0000 00e9 80fe ffff .%....h.........
+      0x00001120: ff25 c4cc 0408 68b8 0000 00e9 70fe ffff .%....h.....p...
+      0x00001130: ff25 c8cc 0408 68c0 0000 00e9 60fe ffff .%....h.....`...
+      0x00001140: ff25 cccc 0408 68c8 0000 00e9 50fe ffff .%....h.....P...
+      0x00001150: ff25 d0cc 0408 68d0 0000 00e9 40fe ffff .%....h.....@...
+      0x00001160: ff25 d4cc 0408 68d8 0000 00e9 30fe ffff .%....h.....0...
+      0x00001170: ff25 d8cc 0408 68e0 0000 00e9 20fe ffff .%....h..... ...
+      0x00001180: ff25 dccc 0408 68e8 0000 00e9 10fe ffff .%....h.........
+      0x00001190: ff25 e0cc 0408 68f0 0000 00e9 00fe ffff .%....h.........
+      0x000011a0: ff25 e4cc 0408 68f8 0000 00e9 f0fd ffff .%....h.........
+      0x000011b0: ff25 e8cc 0408 6800 0100 00e9 e0fd ffff .%....h.........
+      0x000011c0: ff25 eccc 0408 6808 0100 00e9 d0fd ffff .%....h.........
+      0x000011d0: ff25 f0cc 0408 6810 0100 00e9 c0fd ffff .%....h.........
+      0x000011e0: ff25 f4cc 0408 6818 0100 00e9 b0fd ffff .%....h.........
+      0x000011f0: ff25 f8cc 0408 6820 0100 00e9 a0fd ffff .%....h ........
+      0x00001200: ff25 fccc 0408 6828 0100 00e9 90fd ffff .%....h(........
+      0x00001210: ff25 00cd 0408 6830 0100 00e9 80fd ffff .%....h0........
+      0x00001220: ff25 04cd 0408 6838 0100 00e9 70fd ffff .%....h8....p...
+      0x00001230: ff25 08cd 0408 6840 0100 00e9 60fd ffff .%....h@....`...
+      0x00001240: ff25 0ccd 0408 6848 0100 00e9 50fd ffff .%....hH....P...
+      0x00001250: ff25 10cd 0408 6850 0100 00e9 40fd ffff .%....hP....@...
+      0x00001260: ff25 14cd 0408 6858 0100 00e9 30fd ffff .%....hX....0...
+      0x00001270: ff25 18cd 0408 6860 0100 00e9 20fd ffff .%....h`.... ...
+      0x00001280: ff25 1ccd 0408 6868 0100 00e9 10fd ffff .%....hh........
+      0x00001290: ff25 20cd 0408 6870 0100 00e9 00fd ffff .% ...hp........
+      0x000012a0: ff25 24cd 0408 6878 0100 00e9 f0fc ffff .%$...hx........
+      0x000012b0: ff25 28cd 0408 6880 0100 00e9 e0fc ffff .%(...h.........
+      0x000012c0: ff25 2ccd 0408 6888 0100 00e9 d0fc ffff .%,...h.........
+      0x000012d0: ff25 30cd 0408 6890 0100 00e9 c0fc ffff .%0...h.........
+      0x000012e0: ff25 34cd 0408 6898 0100 00e9 b0fc ffff .%4...h.........
+      0x000012f0: ff25 38cd 0408 68a0 0100 00e9 a0fc ffff .%8...h.........
+      0x00001300: ff25 3ccd 0408 68a8 0100 00e9 90fc ffff .%<...h.........
+      0x00001310: ff25 40cd 0408 68b0 0100 00e9 80fc ffff .%@...h.........
+      0x00001320: ff25 44cd 0408 68b8 0100 00e9 70fc ffff .%D...h.....p...
+      0x00001330: ff25 48cd 0408 68c0 0100 00e9 60fc ffff .%H...h.....`...
+      0x00001340: ff25 4ccd 0408 68c8 0100 00e9 50fc ffff .%L...h.....P...
+      0x00001350: ff25 50cd 0408 68d0 0100 00e9 40fc ffff .%P...h.....@...
+
+    [.text]
+        sh_name=.text (0x7f)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags=SHF_ALLOC | SHF_EXECINSTR (0x6)
+        sh_addr=0x8049360
+        sh_offset=0x1360
+        sh_size=9292
+        sh_link=0
+        sh_info=0
+        sh_addralign=16
+        sh_entsize=0
+      0x00001360: 31ed 5e89 e183 e4f0 5054 5268 10b7 0408 1.^.....PTRh....
+      0x00001370: 6820 b704 0851 5668 36b4 0408 e8ff fdff h ...QVh6.......
+      0x00001380: fff4 9090 9090 9090 9090 9090 9090 9090 ................
+      0x00001390: 5589 e583 ec08 803d 60cd 0408 0074 0ceb U......=`....t..
+      0x000013a0: 1c83 c004 a35c cd04 08ff d2a1 5ccd 0408 .....\......\...
+      0x000013b0: 8b10 85d2 75eb c605 60cd 0408 01c9 c390 ....u...`.......
+      0x000013c0: 5589 e583 ec08 a124 cb04 0885 c074 12b8 U......$.....t..
+      0x000013d0: 0000 0000 85c0 7409 c704 2424 cb04 08ff ......t...$$....
+      0x000013e0: d0c9 c390 5589 e583 ec18 a168 cd04 0885 ....U......h....
+      0x000013f0: c075 2ae8 88fc ffff c744 240c 0000 0000 .u*......D$.....
+      0x00001400: c744 2408 00b8 0408 c744 2404 24b8 0408 .D$......D$.$...
+      0x00001410: 8904 24e8 e8fb ffff a368 cd04 08a1 68cd ..$......h....h.
+      0x00001420: 0408 c9c3 5589 e583 ec18 8b45 0889 45fc ....U......E..E.
+      0x00001430: 8b45 0889 45f8 e845 fcff ff89 0424 e8bd .E..E..E.....$..
+      0x00001440: fcff ffa3 64cd 0408 8b45 fcc7 404c 8d95 ....d....E..@L..
+      0x00001450: 0408 8b45 f8c7 4074 379a 0408 8b45 f8c7 ...E..@t7....E..
+      0x00001460: 80c8 0000 00c5 9d04 088b 45f8 c740 7cef ..........E..@|.
+      0x00001470: 9b04 088b 45f8 c780 8000 0000 079c 0408 ....E...........
+      0x00001480: 8b45 f8c7 80b0 0000 0041 a704 088b 45f8 .E.......A....E.
+      0x00001490: c780 b400 0000 8ca9 0408 8b45 f8c7 80bc ...........E....
+      0x000014a0: 0000 0020 ab04 08c9 c355 89e5 8b45 08c6 ... .....U...E..
+      0x000014b0: 403d 008b 5508 0fb6 423c 83e0 fc88 423c @=..U...B<....B<
+      0x000014c0: 8b45 08c7 4048 0000 0000 8b45 08c7 4040 .E..@H.....E..@@
+      0x000014d0: 0000 0000 8b45 08c7 4044 0000 0000 8b55 .....E..@D.....U
+      0x000014e0: 08b8 0000 0000 8942 4c8b 5508 b800 0000 .......BL.U.....
+      0x000014f0: 0089 4254 8b55 08b8 0000 0000 8942 588b ..BT.U.......BX.
+      0x00001500: 5508 b800 0000 0089 425c 8b45 08c7 4060 U.......B\.E..@`
+      0x00001510: 0000 0000 5dc3 5589 e583 ec48 e8c3 feff ....].U....H....
+      0x00001520: ffc7 4424 0400 0000 0089 0424 e87f faff ..D$.......$....
+      0x00001530: ff89 45fc 837d 0800 752b d9ee dd5c 2428 ..E..}..u+...\$(
+      0x00001540: d9ee dd5c 2420 d9ee dd5c 2418 d9ee dd5c ...\$ ...\$....\
+      0x00001550: 2410 d9ee dd5c 2408 d9ee dd1c 24e8 7efa $....\$.....$.~.
+      0x00001560: ffff 8945 088b 4508 8944 2404 8b45 fc89 ...E..E..D$..E..
+      0x00001570: 0424 e8a9 0200 00e8 04fb ffff 8b55 fc89 .$...........U..
+      0x00001580: 4424 0489 1424 e805 fbff ffc9 c355 89e5 D$...$.......U..
+      0x00001590: 83ec 2883 7d08 0075 21c7 4424 083d b804 ..(.}..u!.D$.=..
+      0x000015a0: 08c7 4424 042c b804 08c7 0424 0000 0000 ..D$.,.....$....
+      0x000015b0: e85b faff ffe9 fd00 0000 8b45 0889 45f8 .[.........E..E.
+      0x000015c0: e81f feff ff89 45f4 837d f800 741e 8b45 ......E..}..t..E
+      0x000015d0: f88b 0085 c074 158b 45f8 8b00 8b00 3b45 .....t..E.....;E
+      0x000015e0: f475 09c7 45f0 0100 0000 eb15 8b45 f489 .u..E........E..
+      0x000015f0: 4424 048b 45f8 8904 24e8 12fc ffff 8945 D$..E...$......E
+      0x00001600: f08b 45f0 85c0 7521 c744 2408 4cb8 0408 ..E...u!.D$.L...
+      0x00001610: c744 2404 2cb8 0408 c704 2400 0000 00e8 .D$.,.....$.....
+      0x00001620: ecf9 ffff e98e 0000 00e8 b6fd ffff 8b55 ...............U
+      0x00001630: 0889 4424 0489 1424 e853 faff ff89 45fc ..D$...$.S....E.
+      0x00001640: 8b45 fc8b 4060 85c0 742b e8e1 fbff ff89 .E..@`..t+......
+      0x00001650: c28b 45fc 8b40 6089 5424 0489 0424 e82d ..E..@`.T$...$.-
+      0x00001660: faff ff89 0424 e8e5 fbff ff8b 45fc c740 .....$......E..@
+      0x00001670: 6000 0000 00e8 b6fb ffff 89c2 a164 cd04 `............d..
+      0x00001680: 0889 5424 0489 0424 e843 fcff ff8b 404c ..T$...$.C....@L
+      0x00001690: 85c0 7423 e897 fbff ff89 c2a1 64cd 0408 ..t#........d...
+      0x000016a0: 8954 2404 8904 24e8 24fc ffff 8b50 4c8b .T$...$.$....PL.
+      0x000016b0: 4508 8904 24ff d2c9 c355 89e5 83ec 2883 E...$....U....(.
+      0x000016c0: 7d08 0075 25c7 4424 0879 b804 08c7 4424 }..u%.D$.y....D$
+      0x000016d0: 0461 b804 08c7 0424 0000 0000 e82f f9ff .a.....$...../..
+      0x000016e0: ffc7 45ec 0000 0000 eb7c 8b45 0889 45fc ..E......|.E..E.
+      0x000016f0: e8ef fcff ff89 45f8 837d fc00 741e 8b45 ......E..}..t..E
+      0x00001700: fc8b 0085 c074 158b 45fc 8b00 8b00 3b45 .....t..E.....;E
+      0x00001710: f875 09c7 45f4 0100 0000 eb15 8b45 f889 .u..E........E..
+      0x00001720: 4424 048b 45fc 8904 24e8 e2fa ffff 8945 D$..E...$......E
+      0x00001730: f48b 45f4 85c0 7525 c744 2408 86b8 0408 ..E...u%.D$.....
+      0x00001740: c744 2404 61b8 0408 c704 2400 0000 00e8 .D$.a.....$.....
+      0x00001750: bcf8 ffff c745 ec00 0000 00eb 098b 4508 .....E........E.
+      0x00001760: 8b40 6089 45ec 8b45 ecc9 c355 89e5 83ec .@`.E..E...U....
+      0x00001770: 2883 7d08 0075 21c7 4424 0879 b804 08c7 (.}..u!.D$.y....
+      0x00001780: 4424 0499 b804 08c7 0424 0000 0000 e87d D$.......$.....}
+      0x00001790: f8ff ffe9 8600 0000 8b45 0889 45fc e841 .........E..E..A
+      0x000017a0: fcff ff89 45f8 837d fc00 741e 8b45 fc8b ....E..}..t..E..
+      0x000017b0: 0085 c074 158b 45fc 8b00 8b00 3b45 f875 ...t..E.....;E.u
+      0x000017c0: 09c7 45f4 0100 0000 eb15 8b45 f889 4424 ..E........E..D$
+      0x000017d0: 048b 45fc 8904 24e8 34fa ffff 8945 f48b ..E...$.4....E..
+      0x000017e0: 45f4 85c0 751e c744 2408 86b8 0408 c744 E...u..D$......D
+      0x000017f0: 2404 99b8 0408 c704 2400 0000 00e8 0ef8 $.......$.......
+      0x00001800: ffff eb1a 8b45 0c83 e003 8b55 0889 c183 .....E.....U....
+      0x00001810: e103 0fb6 423c 83e0 fc09 c888 423c c9c3 ....B<......B<..
+      0x00001820: 5589 e553 83ec 3483 7d08 0075 21c7 4424 U..S..4.}..u!.D$
+      0x00001830: 0879 b804 08c7 4424 04b4 b804 08c7 0424 .y....D$.......$
+      0x00001840: 0000 0000 e8c7 f7ff ffe9 e301 0000 8b45 ...............E
+      0x00001850: 0889 45f8 e88b fbff ff89 45f4 837d f800 ..E.......E..}..
+      0x00001860: 741e 8b45 f88b 0085 c074 158b 45f8 8b00 t..E.....t..E...
+      0x00001870: 8b00 3b45 f475 09c7 45f0 0100 0000 eb15 ..;E.u..E.......
+      0x00001880: 8b45 f489 4424 048b 45f8 8904 24e8 7ef9 .E..D$..E...$.~.
+      0x00001890: ffff 8945 f08b 45f0 85c0 7521 c744 2408 ...E..E...u!.D$.
+      0x000018a0: 86b8 0408 c744 2404 b4b8 0408 c704 2400 .....D$.......$.
+      0x000018b0: 0000 00e8 58f7 ffff e974 0100 008b 4508 ....X....t....E.
+      0x000018c0: 8b40 6085 c074 73e8 64f9 ffff 89c2 8b45 .@`..ts.d......E
+      0x000018d0: 088b 4060 8954 2404 8904 24e8 b0f7 ffff ..@`.T$...$.....
+      0x000018e0: 89c2 8b45 0889 4424 18c7 4424 1400 0000 ...E..D$..D$....
+      0x000018f0: 00c7 4424 1000 0000 00c7 4424 0c00 0000 ..D$......D$....
+      0x00001900: 00c7 4424 0800 0000 00c7 4424 0418 0000 ..D$......D$....
+      0x00001910: 0089 1424 e887 f7ff ffe8 12f9 ffff 89c2 ...$............
+      0x00001920: 8b45 088b 4060 8954 2404 8904 24e8 5ef7 .E..@`.T$...$.^.
+      0x00001930: ffff 8904 24e8 16f9 ffff 8b55 088b 450c ....$......U..E.
+      0x00001940: 8942 60e8 e8f8 ffff 89c2 8b45 088b 4060 .B`........E..@`
+      0x00001950: 8954 2404 8904 24e8 34f7 ffff 8904 24e8 .T$...$.4.....$.
+      0x00001960: 6cf6 ffff bb30 b204 08e8 c2f8 ffff 8b55 l....0.........U
+      0x00001970: 0c89 4424 0489 1424 e813 f7ff ff89 c2c7 ..D$...$........
+      0x00001980: 4424 1400 0000 00c7 4424 1000 0000 008b D$......D$......
+      0x00001990: 4508 8944 240c 895c 2408 c744 2404 ccb8 E..D$..\$..D$...
+      0x000019a0: 0408 8914 24e8 b6f7 ffff bb25 b304 08e8 ....$......%....
+      0x000019b0: 7cf8 ffff 8b55 0c89 4424 0489 1424 e8cd |....U..D$...$..
+      0x000019c0: f6ff ff89 c2c7 4424 1400 0000 00c7 4424 ......D$......D$
+      0x000019d0: 1000 0000 008b 4508 8944 240c 895c 2408 ......E..D$..\$.
+      0x000019e0: c744 2404 d4b8 0408 8914 24e8 70f7 ffff .D$.......$.p...
+      0x000019f0: 8b45 0cdd 4020 d95d e8d9 45e8 8b45 08d9 .E..@ .]..E..E..
+      0x00001a00: 5854 8b45 0cdd 4010 d95d e8d9 45e8 8b45 XT.E..@..]..E..E
+      0x00001a10: 08d9 5858 8b45 0cdd 4018 d95d e8d9 45e8 ..XX.E..@..]..E.
+      0x00001a20: 8b45 08d9 585c 8b45 0889 0424 e857 1600 .E..X\.E...$.W..
+      0x00001a30: 0083 c434 5b5d c355 89e5 83ec 6883 7d08 ...4[].U....h.}.
+      0x00001a40: 0075 21c7 4424 08f3 b804 08c7 4424 04e2 .u!.D$......D$..
+      0x00001a50: b804 08c7 0424 0000 0000 e8b1 f5ff ffe9 .....$..........
+      0x00001a60: 8901 0000 8b45 0889 45f4 e875 f9ff ff89 .....E..E..u....
+      0x00001a70: 45f0 837d f400 741e 8b45 f48b 0085 c074 E..}..t..E.....t
+      0x00001a80: 158b 45f4 8b00 8b00 3b45 f075 09c7 45ec ..E.....;E.u..E.
+      0x00001a90: 0100 0000 eb15 8b45 f089 4424 048b 45f4 .......E..D$..E.
+      0x00001aa0: 8904 24e8 68f7 ffff 8945 ec8b 45ec 85c0 ..$.h....E..E...
+      0x00001ab0: 7521 c744 2408 02b9 0408 c744 2404 e2b8 u!.D$......D$...
+      0x00001ac0: 0408 c704 2400 0000 00e8 42f5 ffff e91a ....$.....B.....
+      0x00001ad0: 0100 00e8 58f7 ffff 8b55 0889 4424 0489 ....X....U..D$..
+      0x00001ae0: 1424 e8a9 f5ff ff89 c28b 400c 83c8 4089 .$........@...@.
+      0x00001af0: 420c e8ed f8ff ff8b 5508 8944 2404 8914 B.......U..D$...
+      0x00001b00: 24e8 8af5 ffff 8945 fc8b 4508 8b40 2489 $......E..E..@$.
+      0x00001b10: 45b8 8b45 088b 4028 8945 bc8b 4508 8b40 E..E..@(.E..E..@
+      0x00001b20: 2c89 45c0 8b45 088b 4030 8945 c4c7 45c8 ,.E..E..@0.E..E.
+      0x00001b30: 0000 0000 c745 d402 0000 008b 4508 8904 .....E......E...
+      0x00001b40: 24e8 7af7 ffff 0d0e 0300 0089 45b4 8b45 $.z.........E..E
+      0x00001b50: 0889 0424 e847 f6ff ff89 45cc 8b45 0889 ...$.G....E..E..
+      0x00001b60: 0424 e889 f5ff ff89 45d0 c745 f86c 0000 .$......E..E.l..
+      0x00001b70: 008b 4508 8b40 388b 5034 8b45 f889 4424 ..E..@8.P4.E..D$
+      0x00001b80: 088d 45b0 8944 2404 8914 24e8 20f5 ffff ..E..D$...$. ...
+      0x00001b90: 89c2 8b45 0889 5034 8b45 088b 5034 8b45 ...E..P4.E..P4.E
+      0x00001ba0: 088b 4018 8954 2404 8904 24e8 c0f4 ffff ..@..T$...$.....
+      0x00001bb0: 89c2 8b45 0889 5018 8b45 088b 5034 8b45 ...E..P..E..P4.E
+      0x00001bc0: 0889 4424 0489 1424 e8b3 f6ff ff8b 4508 ..D$...$......E.
+      0x00001bd0: 8b50 348b 4508 8b40 18c7 4424 0801 0000 .P4.E..@..D$....
+      0x00001be0: 0089 5424 0489 0424 e823 f7ff ffc9 c355 ..T$...$.#.....U
+      0x00001bf0: 89e5 8b45 0cc7 0064 0000 008b 450c c740 ...E...d....E..@
+      0x00001c00: 0464 0000 005d c355 89e5 5653 83ec 4083 .d...].U..VS..@.
+      0x00001c10: 7d08 0075 21c7 4424 08f3 b804 08c7 4424 }..u!.D$......D$
+      0x00001c20: 0417 b904 08c7 0424 0000 0000 e8df f3ff .......$........
+      0x00001c30: ffe9 8801 0000 8b45 0889 45f0 e8a3 f7ff .......E..E.....
+      0x00001c40: ff89 45ec 837d f000 741e 8b45 f08b 0085 ..E..}..t..E....
+      0x00001c50: c074 158b 45f0 8b00 8b00 3b45 ec75 09c7 .t..E.....;E.u..
+      0x00001c60: 45e8 0100 0000 eb15 8b45 ec89 4424 048b E........E..D$..
+      0x00001c70: 45f0 8904 24e8 96f5 ffff 8945 e88b 45e8 E...$......E..E.
+      0x00001c80: 85c0 7521 c744 2408 02b9 0408 c744 2404 ..u!.D$......D$.
+      0x00001c90: 17b9 0408 c704 2400 0000 00e8 70f3 ffff ......$.....p...
+      0x00001ca0: e919 0100 0083 7d0c 0075 21c7 4424 082e ......}..u!.D$..
+      0x00001cb0: b904 08c7 4424 0417 b904 08c7 0424 0000 ....D$.......$..
+      0x00001cc0: 0000 e849 f3ff ffe9 f200 0000 8b4d 088b ...I.........M..
+      0x00001cd0: 550c 8b02 8941 248b 4204 8941 288b 4208 U....A$.B..A(.B.
+      0x00001ce0: 8941 2c8b 420c 8941 30e8 f6f6 ffff 8b55 .A,.B..A0......U
+      0x00001cf0: 0889 4424 0489 1424 e893 f3ff ff89 45f4 ..D$...$......E.
+      0x00001d00: e82b f5ff ff8b 5508 8944 2404 8914 24e8 .+....U..D$...$.
+      0x00001d10: 7cf3 ffff 8b40 0c83 e040 85c0 7435 8b45 |....@...@..t5.E
+      0x00001d20: 0c8b 500c 8b45 0c8b 4808 8b45 0c8b 5804 ..P..E..H..E..X.
+      0x00001d30: 8b45 0c8b 308b 4508 8b40 3489 5424 1089 .E..0.E..@4.T$..
+      0x00001d40: 4c24 0c89 5c24 0889 7424 0489 0424 e89d L$..\$..t$...$..
+      0x00001d50: f4ff ff8b 450c 8b50 0c8b 450c 8b40 0889 ....E..P..E..@..
+      0x00001d60: 45d8 8955 dc8b 45d8 3945 dc7e 068b 45d8 E..U..E.9E.~..E.
+      0x00001d70: 8945 dcdb 45dc dd05 48ba 0408 dec9 d97d .E..E...H......}
+      0x00001d80: e60f b745 e6b4 0c66 8945 e4d9 6de4 db5d ...E...f.E..m..]
+      0x00001d90: e0d9 6de6 8b55 e08b 45f4 8950 408b 45f4 ..m..U..E..P@.E.
+      0x00001da0: 8b48 40c7 45d4 6766 6666 8b45 d4f7 e9d1 .H@.E.gfff.E....
+      0x00001db0: fa89 c8c1 f81f 29c2 8b45 f489 5044 83c4 ......)..E..PD..
+      0x00001dc0: 405b 5e5d c355 89e5 5756 5381 ecdc 0000 @[^].U..WVS.....
+      0x00001dd0: 0083 7d08 0075 2bc7 4424 08f3 b804 08c7 ..}..u+.D$......
+      0x00001de0: 4424 0441 b904 08c7 0424 0000 0000 e81d D$.A.....$......
+      0x00001df0: f2ff ffc7 8550 ffff ff00 0000 00e9 2e09 .....P..........
+      0x00001e00: 0000 8b45 0889 45c8 e8d7 f5ff ff89 45c4 ...E..E.......E.
+      0x00001e10: 837d c800 741e 8b45 c88b 0085 c074 158b .}..t..E.....t..
+      0x00001e20: 45c8 8b00 8b00 3b45 c475 09c7 45c0 0100 E.....;E.u..E...
+      0x00001e30: 0000 eb15 8b45 c489 4424 048b 45c8 8904 .....E..D$..E...
+      0x00001e40: 24e8 caf3 ffff 8945 c08b 45c0 85c0 752b $......E..E...u+
+      0x00001e50: c744 2408 02b9 0408 c744 2404 41b9 0408 .D$......D$.A...
+      0x00001e60: c704 2400 0000 00e8 a4f1 ffff c785 50ff ..$...........P.
+      0x00001e70: ffff 0000 0000 e9b5 0800 0083 7d0c 0075 ............}..u
+      0x00001e80: 2bc7 4424 0851 b904 08c7 4424 0441 b904 +.D$.Q....D$.A..
+      0x00001e90: 08c7 0424 0000 0000 e873 f1ff ffc7 8550 ...$.....s.....P
+      0x00001ea0: ffff ff00 0000 00e9 8408 0000 8b45 0c8b .............E..
+      0x00001eb0: 4020 85c0 7e0f c785 50ff ffff 0000 0000 @ ..~...P.......
+      0x00001ec0: e96b 0800 00e8 1af5 ffff 8b55 0889 4424 .k.........U..D$
+      0x00001ed0: 0489 1424 e8b7 f1ff ff89 45ec 8b45 088b ...$......E..E..
+      0x00001ee0: 502c 89d0 c1e8 1f01 d0d1 f889 45e4 8b45 P,..........E..E
+      0x00001ef0: 088b 5030 89d0 c1e8 1f01 d0d1 f889 45e0 ..P0..........E.
+      0x00001f00: 8b45 ec8b 4060 dd40 18d9 bd5e ffff ff0f .E..@`.@...^....
+      0x00001f10: b785 5eff ffff b40c 6689 855c ffff ffd9 ..^.....f..\....
+      0x00001f20: ad5c ffff ffdb 5ddc d9ad 5eff ffff 8b45 .\....]...^....E
+      0x00001f30: ec8b 4060 dd40 10d9 ad5c ffff ffdb 5dd8 ..@`.@...\....].
+      0x00001f40: d9ad 5eff ffff 8b45 ecd9 4050 dd1c 24e8 ..^....E..@P..$.
+      0x00001f50: fcf1 ffff dd5d b88b 45ec d940 50dd 1c24 .....]..E..@P..$
+      0x00001f60: e80b f3ff ffdd 5db0 8b45 ec8b 504c 8b45 ......]..E..PL.E
+      0x00001f70: ec89 5050 db45 e48b 45ec 8b40 4450 db04 ..PP.E..E..@DP..
+      0x00001f80: 248d 6424 04dc 4db8 dd05 50ba 0408 def9 $.d$..M...P.....
+      0x00001f90: dec1 d9bd 5eff ffff 0fb7 855e ffff ffb4 ....^......^....
+      0x00001fa0: 0c66 8985 5cff ffff d9ad 5cff ffff db9d .f..\.....\.....
+      0x00001fb0: 58ff ffff d9ad 5eff ffff 8b85 58ff ffff X.....^.....X...
+      0x00001fc0: 8985 68ff ffff db45 e08b 45ec 8b40 4450 ..h....E..E..@DP
+      0x00001fd0: db04 248d 6424 04dc 4db0 dd05 50ba 0408 ..$.d$..M...P...
+      0x00001fe0: def9 dec1 d9ad 5cff ffff db9d 58ff ffff ......\.....X...
+      0x00001ff0: d9ad 5eff ffff 8b85 58ff ffff 8985 6cff ..^.....X.....l.
+      0x00002000: ffff db45 e48b 45ec 8b40 4050 db04 248d ...E..E..@@P..$.
+      0x00002010: 6424 04dc 4db0 dec1 d9ad 5cff ffff db9d d$..M.....\.....
+      0x00002020: 58ff ffff d9ad 5eff ffff 8b85 58ff ffff X.....^.....X...
+      0x00002030: 8985 70ff ffff db45 e08b 45ec 8b40 4050 ..p....E..E..@@P
+      0x00002040: db04 248d 6424 04dc 4db8 dee9 d9ad 5cff ..$.d$..M.....\.
+      0x00002050: ffff db9d 58ff ffff d9ad 5eff ffff 8b85 ....X.....^.....
+      0x00002060: 58ff ffff 8985 74ff ffff db45 e48b 45ec X.....t....E..E.
+      0x00002070: 8b40 4450 db04 248d 6424 04dc 4db8 dd05 .@DP..$.d$..M...
+      0x00002080: 58ba 0408 def9 dec1 d9ad 5cff ffff db9d X.........\.....
+      0x00002090: 58ff ffff d9ad 5eff ffff 8b85 58ff ffff X.....^.....X...
+      0x000020a0: 8985 78ff ffff db45 e08b 45ec 8b40 4450 ..x....E..E..@DP
+      0x000020b0: db04 248d 6424 04dc 4db0 dd05 58ba 0408 ..$.d$..M...X...
+      0x000020c0: def9 dec1 d9ad 5cff ffff db9d 58ff ffff ......\.....X...
+      0x000020d0: d9ad 5eff ffff 8b85 58ff ffff 8985 7cff ..^.....X.....|.
+      0x000020e0: ffff db45 e48b 45ec 8b40 4050 db04 248d ...E..E..@@P..$.
+      0x000020f0: 6424 04dc 4db0 dd05 60ba 0408 def9 dec1 d$..M...`.......
+      0x00002100: d9ad 5cff ffff db9d 58ff ffff d9ad 5eff ..\.....X.....^.
+      0x00002110: ffff 8b85 58ff ffff 8945 80db 45e0 8b45 ....X....E..E..E
+      0x00002120: ec8b 4040 50db 0424 8d64 2404 dc4d b8dd ..@@P..$.d$..M..
+      0x00002130: 0568 ba04 08de f9de c1d9 ad5c ffff ffdb .h.........\....
+      0x00002140: 9d58 ffff ffd9 ad5e ffff ff8b 8558 ffff .X.....^.....X..
+      0x00002150: ff89 4584 8b85 68ff ffff 8945 888b 856c ..E...h....E...l
+      0x00002160: ffff ff89 458c e875 f0ff ff89 45e8 8b45 ....E..u....E..E
+      0x00002170: 088b 4018 8b90 2402 0000 8b45 e889 9024 ..@...$....E...$
+      0x00002180: 0200 008b 4508 8b40 188b 9024 0200 008b ....E..@...$....
+      0x00002190: 45e8 8990 4c02 0000 8b45 088b 4018 8b90 E...L....E..@...
+      0x000021a0: 2402 0000 8b45 e889 9038 0200 008b 4508 $....E...8....E.
+      0x000021b0: 8b40 188b 9024 0200 008b 45e8 8990 b002 .@...$....E.....
+      0x000021c0: 0000 8b45 088b 5034 c744 2424 0000 0000 ...E..P4.D$$....
+      0x000021d0: c744 2420 0500 0000 8d85 68ff ffff 8944 .D$ ......h....D
+      0x000021e0: 241c c744 2418 0000 0000 8b45 0889 4424 $..D$......E..D$
+      0x000021f0: 14c7 4424 1000 0000 00c7 4424 0c02 0000 ..D$......D$....
+      0x00002200: 00c7 4424 0800 0000 0089 5424 048b 45e8 ..D$......T$..E.
+      0x00002210: 8904 24e8 98f0 ffff 8b45 e889 0424 e82d ..$......E...$.-
+      0x00002220: f0ff ff8b 45dc 3b45 d875 0fc7 8550 ffff ....E.;E.u...P..
+      0x00002230: ff00 0000 00e9 f604 0000 8b45 ec8b 5040 ...........E..P@
+      0x00002240: 8b45 ec8b 4040 0faf c250 db04 248d 6424 .E..@@...P..$.d$
+      0x00002250: 04dd 0570 ba04 08de f1dd 5d98 8b55 d88b ...p......]..U..
+      0x00002260: 45dc 29d0 8945 cceb 108b 45cc 89c2 c1e2 E.)..E....E.....
+      0x00002270: 0201 c28d 0412 8945 cc83 7dcc 637e eaeb .......E..}.c~..
+      0x00002280: 268b 4dcc c785 4cff ffff 6766 6666 8b85 &.M...L...gfff..
+      0x00002290: 4cff ffff f7e9 c1fa 0289 c8c1 f81f 89d1 L...............
+      0x000022a0: 29c1 89c8 8945 cc81 7dcc e703 0000 7fd1 )....E..}.......
+      0x000022b0: dd05 78ba 0408 dd5d a0c7 45d0 0000 0000 ..x....]..E.....
+      0x000022c0: e9dc 0100 00db 45d0 dd05 80ba 0408 dec9 ......E.........
+      0x000022d0: 8b55 cc89 d0c1 e003 01d0 01c0 50db 0424 .U..........P..$
+      0x000022e0: 8d64 2404 dd05 88ba 0408 def9 def9 dd05 .d$.............
+      0x000022f0: 90ba 0408 dee9 dd5d a8dd 45a8 dc65 a0dd .......]..E..e..
+      0x00002300: 4598 dae9 dfe0 9e0f 8790 0100 00dd 45a8 E.............E.
+      0x00002310: dd5d a0dd 45a8 dd1c 24e8 32ee ffff dd5d .]..E...$.2....]
+      0x00002320: b8dd 45a8 dd1c 24e8 44ef ffff dd5d b08b ..E...$.D....]..
+      0x00002330: 4dcc c785 4cff ffff 6766 6666 8b85 4cff M...L...gfff..L.
+      0x00002340: ffff f7e9 c1fa 0289 c8c1 f81f 89d1 29c1 ..............).
+      0x00002350: 89c8 8b55 d089 c189 d0c1 fa1f f7f9 89d0 ...U............
+      0x00002360: 85c0 750e 8b45 ec8b 4044 8985 54ff ffff ..u..E..@D..T...
+      0x00002370: eb15 8b45 ec8b 5044 89d0 c1e8 1f01 d0d1 ...E..PD........
+      0x00002380: f889 8554 ffff ff8b 8554 ffff ff89 45d4 ...T.....T....E.
+      0x00002390: db45 e08b 45ec 8b40 4050 db04 248d 6424 .E..E..@@P..$.d$
+      0x000023a0: 04dc 4db8 dee9 d9bd 5eff ffff 0fb7 855e ..M.....^......^
+      0x000023b0: ffff ffb4 0c66 8985 5cff ffff d9ad 5cff .....f..\.....\.
+      0x000023c0: ffff db9d 58ff ffff d9ad 5eff ffff 8b8d ....X.....^.....
+      0x000023d0: 58ff ffff db45 e48b 45ec 8b40 4050 db04 X....E..E..@@P..
+      0x000023e0: 248d 6424 04dc 4db0 dec1 d9ad 5cff ffff $.d$..M.....\...
+      0x000023f0: db9d 58ff ffff d9ad 5eff ffff 8b9d 58ff ..X.....^.....X.
+      0x00002400: ffff db45 e08b 45ec 8b40 402b 45d4 50db ...E..E..@@+E.P.
+      0x00002410: 0424 8d64 2404 dc4d b8de e9d9 ad5c ffff .$.d$..M.....\..
+      0x00002420: ffdb 9d58 ffff ffd9 ad5e ffff ff8b b558 ...X.....^.....X
+      0x00002430: ffff ffdb 45e4 8b45 ec8b 4040 2b45 d450 ....E..E..@@+E.P
+      0x00002440: db04 248d 6424 04dc 4db0 dec1 d9ad 5cff ..$.d$..M.....\.
+      0x00002450: ffff db9d 58ff ffff d9ad 5eff ffff 8bbd ....X.....^.....
+      0x00002460: 58ff ffff 8b45 088b 5018 8b45 080f b640 X....E..P..E...@
+      0x00002470: 120f b6c0 8b94 8210 0200 008b 4508 8b40 ............E..@
+      0x00002480: 3489 4c24 1489 5c24 1089 7424 0c89 7c24 4.L$..\$..t$..|$
+      0x00002490: 0889 5424 0489 0424 e883 eeff ff83 45d0 ..T$...$......E.
+      0x000024a0: 018b 45d0 3b45 cc0f 8e18 feff ff8b 45ec ..E.;E........E.
+      0x000024b0: d940 4cdd 1c24 e895 ecff ffdd 5db8 8b45 .@L..$......]..E
+      0x000024c0: ecd9 404c dd1c 24e8 a4ed ffff dd5d b08b ..@L..$......]..
+      0x000024d0: 45ec 8b50 4c8b 45ec 8950 50db 45e4 8b45 E..PL.E..PP.E..E
+      0x000024e0: ec8b 4044 50db 0424 8d64 2404 dc4d b8dd ..@DP..$.d$..M..
+      0x000024f0: 0550 ba04 08de f9de c1d9 bd5e ffff ff0f .P.........^....
+      0x00002500: b785 5eff ffff b40c 6689 855c ffff ffd9 ..^.....f..\....
+      0x00002510: ad5c ffff ffdb 9d58 ffff ffd9 ad5e ffff .\.....X.....^..
+      0x00002520: ff8b 8558 ffff ff89 8568 ffff ffdb 45e0 ...X.....h....E.
+      0x00002530: 8b45 ec8b 4044 50db 0424 8d64 2404 dc4d .E..@DP..$.d$..M
+      0x00002540: b0dd 0550 ba04 08de f9de c1d9 ad5c ffff ...P.........\..
+      0x00002550: ffdb 9d58 ffff ffd9 ad5e ffff ff8b 8558 ...X.....^.....X
+      0x00002560: ffff ff89 856c ffff ffdb 45e4 8b45 ec8b .....l....E..E..
+      0x00002570: 4040 50db 0424 8d64 2404 dc4d b0de c1d9 @@P..$.d$..M....
+      0x00002580: ad5c ffff ffdb 9d58 ffff ffd9 ad5e ffff .\.....X.....^..
+      0x00002590: ff8b 8558 ffff ff89 8570 ffff ffdb 45e0 ...X.....p....E.
+      0x000025a0: 8b45 ec8b 4040 50db 0424 8d64 2404 dc4d .E..@@P..$.d$..M
+      0x000025b0: b8de e9d9 ad5c ffff ffdb 9d58 ffff ffd9 .....\.....X....
+      0x000025c0: ad5e ffff ff8b 8558 ffff ff89 8574 ffff .^.....X.....t..
+      0x000025d0: ffdb 45e4 8b45 ec8b 4044 50db 0424 8d64 ..E..E..@DP..$.d
+      0x000025e0: 2404 dc4d b8dd 0558 ba04 08de f9de c1d9 $..M...X........
+      0x000025f0: ad5c ffff ffdb 9d58 ffff ffd9 ad5e ffff .\.....X.....^..
+      0x00002600: ff8b 8558 ffff ff89 8578 ffff ffdb 45e0 ...X.....x....E.
+      0x00002610: 8b45 ec8b 4044 50db 0424 8d64 2404 dc4d .E..@DP..$.d$..M
+      0x00002620: b0dd 0558 ba04 08de f9de c1d9 ad5c ffff ...X.........\..
+      0x00002630: ffdb 9d58 ffff ffd9 ad5e ffff ff8b 8558 ...X.....^.....X
+      0x00002640: ffff ff89 857c ffff ffdb 45e4 8b45 ec8b .....|....E..E..
+      0x00002650: 4040 50db 0424 8d64 2404 dc4d b0dd 0560 @@P..$.d$..M...`
+      0x00002660: ba04 08de f9de c1d9 ad5c ffff ffdb 9d58 .........\.....X
+      0x00002670: ffff ffd9 ad5e ffff ff8b 8558 ffff ff89 .....^.....X....
+      0x00002680: 4580 db45 e08b 45ec 8b40 4050 db04 248d E..E..E..@@P..$.
+      0x00002690: 6424 04dc 4db8 dd05 68ba 0408 def9 dec1 d$..M...h.......
+      0x000026a0: d9ad 5cff ffff db9d 58ff ffff d9ad 5eff ..\.....X.....^.
+      0x000026b0: ffff 8b85 58ff ffff 8945 848b 8568 ffff ....X....E...h..
+      0x000026c0: ff89 4588 8b85 6cff ffff 8945 8c8b 4508 ..E...l....E..E.
+      0x000026d0: 8b50 348b 4508 8b48 18c7 4424 2401 0000 .P4.E..H..D$$...
+      0x000026e0: 00c7 4424 2005 0000 008d 8568 ffff ff89 ..D$ ......h....
+      0x000026f0: 4424 1cc7 4424 1800 0000 008b 4508 8944 D$..D$......E..D
+      0x00002700: 2414 c744 2410 0000 0000 c744 240c 0200 $..D$......D$...
+      0x00002710: 0000 c744 2408 0000 0000 8954 2404 890c ...D$......T$...
+      0x00002720: 24e8 8aeb ffff c785 50ff ffff 0000 0000 $.......P.......
+      0x00002730: 8b85 50ff ffff 81c4 dc00 0000 5b5e 5f5d ..P.........[^_]
+      0x00002740: c355 89e5 83ec 6883 7d08 0075 28c7 4424 .U....h.}..u(.D$
+      0x00002750: 08f3 b804 08c7 4424 045f b904 08c7 0424 ......D$._.....$
+      0x00002760: 0000 0000 e8a7 e8ff ffc7 45b4 0000 0000 ..........E.....
+      0x00002770: e912 0200 008b 4508 8945 f0e8 64ec ffff ......E..E..d...
+      0x00002780: 8945 ec83 7df0 0074 1e8b 45f0 8b00 85c0 .E..}..t..E.....
+      0x00002790: 7415 8b45 f08b 008b 003b 45ec 7509 c745 t..E.....;E.u..E
+      0x000027a0: e801 0000 00eb 158b 45ec 8944 2404 8b45 ........E..D$..E
+      0x000027b0: f089 0424 e857 eaff ff89 45e8 8b45 e885 ...$.W....E..E..
+      0x000027c0: c075 28c7 4424 0802 b904 08c7 4424 045f .u(.D$......D$._
+      0x000027d0: b904 08c7 0424 0000 0000 e831 e8ff ffc7 .....$.....1....
+      0x000027e0: 45b4 0000 0000 e99c 0100 0083 7d0c 0075 E...........}..u
+      0x000027f0: 28c7 4424 0851 b904 08c7 4424 045f b904 (.D$.Q....D$._..
+      0x00002800: 08c7 0424 0000 0000 e803 e8ff ffc7 45b4 ...$..........E.
+      0x00002810: 0000 0000 e96e 0100 00e8 c6eb ffff 8b55 .....n.........U
+      0x00002820: 0889 4424 0489 1424 e863 e8ff ff89 45fc ..D$...$.c....E.
+      0x00002830: 8b45 0cdd 4010 8b45 088b 502c 89d0 c1e8 .E..@..E..P,....
+      0x00002840: 1f01 d0d1 f850 db04 248d 6424 04de e9d9 .....P..$.d$....
+      0x00002850: 7dbe 0fb7 45be b40c 6689 45bc d96d bcdb }...E...f.E..m..
+      0x00002860: 5df8 d96d be8b 4508 8b50 3089 d0c1 e81f ]..m..E..P0.....
+      0x00002870: 01d0 d1f8 50db 0424 8d64 2404 8b45 0cdd ....P..$.d$..E..
+      0x00002880: 4018 dee9 d96d bcdb 5df4 d96d be8b 45fc @....m..]..m..E.
+      0x00002890: d940 4cdd 1c24 e8b5 e8ff ffdd 5de0 8b45 .@L..$......]..E
+      0x000028a0: fcd9 404c dd1c 24e8 c4e9 ffff dd5d d8db ..@L..$......]..
+      0x000028b0: 45f4 dc4d e0db 45f8 dc4d d8de c1dd 5dd0 E..M..E..M....].
+      0x000028c0: db45 f8dc 4de0 db45 f4dc 4dd8 dee9 d9e1 .E..M..E..M.....
+      0x000028d0: dd5d c88b 45fc 0fb6 403d 84c0 0f85 9e00 .]..E...@=......
+      0x000028e0: 0000 8b45 fc8b 5044 89d0 c1e8 1f01 d0d1 ...E..PD........
+      0x000028f0: f850 db04 248d 6424 04dd 45c8 d9c9 dae9 .P..$.d$..E.....
+      0x00002900: dfe0 9e77 02eb 798b 45fc 8b40 44f7 d850 ...w..y.E..@D..P
+      0x00002910: db04 248d 6424 04dd 45d0 dae9 dfe0 9e77 ..$.d$..E......w
+      0x00002920: 02eb 5d8b 4508 8904 24e8 22ea ffff 8b45 ..].E...$."....E
+      0x00002930: 0c8b 4028 89c2 8b45 fc88 503d 8b45 0cdd ..@(...E..P=.E..
+      0x00002940: 4018 d97d be0f b745 beb4 0c66 8945 bcd9 @..}...E...f.E..
+      0x00002950: 6dbc db5d b8d9 6dbe 8b55 b88b 450c dd40 m..]..m..U..E..@
+      0x00002960: 10d9 6dbc db5d b8d9 6dbe 8b45 b889 5424 ..m..]..m..E..T$
+      0x00002970: 0889 4424 048b 45fc 8904 24e8 7204 0000 ..D$..E...$.r...
+      0x00002980: c745 b400 0000 008b 45b4 c9c3 5589 e583 .E......E...U...
+      0x00002990: ec28 837d 0800 7528 c744 2408 f3b8 0408 .(.}..u(.D$.....
+      0x000029a0: c744 2404 75b9 0408 c704 2400 0000 00e8 .D$.u.....$.....
+      0x000029b0: 5ce6 ffff c745 ec00 0000 00e9 5b01 0000 \....E......[...
+      0x000029c0: 8b45 0889 45f8 e819 eaff ff89 45f4 837d .E..E.......E..}
+      0x000029d0: f800 741e 8b45 f88b 0085 c074 158b 45f8 ..t..E.....t..E.
+      0x000029e0: 8b00 8b00 3b45 f475 09c7 45f0 0100 0000 ....;E.u..E.....
+      0x000029f0: eb15 8b45 f489 4424 048b 45f8 8904 24e8 ...E..D$..E...$.
+      0x00002a00: 0ce8 ffff 8945 f08b 45f0 85c0 7528 c744 .....E..E...u(.D
+      0x00002a10: 2408 02b9 0408 c744 2404 75b9 0408 c704 $......D$.u.....
+      0x00002a20: 2400 0000 00e8 e6e5 ffff c745 ec00 0000 $..........E....
+      0x00002a30: 00e9 e500 0000 837d 0c00 7528 c744 2408 .......}..u(.D$.
+      0x00002a40: 51b9 0408 c744 2404 75b9 0408 c704 2400 Q....D$.u.....$.
+      0x00002a50: 0000 00e8 b8e5 ffff c745 ec00 0000 00e9 .........E......
+      0x00002a60: b700 0000 e87b e9ff ff8b 5508 8944 2404 .....{....U..D$.
+      0x00002a70: 8914 24e8 18e6 ffff 8945 fc8b 45fc 0fb6 ..$......E..E...
+      0x00002a80: 403d 0fb6 d08b 450c 8b40 2839 c20f 8581 @=....E..@(9....
+      0x00002a90: 0000 008b 4508 8904 24e8 92e5 ffff 8b45 ....E...$......E
+      0x00002aa0: fcc6 403d 008b 45fc 0fb6 403c 83e0 033c ..@=..E...@<...<
+      0x00002ab0: 0275 0e8b 45fc 8b40 4889 0424 e87f e8ff .u..E..@H..$....
+      0x00002ac0: ff8b 45fc 0fb6 403c 83e0 0384 c074 458b ..E...@<.....tE.
+      0x00002ad0: 45fc d940 548b 45fc 8b40 60dd 4020 d9c9 E..@T.E..@`.@ ..
+      0x00002ae0: dae9 dfe0 9e75 047a 02eb 29e8 40e7 ffff .....u.z..).@...
+      0x00002af0: 89c2 8b45 fc8b 4060 8954 2404 8904 24e8 ...E..@`.T$...$.
+      0x00002b00: 8ce5 ffff c744 2404 d4b8 0408 8904 24e8 .....D$.......$.
+      0x00002b10: ece7 ffff c745 ec00 0000 008b 45ec c9c3 .....E......E...
+      0x00002b20: 5589 e583 ec48 837d 0800 7528 c744 2408 U....H.}..u(.D$.
+      0x00002b30: f3b8 0408 c744 2404 8db9 0408 c704 2400 .....D$.......$.
+      0x00002b40: 0000 00e8 c8e4 ffff c745 d000 0000 00e9 .........E......
+      0x00002b50: af01 0000 8b45 0889 45e8 e885 e8ff ff89 .....E..E.......
+      0x00002b60: 45e4 837d e800 741e 8b45 e88b 0085 c074 E..}..t..E.....t
+      0x00002b70: 158b 45e8 8b00 8b00 3b45 e475 09c7 45e0 ..E.....;E.u..E.
+      0x00002b80: 0100 0000 eb15 8b45 e489 4424 048b 45e8 .......E..D$..E.
+      0x00002b90: 8904 24e8 78e6 ffff 8945 e08b 45e0 85c0 ..$.x....E..E...
+      0x00002ba0: 7528 c744 2408 02b9 0408 c744 2404 8db9 u(.D$......D$...
+      0x00002bb0: 0408 c704 2400 0000 00e8 52e4 ffff c745 ....$.....R....E
+      0x00002bc0: d000 0000 00e9 3901 0000 837d 0c00 7528 ......9....}..u(
+      0x00002bd0: c744 2408 51b9 0408 c744 2404 8db9 0408 .D$.Q....D$.....
+      0x00002be0: c704 2400 0000 00e8 24e4 ffff c745 d000 ..$.....$....E..
+      0x00002bf0: 0000 00e9 0b01 0000 e8e7 e7ff ff8b 5508 ..............U.
+      0x00002c00: 8944 2404 8914 24e8 84e4 ffff 8945 fc8b .D$...$......E..
+      0x00002c10: 45fc 0fb6 403d 84c0 0f84 de00 0000 8b45 E...@=.........E
+      0x00002c20: 0cdd 4010 d97d de0f b745 deb4 0c66 8945 ..@..}...E...f.E
+      0x00002c30: dcd9 6ddc db5d d8d9 6dde 8b45 d889 45f4 ..m..]..m..E..E.
+      0x00002c40: 8b45 0cdd 4018 d96d dcdb 5dd8 d96d de8b .E..@..m..]..m..
+      0x00002c50: 45d8 8945 f08b 450c 0fb7 4028 6685 c075 E..E..E...@(f..u
+      0x00002c60: 108b 450c 8b50 048b 4508 8b40 3439 c274 ..E..P..E..@49.t
+      0x00002c70: 238b 4508 8b50 348d 45f8 8944 240c 8d45 #.E..P4.E..D$..E
+      0x00002c80: f089 4424 088d 45f4 8944 2404 8914 24e8 ..D$..E..D$...$.
+      0x00002c90: cce5 ffff 8b45 fc0f b640 3d0f b6c0 8945 .....E...@=....E
+      0x00002ca0: d483 7dd4 0274 1783 7dd4 0374 1a83 7dd4 ..}..t..}..t..}.
+      0x00002cb0: 0174 02eb 1bc7 45ec 0001 0000 eb19 c745 .t....E........E
+      0x00002cc0: ec00 0200 00eb 10c7 45ec 0004 0000 eb07 ........E.......
+      0x00002cd0: c745 ec00 0000 008b 45f8 8b55 ec21 d085 .E......E..U.!..
+      0x00002ce0: c074 198b 45f0 8b55 f489 4424 0889 5424 .t..E..U..D$..T$
+      0x00002cf0: 048b 45fc 8904 24e8 f600 0000 c745 d000 ..E...$......E..
+      0x00002d00: 0000 008b 45d0 c9c3 5589 e583 ec28 837d ....E...U....(.}
+      0x00002d10: 0800 7528 c744 2408 79b8 0408 c744 2404 ..u(.D$.y....D$.
+      0x00002d20: a4b9 0408 c704 2400 0000 00e8 e0e2 ffff ......$.........
+      0x00002d30: c745 ec00 0000 00e9 b100 0000 8b45 0889 .E...........E..
+      0x00002d40: 45fc e89d e6ff ff89 45f8 837d fc00 741e E.......E..}..t.
+      0x00002d50: 8b45 fc8b 0085 c074 158b 45fc 8b00 8b00 .E.....t..E.....
+      0x00002d60: 3b45 f875 09c7 45f4 0100 0000 eb15 8b45 ;E.u..E........E
+      0x00002d70: f889 4424 048b 45fc 8904 24e8 90e4 ffff ..D$..E...$.....
+      0x00002d80: 8945 f48b 45f4 85c0 7525 c744 2408 86b8 .E..E...u%.D$...
+      0x00002d90: 0408 c744 2404 a4b9 0408 c704 2400 0000 ...D$.......$...
+      0x00002da0: 00e8 6ae2 ffff c745 ec00 0000 00eb 3e8b ..j....E......>.
+      0x00002db0: 4508 0fb6 403c 83e0 033c 0275 29e8 6ee4 E...@<...<.u).n.
+      0x00002dc0: ffff 89c2 8b45 088b 4060 8954 2404 8904 .....E..@`.T$...
+      0x00002dd0: 24e8 bae2 ffff c744 2404 d4b8 0408 8904 $......D$.......
+      0x00002de0: 24e8 1ae5 ffff c745 ec00 0000 008b 45ec $......E......E.
+      0x00002df0: c9c3 5589 e583 ec38 837d 0800 7521 c744 ..U....8.}..u!.D
+      0x00002e00: 2408 79b8 0408 c744 2404 b3b9 0408 c704 $.y....D$.......
+      0x00002e10: 2400 0000 00e8 f6e1 ffff e967 0200 008b $..........g....
+      0x00002e20: 4508 8945 f0e8 bae5 ffff 8945 ec83 7df0 E..E.......E..}.
+      0x00002e30: 0074 1e8b 45f0 8b00 85c0 7415 8b45 f08b .t..E.....t..E..
+      0x00002e40: 008b 003b 45ec 7509 c745 e801 0000 00eb ...;E.u..E......
+      0x00002e50: 158b 45ec 8944 2404 8b45 f089 0424 e8ad ..E..D$..E...$..
+      0x00002e60: e3ff ff89 45e8 8b45 e885 c075 21c7 4424 ....E..E...u!.D$
+      0x00002e70: 0886 b804 08c7 4424 04b3 b904 08c7 0424 ......D$.......$
+      0x00002e80: 0000 0000 e887 e1ff ffe9 f801 0000 e8ed ................
+      0x00002e90: e1ff ff8b 5508 8944 2404 8914 24e8 eee1 ....U..D$...$...
+      0x00002ea0: ffff 8b50 2c89 d0c1 e81f 01d0 d1f8 8945 ...P,..........E
+      0x00002eb0: fce8 cae1 ffff 8b55 0889 4424 0489 1424 .......U..D$...$
+      0x00002ec0: e8cb e1ff ff8b 5030 89d0 c1e8 1f01 d0d1 ......P0........
+      0x00002ed0: f889 45f8 8b45 088b 4060 dd40 20d9 5df4 ..E..E..@`.@ .].
+      0x00002ee0: 8b55 fc8b 450c 29d0 50db 0424 8d64 2404 .U..E.).P..$.d$.
+      0x00002ef0: 8b55 108b 45f8 29d0 50db 0424 d9c9 8d64 .U..E.).P..$...d
+      0x00002f00: 2404 dd5c 2408 dd1c 24e8 32e1 ffff d95d $..\$...$.2....]
+      0x00002f10: dcd9 45dc 8b45 08d9 584c 8b45 08d9 404c ..E..E..XL.E..@L
+      0x00002f20: dd05 98ba 0408 dae9 dfe0 9e77 02eb 1a8b ...........w....
+      0x00002f30: 4508 d940 4cdd 05a0 ba04 08de c1d9 5ddc E..@L.........].
+      0x00002f40: d945 dc8b 4508 d958 4c8b 4508 d940 4cdd .E..E..XL.E..@L.
+      0x00002f50: 05a8 ba04 08da e9df e09e 7702 eb0b 8b55 ..........w....U
+      0x00002f60: 08b8 920a 06bf 8942 4c8b 4508 d940 4cdd .......BL.E..@L.
+      0x00002f70: 05b0 ba04 08d9 c9da e9df e09e 7702 eb0b ............w...
+      0x00002f80: 8b55 08b8 7f92 6a40 8942 4c8b 4508 8b50 .U....j@.BL.E..P
+      0x00002f90: 608b 4508 8b40 60dd 4010 8b45 08d9 404c `.E..@`.@..E..@L
+      0x00002fa0: dd05 b0ba 0408 dee1 8b45 088b 4060 dd40 .........E..@`.@
+      0x00002fb0: 188b 4508 8b40 60dd 4010 dee9 dec9 dd05 ..E..@`.@.......
+      0x00002fc0: b8ba 0408 def9 dec1 dd5a 208b 4508 8b40 .........Z .E..@
+      0x00002fd0: 60dd 4020 d945 f4d9 c9da e9df e09e 7507 `.@ .E........u.
+      0x00002fe0: 7a05 e99f 0000 008b 4508 0fb6 403c 83e0 z.......E...@<..
+      0x00002ff0: 0384 c075 2be8 36e2 ffff 89c2 8b45 088b ...u+.6......E..
+      0x00003000: 4060 8954 2404 8904 24e8 82e0 ffff c744 @`.T$...$......D
+      0x00003010: 2404 d4b8 0408 8904 24e8 e2e2 ffff eb66 $.......$......f
+      0x00003020: e85b e0ff ff8b 5508 8944 2404 8914 24e8 .[....U..D$...$.
+      0x00003030: 5ce0 ffff 8904 24e8 b4df ffff 8b45 080f \.....$......E..
+      0x00003040: b640 3c83 e003 3c02 753c 8b45 088b 4048 .@<...<.u<.E..@H
+      0x00003050: 85c0 740e 8b45 088b 4048 8904 24e8 dee2 ..t..E..@H..$...
+      0x00003060: ffff ba08 ad04 088b 4508 8944 2408 8954 ........E..D$..T
+      0x00003070: 2404 c704 242c 0100 00e8 a2df ffff 89c2 $...$,..........
+      0x00003080: 8b45 0889 5048 c9c3 5589 e583 ec28 837d .E..PH..U....(.}
+      0x00003090: 0800 7521 c744 2408 79b8 0408 c744 2404 ..u!.D$.y....D$.
+      0x000030a0: c9b9 0408 c704 2400 0000 00e8 60df ffff ......$.....`...
+      0x000030b0: e979 0100 008b 4508 8945 f8e8 24e3 ffff .y....E..E..$...
+      0x000030c0: 8945 f483 7df8 0074 1e8b 45f8 8b00 85c0 .E..}..t..E.....
+      0x000030d0: 7415 8b45 f88b 008b 003b 45f4 7509 c745 t..E.....;E.u..E
+      0x000030e0: f001 0000 00eb 158b 45f4 8944 2404 8b45 ........E..D$..E
+      0x000030f0: f889 0424 e817 e1ff ff89 45f0 8b45 f085 ...$......E..E..
+      0x00003100: c075 21c7 4424 0886 b804 08c7 4424 04c9 .u!.D$......D$..
+      0x00003110: b904 08c7 0424 0000 0000 e8f1 deff ffe9 .....$..........
+      0x00003120: 0a01 0000 8b45 088b 4060 dd40 20d9 5dfc .....E..@`.@ .].
+      0x00003130: d945 fc8b 4508 8b40 60dd 4010 dae9 dfe0 .E..E..@`.@.....
+      0x00003140: 9e77 02eb 0c8b 4508 8b40 60dd 4010 d95d .w....E..@`.@..]
+      0x00003150: fcd9 45fc 8b45 088b 4060 dd40 18d9 c9da ..E..E..@`.@....
+      0x00003160: e9df e09e 7702 eb0c 8b45 088b 4060 dd40 ....w....E..@`.@
+      0x00003170: 18d9 5dfc d945 fc8b 4508 8b40 60dd 4020 ..]..E..E..@`.@ 
+      0x00003180: d9c9 dae9 dfe0 9e75 047a 02eb 358b 4508 .......u.z..5.E.
+      0x00003190: 8b40 60d9 45fc dd58 20e8 92e0 ffff 89c2 .@`.E..X .......
+      0x000031a0: 8b45 088b 4060 8954 2404 8904 24e8 dede .E..@`.T$...$...
+      0x000031b0: ffff c744 2404 d4b8 0408 8904 24e8 3ee1 ...D$.......$.>.
+      0x000031c0: ffff d945 fc8b 4508 8b40 60dd 4010 dee9 ...E..E..@`.@...
+      0x000031d0: dd05 c0ba 0408 dec9 dd05 80ba 0408 dec9 ................
+      0x000031e0: dd05 c8ba 0408 def9 8b45 088b 4060 dd40 .........E..@`.@
+      0x000031f0: 188b 4508 8b40 60dd 4010 dee9 def9 dd05 ..E..@`.@.......
+      0x00003200: b0ba 0408 dec1 d95d ecd9 45ec 8b45 08d9 .......]..E..E..
+      0x00003210: 584c e869 deff ff8b 5508 8944 2404 8914 XL.i....U..D$...
+      0x00003220: 24e8 6ade ffff 8904 24e8 c2dd ffff c9c3 $.j.....$.......
+      0x00003230: 5589 e583 ec28 837d 0800 7521 c744 2408 U....(.}..u!.D$.
+      0x00003240: f5b9 0408 c744 2404 d9b9 0408 c704 2400 .....D$.......$.
+      0x00003250: 0000 00e8 b8dd ffff e9c6 0000 0083 7d0c ..............}.
+      0x00003260: 0075 21c7 4424 0808 ba04 08c7 4424 04d9 .u!.D$......D$..
+      0x00003270: b904 08c7 0424 0000 0000 e891 ddff ffe9 .....$..........
+      0x00003280: 9f00 0000 e85b e1ff ff8b 550c 8944 2404 .....[....U..D$.
+      0x00003290: 8914 24e8 f8dd ffff 8945 fc8b 45fc d940 ..$......E..E..@
+      0x000032a0: 548b 4508 dd40 20d9 c9da e9df e09e 7532 T.E..@ .......u2
+      0x000032b0: 7a30 8b45 fcd9 4058 8b45 08dd 4010 d9c9 z0.E..@X.E..@...
+      0x000032c0: dae9 dfe0 9e75 1b7a 198b 45fc d940 5c8b .....u.z..E..@\.
+      0x000032d0: 4508 dd40 18d9 c9da e9df e09e 7504 7a02 E..@........u.z.
+      0x000032e0: eb41 8b45 fc89 0424 e89b fdff ff8b 4508 .A.E...$......E.
+      0x000032f0: dd40 20d9 5dec d945 ec8b 45fc d958 548b .@ .]..E..E..XT.
+      0x00003300: 4508 dd40 10d9 5dec d945 ec8b 45fc d958 E..@..]..E..E..X
+      0x00003310: 588b 4508 dd40 18d9 5dec d945 ec8b 45fc X.E..@..]..E..E.
+      0x00003320: d958 5cc9 c355 89e5 83ec 2883 7d08 0075 .X\..U....(.}..u
+      0x00003330: 1ec7 4424 08f5 b904 08c7 4424 0420 ba04 ..D$......D$. ..
+      0x00003340: 08c7 0424 0000 0000 e8c3 dcff ffeb 7183 ...$..........q.
+      0x00003350: 7d0c 0075 1ec7 4424 0808 ba04 08c7 4424 }..u..D$......D$
+      0x00003360: 0420 ba04 08c7 0424 0000 0000 e89f dcff . .....$........
+      0x00003370: ffeb 4de8 6ce0 ffff 8b55 0c89 4424 0489 ..M.l....U..D$..
+      0x00003380: 1424 e809 ddff ff89 45fc 8b45 fcd9 4054 .$......E..E..@T
+      0x00003390: 8b45 08dd 4020 d9c9 dae9 dfe0 9e75 047a .E..@ .......u.z
+      0x000033a0: 02eb 1d8b 45fc 8904 24e8 dafc ffff 8b45 ....E...$......E
+      0x000033b0: 08dd 4020 d95d ecd9 45ec 8b45 fcd9 5854 ..@ .]..E..E..XT
+      0x000033c0: c9c3 9090 5589 e583 ec38 8b45 0889 45dc ....U....8.E..E.
+      0x000033d0: 8b45 0c89 45d8 65a1 1400 0000 8945 fc31 .E..E.e......E.1
+      0x000033e0: c08b 45dc dd40 20dd 5c24 08c7 4424 04d0 ..E..@ .\$..D$..
+      0x000033f0: ba04 088d 45ec 8904 24e8 c2dc ffff e85d ....E...$......]
+      0x00003400: dcff ff8b 55d8 8944 2404 8914 24e8 7edc ....U..D$...$.~.
+      0x00003410: ffff 89c2 8d45 ec89 4424 0489 1424 e86d .....E..D$...$.m
+      0x00003420: ddff ff8b 45fc 6533 0514 0000 0074 05e8 ....E.e3.....t..
+      0x00003430: 8cdd ffff c9c3 8d4c 2404 83e4 f0ff 71fc .......L$.....q.
+      0x00003440: 5589 e553 5183 ec50 8d41 0489 4424 0489 U..SQ..P.A..D$..
+      0x00003450: 0c24 e839 deff ffc7 0424 0000 0000 e86d .$.9.....$.....m
+      0x00003460: ddff ff89 45f4 e8c5 deff ff8b 55f4 8944 ....E.......U..D
+      0x00003470: 2404 8914 24e8 16dc ffff c744 2404 d6ba $...$......D$...
+      0x00003480: 0408 8904 24e8 96dc ffff bb20 9204 088b ....$...... ....
+      0x00003490: 45f4 c744 2404 5000 0000 8904 24e8 eedb E..D$.P.....$...
+      0x000034a0: ffff c744 2414 0000 0000 c744 2410 0000 ...D$......D$...
+      0x000034b0: 0000 c744 240c 0000 0000 895c 2408 c744 ...D$......\$..D
+      0x000034c0: 2404 dbba 0408 8904 24e8 92dc ffff e8fd $.......$.......
+      0x000034d0: dbff ff8b 55f4 8944 2404 8914 24e8 aedb ....U..D$...$...
+      0x000034e0: ffff c744 2404 0a00 0000 8904 24e8 eedb ...D$.......$...
+      0x000034f0: ffff c744 2404 0500 0000 c704 2400 0000 ...D$.......$...
+      0x00003500: 00e8 6adc ffff 8945 e4e8 c2db ffff 8b55 ..j....E.......U
+      0x00003510: f489 4424 0489 1424 e873 dbff ff89 c28b ..D$...$.s......
+      0x00003520: 45e4 8944 2404 8914 24e8 02dc ffff 8b45 E..D$...$......E
+      0x00003530: e489 0424 e807 ddff ffc7 0424 0000 0000 ...$.......$....
+      0x00003540: e80b dbff ff89 45e8 e873 daff ff8b 55e8 ......E..s....U.
+      0x00003550: 8944 2404 8914 24e8 34db ffff c744 2404 .D$...$.4....D$.
+      0x00003560: 0100 0000 8904 24e8 74dd ffff e85f dbff ......$.t...._..
+      0x00003570: ff8b 55e4 8944 2404 8914 24e8 10db ffff ..U..D$...$.....
+      0x00003580: 89c2 8b45 e889 4424 0489 1424 e89f dbff ...E..D$...$....
+      0x00003590: ff8b 45e8 8904 24e8 a4dc ffff e8ff dcff ..E...$.........
+      0x000035a0: ff89 c3d9 eedd 5c24 28dd 05f8 ba04 08dd ......\$(.......
+      0x000035b0: 5c24 20dd 0500 bb04 08dd 5c24 18dd 0508 \$ .......\$....
+      0x000035c0: bb04 08dd 5c24 10d9 eedd 5c24 08d9 eedd ....\$....\$....
+      0x000035d0: 1c24 e809 daff ff89 5c24 0489 0424 e8ad .$......\$...$..
+      0x000035e0: daff ff89 45f0 8b45 f089 0424 e825 dfff ....E..E...$.%..
+      0x000035f0: ff89 45ec e8eb ddff ff8b 55ec 8944 2404 ..E.......U..D$.
+      0x00003600: 8914 24e8 88da ffff c744 2404 0200 0000 ..$......D$.....
+      0x00003610: 8904 24e8 53e1 ffff e8b3 daff ff8b 55e8 ..$.S.........U.
+      0x00003620: 8944 2404 8914 24e8 64da ffff 89c2 8b45 .D$...$.d......E
+      0x00003630: ec89 4424 0489 1424 e8f3 daff ff8b 45ec ..D$...$......E.
+      0x00003640: 8904 24e8 f8db ffff c704 24e3 ba04 08e8 ..$.......$.....
+      0x00003650: bcda ffff 8945 e0e8 e4da ffff 8b55 e489 .....E.......U..
+      0x00003660: 4424 0489 1424 e825 daff ff89 c2c7 4424 D$...$.%......D$
+      0x00003670: 1000 0000 00c7 4424 0c00 0000 00c7 4424 ......D$......D$
+      0x00003680: 0800 0000 008b 45e0 8944 2404 8914 24e8 ......E..D$...$.
+      0x00003690: 1cdb ffff 8b45 e089 0424 e8a1 dbff ffbb .....E...$......
+      0x000036a0: c4b3 0408 8b45 f0c7 4424 0450 0000 0089 .....E..D$.P....
+      0x000036b0: 0424 e8d9 d9ff ff89 c2c7 4424 1400 0000 .$........D$....
+      0x000036c0: 00c7 4424 1000 0000 008b 45e0 8944 240c ..D$......E..D$.
+      0x000036d0: 895c 2408 c744 2404 e8ba 0408 8914 24e8 .\$..D$.......$.
+      0x000036e0: 7cda ffff 8b45 f489 0424 e851 dbff ffe8 |....E...$.Q....
+      0x000036f0: 0cdb ffff b800 0000 0083 c450 595b 5d8d ...........PY[].
+      0x00003700: 61fc c390 9090 9090 9090 9090 9090 9090 a...............
+      0x00003710: 5589 e55d c38d 7426 008d bc27 0000 0000 U..]..t&...'....
+      0x00003720: 5589 e557 5653 e84f 0000 0081 c331 1500 U..WVS.O.....1..
+      0x00003730: 0083 ec0c e837 d8ff ff8d bbb8 feff ff8d .....7..........
+      0x00003740: 83b8 feff ff29 c7c1 ff02 85ff 7424 31f6 .....)......t$1.
+      0x00003750: 8b45 1089 4424 088b 450c 8944 2404 8b45 .E..D$..E..D$..E
+      0x00003760: 0889 0424 ff94 b3b8 feff ff83 c601 39f7 ...$..........9.
+      0x00003770: 75de 83c4 0c5b 5e5f 5dc3 8b1c 24c3 9090 u....[^_]...$...
+      0x00003780: 5589 e553 83ec 04a1 14cb 0408 83f8 ff74 U..S...........t
+      0x00003790: 1231 dbff d08b 8310 cb04 0883 eb04 83f8 .1..............
+      0x000037a0: ff75 f083 c404 5b5d c390 9090 
+    [.fini]
+        sh_name=.fini (0x85)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags=SHF_ALLOC | SHF_EXECINSTR (0x6)
+        sh_addr=0x804b7ac
+        sh_offset=0x37ac
+        sh_size=28
+        sh_link=0
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=0
+      0x000037ac: 5589 e553 83ec 04e8 0000 0000 5b81 c3a4 U..S........[...
+      0x000037bc: 1400 00e8 ccdb ffff 595b c9c3 
+    [.rodata]
+        sh_name=.rodata (0x8b)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags=SHF_ALLOC (0x2)
+        sh_addr=0x804b7e0
+        sh_offset=0x37e0
+        sh_size=816
+        sh_link=0
+        sh_info=0
+        sh_addralign=32
+        sh_entsize=0
+      0x000037e0: 0300 0000 0100 0200 0000 0000 0000 0000 ................
+      0x000037f0: 0000 0000 0000 0000 0000 0000 0000 0000 ................
+      0x00003800: 6c01 0000 0000 0000 0000 0000 2494 0408 l...........$...
+      0x00003810: 0000 0000 0000 0000 6400 0000 a994 0408 ........d.......
+      0x00003820: 0000 0000 4774 6b44 6961 6c00 6774 6b5f ....GtkDial.gtk_
+      0x00003830: 6469 616c 5f64 6573 7472 6f79 006f 626a dial_destroy.obj
+      0x00003840: 6563 7420 213d 204e 554c 4c00 4754 4b5f ect != NULL.GTK_
+      0x00003850: 4953 5f44 4941 4c20 286f 626a 6563 7429 IS_DIAL (object)
+      0x00003860: 0067 746b 5f64 6961 6c5f 6765 745f 6164 .gtk_dial_get_ad
+      0x00003870: 6a75 7374 6d65 6e74 0064 6961 6c20 213d justment.dial !=
+      0x00003880: 204e 554c 4c00 4754 4b5f 4953 5f44 4941  NULL.GTK_IS_DIA
+      0x00003890: 4c20 2864 6961 6c29 0067 746b 5f64 6961 L (dial).gtk_dia
+      0x000038a0: 6c5f 7365 745f 7570 6461 7465 5f70 6f6c l_set_update_pol
+      0x000038b0: 6963 7900 6774 6b5f 6469 616c 5f73 6574 icy.gtk_dial_set
+      0x000038c0: 5f61 646a 7573 746d 656e 7400 6368 616e _adjustment.chan
+      0x000038d0: 6765 6400 7661 6c75 655f 6368 616e 6765 ged.value_change
+      0x000038e0: 6400 6774 6b5f 6469 616c 5f72 6561 6c69 d.gtk_dial_reali
+      0x000038f0: 7a65 0077 6964 6765 7420 213d 204e 554c ze.widget != NUL
+      0x00003900: 4c00 4754 4b5f 4953 5f44 4941 4c20 2877 L.GTK_IS_DIAL (w
+      0x00003910: 6964 6765 7429 0067 746b 5f64 6961 6c5f idget).gtk_dial_
+      0x00003920: 7369 7a65 5f61 6c6c 6f63 6174 6500 616c size_allocate.al
+      0x00003930: 6c6f 6361 7469 6f6e 2021 3d20 4e55 4c4c location != NULL
+      0x00003940: 0067 746b 5f64 6961 6c5f 6578 706f 7365 .gtk_dial_expose
+      0x00003950: 0065 7665 6e74 2021 3d20 4e55 4c4c 0067 .event != NULL.g
+      0x00003960: 746b 5f64 6961 6c5f 6275 7474 6f6e 5f70 tk_dial_button_p
+      0x00003970: 7265 7373 0067 746b 5f64 6961 6c5f 6275 ress.gtk_dial_bu
+      0x00003980: 7474 6f6e 5f72 656c 6561 7365 0067 746b tton_release.gtk
+      0x00003990: 5f64 6961 6c5f 6d6f 7469 6f6e 5f6e 6f74 _dial_motion_not
+      0x000039a0: 6966 7900 6774 6b5f 6469 616c 5f74 696d ify.gtk_dial_tim
+      0x000039b0: 6572 0067 746b 5f64 6961 6c5f 7570 6461 er.gtk_dial_upda
+      0x000039c0: 7465 5f6d 6f75 7365 0067 746b 5f64 6961 te_mouse.gtk_dia
+      0x000039d0: 6c5f 7570 6461 7465 0067 746b 5f64 6961 l_update.gtk_dia
+      0x000039e0: 6c5f 6164 6a75 7374 6d65 6e74 5f63 6861 l_adjustment_cha
+      0x000039f0: 6e67 6564 0061 646a 7573 746d 656e 7420 nged.adjustment 
+      0x00003a00: 213d 204e 554c 4c00 6461 7461 2021 3d20 != NULL.data != 
+      0x00003a10: 4e55 4c4c 0000 0000 0000 0000 0000 0000 NULL............
+      0x00003a20: 6774 6b5f 6469 616c 5f61 646a 7573 746d gtk_dial_adjustm
+      0x00003a30: 656e 745f 7661 6c75 655f 6368 616e 6765 ent_value_change
+      0x00003a40: 6400 0000 0000 0000 cdcc cccc cccc dc3f d..............?
+      0x00003a50: 0000 0000 0000 0040 0000 0000 0000 00c0 .......@........
+      0x00003a60: 0000 0000 0000 24c0 0000 0000 0000 2440 ......$.......$@
+      0x00003a70: 3b43 d559 8ca2 7340 0000 0000 0000 f0bf ;C.Y..s@........
+      0x00003a80: 182d 4454 fb21 0940 0000 0000 0000 3840 .-DT.!.@......8@
+      0x00003a90: 6573 2d38 52c1 e03f 182d 4454 fb21 f9bf es-8R..?.-DT.!..
+      0x00003aa0: 182d 4454 fb21 1940 6573 2d38 52c1 e0bf .-DT.!.@es-8R...
+      0x00003ab0: f189 4fe2 4f52 0d40 6573 2d38 52c1 1040 ..O.OR.@es-8R..@
+      0x00003ac0: 0000 0000 0000 1040 0000 0000 0000 08c0 .......@........
+      0x00003ad0: 2534 2e32 6600 4469 616c 0064 6573 7472 %4.2f.Dial.destr
+      0x00003ae0: 6f79 0030 2e30 3000 7661 6c75 655f 6368 oy.0.00.value_ch
+      0x00003af0: 616e 6765 6400 0000 9a99 9999 9999 b93f anged..........?
+      0x00003b00: 7b14 ae47 e17a 843f 0000 0000 0000 5940 {..G.z.?......Y@
+
+    [.eh_frame]
+        sh_name=.eh_frame (0x93)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags=SHF_ALLOC (0x2)
+        sh_addr=0x804bb10
+        sh_offset=0x3b10
+        sh_size=4
+        sh_link=0
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=0
+      0x00003b10: 0000 0000 
+    [.ctors]
+        sh_name=.ctors (0x9d)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags=SHF_WRITE | SHF_ALLOC (0x3)
+        sh_addr=0x804cb14
+        sh_offset=0x3b14
+        sh_size=8
+        sh_link=0
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=0
+      0x00003b14: ffff ffff 0000 0000 
+    [.dtors]
+        sh_name=.dtors (0xa4)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags=SHF_WRITE | SHF_ALLOC (0x3)
+        sh_addr=0x804cb1c
+        sh_offset=0x3b1c
+        sh_size=8
+        sh_link=0
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=0
+      0x00003b1c: ffff ffff 0000 0000 
+    [.jcr]
+        sh_name=.jcr (0xab)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags=SHF_WRITE | SHF_ALLOC (0x3)
+        sh_addr=0x804cb24
+        sh_offset=0x3b24
+        sh_size=4
+        sh_link=0
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=0
+      0x00003b24: 0000 0000 
+    [.dynamic]
+        sh_name=.dynamic (0xb0)
+        sh_type=SHT_DYNAMIC (0x6)
+        sh_flags=SHF_WRITE | SHF_ALLOC (0x3)
+        sh_addr=0x804cb28
+        sh_offset=0x3b28
+        sh_size=304
+        sh_link=6
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=8
+      0x00003b28: 0100 0000 0100 0000 0100 0000 e203 0000 ................
+      0x00003b38: 0100 0000 f603 0000 0100 0000 3f04 0000 ............?...
+      0x00003b48: 0100 0000 5604 0000 0100 0000 6e04 0000 ....V.......n...
+      0x00003b58: 0100 0000 8504 0000 0100 0000 9704 0000 ................
+      0x00003b68: 0100 0000 a504 0000 0100 0000 b904 0000 ................
+      0x00003b78: 0100 0000 cd04 0000 0100 0000 d804 0000 ................
+      0x00003b88: 0100 0000 e904 0000 0c00 0000 708f 0408 ............p...
+      0x00003b98: 0d00 0000 acb7 0408 0400 0000 4881 0408 ............H...
+      0x00003ba8: f5fe ff6f f082 0408 0500 0000 6087 0408 ...o........`...
+      0x00003bb8: 0600 0000 3083 0408 0a00 0000 5905 0000 ....0.......Y...
+      0x00003bc8: 0b00 0000 1000 0000 1500 0000 0000 0000 ................
+      0x00003bd8: 0300 0000 5ccc 0408 0200 0000 d801 0000 ....\...........
+      0x00003be8: 1400 0000 1100 0000 1700 0000 988d 0408 ................
+      0x00003bf8: 1100 0000 908d 0408 1200 0000 0800 0000 ................
+      0x00003c08: 1300 0000 0800 0000 feff ff6f 408d 0408 ...........o@...
+      0x00003c18: ffff ff6f 0200 0000 f0ff ff6f ba8c 0408 ...o.......o....
+      0x00003c28: 0000 0000 0000 0000 0000 0000 0000 0000 ................
+      0x00003c38: 0000 0000 0000 0000 0000 0000 0000 0000 ................
+      0x00003c48: 0000 0000 0000 0000 0000 0000 0000 0000 ................
+
+    [.got]
+        sh_name=.got (0xb9)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags=SHF_WRITE | SHF_ALLOC (0x3)
+        sh_addr=0x804cc58
+        sh_offset=0x3c58
+        sh_size=4
+        sh_link=0
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=4
+      0x00003c58: 0000 0000 
+    [.got.plt]
+        sh_name=.got.plt (0xbe)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags=SHF_WRITE | SHF_ALLOC (0x3)
+        sh_addr=0x804cc5c
+        sh_offset=0x3c5c
+        sh_size=248
+        sh_link=0
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=4
+      0x00003c5c: 28cb 0408 0000 0000 0000 0000 b68f 0408 (...............
+      0x00003c6c: c68f 0408 d68f 0408 e68f 0408 f68f 0408 ................
+      0x00003c7c: 0690 0408 1690 0408 2690 0408 3690 0408 ........&...6...
+      0x00003c8c: 4690 0408 5690 0408 6690 0408 7690 0408 F...V...f...v...
+      0x00003c9c: 8690 0408 9690 0408 a690 0408 b690 0408 ................
+      0x00003cac: c690 0408 d690 0408 e690 0408 f690 0408 ................
+      0x00003cbc: 0691 0408 1691 0408 2691 0408 3691 0408 ........&...6...
+      0x00003ccc: 4691 0408 5691 0408 6691 0408 7691 0408 F...V...f...v...
+      0x00003cdc: 8691 0408 9691 0408 a691 0408 b691 0408 ................
+      0x00003cec: c691 0408 d691 0408 e691 0408 f691 0408 ................
+      0x00003cfc: 0692 0408 1692 0408 2692 0408 3692 0408 ........&...6...
+      0x00003d0c: 4692 0408 5692 0408 6692 0408 7692 0408 F...V...f...v...
+      0x00003d1c: 8692 0408 9692 0408 a692 0408 b692 0408 ................
+      0x00003d2c: c692 0408 d692 0408 e692 0408 f692 0408 ................
+      0x00003d3c: 0693 0408 1693 0408 2693 0408 3693 0408 ........&...6...
+      0x00003d4c: 4693 0408 5693 0408 
+    [.data]
+        sh_name=.data (0xc7)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags=SHF_WRITE | SHF_ALLOC (0x3)
+        sh_addr=0x804cd54
+        sh_offset=0x3d54
+        sh_size=12
+        sh_link=0
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=0
+      0x00003d54: 0000 0000 0000 0000 20cb 0408 
+    [.bss]
+        sh_name=.bss (0xcd)
+        sh_type=SHT_NOBITS (0x8)
+        sh_flags=SHF_WRITE | SHF_ALLOC (0x3)
+        sh_addr=0x804cd60
+        sh_offset=0x3d60
+        sh_size=12
+        sh_link=0
+        sh_info=0
+        sh_addralign=4
+        sh_entsize=0
+      0x00003d60: 0047 4343 3a20 2847 4e55 2920 
+    [.comment]
+        sh_name=.comment (0xd2)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags= (0x0)
+        sh_addr=0x0
+        sh_offset=0x3d60
+        sh_size=336
+        sh_link=0
+        sh_info=0
+        sh_addralign=1
+        sh_entsize=0
+      0x00003d60: 0047 4343 3a20 2847 4e55 2920 342e 322e .GCC: (GNU) 4.2.
+      0x00003d70: 3320 2855 6275 6e74 7520 342e 322e 332d 3 (Ubuntu 4.2.3-
+      0x00003d80: 3275 6275 6e74 7537 2900 0047 4343 3a20 2ubuntu7)..GCC: 
+      0x00003d90: 2847 4e55 2920 342e 322e 3320 2855 6275 (GNU) 4.2.3 (Ubu
+      0x00003da0: 6e74 7520 342e 322e 332d 3275 6275 6e74 ntu 4.2.3-2ubunt
+      0x00003db0: 7537 2900 0047 4343 3a20 2847 4e55 2920 u7)..GCC: (GNU) 
+      0x00003dc0: 342e 322e 3320 2855 6275 6e74 7520 342e 4.2.3 (Ubuntu 4.
+      0x00003dd0: 322e 332d 3275 6275 6e74 7537 2900 0047 2.3-2ubuntu7)..G
+      0x00003de0: 4343 3a20 2847 4e55 2920 342e 322e 3320 CC: (GNU) 4.2.3 
+      0x00003df0: 2855 6275 6e74 7520 342e 322e 332d 3275 (Ubuntu 4.2.3-2u
+      0x00003e00: 6275 6e74 7537 2900 0047 4343 3a20 2847 buntu7)..GCC: (G
+      0x00003e10: 4e55 2920 342e 322e 3320 2855 6275 6e74 NU) 4.2.3 (Ubunt
+      0x00003e20: 7520 342e 322e 332d 3275 6275 6e74 7537 u 4.2.3-2ubuntu7
+      0x00003e30: 2900 0047 4343 3a20 2847 4e55 2920 342e )..GCC: (GNU) 4.
+      0x00003e40: 322e 3320 2855 6275 6e74 7520 342e 322e 2.3 (Ubuntu 4.2.
+      0x00003e50: 332d 3275 6275 6e74 7537 2900 0047 4343 3-2ubuntu7)..GCC
+      0x00003e60: 3a20 2847 4e55 2920 342e 322e 3320 2855 : (GNU) 4.2.3 (U
+      0x00003e70: 6275 6e74 7520 342e 322e 332d 3275 6275 buntu 4.2.3-2ubu
+      0x00003e80: 6e74 7537 2900 0047 4343 3a20 2847 4e55 ntu7)..GCC: (GNU
+      0x00003e90: 2920 342e 322e 3320 2855 6275 6e74 7520 ) 4.2.3 (Ubuntu 
+      0x00003ea0: 342e 322e 332d 3275 6275 6e74 7537 2900 4.2.3-2ubuntu7).
+
+    [.debug_aranges]
+        sh_name=.debug_aranges (0xdb)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags= (0x0)
+        sh_addr=0x0
+        sh_offset=0x3eb0
+        sh_size=80
+        sh_link=0
+        sh_info=0
+        sh_addralign=8
+        sh_entsize=0
+      0x00003eb0: 2400 0000 0200 8d00 0000 0400 0000 0000 $...............
+      0x00003ec0: 708f 0408 2200 0000 acb7 0408 1300 0000 p..."...........
+      0x00003ed0: 0000 0000 0000 0000 2400 0000 0200 1a01 ........$.......
+      0x00003ee0: 0000 0400 0000 0000 9c8f 0408 0400 0000 ................
+      0x00003ef0: c4b7 0408 0400 0000 0000 0000 0000 0000 ................
+
+    [.debug_pubnames]
+        sh_name=.debug_pubnames (0xea)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags= (0x0)
+        sh_addr=0x0
+        sh_offset=0x3f00
+        sh_size=37
+        sh_link=0
+        sh_info=0
+        sh_addralign=1
+        sh_entsize=0
+      0x00003f00: 2100 0000 0200 0000 0000 8d00 0000 7500 !.............u.
+      0x00003f10: 0000 5f49 4f5f 7374 6469 6e5f 7573 6564 .._IO_stdin_used
+      0x00003f20: 0000 0000 00
+    [.debug_info]
+        sh_name=.debug_info (0xfa)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags= (0x0)
+        sh_addr=0x0
+        sh_offset=0x3f25
+        sh_size=423
+        sh_link=0
+        sh_info=0
+        sh_addralign=1
+        sh_entsize=0
+      0x00003f25: 8900 0000 0200 0000 0000 0401 0000 0000 ................
+      0x00003f35: 01a6 0000 0075 0000 0084 9304 0884 9304 .....u..........
+      0x00003f45: 0800 0000 0002 0108 6700 0000 0202 0724 ........g......$
+      0x00003f55: 0000 0002 0407 5a00 0000 0204 0755 0000 ......Z......U..
+      0x00003f65: 0002 0106 6900 0000 0202 0537 0000 0003 ....i......7....
+      0x00003f75: 0405 696e 7400 0208 05ad 0000 0002 0807 ..int...........
+      0x00003f85: 5000 0000 0204 05b2 0000 0004 0407 0201 P...............
+      0x00003f95: 0670 0000 0005 4100 0000 0119 8700 0000 .p....A.........
+      0x00003fa5: 0105 03e4 b704 0806 4f00 0000 0089 0000 ........O.......
+      0x00003fb5: 0002 004b 0000 0004 0127 0000 0000 0000 ...K.....'......
+      0x00003fc5: 002f 6275 696c 642f 6275 696c 6464 2f67 ./build/buildd/g
+      0x00003fd5: 6c69 6263 2d32 2e37 2f62 7569 6c64 2d74 libc-2.7/build-t
+      0x00003fe5: 7265 652f 6933 3836 2d6c 6962 632f 6373 ree/i386-libc/cs
+      0x00003ff5: 752f 6372 7469 2e53 002f 6275 696c 642f u/crti.S./build/
+      0x00004005: 6275 696c 6464 2f67 6c69 6263 2d32 2e37 buildd/glibc-2.7
+      0x00004015: 2f62 7569 6c64 2d74 7265 652f 676c 6962 /build-tree/glib
+      0x00004025: 632d 322e 372f 6373 7500 474e 5520 4153 c-2.7/csu.GNU AS
+      0x00004035: 2032 2e31 382e 3000 0180 8900 0000 0200  2.18.0.........
+      0x00004045: 5d00 0000 0401 ad00 0000 2000 0000 2f62 ]......... .../b
+      0x00004055: 7569 6c64 2f62 7569 6c64 642f 676c 6962 uild/buildd/glib
+      0x00004065: 632d 322e 372f 6275 696c 642d 7472 6565 c-2.7/build-tree
+      0x00004075: 2f69 3338 362d 6c69 6263 2f63 7375 2f63 /i386-libc/csu/c
+      0x00004085: 7274 6e2e 5300 2f62 7569 6c64 2f62 7569 rtn.S./build/bui
+      0x00004095: 6c64 642f 676c 6962 632d 322e 372f 6275 ldd/glibc-2.7/bu
+      0x000040a5: 696c 642d 7472 6565 2f67 6c69 6263 2d32 ild-tree/glibc-2
+      0x000040b5: 2e37 2f63 7375 0047 4e55 2041 5320 322e .7/csu.GNU AS 2.
+      0x000040c5: 3138 2e30 0001 80
+    [.debug_abbrev]
+        sh_name=.debug_abbrev (0x106)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags= (0x0)
+        sh_addr=0x0
+        sh_offset=0x40cc
+        sh_size=111
+        sh_link=0
+        sh_info=0
+        sh_addralign=1
+        sh_entsize=0
+      0x000040cc: 0111 0125 0e13 0b03 0e1b 0e11 0112 0110 ...%............
+      0x000040dc: 0600 0002 2400 0b0b 3e0b 030e 0000 0324 ....$...>......$
+      0x000040ec: 000b 0b3e 0b03 0800 0004 2400 0b0b 3e0b ...>......$...>.
+      0x000040fc: 0000 0534 0003 0e3a 0b3b 0b49 133f 0c02 ...4...:.;.I.?..
+      0x0000410c: 0a00 0006 2600 4913 0000 0001 1100 1006 ....&.I.........
+      0x0000411c: 5506 0308 1b08 2508 1305 0000 0001 1100 U.....%.........
+      0x0000412c: 1006 5506 0308 1b08 2508 1305 0000 00
+    [.debug_line]
+        sh_name=.debug_line (0x114)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags= (0x0)
+        sh_addr=0x0
+        sh_offset=0x413b
+        sh_size=297
+        sh_link=0
+        sh_info=0
+        sh_addralign=1
+        sh_entsize=0
+      0x0000413b: 2300 0000 0200 1d00 0000 0101 fb0e 0d00 #...............
+      0x0000414b: 0101 0101 0000 0001 0000 0100 696e 6974 ............init
+      0x0000415b: 2e63 0000 0000 0082 0000 0002 004e 0000 .c...........N..
+      0x0000416b: 0001 01fb 0e0d 0001 0101 0100 0000 0100 ................
+      0x0000417b: 0001 2f62 7569 6c64 2f62 7569 6c64 642f ../build/buildd/
+      0x0000418b: 676c 6962 632d 322e 372f 6275 696c 642d glibc-2.7/build-
+      0x0000419b: 7472 6565 2f69 3338 362d 6c69 6263 2f63 tree/i386-libc/c
+      0x000041ab: 7375 0000 6372 7469 2e53 0001 0000 0000 su..crti.S......
+      0x000041bb: 0502 708f 0408 030e 0121 2f21 3d5a 2167 ..p......!/!=Z!g
+      0x000041cb: 672f 2f02 0500 0101 0005 02ac b704 0803 g//.............
+      0x000041db: 2801 212f 213d 5a21 0206 0001 0178 0000 (.!/!=Z!.....x..
+      0x000041eb: 0002 004e 0000 0001 01fb 0e0d 0001 0101 ...N............
+      0x000041fb: 0100 0000 0100 0001 2f62 7569 6c64 2f62 ......../build/b
+      0x0000420b: 7569 6c64 642f 676c 6962 632d 322e 372f uildd/glibc-2.7/
+      0x0000421b: 6275 696c 642d 7472 6565 2f69 3338 362d build-tree/i386-
+      0x0000422b: 6c69 6263 2f63 7375 0000 6372 746e 2e53 libc/csu..crtn.S
+      0x0000423b: 0001 0000 0000 0502 9c8f 0408 0309 0121 ...............!
+      0x0000424b: 2121 0201 0001 0100 0502 c4b7 0408 0314 !!..............
+      0x0000425b: 0121 2121 0201 0001 01
+    [.debug_str]
+        sh_name=.debug_str (0x120)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags= (0x30)
+        sh_addr=0x0
+        sh_offset=0x4264
+        sh_size=187
+        sh_link=0
+        sh_info=0
+        sh_addralign=1
+        sh_entsize=1
+      0x00004264: 474e 5520 4320 342e 322e 3320 2855 6275 GNU C 4.2.3 (Ubu
+      0x00004274: 6e74 7520 342e 322e 332d 3275 6275 6e74 ntu 4.2.3-2ubunt
+      0x00004284: 7537 2900 7368 6f72 7420 756e 7369 676e u7).short unsign
+      0x00004294: 6564 2069 6e74 0073 686f 7274 2069 6e74 ed int.short int
+      0x000042a4: 005f 494f 5f73 7464 696e 5f75 7365 6400 ._IO_stdin_used.
+      0x000042b4: 6c6f 6e67 206c 6f6e 6720 756e 7369 676e long long unsign
+      0x000042c4: 6564 2069 6e74 0075 6e73 6967 6e65 6420 ed int.unsigned 
+      0x000042d4: 6368 6172 002f 6275 696c 642f 6275 696c char./build/buil
+      0x000042e4: 6464 2f67 6c69 6263 2d32 2e37 2f62 7569 dd/glibc-2.7/bui
+      0x000042f4: 6c64 2d74 7265 652f 676c 6962 632d 322e ld-tree/glibc-2.
+      0x00004304: 372f 6373 7500 696e 6974 2e63 006c 6f6e 7/csu.init.c.lon
+      0x00004314: 6720 6c6f 6e67 2069 6e74 00
+    [.debug_ranges]
+        sh_name=.debug_ranges (0x12b)
+        sh_type=SHT_PROGBITS (0x1)
+        sh_flags= (0x0)
+        sh_addr=0x0
+        sh_offset=0x4320
+        sh_size=64
+        sh_link=0
+        sh_info=0
+        sh_addralign=8
+        sh_entsize=0
+      0x00004320: ffff ffff 0000 0000 708f 0408 928f 0408 ........p.......
+      0x00004330: acb7 0408 bfb7 0408 0000 0000 0000 0000 ................
+      0x00004340: ffff ffff 0000 0000 9c8f 0408 a08f 0408 ................
+      0x00004350: c4b7 0408 c8b7 0408 0000 0000 0000 0000 ................
+
+    [.shstrtab]
+        sh_name=.shstrtab (0x11)
+        sh_type=SHT_STRTAB (0x3)
+        sh_flags= (0x0)
+        sh_addr=0x0
+        sh_offset=0x4360
+        sh_size=313
+        sh_link=0
+        sh_info=0
+        sh_addralign=1
+        sh_entsize=0
+      0x00004360: 002e 7379 6d74 6162 002e 7374 7274 6162 ..symtab..strtab
+      0x00004370: 002e 7368 7374 7274 6162 002e 696e 7465 ..shstrtab..inte
+      0x00004380: 7270 002e 6e6f 7465 2e41 4249 2d74 6167 rp..note.ABI-tag
+      0x00004390: 002e 676e 752e 6861 7368 002e 6479 6e73 ..gnu.hash..dyns
+      0x000043a0: 796d 002e 6479 6e73 7472 002e 676e 752e ym..dynstr..gnu.
+      0x000043b0: 7665 7273 696f 6e00 2e67 6e75 2e76 6572 version..gnu.ver
+      0x000043c0: 7369 6f6e 5f72 002e 7265 6c2e 6479 6e00 sion_r..rel.dyn.
+      0x000043d0: 2e72 656c 2e70 6c74 002e 696e 6974 002e .rel.plt..init..
+      0x000043e0: 7465 7874 002e 6669 6e69 002e 726f 6461 text..fini..roda
+      0x000043f0: 7461 002e 6568 5f66 7261 6d65 002e 6374 ta..eh_frame..ct
+      0x00004400: 6f72 7300 2e64 746f 7273 002e 6a63 7200 ors..dtors..jcr.
+      0x00004410: 2e64 796e 616d 6963 002e 676f 7400 2e67 .dynamic..got..g
+      0x00004420: 6f74 2e70 6c74 002e 6461 7461 002e 6273 ot.plt..data..bs
+      0x00004430: 7300 2e63 6f6d 6d65 6e74 002e 6465 6275 s..comment..debu
+      0x00004440: 675f 6172 616e 6765 7300 2e64 6562 7567 g_aranges..debug
+      0x00004450: 5f70 7562 6e61 6d65 7300 2e64 6562 7567 _pubnames..debug
+      0x00004460: 5f69 6e66 6f00 2e64 6562 7567 5f61 6262 _info..debug_abb
+      0x00004470: 7265 7600 2e64 6562 7567 5f6c 696e 6500 rev..debug_line.
+      0x00004480: 2e64 6562 7567 5f73 7472 002e 6465 6275 .debug_str..debu
+      0x00004490: 675f 7261 6e67 6573 00
+    [.symtab]
+        sh_name=.symtab (0x1)
+        sh_type=SHT_SYMTAB (0x2)
+        sh_flags= (0x0)
+        sh_addr=0x0
+        sh_offset=0x4a3c
+        sh_size=2720
+        sh_link=35
+        sh_info=89
+        sh_addralign=4
+        sh_entsize=16
+      []
+          st_name= (0x0)
+          st_value=0x0
+          st_size=0
+          st_info=0
+          st_other=0
+          st_shndx=0
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      []
+          st_name= (0x0)
+          st_value=0x8048114
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=1
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x8048128
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=2
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x8048148
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=3
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x80482f0
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=4
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x8048330
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=5
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x8048760
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=6
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x8048cba
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=7
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x8048d40
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=8
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x8048d90
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=9
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x8048d98
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=10
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x8048f70
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=11
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x8048fa0
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=12
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x8049360
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=13
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x804b7ac
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=14
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x804b7e0
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=15
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x804bb10
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=16
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x804cb14
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=17
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x804cb1c
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=18
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x804cb24
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=19
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x804cb28
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=20
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x804cc58
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=21
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x804cc5c
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=22
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x804cd54
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=23
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x804cd60
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=24
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x0
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=25
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x0
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=26
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x0
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=27
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x0
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=28
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x0
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=29
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x0
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=30
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x0
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=31
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      []
+          st_name= (0x0)
+          st_value=0x0
+          st_size=0
+          st_info=3
+          st_other=0
+          st_shndx=32
+          st_bind=STB_LOCAL
+          st_type=STT_SECTION
+      [init.c]
+          st_name=init.c (0x1)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [initfini.c]
+          st_name=initfini.c (0x8)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [crtstuff.c]
+          st_name=crtstuff.c (0x13)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [__CTOR_LIST__]
+          st_name=__CTOR_LIST__ (0x1e)
+          st_value=0x804cb14
+          st_size=0
+          st_info=1
+          st_other=0
+          st_shndx=17
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [__DTOR_LIST__]
+          st_name=__DTOR_LIST__ (0x2c)
+          st_value=0x804cb1c
+          st_size=0
+          st_info=1
+          st_other=0
+          st_shndx=18
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [__JCR_LIST__]
+          st_name=__JCR_LIST__ (0x3a)
+          st_value=0x804cb24
+          st_size=0
+          st_info=1
+          st_other=0
+          st_shndx=19
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [__do_global_dtors_aux]
+          st_name=__do_global_dtors_aux (0x47)
+          st_value=0x8049390
+          st_size=0
+          st_info=2
+          st_other=0
+          st_shndx=13
+          st_bind=STB_LOCAL
+          st_type=STT_FUNC
+      [completed.5843]
+          st_name=completed.5843 (0x5d)
+          st_value=0x804cd60
+          st_size=1
+          st_info=1
+          st_other=0
+          st_shndx=24
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [p.5841]
+          st_name=p.5841 (0x6c)
+          st_value=0x804cd5c
+          st_size=0
+          st_info=1
+          st_other=0
+          st_shndx=23
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [frame_dummy]
+          st_name=frame_dummy (0x73)
+          st_value=0x80493c0
+          st_size=0
+          st_info=2
+          st_other=0
+          st_shndx=13
+          st_bind=STB_LOCAL
+          st_type=STT_FUNC
+      [crtstuff.c]
+          st_name=crtstuff.c (0x13)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [__CTOR_END__]
+          st_name=__CTOR_END__ (0x7f)
+          st_value=0x804cb18
+          st_size=0
+          st_info=1
+          st_other=0
+          st_shndx=17
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [__DTOR_END__]
+          st_name=__DTOR_END__ (0x8c)
+          st_value=0x804cb20
+          st_size=0
+          st_info=1
+          st_other=0
+          st_shndx=18
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [__FRAME_END__]
+          st_name=__FRAME_END__ (0x99)
+          st_value=0x804bb10
+          st_size=0
+          st_info=1
+          st_other=0
+          st_shndx=16
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [__JCR_END__]
+          st_name=__JCR_END__ (0xa7)
+          st_value=0x804cb24
+          st_size=0
+          st_info=1
+          st_other=0
+          st_shndx=19
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [__do_global_ctors_aux]
+          st_name=__do_global_ctors_aux (0xb3)
+          st_value=0x804b780
+          st_size=0
+          st_info=2
+          st_other=0
+          st_shndx=13
+          st_bind=STB_LOCAL
+          st_type=STT_FUNC
+      [initfini.c]
+          st_name=initfini.c (0x8)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [gtkdial.c]
+          st_name=gtkdial.c (0xc9)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [parent_class]
+          st_name=parent_class (0xd3)
+          st_value=0x804cd64
+          st_size=4
+          st_info=1
+          st_other=0
+          st_shndx=24
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [dial_info.19353]
+          st_name=dial_info.19353 (0xe0)
+          st_value=0x804b800
+          st_size=36
+          st_info=1
+          st_other=0
+          st_shndx=15
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [gtk_dial_class_init]
+          st_name=gtk_dial_class_init (0xf0)
+          st_value=0x8049424
+          st_size=133
+          st_info=2
+          st_other=0
+          st_shndx=13
+          st_bind=STB_LOCAL
+          st_type=STT_FUNC
+      [gtk_dial_init]
+          st_name=gtk_dial_init (0x104)
+          st_value=0x80494a9
+          st_size=109
+          st_info=2
+          st_other=0
+          st_shndx=13
+          st_bind=STB_LOCAL
+          st_type=STT_FUNC
+      [dial_type.19352]
+          st_name=dial_type.19352 (0x112)
+          st_value=0x804cd68
+          st_size=4
+          st_info=1
+          st_other=0
+          st_shndx=24
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [gtk_dial_destroy]
+          st_name=gtk_dial_destroy (0x122)
+          st_value=0x804958d
+          st_size=300
+          st_info=2
+          st_other=0
+          st_shndx=13
+          st_bind=STB_LOCAL
+          st_type=STT_FUNC
+      [gtk_dial_realize]
+          st_name=gtk_dial_realize (0x133)
+          st_value=0x8049a37
+          st_size=440
+          st_info=2
+          st_other=0
+          st_shndx=13
+          st_bind=STB_LOCAL
+          st_type=STT_FUNC
+      [gtk_dial_expose]
+          st_name=gtk_dial_expose (0x144)
+          st_value=0x8049dc5
+          st_size=2428
+          st_info=2
+          st_other=0
+          st_shndx=13
+          st_bind=STB_LOCAL
+          st_type=STT_FUNC
+      [gtk_dial_size_request]
+          st_name=gtk_dial_size_request (0x154)
+          st_value=0x8049bef
+          st_size=24
+          st_info=2
+          st_other=0
+          st_shndx=13
+          st_bind=STB_LOCAL
+          st_type=STT_FUNC
+      [gtk_dial_size_allocate]
+          st_name=gtk_dial_size_allocate (0x16a)
+          st_value=0x8049c07
+          st_size=446
+          st_info=2
+          st_other=0
+          st_shndx=13
+          st_bind=STB_LOCAL
+          st_type=STT_FUNC
+      [gtk_dial_button_press]
+          st_name=gtk_dial_button_press (0x181)
+          st_value=0x804a741
+          st_size=587
+          st_info=2
+          st_other=0
+          st_shndx=13
+          st_bind=STB_LOCAL
+          st_type=STT_FUNC
+      [gtk_dial_button_release]
+          st_name=gtk_dial_button_release (0x197)
+          st_value=0x804a98c
+          st_size=404
+          st_info=2
+          st_other=0
+          st_shndx=13
+          st_bind=STB_LOCAL
+          st_type=STT_FUNC
+      [gtk_dial_motion_notify]
+          st_name=gtk_dial_motion_notify (0x1af)
+          st_value=0x804ab20
+          st_size=488
+          st_info=2
+          st_other=0
+          st_shndx=13
+          st_bind=STB_LOCAL
+          st_type=STT_FUNC
+      [__PRETTY_FUNCTION__.19390]
+          st_name=__PRETTY_FUNCTION__.19390 (0x1c6)
+          st_value=0x804b82c
+          st_size=17
+          st_info=1
+          st_other=0
+          st_shndx=15
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [__PRETTY_FUNCTION__.19436]
+          st_name=__PRETTY_FUNCTION__.19436 (0x1e0)
+          st_value=0x804b861
+          st_size=24
+          st_info=1
+          st_other=0
+          st_shndx=15
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [__PRETTY_FUNCTION__.19460]
+          st_name=__PRETTY_FUNCTION__.19460 (0x1fa)
+          st_value=0x804b899
+          st_size=27
+          st_info=1
+          st_other=0
+          st_shndx=15
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [__PRETTY_FUNCTION__.19485]
+          st_name=__PRETTY_FUNCTION__.19485 (0x214)
+          st_value=0x804b8b4
+          st_size=24
+          st_info=1
+          st_other=0
+          st_shndx=15
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [gtk_dial_adjustment_changed]
+          st_name=gtk_dial_adjustment_changed (0x22e)
+          st_value=0x804b230
+          st_size=245
+          st_info=2
+          st_other=0
+          st_shndx=13
+          st_bind=STB_LOCAL
+          st_type=STT_FUNC
+      [gtk_dial_adjustment_value_changed]
+          st_name=gtk_dial_adjustment_value_changed (0x24a)
+          st_value=0x804b325
+          st_size=157
+          st_info=2
+          st_other=0
+          st_shndx=13
+          st_bind=STB_LOCAL
+          st_type=STT_FUNC
+      [gtk_dial_update]
+          st_name=gtk_dial_update (0x26c)
+          st_value=0x804b088
+          st_size=424
+          st_info=2
+          st_other=0
+          st_shndx=13
+          st_bind=STB_LOCAL
+          st_type=STT_FUNC
+      [__PRETTY_FUNCTION__.19539]
+          st_name=__PRETTY_FUNCTION__.19539 (0x27c)
+          st_value=0x804b8e2
+          st_size=17
+          st_info=1
+          st_other=0
+          st_shndx=15
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [__PRETTY_FUNCTION__.19595]
+          st_name=__PRETTY_FUNCTION__.19595 (0x296)
+          st_value=0x804b917
+          st_size=23
+          st_info=1
+          st_other=0
+          st_shndx=15
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [__PRETTY_FUNCTION__.19659]
+          st_name=__PRETTY_FUNCTION__.19659 (0x2b0)
+          st_value=0x804b941
+          st_size=16
+          st_info=1
+          st_other=0
+          st_shndx=15
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [__PRETTY_FUNCTION__.19901]
+          st_name=__PRETTY_FUNCTION__.19901 (0x2ca)
+          st_value=0x804b95f
+          st_size=22
+          st_info=1
+          st_other=0
+          st_shndx=15
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [gtk_dial_update_mouse]
+          st_name=gtk_dial_update_mouse (0x2e4)
+          st_value=0x804adf2
+          st_size=662
+          st_info=2
+          st_other=0
+          st_shndx=13
+          st_bind=STB_LOCAL
+          st_type=STT_FUNC
+      [__PRETTY_FUNCTION__.19973]
+          st_name=__PRETTY_FUNCTION__.19973 (0x2fa)
+          st_value=0x804b975
+          st_size=24
+          st_info=1
+          st_other=0
+          st_shndx=15
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [__PRETTY_FUNCTION__.20031]
+          st_name=__PRETTY_FUNCTION__.20031 (0x314)
+          st_value=0x804b98d
+          st_size=23
+          st_info=1
+          st_other=0
+          st_shndx=15
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [__PRETTY_FUNCTION__.20087]
+          st_name=__PRETTY_FUNCTION__.20087 (0x32e)
+          st_value=0x804b9a4
+          st_size=15
+          st_info=1
+          st_other=0
+          st_shndx=15
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [gtk_dial_timer]
+          st_name=gtk_dial_timer (0x348)
+          st_value=0x804ad08
+          st_size=234
+          st_info=2
+          st_other=0
+          st_shndx=13
+          st_bind=STB_LOCAL
+          st_type=STT_FUNC
+      [__PRETTY_FUNCTION__.20123]
+          st_name=__PRETTY_FUNCTION__.20123 (0x357)
+          st_value=0x804b9b3
+          st_size=22
+          st_info=1
+          st_other=0
+          st_shndx=15
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [__PRETTY_FUNCTION__.20222]
+          st_name=__PRETTY_FUNCTION__.20222 (0x371)
+          st_value=0x804b9c9
+          st_size=16
+          st_info=1
+          st_other=0
+          st_shndx=15
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [__PRETTY_FUNCTION__.20292]
+          st_name=__PRETTY_FUNCTION__.20292 (0x38b)
+          st_value=0x804b9d9
+          st_size=28
+          st_info=1
+          st_other=0
+          st_shndx=15
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [__PRETTY_FUNCTION__.20325]
+          st_name=__PRETTY_FUNCTION__.20325 (0x3a5)
+          st_value=0x804ba20
+          st_size=34
+          st_info=1
+          st_other=0
+          st_shndx=15
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [dialtest.c]
+          st_name=dialtest.c (0x3bf)
+          st_value=0x0
+          st_size=0
+          st_info=4
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_LOCAL
+          st_type=STT_FILE
+      [_DYNAMIC]
+          st_name=_DYNAMIC (0x3ca)
+          st_value=0x804cb28
+          st_size=0
+          st_info=1
+          st_other=2
+          st_shndx=20
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [__init_array_end]
+          st_name=__init_array_end (0x3d3)
+          st_value=0x804cb14
+          st_size=0
+          st_info=0
+          st_other=2
+          st_shndx=17
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [__init_array_start]
+          st_name=__init_array_start (0x3e4)
+          st_value=0x804cb14
+          st_size=0
+          st_info=0
+          st_other=2
+          st_shndx=17
+          st_bind=STB_LOCAL
+          st_type=STT_NOTYPE
+      [_GLOBAL_OFFSET_TABLE_]
+          st_name=_GLOBAL_OFFSET_TABLE_ (0x3f7)
+          st_value=0x804cc5c
+          st_size=0
+          st_info=1
+          st_other=2
+          st_shndx=22
+          st_bind=STB_LOCAL
+          st_type=STT_OBJECT
+      [g_object_new]
+          st_name=g_object_new (0x40d)
+          st_value=0x0
+          st_size=112
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_frame_get_type]
+          st_name=gtk_frame_get_type (0x41a)
+          st_value=0x0
+          st_size=216
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [g_object_ref]
+          st_name=g_object_ref (0x42d)
+          st_value=0x0
+          st_size=170
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_adjustment_new]
+          st_name=gtk_adjustment_new (0x43a)
+          st_value=0x0
+          st_size=147
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_widget_queue_draw]
+          st_name=gtk_widget_queue_draw (0x44d)
+          st_value=0x0
+          st_size=160
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [g_type_register_static]
+          st_name=g_type_register_static (0x463)
+          st_value=0x0
+          st_size=1111
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [g_return_if_fail_warning]
+          st_name=g_return_if_fail_warning (0x47a)
+          st_value=0x0
+          st_size=101
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [g_timeout_add]
+          st_name=g_timeout_add (0x493)
+          st_value=0x0
+          st_size=49
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_grab_remove]
+          st_name=gtk_grab_remove (0x4a1)
+          st_value=0x0
+          st_size=150
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_edata]
+          st_name=_edata (0x4b1)
+          st_value=0x804cd60
+          st_size=0
+          st_info=16
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_GLOBAL
+          st_type=STT_NOTYPE
+      [atan2@@GLIBC_2.0]
+          st_name=atan2@@GLIBC_2.0 (0x4b8)
+          st_value=0x0
+          st_size=154
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_frame_new]
+          st_name=gtk_frame_new (0x4c9)
+          st_value=0x0
+          st_size=62
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_dial_get_adjustment]
+          st_name=gtk_dial_get_adjustment (0x4d7)
+          st_value=0x80496b9
+          st_size=178
+          st_info=18
+          st_other=0
+          st_shndx=13
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_label_get_type]
+          st_name=gtk_label_get_type (0x4ef)
+          st_value=0x0
+          st_size=164
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [data_start]
+          st_name=data_start (0x502)
+          st_value=0x804cd54
+          st_size=0
+          st_info=32
+          st_other=0
+          st_shndx=23
+          st_bind=STB_WEAK
+          st_type=STT_NOTYPE
+      [_IO_stdin_used]
+          st_name=_IO_stdin_used (0x50d)
+          st_value=0x804b7e4
+          st_size=4
+          st_info=17
+          st_other=0
+          st_shndx=15
+          st_bind=STB_GLOBAL
+          st_type=STT_OBJECT
+      [gtk_style_attach]
+          st_name=gtk_style_attach (0x51c)
+          st_value=0x0
+          st_size=548
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_widget_get_type]
+          st_name=gtk_widget_get_type (0x52d)
+          st_value=0x0
+          st_size=198
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [g_type_check_instance_cast]
+          st_name=g_type_check_instance_cast (0x541)
+          st_value=0x0
+          st_size=517
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_dial_get_type]
+          st_name=gtk_dial_get_type (0x55c)
+          st_value=0x80493e4
+          st_size=64
+          st_info=18
+          st_other=0
+          st_shndx=13
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_fp_hw]
+          st_name=_fp_hw (0x56e)
+          st_value=0x804b7e0
+          st_size=4
+          st_info=17
+          st_other=0
+          st_shndx=15
+          st_bind=STB_GLOBAL
+          st_type=STT_OBJECT
+      [main]
+          st_name=main (0x575)
+          st_value=0x804b436
+          st_size=717
+          st_info=18
+          st_other=0
+          st_shndx=13
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__dso_handle]
+          st_name=__dso_handle (0x57a)
+          st_value=0x804cd58
+          st_size=0
+          st_info=17
+          st_other=2
+          st_shndx=23
+          st_bind=STB_GLOBAL
+          st_type=STT_OBJECT
+      [g_signal_handlers_disconnect_matched]
+          st_name=g_signal_handlers_disconnect_matched (0x587)
+          st_value=0x0
+          st_size=362
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gdk_window_new]
+          st_name=gdk_window_new (0x5ac)
+          st_value=0x0
+          st_size=1803
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [sprintf@@GLIBC_2.0]
+          st_name=sprintf@@GLIBC_2.0 (0x5bb)
+          st_value=0x0
+          st_size=52
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [value_changed]
+          st_name=value_changed (0x5ce)
+          st_value=0x804b3c4
+          st_size=114
+          st_info=18
+          st_other=0
+          st_shndx=13
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_dial_set_adjustment]
+          st_name=gtk_dial_set_adjustment (0x5dc)
+          st_value=0x8049820
+          st_size=535
+          st_info=18
+          st_other=0
+          st_shndx=13
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_container_get_type]
+          st_name=gtk_container_get_type (0x5f4)
+          st_value=0x0
+          st_size=135
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_fini]
+          st_name=_fini (0x60b)
+          st_value=0x804b7ac
+          st_size=0
+          st_info=18
+          st_other=0
+          st_shndx=14
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_container_set_border_width]
+          st_name=gtk_container_set_border_width (0x611)
+          st_value=0x0
+          st_size=175
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_widget_get_colormap]
+          st_name=gtk_widget_get_colormap (0x630)
+          st_value=0x0
+          st_size=177
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_type_class]
+          st_name=gtk_type_class (0x648)
+          st_value=0x0
+          st_size=272
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_label_new]
+          st_name=gtk_label_new (0x657)
+          st_value=0x0
+          st_size=94
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_window_set_title]
+          st_name=gtk_window_set_title (0x665)
+          st_value=0x0
+          st_size=196
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_container_add]
+          st_name=gtk_container_add (0x67a)
+          st_value=0x0
+          st_size=302
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_box_get_type]
+          st_name=gtk_box_get_type (0x68c)
+          st_value=0x0
+          st_size=164
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [sin@@GLIBC_2.0]
+          st_name=sin@@GLIBC_2.0 (0x69d)
+          st_value=0x0
+          st_size=38
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [g_signal_connect_data]
+          st_name=g_signal_connect_data (0x6ac)
+          st_value=0x0
+          st_size=862
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_vbox_new]
+          st_name=gtk_vbox_new (0x6c2)
+          st_value=0x0
+          st_size=72
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__libc_start_main@@GLIBC_2.0]
+          st_name=__libc_start_main@@GLIBC_2.0 (0x6cf)
+          st_value=0x0
+          st_size=434
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_start]
+          st_name=_start (0x6ec)
+          st_value=0x8049360
+          st_size=0
+          st_info=18
+          st_other=0
+          st_shndx=13
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_label_set_text]
+          st_name=gtk_label_set_text (0x6f3)
+          st_value=0x0
+          st_size=185
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_widget_get_visual]
+          st_name=gtk_widget_get_visual (0x706)
+          st_value=0x0
+          st_size=130
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__i686.get_pc_thunk.bx]
+          st_name=__i686.get_pc_thunk.bx (0x71c)
+          st_value=0x804b77a
+          st_size=0
+          st_info=18
+          st_other=2
+          st_shndx=13
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_box_pack_end]
+          st_name=gtk_box_pack_end (0x733)
+          st_value=0x0
+          st_size=408
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__stack_chk_fail@@GLIBC_2.4]
+          st_name=__stack_chk_fail@@GLIBC_2.4 (0x744)
+          st_value=0x0
+          st_size=32
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_init]
+          st_name=_init (0x760)
+          st_value=0x8048f70
+          st_size=0
+          st_info=18
+          st_other=0
+          st_shndx=11
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_window_new]
+          st_name=gtk_window_new (0x766)
+          st_value=0x0
+          st_size=117
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_style_new]
+          st_name=gtk_style_new (0x775)
+          st_value=0x0
+          st_size=45
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [_Jv_RegisterClasses]
+          st_name=_Jv_RegisterClasses (0x783)
+          st_value=0x0
+          st_size=0
+          st_info=32
+          st_other=0
+          st_shndx=0
+          st_bind=STB_WEAK
+          st_type=STT_NOTYPE
+      [gdk_window_move_resize]
+          st_name=gdk_window_move_resize (0x797)
+          st_value=0x0
+          st_size=360
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_main]
+          st_name=gtk_main (0x7ae)
+          st_value=0x0
+          st_size=539
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_dial_new]
+          st_name=gtk_dial_new (0x7b7)
+          st_value=0x8049516
+          st_size=119
+          st_info=18
+          st_other=0
+          st_shndx=13
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [g_type_check_instance_is_a]
+          st_name=g_type_check_instance_is_a (0x7c4)
+          st_value=0x0
+          st_size=347
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__data_start]
+          st_name=__data_start (0x7df)
+          st_value=0x804cd54
+          st_size=0
+          st_info=16
+          st_other=0
+          st_shndx=23
+          st_bind=STB_GLOBAL
+          st_type=STT_NOTYPE
+      [_end]
+          st_name=_end (0x7ec)
+          st_value=0x804cd6c
+          st_size=0
+          st_info=16
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_GLOBAL
+          st_type=STT_NOTYPE
+      [exit@@GLIBC_2.0]
+          st_name=exit@@GLIBC_2.0 (0x7f1)
+          st_value=0x8049220
+          st_size=250
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_object_get_type]
+          st_name=gtk_object_get_type (0x801)
+          st_value=0x0
+          st_size=106
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__bss_start]
+          st_name=__bss_start (0x815)
+          st_value=0x804cd60
+          st_size=0
+          st_info=16
+          st_other=0
+          st_shndx=65521
+          st_bind=STB_GLOBAL
+          st_type=STT_NOTYPE
+      [gtk_widget_show]
+          st_name=gtk_widget_show (0x821)
+          st_value=0x0
+          st_size=187
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [g_object_unref]
+          st_name=g_object_unref (0x831)
+          st_value=0x0
+          st_size=389
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__libc_csu_init]
+          st_name=__libc_csu_init (0x840)
+          st_value=0x804b720
+          st_size=90
+          st_info=18
+          st_other=0
+          st_shndx=13
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gdk_window_get_pointer]
+          st_name=gdk_window_get_pointer (0x850)
+          st_value=0x0
+          st_size=242
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [cos@@GLIBC_2.0]
+          st_name=cos@@GLIBC_2.0 (0x867)
+          st_value=0x0
+          st_size=38
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gdk_window_set_user_data]
+          st_name=gdk_window_set_user_data (0x876)
+          st_value=0x0
+          st_size=73
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_dial_set_update_policy]
+          st_name=gtk_dial_set_update_policy (0x88f)
+          st_value=0x804976b
+          st_size=181
+          st_info=18
+          st_other=0
+          st_shndx=13
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_init]
+          st_name=gtk_init (0x8aa)
+          st_value=0x0
+          st_size=131
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_adjustment_get_type]
+          st_name=gtk_adjustment_get_type (0x8b3)
+          st_value=0x0
+          st_size=164
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__libc_csu_fini]
+          st_name=__libc_csu_fini (0x8cb)
+          st_value=0x804b710
+          st_size=5
+          st_info=18
+          st_other=0
+          st_shndx=13
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_paint_polygon]
+          st_name=gtk_paint_polygon (0x8db)
+          st_value=0x0
+          st_size=231
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_widget_get_events]
+          st_name=gtk_widget_get_events (0x8ed)
+          st_value=0x0
+          st_size=139
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [g_type_check_class_cast]
+          st_name=g_type_check_class_cast (0x903)
+          st_value=0x0
+          st_size=343
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_frame_set_shadow_type]
+          st_name=gtk_frame_set_shadow_type (0x91b)
+          st_value=0x0
+          st_size=189
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [__gmon_start__]
+          st_name=__gmon_start__ (0x935)
+          st_value=0x0
+          st_size=0
+          st_info=32
+          st_other=0
+          st_shndx=0
+          st_bind=STB_WEAK
+          st_type=STT_NOTYPE
+      [g_signal_emit_by_name]
+          st_name=g_signal_emit_by_name (0x944)
+          st_value=0x0
+          st_size=398
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_style_set_background]
+          st_name=gtk_style_set_background (0x95a)
+          st_value=0x0
+          st_size=142
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gdk_draw_line]
+          st_name=gdk_draw_line (0x973)
+          st_value=0x0
+          st_size=243
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_window_get_type]
+          st_name=gtk_window_get_type (0x981)
+          st_value=0x0
+          st_size=216
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [g_source_remove]
+          st_name=g_source_remove (0x995)
+          st_value=0x0
+          st_size=115
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+      [gtk_grab_add]
+          st_name=gtk_grab_add (0x9a5)
+          st_value=0x0
+          st_size=188
+          st_info=18
+          st_other=0
+          st_shndx=0
+          st_bind=STB_GLOBAL
+          st_type=STT_FUNC
+    [.strtab]
+        sh_name=.strtab (0x9)
+        sh_type=SHT_STRTAB (0x3)
+        sh_flags= (0x0)
+        sh_addr=0x0
+        sh_offset=0x54dc
+        sh_size=2482
+        sh_link=0
+        sh_info=0
+        sh_addralign=1
+        sh_entsize=0
+      0x000054dc: 0069 6e69 742e 6300 696e 6974 6669 6e69 .init.c.initfini
+      0x000054ec: 2e63 0063 7274 7374 7566 662e 6300 5f5f .c.crtstuff.c.__
+      0x000054fc: 4354 4f52 5f4c 4953 545f 5f00 5f5f 4454 CTOR_LIST__.__DT
+      0x0000550c: 4f52 5f4c 4953 545f 5f00 5f5f 4a43 525f OR_LIST__.__JCR_
+      0x0000551c: 4c49 5354 5f5f 005f 5f64 6f5f 676c 6f62 LIST__.__do_glob
+      0x0000552c: 616c 5f64 746f 7273 5f61 7578 0063 6f6d al_dtors_aux.com
+      0x0000553c: 706c 6574 6564 2e35 3834 3300 702e 3538 pleted.5843.p.58
+      0x0000554c: 3431 0066 7261 6d65 5f64 756d 6d79 005f 41.frame_dummy._
+      0x0000555c: 5f43 544f 525f 454e 445f 5f00 5f5f 4454 _CTOR_END__.__DT
+      0x0000556c: 4f52 5f45 4e44 5f5f 005f 5f46 5241 4d45 OR_END__.__FRAME
+      0x0000557c: 5f45 4e44 5f5f 005f 5f4a 4352 5f45 4e44 _END__.__JCR_END
+      0x0000558c: 5f5f 005f 5f64 6f5f 676c 6f62 616c 5f63 __.__do_global_c
+      0x0000559c: 746f 7273 5f61 7578 0067 746b 6469 616c tors_aux.gtkdial
+      0x000055ac: 2e63 0070 6172 656e 745f 636c 6173 7300 .c.parent_class.
+      0x000055bc: 6469 616c 5f69 6e66 6f2e 3139 3335 3300 dial_info.19353.
+      0x000055cc: 6774 6b5f 6469 616c 5f63 6c61 7373 5f69 gtk_dial_class_i
+      0x000055dc: 6e69 7400 6774 6b5f 6469 616c 5f69 6e69 nit.gtk_dial_ini
+      0x000055ec: 7400 6469 616c 5f74 7970 652e 3139 3335 t.dial_type.1935
+      0x000055fc: 3200 6774 6b5f 6469 616c 5f64 6573 7472 2.gtk_dial_destr
+      0x0000560c: 6f79 0067 746b 5f64 6961 6c5f 7265 616c oy.gtk_dial_real
+      0x0000561c: 697a 6500 6774 6b5f 6469 616c 5f65 7870 ize.gtk_dial_exp
+      0x0000562c: 6f73 6500 6774 6b5f 6469 616c 5f73 697a ose.gtk_dial_siz
+      0x0000563c: 655f 7265 7175 6573 7400 6774 6b5f 6469 e_request.gtk_di
+      0x0000564c: 616c 5f73 697a 655f 616c 6c6f 6361 7465 al_size_allocate
+      0x0000565c: 0067 746b 5f64 6961 6c5f 6275 7474 6f6e .gtk_dial_button
+      0x0000566c: 5f70 7265 7373 0067 746b 5f64 6961 6c5f _press.gtk_dial_
+      0x0000567c: 6275 7474 6f6e 5f72 656c 6561 7365 0067 button_release.g
+      0x0000568c: 746b 5f64 6961 6c5f 6d6f 7469 6f6e 5f6e tk_dial_motion_n
+      0x0000569c: 6f74 6966 7900 5f5f 5052 4554 5459 5f46 otify.__PRETTY_F
+      0x000056ac: 554e 4354 494f 4e5f 5f2e 3139 3339 3000 UNCTION__.19390.
+      0x000056bc: 5f5f 5052 4554 5459 5f46 554e 4354 494f __PRETTY_FUNCTIO
+      0x000056cc: 4e5f 5f2e 3139 3433 3600 5f5f 5052 4554 N__.19436.__PRET
+      0x000056dc: 5459 5f46 554e 4354 494f 4e5f 5f2e 3139 TY_FUNCTION__.19
+      0x000056ec: 3436 3000 5f5f 5052 4554 5459 5f46 554e 460.__PRETTY_FUN
+      0x000056fc: 4354 494f 4e5f 5f2e 3139 3438 3500 6774 CTION__.19485.gt
+      0x0000570c: 6b5f 6469 616c 5f61 646a 7573 746d 656e k_dial_adjustmen
+      0x0000571c: 745f 6368 616e 6765 6400 6774 6b5f 6469 t_changed.gtk_di
+      0x0000572c: 616c 5f61 646a 7573 746d 656e 745f 7661 al_adjustment_va
+      0x0000573c: 6c75 655f 6368 616e 6765 6400 6774 6b5f lue_changed.gtk_
+      0x0000574c: 6469 616c 5f75 7064 6174 6500 5f5f 5052 dial_update.__PR
+      0x0000575c: 4554 5459 5f46 554e 4354 494f 4e5f 5f2e ETTY_FUNCTION__.
+      0x0000576c: 3139 3533 3900 5f5f 5052 4554 5459 5f46 19539.__PRETTY_F
+      0x0000577c: 554e 4354 494f 4e5f 5f2e 3139 3539 3500 UNCTION__.19595.
+      0x0000578c: 5f5f 5052 4554 5459 5f46 554e 4354 494f __PRETTY_FUNCTIO
+      0x0000579c: 4e5f 5f2e 3139 3635 3900 5f5f 5052 4554 N__.19659.__PRET
+      0x000057ac: 5459 5f46 554e 4354 494f 4e5f 5f2e 3139 TY_FUNCTION__.19
+      0x000057bc: 3930 3100 6774 6b5f 6469 616c 5f75 7064 901.gtk_dial_upd
+      0x000057cc: 6174 655f 6d6f 7573 6500 5f5f 5052 4554 ate_mouse.__PRET
+      0x000057dc: 5459 5f46 554e 4354 494f 4e5f 5f2e 3139 TY_FUNCTION__.19
+      0x000057ec: 3937 3300 5f5f 5052 4554 5459 5f46 554e 973.__PRETTY_FUN
+      0x000057fc: 4354 494f 4e5f 5f2e 3230 3033 3100 5f5f CTION__.20031.__
+      0x0000580c: 5052 4554 5459 5f46 554e 4354 494f 4e5f PRETTY_FUNCTION_
+      0x0000581c: 5f2e 3230 3038 3700 6774 6b5f 6469 616c _.20087.gtk_dial
+      0x0000582c: 5f74 696d 6572 005f 5f50 5245 5454 595f _timer.__PRETTY_
+      0x0000583c: 4655 4e43 5449 4f4e 5f5f 2e32 3031 3233 FUNCTION__.20123
+      0x0000584c: 005f 5f50 5245 5454 595f 4655 4e43 5449 .__PRETTY_FUNCTI
+      0x0000585c: 4f4e 5f5f 2e32 3032 3232 005f 5f50 5245 ON__.20222.__PRE
+      0x0000586c: 5454 595f 4655 4e43 5449 4f4e 5f5f 2e32 TTY_FUNCTION__.2
+      0x0000587c: 3032 3932 005f 5f50 5245 5454 595f 4655 0292.__PRETTY_FU
+      0x0000588c: 4e43 5449 4f4e 5f5f 2e32 3033 3235 0064 NCTION__.20325.d
+      0x0000589c: 6961 6c74 6573 742e 6300 5f44 594e 414d ialtest.c._DYNAM
+      0x000058ac: 4943 005f 5f69 6e69 745f 6172 7261 795f IC.__init_array_
+      0x000058bc: 656e 6400 5f5f 696e 6974 5f61 7272 6179 end.__init_array
+      0x000058cc: 5f73 7461 7274 005f 474c 4f42 414c 5f4f _start._GLOBAL_O
+      0x000058dc: 4646 5345 545f 5441 424c 455f 0067 5f6f FFSET_TABLE_.g_o
+      0x000058ec: 626a 6563 745f 6e65 7700 6774 6b5f 6672 bject_new.gtk_fr
+      0x000058fc: 616d 655f 6765 745f 7479 7065 0067 5f6f ame_get_type.g_o
+      0x0000590c: 626a 6563 745f 7265 6600 6774 6b5f 6164 bject_ref.gtk_ad
+      0x0000591c: 6a75 7374 6d65 6e74 5f6e 6577 0067 746b justment_new.gtk
+      0x0000592c: 5f77 6964 6765 745f 7175 6575 655f 6472 _widget_queue_dr
+      0x0000593c: 6177 0067 5f74 7970 655f 7265 6769 7374 aw.g_type_regist
+      0x0000594c: 6572 5f73 7461 7469 6300 675f 7265 7475 er_static.g_retu
+      0x0000595c: 726e 5f69 665f 6661 696c 5f77 6172 6e69 rn_if_fail_warni
+      0x0000596c: 6e67 0067 5f74 696d 656f 7574 5f61 6464 ng.g_timeout_add
+      0x0000597c: 0067 746b 5f67 7261 625f 7265 6d6f 7665 .gtk_grab_remove
+      0x0000598c: 005f 6564 6174 6100 6174 616e 3240 4047 ._edata.atan2@@G
+      0x0000599c: 4c49 4243 5f32 2e30 0067 746b 5f66 7261 LIBC_2.0.gtk_fra
+      0x000059ac: 6d65 5f6e 6577 0067 746b 5f64 6961 6c5f me_new.gtk_dial_
+      0x000059bc: 6765 745f 6164 6a75 7374 6d65 6e74 0067 get_adjustment.g
+      0x000059cc: 746b 5f6c 6162 656c 5f67 6574 5f74 7970 tk_label_get_typ
+      0x000059dc: 6500 6461 7461 5f73 7461 7274 005f 494f e.data_start._IO
+      0x000059ec: 5f73 7464 696e 5f75 7365 6400 6774 6b5f _stdin_used.gtk_
+      0x000059fc: 7374 796c 655f 6174 7461 6368 0067 746b style_attach.gtk
+      0x00005a0c: 5f77 6964 6765 745f 6765 745f 7479 7065 _widget_get_type
+      0x00005a1c: 0067 5f74 7970 655f 6368 6563 6b5f 696e .g_type_check_in
+      0x00005a2c: 7374 616e 6365 5f63 6173 7400 6774 6b5f stance_cast.gtk_
+      0x00005a3c: 6469 616c 5f67 6574 5f74 7970 6500 5f66 dial_get_type._f
+      0x00005a4c: 705f 6877 006d 6169 6e00 5f5f 6473 6f5f p_hw.main.__dso_
+      0x00005a5c: 6861 6e64 6c65 0067 5f73 6967 6e61 6c5f handle.g_signal_
+      0x00005a6c: 6861 6e64 6c65 7273 5f64 6973 636f 6e6e handlers_disconn
+      0x00005a7c: 6563 745f 6d61 7463 6865 6400 6764 6b5f ect_matched.gdk_
+      0x00005a8c: 7769 6e64 6f77 5f6e 6577 0073 7072 696e window_new.sprin
+      0x00005a9c: 7466 4040 474c 4942 435f 322e 3000 7661 tf@@GLIBC_2.0.va
+      0x00005aac: 6c75 655f 6368 616e 6765 6400 6774 6b5f lue_changed.gtk_
+      0x00005abc: 6469 616c 5f73 6574 5f61 646a 7573 746d dial_set_adjustm
+      0x00005acc: 656e 7400 6774 6b5f 636f 6e74 6169 6e65 ent.gtk_containe
+      0x00005adc: 725f 6765 745f 7479 7065 005f 6669 6e69 r_get_type._fini
+      0x00005aec: 0067 746b 5f63 6f6e 7461 696e 6572 5f73 .gtk_container_s
+      0x00005afc: 6574 5f62 6f72 6465 725f 7769 6474 6800 et_border_width.
+      0x00005b0c: 6774 6b5f 7769 6467 6574 5f67 6574 5f63 gtk_widget_get_c
+      0x00005b1c: 6f6c 6f72 6d61 7000 6774 6b5f 7479 7065 olormap.gtk_type
+      0x00005b2c: 5f63 6c61 7373 0067 746b 5f6c 6162 656c _class.gtk_label
+      0x00005b3c: 5f6e 6577 0067 746b 5f77 696e 646f 775f _new.gtk_window_
+      0x00005b4c: 7365 745f 7469 746c 6500 6774 6b5f 636f set_title.gtk_co
+      0x00005b5c: 6e74 6169 6e65 725f 6164 6400 6774 6b5f ntainer_add.gtk_
+      0x00005b6c: 626f 785f 6765 745f 7479 7065 0073 696e box_get_type.sin
+      0x00005b7c: 4040 474c 4942 435f 322e 3000 675f 7369 @@GLIBC_2.0.g_si
+      0x00005b8c: 676e 616c 5f63 6f6e 6e65 6374 5f64 6174 gnal_connect_dat
+      0x00005b9c: 6100 6774 6b5f 7662 6f78 5f6e 6577 005f a.gtk_vbox_new._
+      0x00005bac: 5f6c 6962 635f 7374 6172 745f 6d61 696e _libc_start_main
+      0x00005bbc: 4040 474c 4942 435f 322e 3000 5f73 7461 @@GLIBC_2.0._sta
+      0x00005bcc: 7274 0067 746b 5f6c 6162 656c 5f73 6574 rt.gtk_label_set
+      0x00005bdc: 5f74 6578 7400 6774 6b5f 7769 6467 6574 _text.gtk_widget
+      0x00005bec: 5f67 6574 5f76 6973 7561 6c00 5f5f 6936 _get_visual.__i6
+      0x00005bfc: 3836 2e67 6574 5f70 635f 7468 756e 6b2e 86.get_pc_thunk.
+      0x00005c0c: 6278 0067 746b 5f62 6f78 5f70 6163 6b5f bx.gtk_box_pack_
+      0x00005c1c: 656e 6400 5f5f 7374 6163 6b5f 6368 6b5f end.__stack_chk_
+      0x00005c2c: 6661 696c 4040 474c 4942 435f 322e 3400 fail@@GLIBC_2.4.
+      0x00005c3c: 5f69 6e69 7400 6774 6b5f 7769 6e64 6f77 _init.gtk_window
+      0x00005c4c: 5f6e 6577 0067 746b 5f73 7479 6c65 5f6e _new.gtk_style_n
+      0x00005c5c: 6577 005f 4a76 5f52 6567 6973 7465 7243 ew._Jv_RegisterC
+      0x00005c6c: 6c61 7373 6573 0067 646b 5f77 696e 646f lasses.gdk_windo
+      0x00005c7c: 775f 6d6f 7665 5f72 6573 697a 6500 6774 w_move_resize.gt
+      0x00005c8c: 6b5f 6d61 696e 0067 746b 5f64 6961 6c5f k_main.gtk_dial_
+      0x00005c9c: 6e65 7700 675f 7479 7065 5f63 6865 636b new.g_type_check
+      0x00005cac: 5f69 6e73 7461 6e63 655f 6973 5f61 005f _instance_is_a._
+      0x00005cbc: 5f64 6174 615f 7374 6172 7400 5f65 6e64 _data_start._end
+      0x00005ccc: 0065 7869 7440 4047 4c49 4243 5f32 2e30 .exit@@GLIBC_2.0
+      0x00005cdc: 0067 746b 5f6f 626a 6563 745f 6765 745f .gtk_object_get_
+      0x00005cec: 7479 7065 005f 5f62 7373 5f73 7461 7274 type.__bss_start
+      0x00005cfc: 0067 746b 5f77 6964 6765 745f 7368 6f77 .gtk_widget_show
+      0x00005d0c: 0067 5f6f 626a 6563 745f 756e 7265 6600 .g_object_unref.
+      0x00005d1c: 5f5f 6c69 6263 5f63 7375 5f69 6e69 7400 __libc_csu_init.
+      0x00005d2c: 6764 6b5f 7769 6e64 6f77 5f67 6574 5f70 gdk_window_get_p
+      0x00005d3c: 6f69 6e74 6572 0063 6f73 4040 474c 4942 ointer.cos@@GLIB
+      0x00005d4c: 435f 322e 3000 6764 6b5f 7769 6e64 6f77 C_2.0.gdk_window
+      0x00005d5c: 5f73 6574 5f75 7365 725f 6461 7461 0067 _set_user_data.g
+      0x00005d6c: 746b 5f64 6961 6c5f 7365 745f 7570 6461 tk_dial_set_upda
+      0x00005d7c: 7465 5f70 6f6c 6963 7900 6774 6b5f 696e te_policy.gtk_in
+      0x00005d8c: 6974 0067 746b 5f61 646a 7573 746d 656e it.gtk_adjustmen
+      0x00005d9c: 745f 6765 745f 7479 7065 005f 5f6c 6962 t_get_type.__lib
+      0x00005dac: 635f 6373 755f 6669 6e69 0067 746b 5f70 c_csu_fini.gtk_p
+      0x00005dbc: 6169 6e74 5f70 6f6c 7967 6f6e 0067 746b aint_polygon.gtk
+      0x00005dcc: 5f77 6964 6765 745f 6765 745f 6576 656e _widget_get_even
+      0x00005ddc: 7473 0067 5f74 7970 655f 6368 6563 6b5f ts.g_type_check_
+      0x00005dec: 636c 6173 735f 6361 7374 0067 746b 5f66 class_cast.gtk_f
+      0x00005dfc: 7261 6d65 5f73 6574 5f73 6861 646f 775f rame_set_shadow_
+      0x00005e0c: 7479 7065 005f 5f67 6d6f 6e5f 7374 6172 type.__gmon_star
+      0x00005e1c: 745f 5f00 675f 7369 676e 616c 5f65 6d69 t__.g_signal_emi
+      0x00005e2c: 745f 6279 5f6e 616d 6500 6774 6b5f 7374 t_by_name.gtk_st
+      0x00005e3c: 796c 655f 7365 745f 6261 636b 6772 6f75 yle_set_backgrou
+      0x00005e4c: 6e64 0067 646b 5f64 7261 775f 6c69 6e65 nd.gdk_draw_line
+      0x00005e5c: 0067 746b 5f77 696e 646f 775f 6765 745f .gtk_window_get_
+      0x00005e6c: 7479 7065 0067 5f73 6f75 7263 655f 7265 type.g_source_re
+      0x00005e7c: 6d6f 7665 0067 746b 5f67 7261 625f 6164 move.gtk_grab_ad
+      0x00005e8c: 6400 

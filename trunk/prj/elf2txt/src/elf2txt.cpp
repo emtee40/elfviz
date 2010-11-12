@@ -23,7 +23,7 @@
 #include <string.h>
 #include "ucrt/ucrt.h"
 #include "elfio/elfio.h"
-#include "ucxml/ucxml.h"
+#include "ucxml/ucXML.h"
 #include "argument.h"
 
 typedef enum etTitleType{

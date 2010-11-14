@@ -32,39 +32,34 @@ class elfPHDR : public elfSection{
 	protected:
 		//todo:phdr_entry를 section container로 정의하여 iterator를 달아 순회하도록 할것
 		elfSection** entry;
-		unsigned int n_entry;
+		phdrEntryFactory* factory;
 
 	public:
-		elfPHDR(int phnum, FILE* fd, int phoff){
-			char name[8];
-			entry = new elfSection* [phnum];
-			n_entry = phnum;
-			for(unsigned int i = 0 ; i < n_entry ; i++){
-				sprintf(name, "%d", i);
-				entry[i] = phdr_entry_new(fd, phoff + sizeof(Elf32_Phdr) * i, name);
-			}
+		elfPHDR(phdrEntryFactory* efactory):factory(efactory){
+			entry = new elfSection* [factory->entries()];
+			for(int i = 0 ; i < factory->entries() ; i++) entry[i] = 0;
 		}
 
 		~elfPHDR(){
-			if(n_entry){
-				for(unsigned int i = 0 ; i < n_entry ; i++) delete entry[i];
-				delete entry;
-			}
+			for(int i = 0 ; i < factory->entries(); i++) if(entry[i]) delete entry[i];
+			delete entry;
+			delete factory;
 		}
 
 		elfAttribute* attribute(void) { return 0;}
 
 		const unsigned int childs(void){
-			return n_entry;
+			return factory->entries();
 		}
 
 		elfSection* childAt(const int idx){
+			if(!entry[idx]) entry[idx] = factory->entry_new(idx);
 			return entry[idx];
 		}
 
 		elfSection* childAt(const char* stridx){
-			for(unsigned int i = 0 ; i < n_entry ; i++){
-				if(!strcmp(entry[i]->name(), stridx)) return entry[i];
+			for(int i = 0 ; i < factory->entries() ; i++){
+				if(entry[i] && !strcmp(entry[i]->name(), stridx)) return entry[i];
 			}
 			return 0;
 		}
@@ -82,5 +77,6 @@ class elfPHDR : public elfSection{
 };
 
 elfSection* phdr_new(Elf32_Ehdr ehdr, FILE* fd){
-	return (elfSection*)new elfPHDR(ehdr.e_phnum, fd, ehdr.e_phoff);
+	phdrEntryFactory* factory = new phdrEntryFactory(fd, ehdr.e_phnum, ehdr.e_phoff);
+	return (elfSection*)new elfPHDR(factory);
 }

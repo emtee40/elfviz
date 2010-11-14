@@ -41,7 +41,9 @@ static const section_attr_t phdr_entry_attr[] = {
 
 class elfPhdrEntryAttribute : public elfAttribute {
 	public:
-		elfPhdrEntryAttribute(Elf32_Phdr& phdr):hdr(phdr), num(sizeof(phdr_entry_attr) / sizeof(section_attr_t)){ }
+		elfPhdrEntryAttribute(Elf32_Phdr& phdr): num(sizeof(phdr_entry_attr) / sizeof(section_attr_t)){
+			memcpy(&hdr, &phdr, sizeof(Elf32_Phdr));
+		}
 
 		const unsigned int number(void){
 			return num;
@@ -82,7 +84,7 @@ class elfPhdrEntryAttribute : public elfAttribute {
 		}
 
 	private:
-		Elf32_Phdr& hdr;
+		Elf32_Phdr hdr;
 		const unsigned int num;
 		char* type_str(void){
 			char* str = (char*)"unknown";
@@ -115,15 +117,12 @@ class elfPhdrEntryAttribute : public elfAttribute {
 
 class elfPhdrEntry : public elfSection{
 	protected:
-		Elf32_Phdr phdr;
 		char phename[8];
 		elfPhdrEntryAttribute attr;
 
 	public:
-		elfPhdrEntry(FILE* fd, int phoff, char* pname):attr(phdr){
-			fseek(fd, phoff, SEEK_SET);
-			fread(&(phdr), sizeof(Elf32_Phdr), 1, fd);
-			strcpy(phename, pname);
+		elfPhdrEntry(Elf32_Phdr ephdr, int index):attr(ephdr){
+			sprintf(phename, "%d", index);
 		}
 
 		elfAttribute* attribute(void){
@@ -156,7 +155,21 @@ class elfPhdrEntry : public elfSection{
 
 };
 
-elfSection* phdr_entry_new(FILE* fd, int phoff, char* name){
-	return (elfSection*) new elfPhdrEntry(fd, phoff, name);
+phdrEntryFactory::phdrEntryFactory(FILE* fd, int phnum, int phoff):n_entry(phnum){
+	tags = new Elf32_Phdr[n_entry];
+	fseek(fd, phoff, SEEK_SET);
+	fread(tags, sizeof(Elf32_Phdr), n_entry, fd);
+}
 
+phdrEntryFactory::~phdrEntryFactory(){
+	delete tags;
+}
+
+int phdrEntryFactory::entries(void){
+	return n_entry;
+}
+
+elfSection* phdrEntryFactory::entry_new(int index){
+	if(index < 0 || index >= n_entry) return 0;
+	return (elfSection*) new elfPhdrEntry(tags[index], index);
 }

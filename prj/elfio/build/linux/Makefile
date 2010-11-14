@@ -27,6 +27,7 @@ install:
 	cp $(BINDIR)/$(TARGET) $(DIST_PREFIX)/usr/lib
 	mkdir -p $(DIST_PREFIX)/usr/include/
 	cp ../../../../inc/elfio/*.h $(DIST_PREFIX)/usr/include/elfio
+	rm -f $(DIST_PREFIX)/usr/lib/$(SYMBOLIC_TARGET)
 	ln -s  $(TARGET) $(DIST_PREFIX)/usr/lib/$(SYMBOLIC_TARGET)
 
 clean:

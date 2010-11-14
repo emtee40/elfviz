@@ -22,5 +22,14 @@
 
 #ifndef __ELF_PHDR_ENTRY_H__
 #define __ELF_PHDR_ENTRY_H__
-elfSection* phdr_entry_new(FILE* fd, int e_phoff, char* name);
+class phdrEntryFactory{
+	private:
+		Elf32_Phdr* tags;
+		int n_entry;
+	public:
+		phdrEntryFactory(FILE* fd, int phnum, int phoff);
+		~phdrEntryFactory();
+		elfSection* entry_new(int index);
+		int entries(void);
+};
 #endif //__ELF_PHDR_ENTRY_H__

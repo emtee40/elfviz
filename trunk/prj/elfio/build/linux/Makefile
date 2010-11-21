@@ -1,7 +1,7 @@
 CC=gcc
 CXX=g++
 CFLAGS=-fPIC -c -Wall
-LFLAGS=-shared -Wl,-soname,$(SYMBOLIC_TARGET) -o $(TARGET)
+LFLAGS=-shared -o $(TARGET)
 RM=rm -f
 SRCDIR=../../src
 INCS=-I../../../../inc
@@ -18,7 +18,6 @@ objs=elfio.o \
 all: $(objs)
 	$(CXX) $(LFLAGS) $?
 	mv $(TARGET) $(BINDIR)
-	ln -sf  $(TARGET) $(BINDIR)/$(SYMBOLIC_TARGET)
 
 install:
 	mkdir -p $(DIST_PREFIX)/usr
@@ -27,13 +26,11 @@ install:
 	cp $(BINDIR)/$(TARGET) $(DIST_PREFIX)/usr/lib
 	mkdir -p $(DIST_PREFIX)/usr/include/
 	cp ../../../../inc/elfio/*.h $(DIST_PREFIX)/usr/include/elfio
-	rm -f $(DIST_PREFIX)/usr/lib/$(SYMBOLIC_TARGET)
-	ln -s  $(TARGET) $(DIST_PREFIX)/usr/lib/$(SYMBOLIC_TARGET)
 
 clean:
-	$(RM) $(DIST_PREFIX)/usr/lib/$(SYMBOLIC_TARGET) $(DIST_PREFIX)/usr/lib/$(TARGET)
+	$(RM) $(DIST_PREFIX)/usr/lib/$(TARGET)
 	rm -rf $(DIST_PREFIX)/usr/include/elfio
-	$(RM) $(objs) $(BINDIR)/$(TARGET) $(BINDIR)/$(SYMBOLIC_TARGET)
+	$(RM) $(objs) $(BINDIR)/$(TARGET)
 
 %.o: $(SRCDIR)/%.c
 	$(CC) $(CFLAGS) $(USR_CFLAGS) $(INCS) $< -o $@

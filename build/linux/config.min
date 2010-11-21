@@ -1,3 +1,2 @@
 EV_TARGET=libelfio.so.2.0.0
-EV_SYMBOLIC=libelfio.so.2
 EV_TITLE=elfio-2.0.0

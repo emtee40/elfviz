@@ -4,9 +4,9 @@ RM=rm -f
 SRCDIR=../../src
 INCS=-I . -I ../../../../inc
 BINDIR=../../../../bin
-ELFIO=$(BINDIR)/$(SYMBOLIC_TARGET)
-UCRT=/usr/lib/libucrt.so.2
-UCXML=/usr/lib/libucxml.so.2
+ELFIO=$(BINDIR)/$(TARGET)
+UCRT=/usr/lib/libucrt.so.2.0.0
+UCXML=/usr/lib/libucxml.so.2.0.0
 objs=elf2txt.o argument.o
 
 OUT=elf2txt

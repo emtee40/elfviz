@@ -4,7 +4,7 @@ RM=rm -f
 SRCDIR=../../src
 INCS=-I . -I ../../../../inc
 BINDIR=../../../../bin
-ELFIO=$(BINDIR)/$(SYMBOLIC_TARGET)
+ELFIO=$(BINDIR)/$(TARGET)
 objs=elfviz.o \
 	cmdaction.o \
 	cmdparam.o \

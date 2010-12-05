@@ -1,12 +1,16 @@
 #!/bin/bash
 
-rm -f sample/*.txt
+rm -f sample/*.txt sample/*.xml
 FILES=`ls sample`
+FORMATS="txt xml"
 
 echo $FILES
 for FILE in $FILES
 do
-	DST=sample/$FILE.txt
-	echo "sample/$FILE -> $DST"
-	elf2txt sample/$FILE -o $DST
+	for FORMAT in $FORMATS
+	do
+		DST=sample/$FILE.$FORMAT
+		echo "sample/$FILE -> $DST"
+		elf2txt sample/$FILE -f $FORMAT -o $DST
+	done
 done

@@ -1,2 +1,2 @@
-EV_TARGET=libelfio.so.2.0.0
+EV_TARGET=libelfio-2.0.0.so
 EV_TITLE=elfio-2.0.0

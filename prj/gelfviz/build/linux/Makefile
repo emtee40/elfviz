@@ -1,17 +1,17 @@
+include ../../../../build/linux/config.min
 CXX=g++
 CFLAGS=-c -Wall
 RM=rm -f
 SRCDIR=../../src
 INCS=-I . -I ../../../../inc
 BINDIR=../../../../bin
-ELFIO=$(BINDIR)/$(TARGET)
-UCRT=/usr/lib/libucrt.so.2.0.0
+UCRT=/usr/lib/libucrt-2.0.0.so
 objs=gelfviz.o menu.o state.o treeview.o pane.o
 
 OUT=gelfviz
 
 all: $(objs)
-	$(CXX) -o $(OUT) $(objs) $(ELFIO) $(UCRT) `pkg-config --libs gtk+-2.0`
+	$(CXX) -o $(OUT) $(objs) -L$(BINDIR) -l$(EV_TITLE) $(UCRT) `pkg-config --libs gtk+-2.0`
 	mv $(OUT) $(BINDIR)
 
 install:

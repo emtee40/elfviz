@@ -1,10 +1,10 @@
+include ../../../../build/linux/config.min
 CXX=g++
 CFLAGS=-c -O2 -Wall
 RM=rm -f
 SRCDIR=../../src
 INCS=-I . -I ../../../../inc
 BINDIR=../../../../bin
-ELFIO=$(BINDIR)/$(TARGET)
 objs=elfviz.o \
 	cmdaction.o \
 	cmdparam.o \
@@ -15,7 +15,7 @@ objs=elfviz.o \
 OUT=elfviz
 
 all: $(objs)
-	$(CXX) -o $(OUT) $(objs) $(ELFIO)
+	$(CXX) -o $(OUT) $(objs) -L$(BINDIR) -l$(EV_TITLE)
 	mv $(OUT) $(BINDIR)
 
 install:

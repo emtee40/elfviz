@@ -1,11 +1,12 @@
+include ../../../../build/linux/config.min
 CC=gcc
 CXX=g++
 CFLAGS=-fPIC -c -Wall
-LFLAGS=-shared -o $(TARGET)
+LFLAGS=-shared -o $(EV_TARGET)
 RM=rm -f
 SRCDIR=../../src
 INCS=-I../../../../inc
-BINDIR=../../../../bin
+LIBDIR=../../../../lib
 objs=elfio.o \
 	elf_buffer.o \
 	phdr.o \
@@ -17,20 +18,20 @@ objs=elfio.o \
 
 all: $(objs)
 	$(CXX) $(LFLAGS) $?
-	mv $(TARGET) $(BINDIR)
+	mv $(EV_TARGET) $(LIBDIR)
 
 install:
 	mkdir -p $(DIST_PREFIX)/usr
 	mkdir -p $(DIST_PREFIX)/usr/lib
 	mkdir -p $(DIST_PREFIX)/usr/include
-	cp $(BINDIR)/$(TARGET) $(DIST_PREFIX)/usr/lib
+	cp $(LIBDIR)/$(EV_TARGET) $(DIST_PREFIX)/usr/lib
 	mkdir -p $(DIST_PREFIX)/usr/include/
 	cp ../../../../inc/elfio/*.h $(DIST_PREFIX)/usr/include/elfio
 
 clean:
-	$(RM) $(DIST_PREFIX)/usr/lib/$(TARGET)
+	$(RM) $(DIST_PREFIX)/usr/lib/$(EV_TARGET)
 	rm -rf $(DIST_PREFIX)/usr/include/elfio
-	$(RM) $(objs) $(BINDIR)/$(TARGET)
+	$(RM) $(objs) $(LIBDIR)/$(EV_TARGET)
 
 %.o: $(SRCDIR)/%.c
 	$(CC) $(CFLAGS) $(USR_CFLAGS) $(INCS) $< -o $@

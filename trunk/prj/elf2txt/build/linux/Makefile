@@ -1,18 +1,18 @@
+include ../../../../build/linux/config.min
 CXX=g++
 CFLAGS=-c -O2 -Wall
 RM=rm -f
 SRCDIR=../../src
 INCS=-I . -I ../../../../inc
 BINDIR=../../../../bin
-UCRT=/usr/lib/libucrt.so.2.0.0
-UCXML=/usr/lib/libucxml.so.2.0.0
-ELFIO=/usr/lib/$(TARGET)
+UCRT=/usr/lib/libucrt-2.0.0.so
+UCXML=/usr/lib/libucxml-2.0.0.so
 objs=elf2txt.o argument.o
 
 OUT=elf2txt
 
 all: $(objs)
-	$(CXX) -o $(OUT) $(objs) $(ELFIO) $(UCXML) $(UCRT)
+	$(CXX) -o $(OUT) $(objs) -L$(BINDIR) -l$(EV_TITLE) $(UCXML) $(UCRT)
 	mv $(OUT) $(BINDIR)
 
 install:

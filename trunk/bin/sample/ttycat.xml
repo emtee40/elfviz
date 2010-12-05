@@ -1,0 +1,603 @@
+<elfml class="ELFCLASS32" data="ELFDATA2LSB" machine="EM_ARM" version="EV_CURRENT" type="ET_EXEC" phoff="0x34" shoff="0x101c" flags="EF_ARM_HASENTRY" ehsize="52" phentsize="32" phnum="6" shentsize="40" shnum="31" shstrndx="28" entry="0x85c8" eabiversion="0">
+	<phdr>
+		<entry p_type="PT_PHDR" p_offset="0x34" p_vaddr="0x8034" p_paddr="0x8034" p_filesz="192" p_memsz="192" p_flags="PF_X | PF_R" p_align="4"/>
+		<entry p_type="PT_INTERP" p_offset="0xf4" p_vaddr="0x80f4" p_paddr="0x80f4" p_filesz="19" p_memsz="19" p_flags="PF_R" p_align="1"/>
+		<entry p_type="PT_LOAD" p_offset="0x0" p_vaddr="0x8000" p_paddr="0x8000" p_filesz="2516" p_memsz="2516" p_flags="PF_X | PF_R" p_align="32768"/>
+		<entry p_type="PT_LOAD" p_offset="0x9d4" p_vaddr="0x109d4" p_paddr="0x109d4" p_filesz="336" p_memsz="368" p_flags="PF_W | PF_R" p_align="32768"/>
+		<entry p_type="PT_DYNAMIC" p_offset="0x9e8" p_vaddr="0x109e8" p_paddr="0x109e8" p_filesz="224" p_memsz="224" p_flags="PF_W | PF_R" p_align="4"/>
+		<entry p_type="PT_NOTE" p_offset="0x108" p_vaddr="0x8108" p_paddr="0x8108" p_filesz="32" p_memsz="32" p_flags="PF_R" p_align="4"/>
+	</phdr>
+	<shdr>
+		<entry sh_name="" sh_type="SHT_NULL" sh_flags="" sh_addr="0x0" sh_offset="0x0" sh_size="0" sh_link="0" sh_info="0" sh_addralign="0" sh_entsize="0">
+		</entry>
+		<entry sh_name=".interp" sh_type="SHT_PROGBITS" sh_flags="SHF_ALLOC" sh_addr="0x80f4" sh_offset="0xf4" sh_size="19" sh_link="0" sh_info="0" sh_addralign="1" sh_entsize="0">
+			<data addr="0xf4" text="/lib/ld-linux.so">2f 6c 69 62 2f 6c 64 2d  6c 69 6e 75 78 2e 73 6f </data>
+			<data addr="0x104" text=".2.">2e 32 00 </data>
+		</entry>
+		<entry sh_name=".note.ABI-tag" sh_type="SHT_NOTE" sh_flags="SHF_ALLOC" sh_addr="0x8108" sh_offset="0x108" sh_size="32" sh_link="0" sh_info="0" sh_addralign="4" sh_entsize="0">
+			<data addr="0x108" text="............GNU.">04 00 00 00 10 00 00 00  01 00 00 00 47 4e 55 00 </data>
+			<data addr="0x118" text="................">00 00 00 00 02 00 00 00  00 00 00 00 00 00 00 00 </data>
+		</entry>
+		<entry sh_name=".hash" sh_type="SHT_HASH" sh_flags="SHF_ALLOC" sh_addr="0x8128" sh_offset="0x128" sh_size="152" sh_link="4" sh_info="0" sh_addralign="4" sh_entsize="4">
+			<data addr="0x128" text="................">11 00 00 00 13 00 00 00  0b 00 00 00 00 00 00 00 </data>
+			<data addr="0x138" text="................">05 00 00 00 0f 00 00 00  07 00 00 00 00 00 00 00 </data>
+			<data addr="0x148" text="................">00 00 00 00 11 00 00 00  00 00 00 00 03 00 00 00 </data>
+			<data addr="0x158" text="................">0a 00 00 00 04 00 00 00  00 00 00 00 0e 00 00 00 </data>
+			<data addr="0x168" text="................">10 00 00 00 12 00 00 00  00 00 00 00 00 00 00 00 </data>
+			<data addr="0x178" text="................">00 00 00 00 00 00 00 00  01 00 00 00 00 00 00 00 </data>
+			<data addr="0x188" text="................">00 00 00 00 02 00 00 00  00 00 00 00 00 00 00 00 </data>
+			<data addr="0x198" text="................">06 00 00 00 09 00 00 00  00 00 00 00 00 00 00 00 </data>
+			<data addr="0x1a8" text="................">0c 00 00 00 0d 00 00 00  00 00 00 00 00 00 00 00 </data>
+			<data addr="0x1b8" text="........">08 00 00 00 00 00 00 00  </data>
+		</entry>
+		<entry sh_name=".dynsym" sh_type="SHT_DYNSYM" sh_flags="SHF_ALLOC" sh_addr="0x81c0" sh_offset="0x1c0" sh_size="304" sh_link="5" sh_info="1" sh_addralign="4" sh_entsize="16">
+			<symbol st_name="" st_value="0x0" st_size="0" st_info="0" st_other="0" st_shndx="0" st_bind="STB_LOCAL" st_type="STT_NOTYPE"/>
+			<symbol st_name="/q+esto/tc/rpm/src/redhat/BUILD/cdt-arm-le-nofpu-glibc-2.3.2/build/glibc-2.3.2/csu/defs.h" st_value="0x0" st_size="12" st_info="34" st_other="0" st_shndx="0" st_bind="STB_WEAK" st_type="STT_FUNC"/>
+			<symbol st_name="/build/glibc-2.3.2/csu/defs.h" st_value="0x8514" st_size="116" st_info="18" st_other="0" st_shndx="0" st_bind="STB_GLOBAL" st_type="STT_FUNC"/>
+			<symbol st_name="-le-nofpu-glibc-2.3.2/build/glibc-2.3.2/csu/defs.h" st_value="0x8520" st_size="220" st_info="18" st_other="0" st_shndx="0" st_bind="STB_GLOBAL" st_type="STT_FUNC"/>
+			<symbol st_name="ols.h" st_value="0x852c" st_size="216" st_info="18" st_other="0" st_shndx="0" st_bind="STB_GLOBAL" st_type="STT_FUNC"/>
+			<symbol st_name="bc-2.3.2/csu/crti.S" st_value="0x0" st_size="4" st_info="34" st_other="0" st_shndx="0" st_bind="STB_WEAK" st_type="STT_FUNC"/>
+			<symbol st_name="-2.3.2/build/glibc-2.3.2/csu/defs.h" st_value="0x8544" st_size="536" st_info="18" st_other="0" st_shndx="0" st_bind="STB_GLOBAL" st_type="STT_FUNC"/>
+			<symbol st_name="de/libc-symbols.h" st_value="0x8550" st_size="216" st_info="18" st_other="0" st_shndx="0" st_bind="STB_GLOBAL" st_type="STT_FUNC"/>
+			<symbol st_name="d line&gt;" st_value="0x855c" st_size="308" st_info="18" st_other="0" st_shndx="0" st_bind="STB_GLOBAL" st_type="STT_FUNC"/>
+			<symbol st_name="cdt-arm-le-nofpu-glibc-2.3.2/build/glibc-2.3.2/csu/defs.h" st_value="0x8568" st_size="60" st_info="18" st_other="0" st_shndx="0" st_bind="STB_GLOBAL" st_type="STT_FUNC"/>
+			<symbol st_name="-symbols.h" st_value="0x8574" st_size="116" st_info="18" st_other="0" st_shndx="0" st_bind="STB_GLOBAL" st_type="STT_FUNC"/>
+			<symbol st_name="pu-glibc-2.3.2/build/glibc-2.3.2/csu/defs.h" st_value="0x8580" st_size="24" st_info="18" st_other="0" st_shndx="0" st_bind="STB_GLOBAL" st_type="STT_FUNC"/>
+			<symbol st_name="h" st_value="0x858c" st_size="308" st_info="18" st_other="0" st_shndx="0" st_bind="STB_GLOBAL" st_type="STT_FUNC"/>
+			<symbol st_name="c-2.3.2/csu/defs.h" st_value="0x8598" st_size="184" st_info="18" st_other="0" st_shndx="0" st_bind="STB_GLOBAL" st_type="STT_FUNC"/>
+			<symbol st_name="tfini.c" st_value="0x8990" st_size="4" st_info="17" st_other="0" st_shndx="14" st_bind="STB_GLOBAL" st_type="STT_OBJECT"/>
+			<symbol st_name="rpm/src/redhat/BUILD/cdt-arm-le-nofpu-glibc-2.3.2/build/glibc-2.3.2/csu/crti.S" st_value="0x0" st_size="0" st_info="32" st_other="0" st_shndx="0" st_bind="STB_WEAK" st_type="STT_NOTYPE"/>
+			<symbol st_name="/csu/defs.h" st_value="0x85b0" st_size="188" st_info="18" st_other="0" st_shndx="0" st_bind="STB_GLOBAL" st_type="STT_FUNC"/>
+			<symbol st_name="/glibc-2.3.2/csu/defs.h" st_value="0x85bc" st_size="116" st_info="18" st_other="0" st_shndx="0" st_bind="STB_GLOBAL" st_type="STT_FUNC"/>
+			<symbol st_name="/cdt-arm-le-nofpu-glibc-2.3.2/build/glibc-2.3.2/csu/crti.S" st_value="0x0" st_size="0" st_info="32" st_other="0" st_shndx="0" st_bind="STB_WEAK" st_type="STT_NOTYPE"/>
+		</entry>
+		<entry sh_name=".dynstr" sh_type="SHT_STRTAB" sh_flags="SHF_ALLOC" sh_addr="0x82f0" sh_offset="0x2f0" sh_size="257" sh_link="0" sh_info="0" sh_addralign="1" sh_entsize="0">
+			<data addr="0x2f0" text=".libstdc++.so.6.">00 6c 69 62 73 74 64 63  2b 2b 2e 73 6f 2e 36 00 </data>
+			<data addr="0x300" text="_Jv_RegisterClas">5f 4a 76 5f 52 65 67 69  73 74 65 72 43 6c 61 73 </data>
+			<data addr="0x310" text="ses.__gmon_start">73 65 73 00 5f 5f 67 6d  6f 6e 5f 73 74 61 72 74 </data>
+			<data addr="0x320" text="__.libm.so.6.lib">5f 5f 00 6c 69 62 6d 2e  73 6f 2e 36 00 6c 69 62 </data>
+			<data addr="0x330" text="gcc_s.so.1.__der">67 63 63 5f 73 2e 73 6f  2e 31 00 5f 5f 64 65 72 </data>
+			<data addr="0x340" text="egister_frame_in">65 67 69 73 74 65 72 5f  66 72 61 6d 65 5f 69 6e </data>
+			<data addr="0x350" text="fo.__register_fr">66 6f 00 5f 5f 72 65 67  69 73 74 65 72 5f 66 72 </data>
+			<data addr="0x360" text="ame_info.libc.so">61 6d 65 5f 69 6e 66 6f  00 6c 69 62 63 2e 73 6f </data>
+			<data addr="0x370" text=".6.printf.perror">2e 36 00 70 72 69 6e 74  66 00 70 65 72 72 6f 72 </data>
+			<data addr="0x380" text=".tcflush.abort.w">00 74 63 66 6c 75 73 68  00 61 62 6f 72 74 00 77 </data>
+			<data addr="0x390" text="rite.read.memset">72 69 74 65 00 72 65 61  64 00 6d 65 6d 73 65 74 </data>
+			<data addr="0x3a0" text=".tcgetattr.exit.">00 74 63 67 65 74 61 74  74 72 00 65 78 69 74 00 </data>
+			<data addr="0x3b0" text="_IO_stdin_used._">5f 49 4f 5f 73 74 64 69  6e 5f 75 73 65 64 00 5f </data>
+			<data addr="0x3c0" text="_libc_start_main">5f 6c 69 62 63 5f 73 74  61 72 74 5f 6d 61 69 6e </data>
+			<data addr="0x3d0" text=".strlen.open.tcs">00 73 74 72 6c 65 6e 00  6f 70 65 6e 00 74 63 73 </data>
+			<data addr="0x3e0" text="etattr.GLIBC_2.0">65 74 61 74 74 72 00 47  4c 49 42 43 5f 32 2e 30 </data>
+			<data addr="0x3f0" text=".">00 </data>
+		</entry>
+		<entry sh_name=".gnu.version" sh_type="unknown" sh_flags="SHF_ALLOC" sh_addr="0x83f2" sh_offset="0x3f2" sh_size="38" sh_link="4" sh_info="0" sh_addralign="2" sh_entsize="2">
+			<data addr="0x3f2" text="................">00 00 02 00 03 00 03 00  03 00 02 00 03 00 03 00 </data>
+			<data addr="0x402" text="................">03 00 03 00 03 00 03 00  03 00 03 00 01 00 00 00 </data>
+			<data addr="0x412" text="......">03 00 03 00 00 00 </data>
+		</entry>
+		<entry sh_name=".gnu.version_r" sh_type="unknown" sh_flags="SHF_ALLOC" sh_addr="0x8418" sh_offset="0x418" sh_size="64" sh_link="5" sh_info="2" sh_addralign="4" sh_entsize="0">
+			<data addr="0x418" text="....y....... ...">01 00 01 00 79 00 00 00  10 00 00 00 20 00 00 00 </data>
+			<data addr="0x428" text=".ii.............">10 69 69 0d 00 00 03 00  f7 00 00 00 00 00 00 00 </data>
+			<data addr="0x438" text="....=...........">01 00 01 00 3d 00 00 00  10 00 00 00 00 00 00 00 </data>
+			<data addr="0x448" text=".ii.............">10 69 69 0d 00 00 02 00  f7 00 00 00 00 00 00 00 </data>
+		</entry>
+		<entry sh_name=".rel.dyn" sh_type="SHT_REL" sh_flags="SHF_ALLOC" sh_addr="0x8458" sh_offset="0x458" sh_size="8" sh_link="4" sh_info="0" sh_addralign="4" sh_entsize="8">
+			<entry r_offset="0x10b14" r_symbol="18" r_type="R_ARM_GLOB_DAT" r_info="0x1215"/>
+		</entry>
+		<entry sh_name=".rel.plt" sh_type="SHT_REL" sh_flags="SHF_ALLOC" sh_addr="0x8460" sh_offset="0x460" sh_size="128" sh_link="4" sh_info="11" sh_addralign="4" sh_entsize="8">
+			<entry r_offset="0x10ad4" r_symbol="1" r_type="R_ARM_JUMP_SLOT" r_info="0x116"/>
+			<entry r_offset="0x10ad8" r_symbol="2" r_type="R_ARM_JUMP_SLOT" r_info="0x216"/>
+			<entry r_offset="0x10adc" r_symbol="3" r_type="R_ARM_JUMP_SLOT" r_info="0x316"/>
+			<entry r_offset="0x10ae0" r_symbol="4" r_type="R_ARM_JUMP_SLOT" r_info="0x416"/>
+			<entry r_offset="0x10ae4" r_symbol="5" r_type="R_ARM_JUMP_SLOT" r_info="0x516"/>
+			<entry r_offset="0x10ae8" r_symbol="6" r_type="R_ARM_JUMP_SLOT" r_info="0x616"/>
+			<entry r_offset="0x10aec" r_symbol="7" r_type="R_ARM_JUMP_SLOT" r_info="0x716"/>
+			<entry r_offset="0x10af0" r_symbol="8" r_type="R_ARM_JUMP_SLOT" r_info="0x816"/>
+			<entry r_offset="0x10af4" r_symbol="9" r_type="R_ARM_JUMP_SLOT" r_info="0x916"/>
+			<entry r_offset="0x10af8" r_symbol="10" r_type="R_ARM_JUMP_SLOT" r_info="0xa16"/>
+			<entry r_offset="0x10afc" r_symbol="11" r_type="R_ARM_JUMP_SLOT" r_info="0xb16"/>
+			<entry r_offset="0x10b00" r_symbol="12" r_type="R_ARM_JUMP_SLOT" r_info="0xc16"/>
+			<entry r_offset="0x10b04" r_symbol="13" r_type="R_ARM_JUMP_SLOT" r_info="0xd16"/>
+			<entry r_offset="0x10b08" r_symbol="15" r_type="R_ARM_JUMP_SLOT" r_info="0xf16"/>
+			<entry r_offset="0x10b0c" r_symbol="16" r_type="R_ARM_JUMP_SLOT" r_info="0x1016"/>
+			<entry r_offset="0x10b10" r_symbol="17" r_type="R_ARM_JUMP_SLOT" r_info="0x1116"/>
+		</entry>
+		<entry sh_name=".init" sh_type="SHT_PROGBITS" sh_flags="SHF_ALLOC | SHF_EXECINSTR" sh_addr="0x84e0" sh_offset="0x4e0" sh_size="20" sh_link="0" sh_info="0" sh_addralign="4" sh_entsize="0">
+			<data addr="0x4e0" text=".@-.E...m.......">10 40 2d e9 45 00 00 eb  6d 00 00 eb 13 01 00 eb </data>
+			<data addr="0x4f0" text="....">10 80 bd e8 </data>
+		</entry>
+		<entry sh_name=".plt" sh_type="SHT_PROGBITS" sh_flags="SHF_ALLOC | SHF_EXECINSTR" sh_addr="0x84f4" sh_offset="0x4f4" sh_size="212" sh_link="0" sh_info="0" sh_addralign="4" sh_entsize="4">
+			<data addr="0x4f4" text="..-.............">04 e0 2d e5 04 e0 9f e5  0e e0 8f e0 08 f0 be e5 </data>
+			<data addr="0x504" text="................">c4 85 00 00 00 c6 8f e2  08 ca 8c e2 c4 f5 bc e5 </data>
+			<data addr="0x514" text="................">00 c6 8f e2 08 ca 8c e2  bc f5 bc e5 00 c6 8f e2 </data>
+			<data addr="0x524" text="................">08 ca 8c e2 b4 f5 bc e5  00 c6 8f e2 08 ca 8c e2 </data>
+			<data addr="0x534" text="................">ac f5 bc e5 00 c6 8f e2  08 ca 8c e2 a4 f5 bc e5 </data>
+			<data addr="0x544" text="................">00 c6 8f e2 08 ca 8c e2  9c f5 bc e5 00 c6 8f e2 </data>
+			<data addr="0x554" text="................">08 ca 8c e2 94 f5 bc e5  00 c6 8f e2 08 ca 8c e2 </data>
+			<data addr="0x564" text="................">8c f5 bc e5 00 c6 8f e2  08 ca 8c e2 84 f5 bc e5 </data>
+			<data addr="0x574" text="........|.......">00 c6 8f e2 08 ca 8c e2  7c f5 bc e5 00 c6 8f e2 </data>
+			<data addr="0x584" text="....t...........">08 ca 8c e2 74 f5 bc e5  00 c6 8f e2 08 ca 8c e2 </data>
+			<data addr="0x594" text="l...........d...">6c f5 bc e5 00 c6 8f e2  08 ca 8c e2 64 f5 bc e5 </data>
+			<data addr="0x5a4" text="........\.......">00 c6 8f e2 08 ca 8c e2  5c f5 bc e5 00 c6 8f e2 </data>
+			<data addr="0x5b4" text="....T...........">08 ca 8c e2 54 f5 bc e5  00 c6 8f e2 08 ca 8c e2 </data>
+			<data addr="0x5c4" text="L...">4c f5 bc e5 </data>
+		</entry>
+		<entry sh_name=".text" sh_type="SHT_PROGBITS" sh_flags="SHF_ALLOC | SHF_EXECINSTR" sh_addr="0x85c8" sh_offset="0x5c8" sh_size="952" sh_link="0" sh_info="0" sh_addralign="4" sh_entsize="0">
+			<data addr="0x5c8" text="$............ ..">24 c0 9f e5 00 b0 a0 e3  04 10 9d e4 0d 20 a0 e1 </data>
+			<data addr="0x5d8" text=". -...-......0..">04 20 2d e5 04 00 2d e5  10 00 9f e5 10 30 9f e5 </data>
+			<data addr="0x5e8" text="..-.............">04 c0 2d e5 da ff ff eb  d3 ff ff eb f8 88 00 00 </data>
+			<data addr="0x5f8" text=".........D-.....">04 87 00 00 ac 88 00 00  00 44 2d e9 18 a0 9f e5 </data>
+			<data addr="0x608" text=".....0...0....S.">0a a0 8f e0 14 30 9f e5  03 30 9a e7 00 00 53 e3 </data>
+			<data addr="0x618" text="................">0f e0 a0 11 03 f0 a0 11  00 84 bd e8 b8 84 00 00 </data>
+			<data addr="0x628" text="L...p@-.TP...0..">4c 00 00 00 70 40 2d e9  54 50 9f e5 00 30 d5 e5 </data>
+			<data addr="0x638" text="..S.....H@......">00 00 53 e3 11 00 00 1a  48 40 9f e5 04 00 00 ea </data>
+			<data addr="0x648" text=".0...0...0......">00 30 94 e5 04 30 83 e2  00 30 84 e5 0f e0 a0 e1 </data>
+			<data addr="0x658" text=".....0... ....R.">02 f0 a0 e1 00 30 94 e5  00 20 93 e5 00 00 52 e3 </data>
+			<data addr="0x668" text=".... 0....S.....">f6 ff ff 1a 20 30 9f e5  00 00 53 e3 1c 00 9f 15 </data>
+			<data addr="0x678" text=".........0...0..">0f e0 a0 11 03 f0 a0 11  01 30 a0 e3 00 30 c5 e5 </data>
+			<data addr="0x688" text="p...$... ...8...">70 80 bd e8 24 0b 01 00  20 0b 01 00 38 85 00 00 </data>
+			<data addr="0x698" text=".....@-.....<0..">d0 89 00 00 10 40 2d e9  10 80 bd e8 3c 30 9f e5 </data>
+			<data addr="0x6a8" text=".@-...S.4...4...">10 40 2d e9 00 00 53 e3  34 00 9f e5 34 10 9f e5 </data>
+			<data addr="0x6b8" text="........,....0..">0f e0 a0 11 03 f0 a0 11  2c 00 9f e5 00 30 90 e5 </data>
+			<data addr="0x6c8" text="..S..... 0....S.">00 00 53 e3 04 00 00 0a  20 30 9f e5 00 00 53 e3 </data>
+			<data addr="0x6d8" text=".....@..........">01 00 00 0a 10 40 bd e8  af ff ff ea 10 80 bd e8 </data>
+			<data addr="0x6e8" text="........(.......">08 85 00 00 d0 89 00 00  28 0b 01 00 e4 09 01 00 </data>
+			<data addr="0x6f8" text=".....@-......A-.">00 00 00 00 10 40 2d e9  10 80 bd e8 f0 41 2d e9 </data>
+			<data addr="0x708" text="......M.........">01 1c a0 e3 02 dc 4d e2  02 10 81 e2 80 01 9f e5 </data>
+			<data addr="0x718" text=".....`P.Y.......">95 ff ff eb 00 60 50 e2  59 00 00 ba 07 8d 8d e2 </data>
+			<data addr="0x728" text=".]..........< ..">06 5d 8d e2 08 10 a0 e1  9e ff ff eb 3c 20 a0 e3 </data>
+			<data addr="0x738" text=".............>..">00 10 a0 e3 05 00 a0 e1  94 ff ff eb 8b 3e a0 e3 </data>
+			<data addr="0x748" text=".0...1..A/...0..">0d 30 83 e2 88 31 8d e5  41 2f a0 e3 02 30 a0 e3 </data>
+			<data addr="0x758" text=".!...1...,B..<..">80 21 8d e5 8c 31 8d e5  01 2c 42 e2 01 3c 8d e2 </data>
+			<data addr="0x768" text=".@... ...,...0..">00 40 a0 e3 95 20 c3 e5  01 2c 8d e2 01 30 a0 e3 </data>
+			<data addr="0x778" text=".0.......@...@..">97 30 c2 e5 04 10 a0 e1  91 40 c2 e5 92 40 c2 e5 </data>
+			<data addr="0x788" text=".@...@...@...@..">93 40 c2 e5 94 40 c2 e5  96 40 c2 e5 98 40 c2 e5 </data>
+			<data addr="0x798" text=".@...@...@...@..">99 40 c2 e5 9a 40 c2 e5  9b 40 c2 e5 9c 40 c2 e5 </data>
+			<data addr="0x7a8" text=".@...@...@...@..">9d 40 c2 e5 9e 40 c2 e5  9f 40 c2 e5 a0 40 c2 e5 </data>
+			<data addr="0x7b8" text=".@.......A..m...">a1 40 c2 e5 06 00 a0 e1  84 41 8d e5 6d ff ff eb </data>
+			<data addr="0x7c8" text=".....@... ......">04 10 a0 e1 cc 40 9f e5  05 20 a0 e1 06 00 a0 e1 </data>
+			<data addr="0x7d8" text="S...............">53 ff ff eb 04 e0 a0 e1  0f 00 be e8 0d c0 a0 e1 </data>
+			<data addr="0x7e8" text=".p...........P..">b4 70 9f e5 0f 00 ac e8  0f 00 9e e8 0d 50 a0 e1 </data>
+			<data addr="0x7f8" text="....#(...0... ..">07 00 ac e8 23 28 a0 e1  b2 30 cc e0 00 20 cc e5 </data>
+			<data addr="0x808" text="....O........ ..">0d 00 a0 e1 4f ff ff eb  0d 10 a0 e1 00 20 a0 e1 </data>
+			<data addr="0x818" text="....<....0....S.">06 00 a0 e1 3c ff ff eb  00 30 97 e5 00 00 53 e3 </data>
+			<data addr="0x828" text=".....P...@......">10 00 00 1a 03 50 a0 e1  80 40 8d e2 04 10 a0 e1 </data>
+			<data addr="0x838" text=". ......].......">ff 20 a0 e3 06 00 a0 e1  5d ff ff eb 02 1c 8d e2 </data>
+			<data addr="0x848" text=".0...=C.. ...P..">00 30 81 e0 06 3d 43 e2  00 20 a0 e1 00 50 c3 e5 </data>
+			<data addr="0x858" text="H.......@....0..">48 00 9f e5 04 10 a0 e1  40 ff ff eb 00 30 97 e5 </data>
+			<data addr="0x868" text="..S.......... ..">00 00 53 e3 f0 ff ff 0a  06 00 a0 e1 08 20 a0 e1 </data>
+			<data addr="0x878" text="....*...........">00 10 a0 e3 2a ff ff eb  00 00 a0 e3 02 dc 8d e2 </data>
+			<data addr="0x888" text="........".......">f0 81 bd e8 08 00 9f e5  22 ff ff eb 00 00 e0 e3 </data>
+			<data addr="0x898" text=";...........@...">3b ff ff eb 98 89 00 00  a8 89 00 00 40 0b 01 00 </data>
+			<data addr="0x8a8" text="....p@-......@..">c8 89 00 00 70 40 2d e9  0a ff ff eb 00 40 a0 e3 </data>
+			<data addr="0x8b8" text="00..0 ...0b.C.T.">30 30 9f e5 30 20 9f e5  03 30 62 e0 43 01 54 e1 </data>
+			<data addr="0x8c8" text="...*.`...0...Pb.">07 00 00 2a 02 60 a0 e1  18 30 9f e5 03 50 62 e0 </data>
+			<data addr="0x8d8" text=".........@..E.T.">0f e0 a0 e1 04 f1 96 e7  01 40 84 e2 45 01 54 e1 </data>
+			<data addr="0x8e8" text="...:p...........">fa ff ff 3a 70 80 bd e8  d4 09 01 00 d4 09 01 00 </data>
+			<data addr="0x8f8" text="p@-.4 ..40...@c.">70 40 2d e9 34 20 9f e5  34 30 9f e5 02 40 63 e0 </data>
+			<data addr="0x908" text="DA...@D...t.....">44 41 a0 e1 01 40 44 e2  01 00 74 e3 05 00 00 0a </data>
+			<data addr="0x918" text=".P...........@D.">03 50 a0 e1 0f e0 a0 e1  04 f1 95 e7 01 40 44 e2 </data>
+			<data addr="0x928" text="..t.........p...">01 00 74 e3 fa ff ff 1a  12 00 00 eb 70 80 bd e8 </data>
+			<data addr="0x938" text=".........@-.(0..">d4 09 01 00 d4 09 01 00  10 40 2d e9 28 30 9f e5 </data>
+			<data addr="0x948" text=". ...@C...r.....">04 20 13 e5 04 40 43 e2  01 00 72 e3 05 00 00 0a </data>
+			<data addr="0x958" text=".0...........04.">02 30 a0 e1 0f e0 a0 e1  03 f0 a0 e1 04 30 34 e5 </data>
+			<data addr="0x968" text="..s.............">01 00 73 e3 fa ff ff 1a  10 80 bd e8 d8 09 01 00 </data>
+			<data addr="0x978" text=".@-.....">10 40 2d e9 10 80 bd e8  </data>
+		</entry>
+		<entry sh_name=".fini" sh_type="SHT_PROGBITS" sh_flags="SHF_ALLOC | SHF_EXECINSTR" sh_addr="0x8980" sh_offset="0x980" sh_size="12" sh_link="0" sh_info="0" sh_addralign="4" sh_entsize="0">
+			<data addr="0x980" text=".@-.(.......">10 40 2d e9 28 ff ff eb  10 80 bd e8 </data>
+		</entry>
+		<entry sh_name=".rodata" sh_type="SHT_PROGBITS" sh_flags="SHF_ALLOC" sh_addr="0x8990" sh_offset="0x990" sh_size="64" sh_link="0" sh_info="0" sh_addralign="8" sh_entsize="0">
+			<data addr="0x990" text="......../dev/tty">01 00 02 00 00 00 00 00  2f 64 65 76 2f 74 74 79 </data>
+			<data addr="0x9a0" text="S2......$PSRF101">53 32 00 00 00 00 00 00  24 50 53 52 46 31 30 31 </data>
+			<data addr="0x9b0" text=",0,0,0,000,0,0,1">2c 30 2c 30 2c 30 2c 30  30 30 2c 30 2c 30 2c 31 </data>
+			<data addr="0x9c0" text="2,8*1C..:%s:%d..">32 2c 38 2a 31 43 00 00  3a 25 73 3a 25 64 0a 00 </data>
+		</entry>
+		<entry sh_name=".eh_frame" sh_type="SHT_PROGBITS" sh_flags="SHF_ALLOC" sh_addr="0x89d0" sh_offset="0x9d0" sh_size="4" sh_link="0" sh_info="0" sh_addralign="4" sh_entsize="0">
+			<data addr="0x9d0" text="....">00 00 00 00 </data>
+		</entry>
+		<entry sh_name=".ctors" sh_type="SHT_PROGBITS" sh_flags="SHF_WRITE | SHF_ALLOC" sh_addr="0x109d4" sh_offset="0x9d4" sh_size="8" sh_link="0" sh_info="0" sh_addralign="4" sh_entsize="0">
+			<data addr="0x9d4" text="........">ff ff ff ff 00 00 00 00  </data>
+		</entry>
+		<entry sh_name=".dtors" sh_type="SHT_PROGBITS" sh_flags="SHF_WRITE | SHF_ALLOC" sh_addr="0x109dc" sh_offset="0x9dc" sh_size="8" sh_link="0" sh_info="0" sh_addralign="4" sh_entsize="0">
+			<data addr="0x9dc" text="........">ff ff ff ff 00 00 00 00  </data>
+		</entry>
+		<entry sh_name=".jcr" sh_type="SHT_PROGBITS" sh_flags="SHF_WRITE | SHF_ALLOC" sh_addr="0x109e4" sh_offset="0x9e4" sh_size="4" sh_link="0" sh_info="0" sh_addralign="4" sh_entsize="0">
+			<data addr="0x9e4" text="....">00 00 00 00 </data>
+		</entry>
+		<entry sh_name=".dynamic" sh_type="SHT_DYNAMIC" sh_flags="SHF_WRITE | SHF_ALLOC" sh_addr="0x109e8" sh_offset="0x9e8" sh_size="224" sh_link="5" sh_info="0" sh_addralign="4" sh_entsize="8">
+			<data addr="0x9e8" text="............3...">01 00 00 00 01 00 00 00  01 00 00 00 33 00 00 00 </data>
+			<data addr="0x9f8" text="....=.......y...">01 00 00 00 3d 00 00 00  01 00 00 00 79 00 00 00 </data>
+			<data addr="0xa08" text="................">0c 00 00 00 e0 84 00 00  0d 00 00 00 80 89 00 00 </data>
+			<data addr="0xa18" text="....(...........">04 00 00 00 28 81 00 00  05 00 00 00 f0 82 00 00 </data>
+			<data addr="0xa28" text="................">06 00 00 00 c0 81 00 00  0a 00 00 00 01 01 00 00 </data>
+			<data addr="0xa38" text="................">0b 00 00 00 10 00 00 00  15 00 00 00 00 00 00 00 </data>
+			<data addr="0xa48" text="................">03 00 00 00 c8 0a 01 00  02 00 00 00 80 00 00 00 </data>
+			<data addr="0xa58" text="............`...">14 00 00 00 11 00 00 00  17 00 00 00 60 84 00 00 </data>
+			<data addr="0xa68" text="....X...........">11 00 00 00 58 84 00 00  12 00 00 00 08 00 00 00 </data>
+			<data addr="0xa78" text="...........o....">13 00 00 00 08 00 00 00  fe ff ff 6f 18 84 00 00 </data>
+			<data addr="0xa88" text="...o.......o....">ff ff ff 6f 02 00 00 00  f0 ff ff 6f f2 83 00 00 </data>
+			<data addr="0xa98" text="................">00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00 </data>
+			<data addr="0xaa8" text="................">00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00 </data>
+			<data addr="0xab8" text="................">00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00 </data>
+		</entry>
+		<entry sh_name=".got" sh_type="SHT_PROGBITS" sh_flags="SHF_WRITE | SHF_ALLOC" sh_addr="0x10ac8" sh_offset="0xac8" sh_size="80" sh_link="0" sh_info="0" sh_addralign="4" sh_entsize="4">
+			<data addr="0xac8" text="................">e8 09 01 00 00 00 00 00  00 00 00 00 f4 84 00 00 </data>
+			<data addr="0xad8" text="................">f4 84 00 00 f4 84 00 00  f4 84 00 00 f4 84 00 00 </data>
+			<data addr="0xae8" text="................">f4 84 00 00 f4 84 00 00  f4 84 00 00 f4 84 00 00 </data>
+			<data addr="0xaf8" text="................">f4 84 00 00 f4 84 00 00  f4 84 00 00 f4 84 00 00 </data>
+			<data addr="0xb08" text="................">f4 84 00 00 f4 84 00 00  f4 84 00 00 00 00 00 00 </data>
+		</entry>
+		<entry sh_name=".data" sh_type="SHT_PROGBITS" sh_flags="SHF_WRITE | SHF_ALLOC" sh_addr="0x10b18" sh_offset="0xb18" sh_size="12" sh_link="0" sh_info="0" sh_addralign="4" sh_entsize="0">
+			<data addr="0xb18" text="............">00 00 00 00 00 00 00 00  e0 09 01 00 </data>
+		</entry>
+		<entry sh_name=".bss" sh_type="SHT_NOBITS" sh_flags="SHF_WRITE | SHF_ALLOC" sh_addr="0x10b24" sh_offset="0xb24" sh_size="32" sh_link="0" sh_info="0" sh_addralign="4" sh_entsize="0">
+			<data addr="0xb24" text=".GCC: (GNU) 3.4.">00 47 43 43 3a 20 28 47  4e 55 29 20 33 2e 34 2e </data>
+			<data addr="0xb34" text="3..GCC: (GNU) 3.">33 00 00 47 43 43 3a 20  28 47 4e 55 29 20 33 2e </data>
+		</entry>
+		<entry sh_name=".comment" sh_type="SHT_PROGBITS" sh_flags="" sh_addr="0x0" sh_offset="0xb24" sh_size="126" sh_link="0" sh_info="0" sh_addralign="1" sh_entsize="0">
+			<data addr="0xb24" text=".GCC: (GNU) 3.4.">00 47 43 43 3a 20 28 47  4e 55 29 20 33 2e 34 2e </data>
+			<data addr="0xb34" text="3..GCC: (GNU) 3.">33 00 00 47 43 43 3a 20  28 47 4e 55 29 20 33 2e </data>
+			<data addr="0xb44" text="4.3..GCC: (GNU) ">34 2e 33 00 00 47 43 43  3a 20 28 47 4e 55 29 20 </data>
+			<data addr="0xb54" text="3.4.3..GCC: (GNU">33 2e 34 2e 33 00 00 47  43 43 3a 20 28 47 4e 55 </data>
+			<data addr="0xb64" text=") 3.4.3..GCC: (G">29 20 33 2e 34 2e 33 00  00 47 43 43 3a 20 28 47 </data>
+			<data addr="0xb74" text="NU) 3.4.3..GCC: ">4e 55 29 20 33 2e 34 2e  33 00 00 47 43 43 3a 20 </data>
+			<data addr="0xb84" text="(GNU) 3.4.3..GCC">28 47 4e 55 29 20 33 2e  34 2e 33 00 00 47 43 43 </data>
+			<data addr="0xb94" text=": (GNU) 3.4.3.">3a 20 28 47 4e 55 29 20  33 2e 34 2e 33 00 </data>
+		</entry>
+		<entry sh_name=".debug_aranges" sh_type="SHT_PROGBITS" sh_flags="" sh_addr="0x0" sh_offset="0xba8" sh_size="88" sh_link="0" sh_info="0" sh_addralign="8" sh_entsize="0">
+			<data addr="0xba8" text=",...............">2c 00 00 00 02 00 00 00  00 00 04 00 00 00 00 00 </data>
+			<data addr="0xbb8" text="................">80 89 00 00 04 00 00 00  e0 84 00 00 08 00 00 00 </data>
+			<data addr="0xbc8" text="....,...........">00 86 00 00 2c 00 00 00  00 00 00 00 00 00 00 00 </data>
+			<data addr="0xbd8" text="$...............">24 00 00 00 02 00 d8 00  00 00 04 00 00 00 00 00 </data>
+			<data addr="0xbe8" text="................">88 89 00 00 04 00 00 00  f0 84 00 00 04 00 00 00 </data>
+			<data addr="0xbf8" text="........">00 00 00 00 00 00 00 00  </data>
+		</entry>
+		<entry sh_name=".debug_info" sh_type="SHT_PROGBITS" sh_flags="" sh_addr="0x0" sh_offset="0xc00" sh_size="432" sh_link="0" sh_info="0" sh_addralign="1" sh_entsize="0">
+			<data addr="0xc00" text="................">d4 00 00 00 02 00 00 00  00 00 04 01 00 00 00 00 </data>
+			<data addr="0xc10" text="/opt/q+esto/tc/r">2f 6f 70 74 2f 71 2b 65  73 74 6f 2f 74 63 2f 72 </data>
+			<data addr="0xc20" text="pm/src/redhat/BU">70 6d 2f 73 72 63 2f 72  65 64 68 61 74 2f 42 55 </data>
+			<data addr="0xc30" text="ILD/cdt-arm-le-n">49 4c 44 2f 63 64 74 2d  61 72 6d 2d 6c 65 2d 6e </data>
+			<data addr="0xc40" text="ofpu-glibc-2.3.2">6f 66 70 75 2d 67 6c 69  62 63 2d 32 2e 33 2e 32 </data>
+			<data addr="0xc50" text="/build/glibc-2.3">2f 62 75 69 6c 64 2f 67  6c 69 62 63 2d 32 2e 33 </data>
+			<data addr="0xc60" text=".2/csu/crti.S./o">2e 32 2f 63 73 75 2f 63  72 74 69 2e 53 00 2f 6f </data>
+			<data addr="0xc70" text="pt/q+esto/tc/rpm">70 74 2f 71 2b 65 73 74  6f 2f 74 63 2f 72 70 6d </data>
+			<data addr="0xc80" text="/src/redhat/BUIL">2f 73 72 63 2f 72 65 64  68 61 74 2f 42 55 49 4c </data>
+			<data addr="0xc90" text="D/cdt-arm-le-nof">44 2f 63 64 74 2d 61 72  6d 2d 6c 65 2d 6e 6f 66 </data>
+			<data addr="0xca0" text="pu-glibc-2.3.2/s">70 75 2d 67 6c 69 62 63  2d 32 2e 33 2e 32 2f 73 </data>
+			<data addr="0xcb0" text="rc/glibc-2.3.2/c">72 63 2f 67 6c 69 62 63  2d 32 2e 33 2e 32 2f 63 </data>
+			<data addr="0xcc0" text="su.GNU AS 2.15.9">73 75 00 47 4e 55 20 41  53 20 32 2e 31 35 2e 39 </data>
+			<data addr="0xcd0" text="1.0.2...........">31 2e 30 2e 32 00 01 80  d4 00 00 00 02 00 10 00 </data>
+			<data addr="0xce0" text="......../opt/q+e">00 00 04 01 b1 00 00 00  2f 6f 70 74 2f 71 2b 65 </data>
+			<data addr="0xcf0" text="sto/tc/rpm/src/r">73 74 6f 2f 74 63 2f 72  70 6d 2f 73 72 63 2f 72 </data>
+			<data addr="0xd00" text="edhat/BUILD/cdt-">65 64 68 61 74 2f 42 55  49 4c 44 2f 63 64 74 2d </data>
+			<data addr="0xd10" text="arm-le-nofpu-gli">61 72 6d 2d 6c 65 2d 6e  6f 66 70 75 2d 67 6c 69 </data>
+			<data addr="0xd20" text="bc-2.3.2/build/g">62 63 2d 32 2e 33 2e 32  2f 62 75 69 6c 64 2f 67 </data>
+			<data addr="0xd30" text="libc-2.3.2/csu/c">6c 69 62 63 2d 32 2e 33  2e 32 2f 63 73 75 2f 63 </data>
+			<data addr="0xd40" text="rtn.S./opt/q+est">72 74 6e 2e 53 00 2f 6f  70 74 2f 71 2b 65 73 74 </data>
+			<data addr="0xd50" text="o/tc/rpm/src/red">6f 2f 74 63 2f 72 70 6d  2f 73 72 63 2f 72 65 64 </data>
+			<data addr="0xd60" text="hat/BUILD/cdt-ar">68 61 74 2f 42 55 49 4c  44 2f 63 64 74 2d 61 72 </data>
+			<data addr="0xd70" text="m-le-nofpu-glibc">6d 2d 6c 65 2d 6e 6f 66  70 75 2d 67 6c 69 62 63 </data>
+			<data addr="0xd80" text="-2.3.2/src/glibc">2d 32 2e 33 2e 32 2f 73  72 63 2f 67 6c 69 62 63 </data>
+			<data addr="0xd90" text="-2.3.2/csu.GNU A">2d 32 2e 33 2e 32 2f 63  73 75 00 47 4e 55 20 41 </data>
+			<data addr="0xda0" text="S 2.15.91.0.2...">53 20 32 2e 31 35 2e 39  31 2e 30 2e 32 00 01 80 </data>
+		</entry>
+		<entry sh_name=".debug_abbrev" sh_type="SHT_PROGBITS" sh_flags="" sh_addr="0x0" sh_offset="0xdb0" sh_size="32" sh_link="0" sh_info="0" sh_addralign="1" sh_entsize="0">
+			<data addr="0xdb0" text=".........%......">01 11 00 10 06 03 08 1b  08 25 08 13 05 00 00 00 </data>
+			<data addr="0xdc0" text=".........%......">01 11 00 10 06 03 08 1b  08 25 08 13 05 00 00 00 </data>
+		</entry>
+		<entry sh_name=".debug_line" sh_type="SHT_PROGBITS" sh_flags="" sh_addr="0x0" sh_offset="0xdd0" sh_size="328" sh_link="0" sh_info="0" sh_addralign="1" sh_entsize="0">
+			<data addr="0xdd0" text="......q.........">ad 00 00 00 02 00 71 00  00 00 02 01 fb 0e 0a 00 </data>
+			<data addr="0xde0" text="......../opt/q+e">01 01 01 01 00 00 00 01  2f 6f 70 74 2f 71 2b 65 </data>
+			<data addr="0xdf0" text="sto/tc/rpm/src/r">73 74 6f 2f 74 63 2f 72  70 6d 2f 73 72 63 2f 72 </data>
+			<data addr="0xe00" text="edhat/BUILD/cdt-">65 64 68 61 74 2f 42 55  49 4c 44 2f 63 64 74 2d </data>
+			<data addr="0xe10" text="arm-le-nofpu-gli">61 72 6d 2d 6c 65 2d 6e  6f 66 70 75 2d 67 6c 69 </data>
+			<data addr="0xe20" text="bc-2.3.2/build/g">62 63 2d 32 2e 33 2e 32  2f 62 75 69 6c 64 2f 67 </data>
+			<data addr="0xe30" text="libc-2.3.2/csu..">6c 69 62 63 2d 32 2e 33  2e 32 2f 63 73 75 00 00 </data>
+			<data addr="0xe40" text="crti.S..........">63 72 74 69 2e 53 00 01  00 00 00 00 05 02 80 89 </data>
+			<data addr="0xe50" text="...3............">00 00 03 33 01 02 02 00  01 01 00 05 02 e0 84 00 </data>
+			<data addr="0xe60" text="..$.,...........">00 03 24 01 2c 02 02 00  01 01 00 05 02 00 86 00 </data>
+			<data addr="0xe70" text="....,-,,,,,-....">00 03 0c 01 2c 2d 2c 2c  2c 2c 2c 2d 02 06 00 01 </data>
+			<data addr="0xe80" text=".......q........">01 93 00 00 00 02 00 71  00 00 00 02 01 fb 0e 0a </data>
+			<data addr="0xe90" text="........./opt/q+">00 01 01 01 01 00 00 00  01 2f 6f 70 74 2f 71 2b </data>
+			<data addr="0xea0" text="esto/tc/rpm/src/">65 73 74 6f 2f 74 63 2f  72 70 6d 2f 73 72 63 2f </data>
+			<data addr="0xeb0" text="redhat/BUILD/cdt">72 65 64 68 61 74 2f 42  55 49 4c 44 2f 63 64 74 </data>
+			<data addr="0xec0" text="-arm-le-nofpu-gl">2d 61 72 6d 2d 6c 65 2d  6e 6f 66 70 75 2d 67 6c </data>
+			<data addr="0xed0" text="ibc-2.3.2/build/">69 62 63 2d 32 2e 33 2e  32 2f 62 75 69 6c 64 2f </data>
+			<data addr="0xee0" text="glibc-2.3.2/csu.">67 6c 69 62 63 2d 32 2e  33 2e 32 2f 63 73 75 00 </data>
+			<data addr="0xef0" text=".crtn.S.........">00 63 72 74 6e 2e 53 00  01 00 00 00 00 05 02 88 </data>
+			<data addr="0xf00" text="................">89 00 00 03 0f 01 02 02  00 01 01 00 05 02 f0 84 </data>
+			<data addr="0xf10" text="........">00 00 17 02 02 00 01 01  </data>
+		</entry>
+		<entry sh_name=".shstrtab" sh_type="SHT_STRTAB" sh_flags="" sh_addr="0x0" sh_offset="0xf18" sh_size="259" sh_link="0" sh_info="0" sh_addralign="1" sh_entsize="0">
+			<data addr="0xf18" text="..symtab..strtab">00 2e 73 79 6d 74 61 62  00 2e 73 74 72 74 61 62 </data>
+			<data addr="0xf28" text="..shstrtab..inte">00 2e 73 68 73 74 72 74  61 62 00 2e 69 6e 74 65 </data>
+			<data addr="0xf38" text="rp..note.ABI-tag">72 70 00 2e 6e 6f 74 65  2e 41 42 49 2d 74 61 67 </data>
+			<data addr="0xf48" text="..hash..dynsym..">00 2e 68 61 73 68 00 2e  64 79 6e 73 79 6d 00 2e </data>
+			<data addr="0xf58" text="dynstr..gnu.vers">64 79 6e 73 74 72 00 2e  67 6e 75 2e 76 65 72 73 </data>
+			<data addr="0xf68" text="ion..gnu.version">69 6f 6e 00 2e 67 6e 75  2e 76 65 72 73 69 6f 6e </data>
+			<data addr="0xf78" text="_r..rel.dyn..rel">5f 72 00 2e 72 65 6c 2e  64 79 6e 00 2e 72 65 6c </data>
+			<data addr="0xf88" text=".plt..init..text">2e 70 6c 74 00 2e 69 6e  69 74 00 2e 74 65 78 74 </data>
+			<data addr="0xf98" text="..fini..rodata..">00 2e 66 69 6e 69 00 2e  72 6f 64 61 74 61 00 2e </data>
+			<data addr="0xfa8" text="eh_frame..ctors.">65 68 5f 66 72 61 6d 65  00 2e 63 74 6f 72 73 00 </data>
+			<data addr="0xfb8" text=".dtors..jcr..dyn">2e 64 74 6f 72 73 00 2e  6a 63 72 00 2e 64 79 6e </data>
+			<data addr="0xfc8" text="amic..got..data.">61 6d 69 63 00 2e 67 6f  74 00 2e 64 61 74 61 00 </data>
+			<data addr="0xfd8" text=".bss..comment..d">2e 62 73 73 00 2e 63 6f  6d 6d 65 6e 74 00 2e 64 </data>
+			<data addr="0xfe8" text="ebug_aranges..de">65 62 75 67 5f 61 72 61  6e 67 65 73 00 2e 64 65 </data>
+			<data addr="0xff8" text="bug_info..debug_">62 75 67 5f 69 6e 66 6f  00 2e 64 65 62 75 67 5f </data>
+			<data addr="0x1008" text="abbrev..debug_li">61 62 62 72 65 76 00 2e  64 65 62 75 67 5f 6c 69 </data>
+			<data addr="0x1018" text="ne.">6e 65 00 </data>
+		</entry>
+		<entry sh_name=".symtab" sh_type="SHT_SYMTAB" sh_flags="" sh_addr="0x0" sh_offset="0x14f4" sh_size="2768" sh_link="30" sh_info="132" sh_addralign="4" sh_entsize="16">
+			<symbol st_name="" st_value="0x0" st_size="0" st_info="0" st_other="0" st_shndx="0" st_bind="STB_LOCAL" st_type="STT_NOTYPE"/>
+			<symbol st_name="" st_value="0x80f4" st_size="0" st_info="3" st_other="0" st_shndx="1" st_bind="STB_LOCAL" st_type="STT_SECTION"/>
+			<symbol st_name="" st_value="0x8108" st_size="0" st_info="3" st_other="0" st_shndx="2" st_bind="STB_LOCAL" st_type="STT_SECTION"/>
+			<symbol st_name="" st_value="0x8128" st_size="0" st_info="3" st_other="0" st_shndx="3" st_bind="STB_LOCAL" st_type="STT_SECTION"/>
+			<symbol st_name="" st_value="0x81c0" st_size="0" st_info="3" st_other="0" st_shndx="4" st_bind="STB_LOCAL" st_type="STT_SECTION"/>
+			<symbol st_name="" st_value="0x82f0" st_size="0" st_info="3" st_other="0" st_shndx="5" st_bind="STB_LOCAL" st_type="STT_SECTION"/>
+			<symbol st_name="" st_value="0x83f2" st_size="0" st_info="3" st_other="0" st_shndx="6" st_bind="STB_LOCAL" st_type="STT_SECTION"/>
+			<symbol st_name="" st_value="0x8418" st_size="0" st_info="3" st_other="0" st_shndx="7" st_bind="STB_LOCAL" st_type="STT_SECTION"/>
+			<symbol st_name="" st_value="0x8458" st_size="0" st_info="3" st_other="0" st_shndx="8" st_bind="STB_LOCAL" st_type="STT_SECTION"/>
+			<symbol st_name="" st_value="0x8460" st_size="0" st_info="3" st_other="0" st_shndx="9" st_bind="STB_LOCAL" st_type="STT_SECTION"/>
+			<symbol st_name="" st_value="0x84e0" st_size="0" st_info="3" st_other="0" st_shndx="10" st_bind="STB_LOCAL" st_type="STT_SECTION"/>
+			<symbol st_name="" st_value="0x84f4" st_size="0" st_info="3" st_other="0" st_shndx="11" st_bind="STB_LOCAL" st_type="STT_SECTION"/>
+			<symbol st_name="" st_value="0x85c8" st_size="0" st_info="3" st_other="0" st_shndx="12" st_bind="STB_LOCAL" st_type="STT_SECTION"/>
+			<symbol st_name="" st_value="0x8980" st_size="0" st_info="3" st_other="0" st_shndx="13" st_bind="STB_LOCAL" st_type="STT_SECTION"/>
+			<symbol st_name="" st_value="0x8990" st_size="0" st_info="3" st_other="0" st_shndx="14" st_bind="STB_LOCAL" st_type="STT_SECTION"/>
+			<symbol st_name="" st_value="0x89d0" st_size="0" st_info="3" st_other="0" st_shndx="15" st_bind="STB_LOCAL" st_type="STT_SECTION"/>
+			<symbol st_name="" st_value="0x109d4" st_size="0" st_info="3" st_other="0" st_shndx="16" st_bind="STB_LOCAL" st_type="STT_SECTION"/>
+			<symbol st_name="" st_value="0x109dc" st_size="0" st_info="3" st_other="0" st_shndx="17" st_bind="STB_LOCAL" st_type="STT_SECTION"/>
+			<symbol st_name="" st_value="0x109e4" st_size="0" st_info="3" st_other="0" st_shndx="18" st_bind="STB_LOCAL" st_type="STT_SECTION"/>
+			<symbol st_name="" st_value="0x109e8" st_size="0" st_info="3" st_other="0" st_shndx="19" st_bind="STB_LOCAL" st_type="STT_SECTION"/>
+			<symbol st_name="" st_value="0x10ac8" st_size="0" st_info="3" st_other="0" st_shndx="20" st_bind="STB_LOCAL" st_type="STT_SECTION"/>
+			<symbol st_name="" st_value="0x10b18" st_size="0" st_info="3" st_other="0" st_shndx="21" st_bind="STB_LOCAL" st_type="STT_SECTION"/>
+			<symbol st_name="" st_value="0x10b24" st_size="0" st_info="3" st_other="0" st_shndx="22" st_bind="STB_LOCAL" st_type="STT_SECTION"/>
+			<symbol st_name="" st_value="0x0" st_size="0" st_info="3" st_other="0" st_shndx="23" st_bind="STB_LOCAL" st_type="STT_SECTION"/>
+			<symbol st_name="" st_value="0x0" st_size="0" st_info="3" st_other="0" st_shndx="24" st_bind="STB_LOCAL" st_type="STT_SECTION"/>
+			<symbol st_name="" st_value="0x0" st_size="0" st_info="3" st_other="0" st_shndx="25" st_bind="STB_LOCAL" st_type="STT_SECTION"/>
+			<symbol st_name="" st_value="0x0" st_size="0" st_info="3" st_other="0" st_shndx="26" st_bind="STB_LOCAL" st_type="STT_SECTION"/>
+			<symbol st_name="" st_value="0x0" st_size="0" st_info="3" st_other="0" st_shndx="27" st_bind="STB_LOCAL" st_type="STT_SECTION"/>
+			<symbol st_name="" st_value="0x0" st_size="0" st_info="3" st_other="0" st_shndx="28" st_bind="STB_LOCAL" st_type="STT_SECTION"/>
+			<symbol st_name="" st_value="0x0" st_size="0" st_info="3" st_other="0" st_shndx="29" st_bind="STB_LOCAL" st_type="STT_SECTION"/>
+			<symbol st_name="" st_value="0x0" st_size="0" st_info="3" st_other="0" st_shndx="30" st_bind="STB_LOCAL" st_type="STT_SECTION"/>
+			<symbol st_name="/opt/q+esto/tc/rpm/src/redhat/BUILD/cdt-arm-le-nofpu-glibc-2.3.2/build/glibc-2.3.2/csu/crti.S" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="/opt/q+esto/tc/rpm/src/redhat/BUILD/cdt-arm-le-nofpu-glibc-2.3.2/build/glibc-2.3.2/csu/defs.h" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="/opt/q+esto/tc/rpm/src/redhat/BUILD/cdt-arm-le-nofpu-glibc-2.3.2/build/glibc-2.3.2/csu/defs.h" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="initfini.c" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="/opt/q+esto/tc/rpm/src/redhat/BUILD/cdt-arm-le-nofpu-glibc-2.3.2/build/glibc-2.3.2/csu/crti.S" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="&lt;command line&gt;" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="./../include/libc-symbols.h" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="/opt/q+esto/tc/rpm/src/redhat/BUILD/cdt-arm-le-nofpu-glibc-2.3.2/build/glibc-2.3.2/config.h" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="./../include/libc-symbols.h" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="&lt;command line&gt;" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="&lt;built-in&gt;" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="/opt/q+esto/tc/rpm/src/redhat/BUILD/cdt-arm-le-nofpu-glibc-2.3.2/build/glibc-2.3.2/csu/crti.S" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="call_gmon_start" st_value="0x8600" st_size="0" st_info="2" st_other="0" st_shndx="12" st_bind="STB_LOCAL" st_type="STT_FUNC"/>
+			<symbol st_name="$a" st_value="0x8600" st_size="0" st_info="2" st_other="0" st_shndx="12" st_bind="STB_LOCAL" st_type="STT_FUNC"/>
+			<symbol st_name="$d" st_value="0x8624" st_size="0" st_info="1" st_other="0" st_shndx="12" st_bind="STB_LOCAL" st_type="STT_OBJECT"/>
+			<symbol st_name="$a" st_value="0x84e0" st_size="0" st_info="2" st_other="0" st_shndx="10" st_bind="STB_LOCAL" st_type="STT_FUNC"/>
+			<symbol st_name="$a" st_value="0x8980" st_size="0" st_info="2" st_other="0" st_shndx="13" st_bind="STB_LOCAL" st_type="STT_FUNC"/>
+			<symbol st_name="&lt;command line&gt;" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="./../include/libc-symbols.h" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="/opt/q+esto/tc/rpm/src/redhat/BUILD/cdt-arm-le-nofpu-glibc-2.3.2/build/glibc-2.3.2/config.h" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="./../include/libc-symbols.h" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="&lt;command line&gt;" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="&lt;built-in&gt;" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="$a" st_value="0x85c8" st_size="0" st_info="2" st_other="0" st_shndx="12" st_bind="STB_LOCAL" st_type="STT_FUNC"/>
+			<symbol st_name="$d" st_value="0x10b18" st_size="0" st_info="1" st_other="0" st_shndx="21" st_bind="STB_LOCAL" st_type="STT_OBJECT"/>
+			<symbol st_name="$d" st_value="0x85f4" st_size="0" st_info="1" st_other="0" st_shndx="12" st_bind="STB_LOCAL" st_type="STT_OBJECT"/>
+			<symbol st_name="abi-note.S" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="/opt/q+esto/tc/rpm/src/redhat/BUILD/cdt-arm-le-nofpu-glibc-2.3.2/build/glibc-2.3.2/csu/abi-tag.h" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="abi-note.S" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="/opt/q+esto/tc/rpm/src/redhat/BUILD/cdt-arm-le-nofpu-glibc-2.3.2/build/glibc-2.3.2/config.h" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="abi-note.S" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="&lt;command line&gt;" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="./../include/libc-symbols.h" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="/opt/q+esto/tc/rpm/src/redhat/BUILD/cdt-arm-le-nofpu-glibc-2.3.2/build/glibc-2.3.2/config.h" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="./../include/libc-symbols.h" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="&lt;command line&gt;" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="&lt;built-in&gt;" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="abi-note.S" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="$d" st_value="0x8108" st_size="0" st_info="1" st_other="0" st_shndx="2" st_bind="STB_LOCAL" st_type="STT_OBJECT"/>
+			<symbol st_name="init.c" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="$d" st_value="0x8990" st_size="0" st_info="1" st_other="0" st_shndx="14" st_bind="STB_LOCAL" st_type="STT_OBJECT"/>
+			<symbol st_name="crtstuff.c" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="__CTOR_LIST__" st_value="0x109d4" st_size="0" st_info="1" st_other="0" st_shndx="16" st_bind="STB_LOCAL" st_type="STT_OBJECT"/>
+			<symbol st_name="$d" st_value="0x109d4" st_size="0" st_info="1" st_other="0" st_shndx="16" st_bind="STB_LOCAL" st_type="STT_OBJECT"/>
+			<symbol st_name="__DTOR_LIST__" st_value="0x109dc" st_size="0" st_info="1" st_other="0" st_shndx="17" st_bind="STB_LOCAL" st_type="STT_OBJECT"/>
+			<symbol st_name="$d" st_value="0x109dc" st_size="0" st_info="1" st_other="0" st_shndx="17" st_bind="STB_LOCAL" st_type="STT_OBJECT"/>
+			<symbol st_name="__EH_FRAME_BEGIN__" st_value="0x89d0" st_size="0" st_info="1" st_other="0" st_shndx="15" st_bind="STB_LOCAL" st_type="STT_OBJECT"/>
+			<symbol st_name="__JCR_LIST__" st_value="0x109e4" st_size="0" st_info="1" st_other="0" st_shndx="18" st_bind="STB_LOCAL" st_type="STT_OBJECT"/>
+			<symbol st_name="$d" st_value="0x10b1c" st_size="0" st_info="1" st_other="0" st_shndx="21" st_bind="STB_LOCAL" st_type="STT_OBJECT"/>
+			<symbol st_name="p.0" st_value="0x10b20" st_size="0" st_info="1" st_other="0" st_shndx="21" st_bind="STB_LOCAL" st_type="STT_OBJECT"/>
+			<symbol st_name="completed.1" st_value="0x10b24" st_size="1" st_info="1" st_other="0" st_shndx="22" st_bind="STB_LOCAL" st_type="STT_OBJECT"/>
+			<symbol st_name="__do_global_dtors_aux" st_value="0x862c" st_size="0" st_info="2" st_other="0" st_shndx="12" st_bind="STB_LOCAL" st_type="STT_FUNC"/>
+			<symbol st_name="$a" st_value="0x862c" st_size="0" st_info="2" st_other="0" st_shndx="12" st_bind="STB_LOCAL" st_type="STT_FUNC"/>
+			<symbol st_name="$d" st_value="0x868c" st_size="0" st_info="1" st_other="0" st_shndx="12" st_bind="STB_LOCAL" st_type="STT_OBJECT"/>
+			<symbol st_name="call___do_global_dtors_aux" st_value="0x869c" st_size="0" st_info="2" st_other="0" st_shndx="12" st_bind="STB_LOCAL" st_type="STT_FUNC"/>
+			<symbol st_name="$a" st_value="0x869c" st_size="0" st_info="2" st_other="0" st_shndx="12" st_bind="STB_LOCAL" st_type="STT_FUNC"/>
+			<symbol st_name="$a" st_value="0x8984" st_size="0" st_info="2" st_other="0" st_shndx="13" st_bind="STB_LOCAL" st_type="STT_FUNC"/>
+			<symbol st_name="object.2" st_value="0x10b28" st_size="24" st_info="1" st_other="0" st_shndx="22" st_bind="STB_LOCAL" st_type="STT_OBJECT"/>
+			<symbol st_name="frame_dummy" st_value="0x86a4" st_size="0" st_info="2" st_other="0" st_shndx="12" st_bind="STB_LOCAL" st_type="STT_FUNC"/>
+			<symbol st_name="$d" st_value="0x86e8" st_size="0" st_info="1" st_other="0" st_shndx="12" st_bind="STB_LOCAL" st_type="STT_OBJECT"/>
+			<symbol st_name="call_frame_dummy" st_value="0x86fc" st_size="0" st_info="2" st_other="0" st_shndx="12" st_bind="STB_LOCAL" st_type="STT_FUNC"/>
+			<symbol st_name="$a" st_value="0x86fc" st_size="0" st_info="2" st_other="0" st_shndx="12" st_bind="STB_LOCAL" st_type="STT_FUNC"/>
+			<symbol st_name="$a" st_value="0x84e8" st_size="0" st_info="2" st_other="0" st_shndx="10" st_bind="STB_LOCAL" st_type="STT_FUNC"/>
+			<symbol st_name="crtstuff.c" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="__CTOR_END__" st_value="0x109d8" st_size="0" st_info="1" st_other="0" st_shndx="16" st_bind="STB_LOCAL" st_type="STT_OBJECT"/>
+			<symbol st_name="$d" st_value="0x109d8" st_size="0" st_info="1" st_other="0" st_shndx="16" st_bind="STB_LOCAL" st_type="STT_OBJECT"/>
+			<symbol st_name="__DTOR_END__" st_value="0x109e0" st_size="0" st_info="1" st_other="0" st_shndx="17" st_bind="STB_LOCAL" st_type="STT_OBJECT"/>
+			<symbol st_name="$d" st_value="0x109e0" st_size="0" st_info="1" st_other="0" st_shndx="17" st_bind="STB_LOCAL" st_type="STT_OBJECT"/>
+			<symbol st_name="__FRAME_END__" st_value="0x89d0" st_size="0" st_info="1" st_other="0" st_shndx="15" st_bind="STB_LOCAL" st_type="STT_OBJECT"/>
+			<symbol st_name="$d" st_value="0x89d0" st_size="0" st_info="1" st_other="0" st_shndx="15" st_bind="STB_LOCAL" st_type="STT_OBJECT"/>
+			<symbol st_name="__JCR_END__" st_value="0x109e4" st_size="0" st_info="1" st_other="0" st_shndx="18" st_bind="STB_LOCAL" st_type="STT_OBJECT"/>
+			<symbol st_name="$d" st_value="0x109e4" st_size="0" st_info="1" st_other="0" st_shndx="18" st_bind="STB_LOCAL" st_type="STT_OBJECT"/>
+			<symbol st_name="__do_global_ctors_aux" st_value="0x8940" st_size="0" st_info="2" st_other="0" st_shndx="12" st_bind="STB_LOCAL" st_type="STT_FUNC"/>
+			<symbol st_name="$a" st_value="0x8940" st_size="0" st_info="2" st_other="0" st_shndx="12" st_bind="STB_LOCAL" st_type="STT_FUNC"/>
+			<symbol st_name="$d" st_value="0x8974" st_size="0" st_info="1" st_other="0" st_shndx="12" st_bind="STB_LOCAL" st_type="STT_OBJECT"/>
+			<symbol st_name="call___do_global_ctors_aux" st_value="0x8978" st_size="0" st_info="2" st_other="0" st_shndx="12" st_bind="STB_LOCAL" st_type="STT_FUNC"/>
+			<symbol st_name="$a" st_value="0x8978" st_size="0" st_info="2" st_other="0" st_shndx="12" st_bind="STB_LOCAL" st_type="STT_FUNC"/>
+			<symbol st_name="$a" st_value="0x84ec" st_size="0" st_info="2" st_other="0" st_shndx="10" st_bind="STB_LOCAL" st_type="STT_FUNC"/>
+			<symbol st_name="/opt/q+esto/tc/rpm/src/redhat/BUILD/cdt-arm-le-nofpu-glibc-2.3.2/build/glibc-2.3.2/csu/crtn.S" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="/opt/q+esto/tc/rpm/src/redhat/BUILD/cdt-arm-le-nofpu-glibc-2.3.2/build/glibc-2.3.2/csu/defs.h" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="/opt/q+esto/tc/rpm/src/redhat/BUILD/cdt-arm-le-nofpu-glibc-2.3.2/build/glibc-2.3.2/csu/defs.h" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="initfini.c" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="/opt/q+esto/tc/rpm/src/redhat/BUILD/cdt-arm-le-nofpu-glibc-2.3.2/build/glibc-2.3.2/csu/crtn.S" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="&lt;command line&gt;" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="./../include/libc-symbols.h" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="/opt/q+esto/tc/rpm/src/redhat/BUILD/cdt-arm-le-nofpu-glibc-2.3.2/build/glibc-2.3.2/config.h" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="./../include/libc-symbols.h" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="&lt;command line&gt;" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="&lt;built-in&gt;" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="/opt/q+esto/tc/rpm/src/redhat/BUILD/cdt-arm-le-nofpu-glibc-2.3.2/build/glibc-2.3.2/csu/crtn.S" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="$a" st_value="0x84f0" st_size="0" st_info="2" st_other="0" st_shndx="10" st_bind="STB_LOCAL" st_type="STT_FUNC"/>
+			<symbol st_name="$a" st_value="0x8988" st_size="0" st_info="2" st_other="0" st_shndx="13" st_bind="STB_LOCAL" st_type="STT_FUNC"/>
+			<symbol st_name="main.cpp" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="$d" st_value="0x10b40" st_size="0" st_info="1" st_other="0" st_shndx="22" st_bind="STB_LOCAL" st_type="STT_OBJECT"/>
+			<symbol st_name="$a" st_value="0x8704" st_size="0" st_info="2" st_other="0" st_shndx="12" st_bind="STB_LOCAL" st_type="STT_FUNC"/>
+			<symbol st_name="$d" st_value="0x889c" st_size="0" st_info="1" st_other="0" st_shndx="12" st_bind="STB_LOCAL" st_type="STT_OBJECT"/>
+			<symbol st_name="elf-init.c" st_value="0x0" st_size="0" st_info="4" st_other="0" st_shndx="65521" st_bind="STB_LOCAL" st_type="STT_FILE"/>
+			<symbol st_name="$a" st_value="0x88ac" st_size="0" st_info="2" st_other="0" st_shndx="12" st_bind="STB_LOCAL" st_type="STT_FUNC"/>
+			<symbol st_name="$d" st_value="0x88f0" st_size="0" st_info="1" st_other="0" st_shndx="12" st_bind="STB_LOCAL" st_type="STT_OBJECT"/>
+			<symbol st_name="$a" st_value="0x88f8" st_size="0" st_info="2" st_other="0" st_shndx="12" st_bind="STB_LOCAL" st_type="STT_FUNC"/>
+			<symbol st_name="$d" st_value="0x8938" st_size="0" st_info="1" st_other="0" st_shndx="12" st_bind="STB_LOCAL" st_type="STT_OBJECT"/>
+			<symbol st_name="_DYNAMIC" st_value="0x109e8" st_size="0" st_info="17" st_other="0" st_shndx="19" st_bind="STB_GLOBAL" st_type="STT_OBJECT"/>
+			<symbol st_name="_bss_end__" st_value="0x10b44" st_size="0" st_info="16" st_other="0" st_shndx="65521" st_bind="STB_GLOBAL" st_type="STT_NOTYPE"/>
+			<symbol st_name="__register_frame_info@@GLIBC_2.0" st_value="0x0" st_size="12" st_info="34" st_other="0" st_shndx="0" st_bind="STB_WEAK" st_type="STT_FUNC"/>
+			<symbol st_name="write@@GLIBC_2.0" st_value="0x8514" st_size="116" st_info="18" st_other="0" st_shndx="0" st_bind="STB_GLOBAL" st_type="STT_FUNC"/>
+			<symbol st_name="perror@@GLIBC_2.0" st_value="0x8520" st_size="220" st_info="18" st_other="0" st_shndx="0" st_bind="STB_GLOBAL" st_type="STT_FUNC"/>
+			<symbol st_name="__fini_array_end" st_value="0x109d4" st_size="0" st_info="16" st_other="0" st_shndx="65521" st_bind="STB_GLOBAL" st_type="STT_NOTYPE"/>
+			<symbol st_name="__bss_start__" st_value="0x10b24" st_size="0" st_info="16" st_other="0" st_shndx="65521" st_bind="STB_GLOBAL" st_type="STT_NOTYPE"/>
+			<symbol st_name="__dso_handle" st_value="0x10b1c" st_size="0" st_info="17" st_other="2" st_shndx="21" st_bind="STB_GLOBAL" st_type="STT_OBJECT"/>
+			<symbol st_name="__libc_csu_fini" st_value="0x88f8" st_size="72" st_info="18" st_other="0" st_shndx="12" st_bind="STB_GLOBAL" st_type="STT_FUNC"/>
+			<symbol st_name="tcsetattr@@GLIBC_2.0" st_value="0x852c" st_size="216" st_info="18" st_other="0" st_shndx="0" st_bind="STB_GLOBAL" st_type="STT_FUNC"/>
+			<symbol st_name="_init" st_value="0x84e0" st_size="0" st_info="18" st_other="0" st_shndx="10" st_bind="STB_GLOBAL" st_type="STT_FUNC"/>
+			<symbol st_name="__deregister_frame_info@@GLIBC_2.0" st_value="0x0" st_size="4" st_info="34" st_other="0" st_shndx="0" st_bind="STB_WEAK" st_type="STT_FUNC"/>
+			<symbol st_name="abort@@GLIBC_2.0" st_value="0x8544" st_size="536" st_info="18" st_other="0" st_shndx="0" st_bind="STB_GLOBAL" st_type="STT_FUNC"/>
+			<symbol st_name="__bss_end__" st_value="0x10b44" st_size="0" st_info="16" st_other="0" st_shndx="65521" st_bind="STB_GLOBAL" st_type="STT_NOTYPE"/>
+			<symbol st_name="_start" st_value="0x85c8" st_size="0" st_info="18" st_other="0" st_shndx="12" st_bind="STB_GLOBAL" st_type="STT_FUNC"/>
+			<symbol st_name="strlen@@GLIBC_2.0" st_value="0x8550" st_size="216" st_info="18" st_other="0" st_shndx="0" st_bind="STB_GLOBAL" st_type="STT_FUNC"/>
+			<symbol st_name="__fini_array_start" st_value="0x109d4" st_size="0" st_info="16" st_other="0" st_shndx="65521" st_bind="STB_GLOBAL" st_type="STT_NOTYPE"/>
+			<symbol st_name="__libc_csu_init" st_value="0x88ac" st_size="76" st_info="18" st_other="0" st_shndx="12" st_bind="STB_GLOBAL" st_type="STT_FUNC"/>
+			<symbol st_name="__bss_start" st_value="0x10b24" st_size="0" st_info="16" st_other="0" st_shndx="65521" st_bind="STB_GLOBAL" st_type="STT_NOTYPE"/>
+			<symbol st_name="main" st_value="0x8704" st_size="424" st_info="18" st_other="0" st_shndx="12" st_bind="STB_GLOBAL" st_type="STT_FUNC"/>
+			<symbol st_name="__libc_start_main@@GLIBC_2.0" st_value="0x855c" st_size="308" st_info="18" st_other="0" st_shndx="0" st_bind="STB_GLOBAL" st_type="STT_FUNC"/>
+			<symbol st_name="__init_array_end" st_value="0x109d4" st_size="0" st_info="16" st_other="0" st_shndx="65521" st_bind="STB_GLOBAL" st_type="STT_NOTYPE"/>
+			<symbol st_name="__end__" st_value="0x10b44" st_size="0" st_info="16" st_other="0" st_shndx="65521" st_bind="STB_GLOBAL" st_type="STT_NOTYPE"/>
+			<symbol st_name="data_start" st_value="0x10b18" st_size="0" st_info="32" st_other="0" st_shndx="21" st_bind="STB_WEAK" st_type="STT_NOTYPE"/>
+			<symbol st_name="printf@@GLIBC_2.0" st_value="0x8568" st_size="60" st_info="18" st_other="0" st_shndx="0" st_bind="STB_GLOBAL" st_type="STT_FUNC"/>
+			<symbol st_name="_fini" st_value="0x8980" st_size="0" st_info="18" st_other="0" st_shndx="13" st_bind="STB_GLOBAL" st_type="STT_FUNC"/>
+			<symbol st_name="STOP" st_value="0x10b40" st_size="4" st_info="17" st_other="0" st_shndx="22" st_bind="STB_GLOBAL" st_type="STT_OBJECT"/>
+			<symbol st_name="open@@GLIBC_2.0" st_value="0x8574" st_size="116" st_info="18" st_other="0" st_shndx="0" st_bind="STB_GLOBAL" st_type="STT_FUNC"/>
+			<symbol st_name="tcflush@@GLIBC_2.0" st_value="0x8580" st_size="24" st_info="18" st_other="0" st_shndx="0" st_bind="STB_GLOBAL" st_type="STT_FUNC"/>
+			<symbol st_name="exit@@GLIBC_2.0" st_value="0x858c" st_size="308" st_info="18" st_other="0" st_shndx="0" st_bind="STB_GLOBAL" st_type="STT_FUNC"/>
+			<symbol st_name="_edata" st_value="0x10b24" st_size="0" st_info="16" st_other="0" st_shndx="65521" st_bind="STB_GLOBAL" st_type="STT_NOTYPE"/>
+			<symbol st_name="_GLOBAL_OFFSET_TABLE_" st_value="0x10ac8" st_size="0" st_info="17" st_other="0" st_shndx="20" st_bind="STB_GLOBAL" st_type="STT_OBJECT"/>
+			<symbol st_name="_end" st_value="0x10b44" st_size="0" st_info="16" st_other="0" st_shndx="65521" st_bind="STB_GLOBAL" st_type="STT_NOTYPE"/>
+			<symbol st_name="memset@@GLIBC_2.0" st_value="0x8598" st_size="184" st_info="18" st_other="0" st_shndx="0" st_bind="STB_GLOBAL" st_type="STT_FUNC"/>
+			<symbol st_name="__init_array_start" st_value="0x109d4" st_size="0" st_info="16" st_other="0" st_shndx="65521" st_bind="STB_GLOBAL" st_type="STT_NOTYPE"/>
+			<symbol st_name="_IO_stdin_used" st_value="0x8990" st_size="4" st_info="17" st_other="0" st_shndx="14" st_bind="STB_GLOBAL" st_type="STT_OBJECT"/>
+			<symbol st_name="__data_start" st_value="0x10b18" st_size="0" st_info="16" st_other="0" st_shndx="21" st_bind="STB_GLOBAL" st_type="STT_NOTYPE"/>
+			<symbol st_name="_Jv_RegisterClasses" st_value="0x0" st_size="0" st_info="32" st_other="0" st_shndx="0" st_bind="STB_WEAK" st_type="STT_NOTYPE"/>
+			<symbol st_name="tcgetattr@@GLIBC_2.0" st_value="0x85b0" st_size="188" st_info="18" st_other="0" st_shndx="0" st_bind="STB_GLOBAL" st_type="STT_FUNC"/>
+			<symbol st_name="read@@GLIBC_2.0" st_value="0x85bc" st_size="116" st_info="18" st_other="0" st_shndx="0" st_bind="STB_GLOBAL" st_type="STT_FUNC"/>
+			<symbol st_name="__gmon_start__" st_value="0x0" st_size="0" st_info="32" st_other="0" st_shndx="0" st_bind="STB_WEAK" st_type="STT_NOTYPE"/>
+		</entry>
+		<entry sh_name=".strtab" sh_type="SHT_STRTAB" sh_flags="" sh_addr="0x0" sh_offset="0x1fc4" sh_size="1504" sh_link="0" sh_info="0" sh_addralign="1" sh_entsize="0">
+			<data addr="0x1fc4" text="./opt/q+esto/tc/">00 2f 6f 70 74 2f 71 2b  65 73 74 6f 2f 74 63 2f </data>
+			<data addr="0x1fd4" text="rpm/src/redhat/B">72 70 6d 2f 73 72 63 2f  72 65 64 68 61 74 2f 42 </data>
+			<data addr="0x1fe4" text="UILD/cdt-arm-le-">55 49 4c 44 2f 63 64 74  2d 61 72 6d 2d 6c 65 2d </data>
+			<data addr="0x1ff4" text="nofpu-glibc-2.3.">6e 6f 66 70 75 2d 67 6c  69 62 63 2d 32 2e 33 2e </data>
+			<data addr="0x2004" text="2/build/glibc-2.">32 2f 62 75 69 6c 64 2f  67 6c 69 62 63 2d 32 2e </data>
+			<data addr="0x2014" text="3.2/csu/crti.S./">33 2e 32 2f 63 73 75 2f  63 72 74 69 2e 53 00 2f </data>
+			<data addr="0x2024" text="opt/q+esto/tc/rp">6f 70 74 2f 71 2b 65 73  74 6f 2f 74 63 2f 72 70 </data>
+			<data addr="0x2034" text="m/src/redhat/BUI">6d 2f 73 72 63 2f 72 65  64 68 61 74 2f 42 55 49 </data>
+			<data addr="0x2044" text="LD/cdt-arm-le-no">4c 44 2f 63 64 74 2d 61  72 6d 2d 6c 65 2d 6e 6f </data>
+			<data addr="0x2054" text="fpu-glibc-2.3.2/">66 70 75 2d 67 6c 69 62  63 2d 32 2e 33 2e 32 2f </data>
+			<data addr="0x2064" text="build/glibc-2.3.">62 75 69 6c 64 2f 67 6c  69 62 63 2d 32 2e 33 2e </data>
+			<data addr="0x2074" text="2/csu/defs.h.ini">32 2f 63 73 75 2f 64 65  66 73 2e 68 00 69 6e 69 </data>
+			<data addr="0x2084" text="tfini.c.<command">74 66 69 6e 69 2e 63 00  3c 63 6f 6d 6d 61 6e 64 </data>
+			<data addr="0x2094" text=" line>../../incl">20 6c 69 6e 65 3e 00 2e  2f 2e 2e 2f 69 6e 63 6c </data>
+			<data addr="0x20a4" text="ude/libc-symbols">75 64 65 2f 6c 69 62 63  2d 73 79 6d 62 6f 6c 73 </data>
+			<data addr="0x20b4" text=".h./opt/q+esto/t">2e 68 00 2f 6f 70 74 2f  71 2b 65 73 74 6f 2f 74 </data>
+			<data addr="0x20c4" text="c/rpm/src/redhat">63 2f 72 70 6d 2f 73 72  63 2f 72 65 64 68 61 74 </data>
+			<data addr="0x20d4" text="/BUILD/cdt-arm-l">2f 42 55 49 4c 44 2f 63  64 74 2d 61 72 6d 2d 6c </data>
+			<data addr="0x20e4" text="e-nofpu-glibc-2.">65 2d 6e 6f 66 70 75 2d  67 6c 69 62 63 2d 32 2e </data>
+			<data addr="0x20f4" text="3.2/build/glibc-">33 2e 32 2f 62 75 69 6c  64 2f 67 6c 69 62 63 2d </data>
+			<data addr="0x2104" text="2.3.2/config.h.<">32 2e 33 2e 32 2f 63 6f  6e 66 69 67 2e 68 00 3c </data>
+			<data addr="0x2114" text="built-in>.call_g">62 75 69 6c 74 2d 69 6e  3e 00 63 61 6c 6c 5f 67 </data>
+			<data addr="0x2124" text="mon_start.$a.$d.">6d 6f 6e 5f 73 74 61 72  74 00 24 61 00 24 64 00 </data>
+			<data addr="0x2134" text="abi-note.S./opt/">61 62 69 2d 6e 6f 74 65  2e 53 00 2f 6f 70 74 2f </data>
+			<data addr="0x2144" text="q+esto/tc/rpm/sr">71 2b 65 73 74 6f 2f 74  63 2f 72 70 6d 2f 73 72 </data>
+			<data addr="0x2154" text="c/redhat/BUILD/c">63 2f 72 65 64 68 61 74  2f 42 55 49 4c 44 2f 63 </data>
+			<data addr="0x2164" text="dt-arm-le-nofpu-">64 74 2d 61 72 6d 2d 6c  65 2d 6e 6f 66 70 75 2d </data>
+			<data addr="0x2174" text="glibc-2.3.2/buil">67 6c 69 62 63 2d 32 2e  33 2e 32 2f 62 75 69 6c </data>
+			<data addr="0x2184" text="d/glibc-2.3.2/cs">64 2f 67 6c 69 62 63 2d  32 2e 33 2e 32 2f 63 73 </data>
+			<data addr="0x2194" text="u/abi-tag.h.init">75 2f 61 62 69 2d 74 61  67 2e 68 00 69 6e 69 74 </data>
+			<data addr="0x21a4" text=".c.crtstuff.c.__">2e 63 00 63 72 74 73 74  75 66 66 2e 63 00 5f 5f </data>
+			<data addr="0x21b4" text="CTOR_LIST__.__DT">43 54 4f 52 5f 4c 49 53  54 5f 5f 00 5f 5f 44 54 </data>
+			<data addr="0x21c4" text="OR_LIST__.__EH_F">4f 52 5f 4c 49 53 54 5f  5f 00 5f 5f 45 48 5f 46 </data>
+			<data addr="0x21d4" text="RAME_BEGIN__.__J">52 41 4d 45 5f 42 45 47  49 4e 5f 5f 00 5f 5f 4a </data>
+			<data addr="0x21e4" text="CR_LIST__.p.0.co">43 52 5f 4c 49 53 54 5f  5f 00 70 2e 30 00 63 6f </data>
+			<data addr="0x21f4" text="mpleted.1.__do_g">6d 70 6c 65 74 65 64 2e  31 00 5f 5f 64 6f 5f 67 </data>
+			<data addr="0x2204" text="lobal_dtors_aux.">6c 6f 62 61 6c 5f 64 74  6f 72 73 5f 61 75 78 00 </data>
+			<data addr="0x2214" text="call___do_global">63 61 6c 6c 5f 5f 5f 64  6f 5f 67 6c 6f 62 61 6c </data>
+			<data addr="0x2224" text="_dtors_aux.objec">5f 64 74 6f 72 73 5f 61  75 78 00 6f 62 6a 65 63 </data>
+			<data addr="0x2234" text="t.2.frame_dummy.">74 2e 32 00 66 72 61 6d  65 5f 64 75 6d 6d 79 00 </data>
+			<data addr="0x2244" text="call_frame_dummy">63 61 6c 6c 5f 66 72 61  6d 65 5f 64 75 6d 6d 79 </data>
+			<data addr="0x2254" text=".__CTOR_END__.__">00 5f 5f 43 54 4f 52 5f  45 4e 44 5f 5f 00 5f 5f </data>
+			<data addr="0x2264" text="DTOR_END__.__FRA">44 54 4f 52 5f 45 4e 44  5f 5f 00 5f 5f 46 52 41 </data>
+			<data addr="0x2274" text="ME_END__.__JCR_E">4d 45 5f 45 4e 44 5f 5f  00 5f 5f 4a 43 52 5f 45 </data>
+			<data addr="0x2284" text="ND__.__do_global">4e 44 5f 5f 00 5f 5f 64  6f 5f 67 6c 6f 62 61 6c </data>
+			<data addr="0x2294" text="_ctors_aux.call_">5f 63 74 6f 72 73 5f 61  75 78 00 63 61 6c 6c 5f </data>
+			<data addr="0x22a4" text="__do_global_ctor">5f 5f 64 6f 5f 67 6c 6f  62 61 6c 5f 63 74 6f 72 </data>
+			<data addr="0x22b4" text="s_aux./opt/q+est">73 5f 61 75 78 00 2f 6f  70 74 2f 71 2b 65 73 74 </data>
+			<data addr="0x22c4" text="o/tc/rpm/src/red">6f 2f 74 63 2f 72 70 6d  2f 73 72 63 2f 72 65 64 </data>
+			<data addr="0x22d4" text="hat/BUILD/cdt-ar">68 61 74 2f 42 55 49 4c  44 2f 63 64 74 2d 61 72 </data>
+			<data addr="0x22e4" text="m-le-nofpu-glibc">6d 2d 6c 65 2d 6e 6f 66  70 75 2d 67 6c 69 62 63 </data>
+			<data addr="0x22f4" text="-2.3.2/build/gli">2d 32 2e 33 2e 32 2f 62  75 69 6c 64 2f 67 6c 69 </data>
+			<data addr="0x2304" text="bc-2.3.2/csu/crt">62 63 2d 32 2e 33 2e 32  2f 63 73 75 2f 63 72 74 </data>
+			<data addr="0x2314" text="n.S.main.cpp.elf">6e 2e 53 00 6d 61 69 6e  2e 63 70 70 00 65 6c 66 </data>
+			<data addr="0x2324" text="-init.c._DYNAMIC">2d 69 6e 69 74 2e 63 00  5f 44 59 4e 41 4d 49 43 </data>
+			<data addr="0x2334" text="._bss_end__.__re">00 5f 62 73 73 5f 65 6e  64 5f 5f 00 5f 5f 72 65 </data>
+			<data addr="0x2344" text="gister_frame_inf">67 69 73 74 65 72 5f 66  72 61 6d 65 5f 69 6e 66 </data>
+			<data addr="0x2354" text="o@@GLIBC_2.0.wri">6f 40 40 47 4c 49 42 43  5f 32 2e 30 00 77 72 69 </data>
+			<data addr="0x2364" text="te@@GLIBC_2.0.pe">74 65 40 40 47 4c 49 42  43 5f 32 2e 30 00 70 65 </data>
+			<data addr="0x2374" text="rror@@GLIBC_2.0.">72 72 6f 72 40 40 47 4c  49 42 43 5f 32 2e 30 00 </data>
+			<data addr="0x2384" text="__fini_array_end">5f 5f 66 69 6e 69 5f 61  72 72 61 79 5f 65 6e 64 </data>
+			<data addr="0x2394" text=".__bss_start__._">00 5f 5f 62 73 73 5f 73  74 61 72 74 5f 5f 00 5f </data>
+			<data addr="0x23a4" text="_dso_handle.__li">5f 64 73 6f 5f 68 61 6e  64 6c 65 00 5f 5f 6c 69 </data>
+			<data addr="0x23b4" text="bc_csu_fini.tcse">62 63 5f 63 73 75 5f 66  69 6e 69 00 74 63 73 65 </data>
+			<data addr="0x23c4" text="tattr@@GLIBC_2.0">74 61 74 74 72 40 40 47  4c 49 42 43 5f 32 2e 30 </data>
+			<data addr="0x23d4" text="._init.__deregis">00 5f 69 6e 69 74 00 5f  5f 64 65 72 65 67 69 73 </data>
+			<data addr="0x23e4" text="ter_frame_info@@">74 65 72 5f 66 72 61 6d  65 5f 69 6e 66 6f 40 40 </data>
+			<data addr="0x23f4" text="GLIBC_2.0.abort@">47 4c 49 42 43 5f 32 2e  30 00 61 62 6f 72 74 40 </data>
+			<data addr="0x2404" text="@GLIBC_2.0.__bss">40 47 4c 49 42 43 5f 32  2e 30 00 5f 5f 62 73 73 </data>
+			<data addr="0x2414" text="_end__._start.st">5f 65 6e 64 5f 5f 00 5f  73 74 61 72 74 00 73 74 </data>
+			<data addr="0x2424" text="rlen@@GLIBC_2.0.">72 6c 65 6e 40 40 47 4c  49 42 43 5f 32 2e 30 00 </data>
+			<data addr="0x2434" text="__fini_array_sta">5f 5f 66 69 6e 69 5f 61  72 72 61 79 5f 73 74 61 </data>
+			<data addr="0x2444" text="rt.__libc_csu_in">72 74 00 5f 5f 6c 69 62  63 5f 63 73 75 5f 69 6e </data>
+			<data addr="0x2454" text="it.__bss_start.m">69 74 00 5f 5f 62 73 73  5f 73 74 61 72 74 00 6d </data>
+			<data addr="0x2464" text="ain.__libc_start">61 69 6e 00 5f 5f 6c 69  62 63 5f 73 74 61 72 74 </data>
+			<data addr="0x2474" text="_main@@GLIBC_2.0">5f 6d 61 69 6e 40 40 47  4c 49 42 43 5f 32 2e 30 </data>
+			<data addr="0x2484" text=".__init_array_en">00 5f 5f 69 6e 69 74 5f  61 72 72 61 79 5f 65 6e </data>
+			<data addr="0x2494" text="d.__end__.data_s">64 00 5f 5f 65 6e 64 5f  5f 00 64 61 74 61 5f 73 </data>
+			<data addr="0x24a4" text="tart.printf@@GLI">74 61 72 74 00 70 72 69  6e 74 66 40 40 47 4c 49 </data>
+			<data addr="0x24b4" text="BC_2.0._fini.STO">42 43 5f 32 2e 30 00 5f  66 69 6e 69 00 53 54 4f </data>
+			<data addr="0x24c4" text="P.open@@GLIBC_2.">50 00 6f 70 65 6e 40 40  47 4c 49 42 43 5f 32 2e </data>
+			<data addr="0x24d4" text="0.tcflush@@GLIBC">30 00 74 63 66 6c 75 73  68 40 40 47 4c 49 42 43 </data>
+			<data addr="0x24e4" text="_2.0.exit@@GLIBC">5f 32 2e 30 00 65 78 69  74 40 40 47 4c 49 42 43 </data>
+			<data addr="0x24f4" text="_2.0._edata._GLO">5f 32 2e 30 00 5f 65 64  61 74 61 00 5f 47 4c 4f </data>
+			<data addr="0x2504" text="BAL_OFFSET_TABLE">42 41 4c 5f 4f 46 46 53  45 54 5f 54 41 42 4c 45 </data>
+			<data addr="0x2514" text="_._end.memset@@G">5f 00 5f 65 6e 64 00 6d  65 6d 73 65 74 40 40 47 </data>
+			<data addr="0x2524" text="LIBC_2.0.__init_">4c 49 42 43 5f 32 2e 30  00 5f 5f 69 6e 69 74 5f </data>
+			<data addr="0x2534" text="array_start._IO_">61 72 72 61 79 5f 73 74  61 72 74 00 5f 49 4f 5f </data>
+			<data addr="0x2544" text="stdin_used.__dat">73 74 64 69 6e 5f 75 73  65 64 00 5f 5f 64 61 74 </data>
+			<data addr="0x2554" text="a_start._Jv_Regi">61 5f 73 74 61 72 74 00  5f 4a 76 5f 52 65 67 69 </data>
+			<data addr="0x2564" text="sterClasses.tcge">73 74 65 72 43 6c 61 73  73 65 73 00 74 63 67 65 </data>
+			<data addr="0x2574" text="tattr@@GLIBC_2.0">74 61 74 74 72 40 40 47  4c 49 42 43 5f 32 2e 30 </data>
+			<data addr="0x2584" text=".read@@GLIBC_2.0">00 72 65 61 64 40 40 47  4c 49 42 43 5f 32 2e 30 </data>
+			<data addr="0x2594" text=".__gmon_start__.">00 5f 5f 67 6d 6f 6e 5f  73 74 61 72 74 5f 5f 00 </data>
+		</entry>
+	</shdr>
+</elfml>

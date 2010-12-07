@@ -35,5 +35,5 @@ dist:
 	cp /usr/lib/libucrt-2.0.0.so /usr/lib/libucxml-2.0.0.so ../../bin/debian/usr/lib
 
 src_tar:
-	cd $(TOPDIR) && tar -zcvf $(EV_TITLE)-src.tar.gz * --exclude ".svn"
+	cd $(TOPDIR) && tar -zcvf elfviz-2.0.0-src.tar.gz * --exclude ".svn"
 

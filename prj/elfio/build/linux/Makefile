@@ -25,7 +25,7 @@ install:
 	mkdir -p $(DIST_PREFIX)/usr/lib
 	mkdir -p $(DIST_PREFIX)/usr/include
 	cp $(LIBDIR)/$(EV_TARGET) $(DIST_PREFIX)/usr/lib
-	mkdir -p $(DIST_PREFIX)/usr/include/
+	mkdir -p $(DIST_PREFIX)/usr/include/elfio
 	cp ../../../../inc/elfio/*.h $(DIST_PREFIX)/usr/include/elfio
 
 clean:

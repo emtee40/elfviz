@@ -1,9 +1,9 @@
 Package: elfviz
-Version: 2.2
+Version: 2.3
 Architecture: all
 Maintainer: babynewton <babynewton@pineone.com>
 Installed-Size: 2184
-Depends: libucrt
+Depends: libpthread-stub0
 Recommends: 
 Section: app
 Priority: optional

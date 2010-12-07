@@ -32,6 +32,7 @@ dist:
 	cd $(TOPDIR)/prj/elfviz/build/linux && make install DIST_PREFIX="../../../../bin/debian"
 	cd $(TOPDIR)/prj/elf2txt/build/linux && make install DIST_PREFIX="../../../../bin/debian"
 	cd $(TOPDIR)/prj/gelfviz/build/linux && make install DIST_PREFIX="../../../../bin/debian"
+	cp /usr/lib/libucrt-2.0.0.so /usr/lib/libucxml-2.0.0.so ../../bin/debian/usr/lib
 
 src_tar:
 	cd $(TOPDIR) && tar -zcvf $(EV_TITLE)-src.tar.gz * --exclude ".svn"

@@ -4,7 +4,7 @@ CONTROL=control.tar.gz
 DATA=data.tar.gz
 DEBIAN=debian-binary
 
-rm -f elfviz.deb $CONTROL $DATA
+rm -f elfviz-2.3.deb $CONTROL $DATA
 tar -zcvf $CONTROL control
 tar -zcvf $DATA ./usr
-ar cr elfviz.deb $DEBIAN $CONTROL $DATA
+ar cr elfviz-2.3.deb $DEBIAN $CONTROL $DATA

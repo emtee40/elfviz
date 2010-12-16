@@ -43,7 +43,7 @@ etOutFormat etState::getFormat(void){ return format; }
 unsigned int etState::getFlag(void){ return flag; }
 
 void etState::showBanner(void){
-	fprintf(stdout, "elf2txt v1.0 Copyright (C) 2008  Song-Hwan Kim\n");
+	fprintf(stdout, "elf2txt v1.1 Copyright (C) 2008  Song-Hwan Kim\n");
 	fprintf(stdout, "This program comes with ABSOLUTELY NO WARRANTY; \n");
 }
 

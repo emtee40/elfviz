@@ -2,7 +2,7 @@
 
 ; HM NIS Edit Wizard helper defines
 !define PRODUCT_NAME "elfviz"
-!define PRODUCT_VERSION "2.2.3"
+!define PRODUCT_VERSION "2.3.0"
 !define PRODUCT_PUBLISHER "Song-hwan Kim"
 !define PRODUCT_WEB_SITE "http://elfviz.sourceforge.net"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\melfviz.exe"
@@ -77,11 +77,6 @@ SectionEnd
 
 Section "Dependents" SEC06
   SetOutPath "$INSTDIR\depends"
-  File "e:\foss\ucrt\trunk\build\msvc\uC Runtime-2.0.0-Win32-Setup.exe"
-  IfFileExists $WINDIR\system32\libucrt-2.0.0.dll endUCRT beginUCRT
-  beginUCRT:
-  ExecWait "$INSTDIR\depends\uC Runtime-2.0.0-win32-Setup.exe"
-  endUCRT:
   File "e:\foss\uxml\trunk\build\msvc\uC XML-2.0.0-Win32-Setup.exe"
   IfFileExists $WINDIR\system32\libucxml-2.0.0.dll endUCXML beginUCXML
   beginUCXML:
